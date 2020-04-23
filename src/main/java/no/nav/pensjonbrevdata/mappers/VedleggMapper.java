@@ -20,6 +20,10 @@ public class VedleggMapper {
                 new Vedlegg(
                         "Vedlegg om utbetaling",
                         "000894"));
+        vedleggMap.put("V0002", () ->
+                new Vedlegg(
+                        "Vedlegg om utbetaling",
+                        "003894"));
     }
 
     public List<Vedlegg> map(String... vedleggCodes) {
