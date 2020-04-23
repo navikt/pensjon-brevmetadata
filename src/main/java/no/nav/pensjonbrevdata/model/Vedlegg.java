@@ -8,4 +8,22 @@ public class Vedlegg {
         this.dekode=dekode;
         this.xsd=xsd;
     }
+
+    public String getXsd() {
+        return xsd;
+    }
+
+    public void setXsd(String xsd) {
+        this.xsd = xsd;
+    }
+
+    public String getDekode() {
+        return dekode;
+    }
+
+    public void setDekode(String dekode) {
+        this.dekode = dekode;
+    }
+
+
 }

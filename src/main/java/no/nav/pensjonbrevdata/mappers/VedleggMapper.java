@@ -9,9 +9,10 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 
 public class VedleggMapper {
-    private Map<String, Callable<Vedlegg>> vedleggMap = new HashMap<>();
+    private final Map<String, Callable<Vedlegg>> vedleggMap;
 
     public VedleggMapper() {
+        vedleggMap = new HashMap<>();
         vedleggMap.put("V0001", () -> new Vedlegg(
                 "Vedlegg om andre ting",
                 "000897"));
@@ -25,7 +26,7 @@ public class VedleggMapper {
         List<Vedlegg> vedleggList = new ArrayList<>();
         for (String vedleggCode : vedleggCodes) {//Streams kanskje
             try {
-                vedleggList.add(vedleggMap.get(vedleggCode).call()); //Mulig det må være copy av vedlegg her
+                vedleggList.add(vedleggMap.get(vedleggCode).call());
             } catch (Exception e) {
                 e.printStackTrace();
             }

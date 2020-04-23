@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
 
 public class BrevMapper {
 
-    private Map<String, Callable<Brev>> brevMap;
+    private final Map<String, Callable<Brev>> brevMap;
 
     public BrevMapper() {
         brevMap = new HashMap<>();
@@ -34,12 +34,7 @@ public class BrevMapper {
                         Arrays.asList("BKM", "NYN", "ENG")));
     }
 
-    public Brev map(String brevkode) {
-        try {
-            return brevMap.get(brevkode).call();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    return null;
+    public Brev map(String brevkode) throws Exception {
+        return brevMap.get(brevkode).call();
     }
 }

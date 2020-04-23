@@ -8,11 +8,11 @@ import java.util.List;
 public class BrevdataProvider {
     private BrevMapper brevMapper = new BrevMapper();
 
-    public List<String> getSprakForBrev(String brevkode){
+    public List<String> getSprakForBrevkode(String brevkode) throws Exception {
         return brevMapper.map(brevkode).getSprak();
     }
 
-    public Brev getBrevForBrevkode(String brevkode){
+    public Brev getBrevForBrevkode(String brevkode) throws Exception {
         return brevMapper.map(brevkode);
     }
 }
