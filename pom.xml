@@ -16,6 +16,11 @@
 
     <properties>
         <java.version>11</java.version>
+        <asciidoctor-maven-plugin.version>1.5.8</asciidoctor-maven-plugin.version>
+        <asciidoctorj-diagram.version>1.5.18</asciidoctorj-diagram.version>
+        <graphviz-java.version>0.14.1</graphviz-java.version>
+
+        <unleash-client-java.version>3.2.9</unleash-client-java.version>
     </properties>
 
     <dependencies>
@@ -39,6 +44,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>no.finn.unleash</groupId>
+            <artifactId>unleash-client-java</artifactId>
+            <version>${unleash-client-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -48,6 +64,44 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>${asciidoctor-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceDirectory>src/</sourceDirectory>
+                    <outputDirectory>target/site/</outputDirectory>
+                    <preserveDirectories>true</preserveDirectories>
+                    <!--							<skip>true</skip>-->
+                    <doctype>book</doctype>
+                    <backend>html5</backend>
+                    <requires>asciidoctor-diagram</requires>
+                    <baseDir>src/site/asciidoc</baseDir>
+                </configuration>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-diagram</artifactId>
+                        <version>${asciidoctorj-diagram.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>guru.nidi</groupId>
+                        <artifactId>graphviz-java</artifactId>
+                        <version>${graphviz-java.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
         </plugins>
     </build>
 

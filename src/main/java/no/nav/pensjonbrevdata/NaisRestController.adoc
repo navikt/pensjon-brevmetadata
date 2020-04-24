@@ -1,0 +1,4 @@
+== NaisRestController
+
+Inneholder kall til tjenestene som applikasjonen tilbyr
+

@@ -1,0 +1,23 @@
+= Pensjon Brevdata
+Pesys
+:toc: left
+:toclevels: 2
+:doctype: book
+:revnumber: 1.0
+:revdate: 01-01-2020
+:revremark: Første utkast av {doctitle}
+:version-label!:
+
+:sectnums:
+
+:sectnumlevels: 3
+
+:dir: ../
+
+== Innhold
+Dette er dokumentasjonen til Pensjon Brevdata som er generert ved bruk av Asciidoc og PlantUML.
+Det er videre lagt til ADR for å spore beslutninger som har blitt tatt i denne applikasjonen.
+
+include::{dir}../main/java/no/nav/pensjonbrevdata/samleside.adoc[]
+
+include::adr/introADR.adoc[]

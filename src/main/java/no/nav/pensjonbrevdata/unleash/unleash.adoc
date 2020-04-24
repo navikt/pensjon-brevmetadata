@@ -1,0 +1,9 @@
+== Unleash
+Løsningen tar i bruk unleash og startes lokalt med:
+----
+docker-compose -f docker-compose-local.yml up unleash
+----
+
+Unleash bruker postgres database for å lagre data og den starter automatisk, hvis det kjøres med docker-compose. Etter Unleash startes kan features opprettes med nettleser via
+
+http://localhost:4242/#/features

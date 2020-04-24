@@ -1,0 +1,35 @@
+== Model
+
+=== Brev
+
+Slik er brevklassen satt opp:
+
+|===
+|Header 1 |Header 2 |Header 3
+
+|Column 1, row 1
+|Column 2, row 1
+|Column 3, row 1
+
+|Column 1, row 2
+|Column 2, row 2
+|Column 3, row 2
+|===
+
+
+=== Vedlegg
+
+Slik er vedleggklassen satt opp:
+
+
+|===
+|Header 1 |Header 2 |Header 3
+
+|Column 1, row 1
+|Column 2, row 1
+|Column 3, row 1
+
+|Column 1, row 2
+|Column 2, row 2
+|Column 3, row 2
+|===
