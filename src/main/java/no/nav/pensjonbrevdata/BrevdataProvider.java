@@ -3,6 +3,7 @@ package no.nav.pensjonbrevdata;
 import no.nav.pensjonbrevdata.mappers.BrevMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brev;
+import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.SprakCode;
 
 import java.util.ArrayList;
@@ -19,13 +20,17 @@ public class BrevdataProvider {
     public Brev getBrevForBrevkode(String brevkode) throws Exception {
         Brev brev = brevMapper.map(brevkode);
 
+        if(brev instanceof Doksysbrev){
+            ((Doksysbrev) brev).generateDokumentmalFromFile();
+        }
+
         return brev;
     }
 
     public List<Brev> getBrevdataForSaktype(String saktype) throws Exception {
         List<Brev> brevList = new ArrayList<>();
         for (String brevkode : sakBrevMapper.map(saktype)) {
-            brevList.add(brevMapper.map(brevkode));
+            brevList.add(getBrevForBrevkode(brevkode));
         }
         return brevList;
     }

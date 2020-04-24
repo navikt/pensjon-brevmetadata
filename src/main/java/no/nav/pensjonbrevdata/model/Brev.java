@@ -7,17 +7,13 @@ public class Brev {
     private String dekode;
     private String kategori;
     private String dokType;
-    private String xsd;
     private List<SprakCode> sprak;
-    private List<Vedlegg> vedleggListe;
 
-    public Brev(boolean redigerbart, String dekode, String kategori, String doktype, String xsd, List<Vedlegg> vedleggListe, List<SprakCode> sprak) {
+    public Brev(boolean redigerbart, String dekode, String kategori, String doktype, List<SprakCode> sprak) {
         this.redigerbart = redigerbart;
         this.dekode = dekode;
         this.kategori = kategori;
         this.dokType = doktype;
-        this.xsd = xsd;
-        this.vedleggListe = vedleggListe;
         this.sprak = sprak;
 
     }
@@ -54,27 +50,11 @@ public class Brev {
         this.dokType = dokType;
     }
 
-    public String getXsd() {
-        return xsd;
-    }
-
-    public void setXsd(String xsd) {
-        this.xsd = xsd;
-    }
-
     public List<SprakCode> getSprak() {
         return sprak;
     }
 
     public void setSprak(List<SprakCode> sprak) {
         this.sprak = sprak;
-    }
-
-    public List<Vedlegg> getVedleggListe() {
-        return vedleggListe;
-    }
-
-    public void setVedleggListe(List<Vedlegg> vedleggListe) {
-        this.vedleggListe = vedleggListe;
     }
 }

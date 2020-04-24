@@ -1,6 +1,7 @@
 package no.nav.pensjonbrevdata.mappers;
 
 import no.nav.pensjonbrevdata.model.Brev;
+import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.SprakCode;
 
 import java.util.Arrays;
@@ -14,15 +15,13 @@ public class BrevMapper {
 
     public BrevMapper() {
         brevMap = new HashMap<>();
-        VedleggMapper vedleggMapper = new VedleggMapper();
+        DoksysVedleggMapper doksysVedleggMapper = new DoksysVedleggMapper();
         brevMap.put("AP_COOL_BREV_AUTO", () ->
                 new Brev(
                             false,
                             "Et kult brev som er automatisk",
                             "U",
                             "Ukjent",
-                            "000765",
-                            vedleggMapper.map("V0001", "V0004"),
                             Arrays.asList(SprakCode.NN, SprakCode.NO, SprakCode.EN)));
         brevMap.put("AP_COOL_BREV_MAN", () ->
                 new Brev(
@@ -30,8 +29,6 @@ public class BrevMapper {
                         "Et kult brev som er manuelt",
                         "U",
                         "Ukjent",
-                        "000767",
-                        vedleggMapper.map("V0002", "V0004"),
                         Arrays.asList(SprakCode.NN, SprakCode.NO, SprakCode.EN)));
         brevMap.put("AP_UNCOOL_BREV_MAN", () ->
                 new Brev(
@@ -39,17 +36,26 @@ public class BrevMapper {
                         "Et ukult brev som er manuelt",
                         "U",
                         "Ukjent",
-                        "002767",
-                        vedleggMapper.map("V0002", "V0004"),
                         Arrays.asList(SprakCode.NN, SprakCode.NO, SprakCode.EN)));
         brevMap.put("AP_SERIUOSLY_COLL_BREV_MAN", () ->
-                new Brev(
+                new Doksysbrev(
                         true,
-                        "Et seriøst kult brev som er manuelt",
+                        "Et seriøst kult brev",
                         "U",
                         "Ukjent",
-                        "012767",
-                        vedleggMapper.map("V0002", "V0004"),
+                        "001222",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_SERIOUSLY_VEDLEGG_V4", "RETTIGH_UNCOOL_VEDLEGG_V2"),
+                        Arrays.asList(SprakCode.NN, SprakCode.NO, SprakCode.EN)));
+        brevMap.put("TESTBREV", () ->
+                new Doksysbrev(
+                        true,
+                        "Et brev for å test nye muligheter",
+                        "U",
+                        "Ukjent",
+                        "001221",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_SERIOUSLY_VEDLEGG_V4", "RETTIGH_COOL_VEDLEGG_V1"),
                         Arrays.asList(SprakCode.NN, SprakCode.NO, SprakCode.EN)));
     }
 
