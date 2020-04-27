@@ -19,12 +19,3 @@ image: "{{{ image }}}"
     path: "/api/internal/isReady"
     initialDelay: 3
     timeout: 1
-  env:
-    - name: "SECRET_BASEDIR"
-      value: "/"
-    - name: "OIDC_ISSUER_URI"
-      value: "https://isso.adeo.no:443/isso/oauth2"
-    - name: "SAF_GRAPHQL"
-      value: "https://saf.nais.nais.adeo.no/graphql"
-    - name: "STS_URL"
-      value: "https://security-token-service.nais.adeo.no/rest/v1/sts/token?grant_type=client_credentials&scope=openid"
