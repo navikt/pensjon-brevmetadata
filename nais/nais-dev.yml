@@ -4,7 +4,7 @@ metadata:
   name: pensjon-brevdata
   namespace: default
   labels:
-    team: teampensjon
+    team: pensjonpersondialog
 spec:
 image: "{{{ image }}}"
   port: 8080
