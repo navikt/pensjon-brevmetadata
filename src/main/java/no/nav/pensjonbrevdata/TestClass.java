@@ -24,7 +24,6 @@ public class TestClass {
                     "00001",
                     doksysVedleggMapper.map("V0002", "V0004"),
                     Arrays.asList(SprakCode.NN, SprakCode.NO, SprakCode.EN));
-            doksysbrev.generateDokumentmalFromFile();
 
         } catch (Exception e) {
             e.printStackTrace();

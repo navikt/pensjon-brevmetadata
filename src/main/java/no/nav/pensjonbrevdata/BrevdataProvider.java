@@ -18,13 +18,7 @@ public class BrevdataProvider {
     }
 
     public Brev getBrevForBrevkode(String brevkode) throws Exception {
-        Brev brev = brevMapper.map(brevkode);
-
-        if(brev instanceof Doksysbrev){
-            ((Doksysbrev) brev).generateDokumentmalFromFile();
-        }
-
-        return brev;
+        return brevMapper.map(brevkode);
     }
 
     public List<Brev> getBrevdataForSaktype(String saktype) throws Exception {
