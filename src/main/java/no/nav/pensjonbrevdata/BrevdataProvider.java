@@ -1,28 +1,29 @@
 package no.nav.pensjonbrevdata;
 
-import no.nav.pensjonbrevdata.mappers.BrevMapper;
+import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brev;
-import no.nav.pensjonbrevdata.model.Doksysbrev;
-import no.nav.pensjonbrevdata.model.SprakCode;
+import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BrevdataProvider {
-    private BrevMapper brevMapper = new BrevMapper();
-    private SakBrevMapper sakBrevMapper = new SakBrevMapper();
+    private final BrevdataMapper brevdataMapper = new BrevdataMapper();
+    private final SakBrevMapper sakBrevMapper = new SakBrevMapper();
 
     public List<SprakCode> getSprakForBrevkode(String brevkode) throws Exception {
-        return brevMapper.map(brevkode).getSprak();
+        Brevdata brevdata = brevdataMapper.map(brevkode);
+        return brevdata instanceof Brev ? ((Brev) brevdata).getSprak() : null;
     }
 
-    public Brev getBrevForBrevkode(String brevkode) throws Exception {
-        return brevMapper.map(brevkode);
+    public Brevdata getBrevForBrevkode(String brevkode) throws Exception {
+        return brevdataMapper.map(brevkode);
     }
 
-    public List<Brev> getBrevdataForSaktype(String saktype) throws Exception {
-        List<Brev> brevList = new ArrayList<>();
+    public List<Brevdata> getBrevdataForSaktype(String saktype) throws Exception {
+        List<Brevdata> brevList = new ArrayList<>();
         for (String brevkode : sakBrevMapper.map(saktype)) {
             brevList.add(getBrevForBrevkode(brevkode));
         }

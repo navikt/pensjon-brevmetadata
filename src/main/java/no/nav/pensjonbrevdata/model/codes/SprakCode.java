@@ -1,4 +1,4 @@
-package no.nav.pensjonbrevdata.model;
+package no.nav.pensjonbrevdata.model.codes;
 
 public enum SprakCode {
     /**

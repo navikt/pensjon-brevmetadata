@@ -1,13 +1,9 @@
 package no.nav.pensjonbrevdata.model;
 
 import no.nav.pensjonbrevdata.helpers.XsdFileReader;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.util.FileCopyUtils;
+import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class Doksysbrev extends Brev {
@@ -17,8 +13,35 @@ public class Doksysbrev extends Brev {
     private String dokumentmal;
     private String dokumentmalFelleselement;
 
-    public Doksysbrev(boolean redigerbart, String dekode, String kategori, String doktype, String dokumentmalId, String dokumentmalFelleselementId, List<DoksysVedlegg> vedleggListe, List<SprakCode> sprak) {
-        super(redigerbart, dekode, kategori, doktype, sprak);
+    public Doksysbrev(String brevkodeInBrevsystem,
+                      boolean redigerbart,
+                      String dekode,
+                      BrevkategoriCode brevkategori,
+                      DokumenttypeCode doktype,
+                      List<SprakCode> sprak,
+                      Boolean visIPselv,
+                      BrevUtlandCode utland,
+                      BrevregeltypeCode brevregeltype,
+                      BrevkravtypeCode brevkravtype,
+                      DokumentkategoriCode dokumentkategori,
+                      Boolean synligForVeileder,
+                      BrevkontekstCode brevkontekst,
+                      String dokumentmalId,
+                      String dokumentmalFelleselementId,
+                      List<DoksysVedlegg> vedleggListe) {
+        super(brevkodeInBrevsystem,
+                redigerbart,
+                dekode,
+                brevkategori,
+                doktype,
+                sprak,
+                visIPselv,
+                utland,
+                brevregeltype,
+                brevkravtype,
+                dokumentkategori,
+                synligForVeileder,
+                brevkontekst);
 
         this.vedleggListe = vedleggListe;
         this.dokumentmalId = dokumentmalId;

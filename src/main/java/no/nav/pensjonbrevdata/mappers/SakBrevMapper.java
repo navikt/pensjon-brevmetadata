@@ -12,7 +12,7 @@ public class SakBrevMapper {
         sakToBrevMap = new HashMap<>();
 
         sakToBrevMap.put("ALDER", Arrays.asList("AP_COOL_BREV_AUTO", "AP_UNCOOL_BREV_MAN"));
-        sakToBrevMap.put("AFP", Arrays.asList("AP_SERIUOSLY_COLL_BREV_MAN", "AP_UNCOOL_BREV_MAN", "AP_COOL_BREV_AUTO"));
+        sakToBrevMap.put("AFP", Arrays.asList("AP_SERIUOSLY_COOL_BREV_MAN", "AP_UNCOOL_BREV_MAN", "AP_COOL_BREV_AUTO"));
     }
 
     public List<String> map(String saktype){
