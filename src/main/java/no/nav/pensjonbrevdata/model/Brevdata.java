@@ -1,17 +1,29 @@
 package no.nav.pensjonbrevdata.model;
 
+import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
+
 public abstract class Brevdata {
-    public String brevkodeInBrevsystem;
+    private String brevkodeIBrevsystem;
+    private BrevsystemCode brevsystem;
 
-    public Brevdata(String brevkodeInBrevsystem) {
-        this.brevkodeInBrevsystem = brevkodeInBrevsystem;
+    public Brevdata(String brevkodeIBrevsystem, BrevsystemCode brevsystem) {
+        this.brevkodeIBrevsystem = brevkodeIBrevsystem;
+        this.brevsystem = brevsystem;
     }
 
-    public String getBrevkodeInBrevsystem() {
-        return brevkodeInBrevsystem;
+    public String getBrevkodeIBrevsystem() {
+        return brevkodeIBrevsystem;
     }
 
-    public void setBrevkodeInBrevsystem(String brevkodeInBrevsystem) {
-        this.brevkodeInBrevsystem = brevkodeInBrevsystem;
+    public void setBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
+        this.brevkodeIBrevsystem = brevkodeIBrevsystem;
+    }
+
+    public BrevsystemCode getBrevsystem() {
+        return brevsystem;
+    }
+
+    public void setBrevsystem(BrevsystemCode brevsystem) {
+        this.brevsystem = brevsystem;
     }
 }

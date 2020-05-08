@@ -41,7 +41,8 @@ public class Doksysbrev extends Brev {
                 brevkravtype,
                 dokumentkategori,
                 synligForVeileder,
-                brevkontekst);
+                brevkontekst,
+                BrevsystemCode.DOKSYS);
 
         this.vedleggListe = vedleggListe;
         this.dokumentmalId = dokumentmalId;

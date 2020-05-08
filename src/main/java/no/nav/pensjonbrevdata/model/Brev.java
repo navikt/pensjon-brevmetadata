@@ -31,9 +31,10 @@ public abstract class Brev extends Brevdata {
                 BrevkravtypeCode brevkravtype,
                 DokumentkategoriCode dokumentkategori,
                 Boolean synligForVeileder,
-                BrevkontekstCode brevkontekst
+                BrevkontekstCode brevkontekst,
+                BrevsystemCode brevsystem
     ) {
-        super(brevkodeInBrevsystem);
+        super(brevkodeInBrevsystem, brevsystem);
         this.redigerbart = redigerbart;
         this.dekode = dekode;
         this.brevkategori = brevkategori;

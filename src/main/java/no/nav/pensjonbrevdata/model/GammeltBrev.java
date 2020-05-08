@@ -34,7 +34,8 @@ public class GammeltBrev extends Brev {
                 brevkravtype,
                 dokumentkategori,
                 synligForVeileder,
-                brevkontekst);
+                brevkontekst,
+                BrevsystemCode.GAMMEL);
         this.brevgruppe = brevgruppe;
     }
 
