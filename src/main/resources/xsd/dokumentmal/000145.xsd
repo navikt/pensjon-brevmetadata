@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://nav.no/dok/pesysbrev/v1/000145"
+           xmlns="http://nav.no/dok/pesysbrev/v1/000145"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
+           xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"
+
+           xmlns:afpPrivatBeregning="http://nav.no/dok/pesysbrev/fag/v1/AFPPrivatBeregning"
+		   xmlns:behandlingKontekst="http://nav.no/dok/pesysbrev/fag/v1/BehandlingKontekst"
+		   xmlns:endretOpptjening="http://nav.no/dok/pesysbrev/fag/v1/EndretOpptjening"
+           xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
+           xmlns:ytelseskomponentInformasjon="http://nav.no/dok/pesysbrev/fag/v1/YtelseskomponentInformasjon">
+
+    <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+    <xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
+
+    <xs:import schemaLocation="fag/v1.AFPPrivatBeregning.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AFPPrivatBeregning"/>
+    <xs:import schemaLocation="fag/v1.BehandlingKontekst.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BehandlingKontekst"/>
+    <xs:import schemaLocation="fag/v1.EndretOpptjening.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/EndretOpptjening"/>
+    <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
+    <xs:import schemaLocation="fag/v1.YtelseskomponentInformasjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/YtelseskomponentInformasjon"/>
+
+    <xs:element name="brevdata" type="Brevdata"/>
+
+    <xs:complexType name="Brevdata">
+        <xs:all>
+            <xs:element name="felles" type="felles:Felles"/>
+            <xs:element name="fag" type="Fag"/>
+            <xs:element name="vedleggsListe" type="vedleggsListe:VedleggsListe" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="Fag">
+        <xs:annotation>
+            <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="afpPrivatBeregningGjeldende" type="afpPrivatBeregning:AFPPrivatBeregning"/>
+            <xs:element name="afpPrivatBeregningVedVirk" type="afpPrivatBeregning:AFPPrivatBeregning"/>
+            <xs:element name="behandlingKontekst" type="behandlingKontekst:BehandlingKontekst"/>
+            <xs:element name="endretOpptjening" type="endretOpptjening:EndretOpptjening"/>
+            <xs:element name="krav" type="krav:Krav"/>
+            <xs:element name="ytelseskomponentInformasjon" type="ytelseskomponentInformasjon:YtelseskomponentInformasjon"/>
+        </xs:all>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://nav.no/dok/pesysbrev/v1/000105"
+            xmlns="http://nav.no/dok/pesysbrev/v1/000105"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
+            xmlns:inntektsAvkorting="http://nav.no/dok/pesysbrev/fag/v1/InntektsAvkorting"
+            xmlns:uforetrygd="http://nav.no/dok/pesysbrev/fag/v2/Uforetrygd"
+            xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
+
+   <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+   <xs:import schemaLocation="fag/v1.InntektsAvkorting.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InntektsAvkorting"/>
+   <xs:import schemaLocation="fag/v2.Uforetrygd.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Uforetrygd"/>
+   <xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
+
+   <xs:element name="brevdata" type="Brevdata"/>
+
+   <xs:complexType name="Brevdata">
+        <xs:all>
+            <xs:element name="felles" type="felles:Felles"/>
+            <xs:element name="fag" type="Fag"/>
+            <xs:element name="vedleggsListe" type="vedleggsListe:VedleggsListe" minOccurs="0"/>
+        </xs:all>
+   </xs:complexType>
+
+   <xs:complexType name="Fag">
+         <xs:annotation>
+            <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
+         </xs:annotation>
+         <xs:all>
+            <xs:element name="lopendeInntektsAvkorting" type="inntektsAvkorting:InntektsAvkorting" minOccurs="0"/>
+            <xs:element name="uforetrygdInnevarendeAr" type="uforetrygd:Uforetrygd" minOccurs="0"/>
+         </xs:all>
+   </xs:complexType>
+</xs:schema>
