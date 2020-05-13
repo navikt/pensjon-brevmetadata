@@ -1,0 +1,47 @@
+--vedleggmappingsSortedByRank
+select K_BREV_T, K_VEDLEGG_T, RANK
+from PEN.T_K_VEDLEGG_MAP
+ORDER BY RANK;
+
+--brevdataWithXsd
+select*
+from PEN.T_K_BREV_T b
+left outer join PEN.T_DOKUMENTMAL d on (b.DOKUMENT_TYPE_ID=d.DOKUMENT_TYPE_ID) ;
+
+--batchbrevWithXsd
+select ba.K_BATCHBREV_ID, 
+ba.K_BREV_T,
+ba.REDIGERBART,
+ba.K_DOK_T, 
+ba.K_DOK_KATEGORI, 
+ba.BREVGRUPPE, 
+br.dekode, 
+br.K_BREV_REGEL_T,
+br.K_BREV_KATEGORI_T, 
+br.K_BREV_UTLAND_T, 
+br.K_BREV_KONTEKST_T, 
+br.SYNLIG_FOR_VEILEDER, 
+br.K_BREV_KRAV_T, 
+br.VIS_I_PSELV,
+br.DOKSYS,
+d.DOKUMENT_TYPE_ID,
+d.DOKUMENTMAL,
+d.DOKUMENTMAL_FELLESELEMENT,
+ba.ER_GYLDIG
+from PEN.T_K_BATCHBREV ba 
+join PEN.T_K_BREV_T br on ba.K_BREV_T=br.K_BREV_T
+left outer join PEN.T_DOKUMENTMAL d on (br.DOKUMENT_TYPE_ID=d.DOKUMENT_TYPE_ID);
+
+--sprakForBrev
+select sb.K_BREV_T, st.SPRAK_2_TEGN
+from PEN.T_K_SPRAK_BREV sb join PEN.T_K_SPRAK_2_TEGN st on sb.K_SPRAK_2_TEGN_ID=st.K_SPRAK_2_TEGN_ID;
+
+--vedleggWithXsd
+select *
+from PEN.T_K_VEDLEGG_T v
+join PEN.T_DOKUMENTMAL d on(v.DOKUMENT_TYPE_ID=d.DOKUMENT_TYPE_ID);
+
+--brevForSakMappings
+select m.K_BREV_T, m.K_SAK_T, m.ER_GYLDIG as gyldigMapping, b.ER_GYLDIG as brevGyldig
+from PEN.T_K_BREV_SAK_MAP m
+join PEN.T_K_BREV_T b on m.K_BREV_T=b.K_BREV_T;
