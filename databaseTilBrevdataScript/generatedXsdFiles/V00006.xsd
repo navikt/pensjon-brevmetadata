@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://nav.no/dok/pesysbrev/v1/V00006"
+           xmlns="http://nav.no/dok/pesysbrev/v1/V00006"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
+           xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
+           xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"
+       xmlns:beregning="http://nav.no/dok/pesysbrev/fag/v1/Beregning"
+           xmlns:beregningKap19="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"
+           xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
+           xmlns:poengrekke="http://nav.no/dok/pesysbrev/fag/v1/Poengrekke"
+           xmlns:tilleggspensjon="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"
+           xmlns:trygdetidsdetaljer="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"
+           xmlns:trygdetidsListe="http://nav.no/dok/pesysbrev/fag/v1/TrygdetidsListe"
+           xmlns:trygdetid="http://nav.no/dok/pesysbrev/fag/v1/Trygdetid"
+           xmlns:yrkesskadeDetaljer="http://nav.no/dok/pesysbrev/fag/v1/YrkesskadeDetaljer"
+           xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod">
+
+    <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+    <xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
+    <xs:import schemaLocation="fag/v1.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"/>
+  <xs:import schemaLocation="fag/v1.Beregning.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Beregning"/>
+    <xs:import schemaLocation="fag/v1.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"/>
+    <xs:import schemaLocation="fag/v2.BeregningKap19.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"/>
+    <xs:import schemaLocation="fag/v1.Poengrekke.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Poengrekke"/>
+    <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
+    <xs:import schemaLocation="fag/v1.Tilleggspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"/>
+    <xs:import schemaLocation="fag/v1.Trygdetid.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Trygdetid"/>
+    <xs:import schemaLocation="fag/v1.Trygdetidsdetaljer.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"/>
+    <xs:import schemaLocation="fag/v1.TrygdetidsListe.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/TrygdetidsListe"/>
+    <xs:import schemaLocation="fag/v1.YrkesskadeDetaljer.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/YrkesskadeDetaljer"/>
+    <xs:import schemaLocation="fag/v1.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Avdod"/>
+
+    <xs:element name="brevdata" type="Brevdata"/>
+
+    <xs:complexType name="Brevdata">
+        <xs:all>
+            <xs:element name="felles" type="felles:Felles"/>
+            <xs:element name="fag" type="Fag"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="Fag">
+        <xs:annotation>
+            <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="alderspensjonVedVirk" type="alderspensjon:Alderspensjon"/>
+            <xs:element name="beregnetPensjonPerManedVedVirk" type="alderspensjonPerManed:AlderspensjonPerManed"/>
+            <xs:element name="avdodBeregningKap19VedVirk" type="beregningKap19:BeregningKap19" minOccurs="0"/>
+            <xs:element name="bruker" type="person:Person"/>
+            <xs:element name="avdodPoengrekkeVedVirk" type="poengrekke:Poengrekke" minOccurs="0"/>
+      <xs:element name="avdodBeregningKap3" type="beregning:Beregning" minOccurs="0"/>
+      <xs:element name="avdodTrygdetidsdetaljerVedVirkNokkelInfo" type="trygdetidsdetaljer:Trygdetidsdetaljer" minOccurs="0"/>
+            <xs:element name="tilleggspensjonVedVirk" type="tilleggspensjon:Tilleggspensjon" minOccurs="0"/>
+            <xs:element name="trygdetidAvtaleland" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
+            <xs:element name="trygdetidEOS" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
+            <xs:element name="trygdetidNorge" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
+            <xs:element name="avdodTrygdetidsdetaljerKap19VedVirk" type="trygdetidsdetaljer:Trygdetidsdetaljer" minOccurs="0"/>
+            <xs:element name="avdodYrkesskadedetaljerVedVirk" type="yrkesskadeDetaljer:YrkesskadeDetaljer" minOccurs="0"/>
+            <xs:element name="avdod" type="avdod:Avdod"/>
+            <xs:element name="avdodTrygdetidEOS" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
+            <xs:element name="avdodTrygdetidNorge" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
+            <xs:element name="avdodTrygdetidAvtaleland" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
+          </xs:all>
+    </xs:complexType>
+
+</xs:schema>

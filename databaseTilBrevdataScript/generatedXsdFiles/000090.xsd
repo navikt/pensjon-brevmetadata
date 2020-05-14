@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://nav.no/dok/pesysbrev/v1/000090"
+           xmlns="http://nav.no/dok/pesysbrev/v1/000090"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
+           xmlns:apl="http://nav.no/dok/pesysbrev/fag/v1/AvslattePensjonerListe"
+           xmlns:personopplysninger="http://nav.no/dok/pesysbrev/fag/v1/Personopplysninger"
+           xmlns:ipl="http://nav.no/dok/pesysbrev/fag/v1/InnvilgedePensjonerListe"
+           xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
+           xmlns:sak="http://nav.no/dok/pesysbrev/fag/v1/Sak">
+
+    <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+    <xs:import schemaLocation="fag/v1.AvslattePensjonerListe.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AvslattePensjonerListe"/>
+    <xs:import schemaLocation="fag/v1.Personopplysninger.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Personopplysninger"/>
+    <xs:import schemaLocation="fag/v1.InnvilgedePensjonerListe.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InnvilgedePensjonerListe"/>
+    <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
+    <xs:import schemaLocation="fag/v1.Sak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Sak"/>
+
+    <xs:element name="brevdata" type="Brevdata"/>
+
+    <xs:complexType name="Brevdata">
+        <xs:all>
+            <xs:element name="felles" type="felles:Felles"/>
+            <xs:element name="fag" type="Fag"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="Fag">
+        <xs:annotation>
+            <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="avslattePensjonerListe" type="apl:AvslattePensjonerListe" minOccurs="0"/>
+            <xs:element name="bruker" type="personopplysninger:Personopplysninger"/>
+            <xs:element name="forsikrede" type="personopplysninger:Personopplysninger"/>
+            <xs:element name="innvilgedePensjonerListe" type="ipl:InnvilgedePensjonerListe" minOccurs="0"/>
+            <xs:element name="krav" type="krav:Krav"/>
+            <xs:element name="sak" type="sak:Sak"/>
+          </xs:all>
+    </xs:complexType>
+</xs:schema>

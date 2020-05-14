@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema	attributeFormDefault="unqualified"
+			  elementFormDefault="qualified"
+			  targetNamespace="http://nav.no/dok/pesysbrev/v1/000073"
+			  xmlns="http://nav.no/dok/pesysbrev/v1/000073"
+			  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			  xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
+			  xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod"
+              xmlns:enkeltbarnListe="http://nav.no/dok/pesysbrev/fag/v1/EnkeltbarnListe"
+			  xmlns:barnetilleggUTGrunnlag="http://nav.no/dok/pesysbrev/fag/v1/BarnetilleggUTGrunnlag"
+              xmlns:barnetilleggUT="http://nav.no/dok/pesysbrev/fag/v1/BarnetilleggUT"
+              xmlns:beregnetUTPerManed="http://nav.no/dok/pesysbrev/fag/v1/BeregnetUTPerManed"
+              xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
+              xmlns:uforetrygdPerManed="http://nav.no/dok/pesysbrev/fag/v1/UforetrygdPerManed"
+              xmlns:inntektEtterUfore="http://nav.no/dok/pesysbrev/fag/v1/InntektEtterUfore"
+              xmlns:inntektForUfore="http://nav.no/dok/pesysbrev/fag/v1/InntektForUfore"
+              xmlns:inntektsAvkorting="http://nav.no/dok/pesysbrev/fag/v1/InntektsAvkorting"
+              xmlns:institusjonsopphold="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"
+              xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
+              xmlns:minsteytelse="http://nav.no/dok/pesysbrev/fag/v1/Minsteytelse"
+              xmlns:sak="http://nav.no/dok/pesysbrev/fag/v1/Sak"
+              xmlns:trygdetidsdetaljer="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"
+              xmlns:uforetrygd="http://nav.no/dok/pesysbrev/fag/v2/Uforetrygd"
+              xmlns:ungUfor="http://nav.no/dok/pesysbrev/fag/v1/UngUfor"
+              xmlns:vedtak="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"
+              xmlns:yrkesskade="http://nav.no/dok/pesysbrev/fag/v1/Yrkesskade">
+
+	<xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+	<xs:import schemaLocation="fag/v1.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Avdod"/>
+    <xs:import schemaLocation="fag/v1.EnkeltbarnListe.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/EnkeltbarnListe"/>
+    <xs:import schemaLocation="fag/v1.BarnetilleggUTGrunnlag.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BarnetilleggUTGrunnlag"/>
+    <xs:import schemaLocation="fag/v1.BarnetilleggUT.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BarnetilleggUT"/>
+    <xs:import schemaLocation="fag/v1.BeregnetUTPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetUTPerManed"/>
+    <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
+    <xs:import schemaLocation="fag/v1.UforetrygdPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/UforetrygdPerManed"/>
+    <xs:import schemaLocation="fag/v1.InntektEtterUfore.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InntektEtterUfore"/>
+    <xs:import schemaLocation="fag/v1.InntektForUfore.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InntektForUfore"/>
+    <xs:import schemaLocation="fag/v1.InntektsAvkorting.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InntektsAvkorting"/>
+    <xs:import schemaLocation="fag/v2.Institusjonsopphold.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"/>
+    <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
+<xs:import schemaLocation="fag/v1.Minsteytelse.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Minsteytelse"/>
+    <xs:import schemaLocation="fag/v1.Sak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Sak"/>
+    <xs:import schemaLocation="fag/v1.Trygdetidsdetaljer.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"/>
+    <xs:import schemaLocation="fag/v2.Uforetrygd.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Uforetrygd"/>
+    <xs:import schemaLocation="fag/v1.UngUfor.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/UngUfor"/>
+    <xs:import schemaLocation="fag/v1.Vedtak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"/>
+    <xs:import schemaLocation="fag/v1.Yrkesskade.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Yrkesskade"/>
+
+	<xs:element name="brevdata" type="Brevdata"/>
+
+	<xs:complexType name="Brevdata">
+		<xs:all>
+			<xs:element name="felles" type="felles:Felles"/>
+			<xs:element name="fag" type="Fag"/>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="Fag">
+		<xs:annotation>
+			<xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+            <xs:element name="avdod" type="avdod:Avdod"/>
+			<xs:element name="barnOverfortTilSB" type="enkeltbarnListe:EnkeltbarnListe" minOccurs="0"/>
+            <xs:element name="barnTidligereSB" type="enkeltbarnListe:EnkeltbarnListe" minOccurs="0"/>
+            <xs:element name="barnetilleggGrunnlagGjeldende" type="barnetilleggUTGrunnlag:BarnetilleggUTGrunnlag" minOccurs="0"/>
+            <xs:element name="barnetilleggGrunnlagVedVirk" type="barnetilleggUTGrunnlag:BarnetilleggUTGrunnlag" minOccurs="0"/>
+            <xs:element name="barnetilleggSBGjeldende" type="barnetilleggUT:BarnetilleggUT" minOccurs="0"/>
+            <xs:element name="barnetilleggSBVedVirk" type="barnetilleggUT:BarnetilleggUT" minOccurs="0"/>
+            <xs:element name="beregnetUTPerManed" type="beregnetUTPerManed:BeregnetUTPerManed"/>
+            <xs:element name="bruker" type="person:Person" minOccurs="0"/>
+            <xs:element name="gjeldendeBeregnetUTPerManed" type="uforetrygdPerManed:UforetrygdPerManed"/>
+            <xs:element name="inntektEtterUforeGjeldende" type="inntektEtterUfore:InntektEtterUfore" minOccurs="0"/>
+            <xs:element name="inntektForUforeGjeldende" type="inntektForUfore:InntektForUfore" minOccurs="0"/>
+            <xs:element name="inntektForUforeVedVirk" type="inntektForUfore:InntektForUfore"/>
+            <xs:element name="inntektsAvkortingGjeldende" type="inntektsAvkorting:InntektsAvkorting"/>
+            <xs:element name="institusjonsoppholdGjeldende" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
+            <xs:element name="institusjonsoppholdVedVirk" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
+            <xs:element name="krav" type="krav:Krav"/>
+            <xs:element name="minsteytelseGjeldende" type="minsteytelse:Minsteytelse" minOccurs="0"/>
+            <xs:element name="minsteytelseVedVirk" type="minsteytelse:Minsteytelse" minOccurs="0"/>
+            <xs:element name="sak" type="sak:Sak"/>
+            <xs:element name="trygdetidsdetaljerGjeldende" type="trygdetidsdetaljer:Trygdetidsdetaljer" minOccurs="0"/>
+            <xs:element name="uforetrygdGjeldende" type="uforetrygd:Uforetrygd" minOccurs="0"/>
+            <xs:element name="uforetrygdVedVirk" type="uforetrygd:Uforetrygd"/>
+            <xs:element name="ungUforGjeldende" type="ungUfor:UngUfor" minOccurs="0"/>
+            <xs:element name="vedtak" type="vedtak:Vedtak"/>
+            <xs:element name="yrkesskadeGjeldende" type="yrkesskade:Yrkesskade" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>
