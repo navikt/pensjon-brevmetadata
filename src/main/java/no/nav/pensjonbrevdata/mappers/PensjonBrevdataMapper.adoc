@@ -6,8 +6,88 @@ Mapping av brev og vedlegg.
 
 Here is how
 
-=== Brevmapper
-Sånn er dette
+=== BrevdataMapper
+
+BrevdataMapper inneholder alle brevene i pesys og er generert basert på PEN databasen med et script.
+Scriptet kopierer over kolonner og tabeller som er relevant for å bygge opp et brev.
+
+For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et hpextream brev.
+
+.Brev
+|===
+|Element |Type |Beskrivelse
+
+|brevkodeInBrevsystem
+|String
+|Inneholder brevkoden som blir brukt av pesys.
+
+|redigerbart
+|boolean
+|Inneholder verdi for om brevet er redigerbart eller ikke
+
+|dekode
+|String
+|Inneholder en kort beskrivelse av brevet
+
+|brevkategori
+|BrevkategoriCode
+|Inneholder brevkategorien
+
+|doktype
+|DokumenttypeCode
+|Inneholder dokumenttypen: inngående, utgående eller notat
+
+|sprak
+|List<SprakCode>
+|Inneholder liste med hvilke språk brevet støtter
+
+|visIPselv
+|Boolean
+|Inneholder verdi om brevet skal vises i Pselv
+
+|utland
+|BrevUtlandCode
+|Inneholder kode for når brevet skal vises: Utland, nasjonalt, alltid
+
+|brevregeltype
+|BrevregeltypeCode
+|Inneholder verdi for brevregeltype
+
+|dokumentkategori
+|DokumentkategoriCode
+|Inneholder dokumentkategorikode for brevet
+
+|synligForVeileder
+|Boolean
+|Inneholder verdi om brevet skal være synlig for veileder
+
+|brevkontekst
+|BrevkontekstCode
+|Inneholder verdi om brevkontektsen: Alltid, sak, vedtak
+
+
+|===
+
+Doksysbrev må inneholde følgende elementer i tillegg til elementene beskrevet over
+
+.Doksysbrev
+|===
+|Element | Type | Beskrivelse
+
+|dokumentmalId
+|String
+|Inneholder dokumentmalId som er en referanse til xsd'ene
+
+|dokumentmalFelleselementId
+|String
+|Inneholder dokumentmalFelleselementId som er en refarnse til felleselement xsd'ene
+
+|vedleggListe
+|List<DoksysVedlegg>
+|Inneholder en liste med doksysvedlegg som tilhører brevet.
+
+|===
 
 === DoksysVedleggMapper
+
 Slik fungerer det her
