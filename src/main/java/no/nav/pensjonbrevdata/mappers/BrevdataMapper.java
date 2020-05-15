@@ -1,12 +1,21 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import no.nav.pensjonbrevdata.model.*;
-import no.nav.pensjonbrevdata.model.codes.*;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
+
+import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.model.Doksysbrev;
+import no.nav.pensjonbrevdata.model.GammeltBrev;
+import no.nav.pensjonbrevdata.model.codes.BrevUtlandCode;
+import no.nav.pensjonbrevdata.model.codes.BrevkategoriCode;
+import no.nav.pensjonbrevdata.model.codes.BrevkontekstCode;
+import no.nav.pensjonbrevdata.model.codes.BrevkravtypeCode;
+import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
+import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
+import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
+import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 public class BrevdataMapper {
 
@@ -4487,7 +4496,7 @@ public class BrevdataMapper {
                         null,
                         "000086",
                         "00001",
-                        null));
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
         brevMap.put("INFO_P1", () ->
                 new Doksysbrev("INFO_P1",
                         true,
