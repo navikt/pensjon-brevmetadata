@@ -1,9 +1,15 @@
 == Unleash
-Løsningen tar i bruk unleash og startes lokalt med:
+
+Løsningen tar i bruk unleash og kan brukes for å toggle mellom brev.
+
+Dette kan gjøres ved å legge inn følgende:
+
 ----
-docker-compose -f docker-compose-local.yml up unleash
+if(toggle(<idpaToggle>).isEnabled) {
+    Utfør kodesnutt 1
+} else {
+    Utfør kodesnutt 2
+}
 ----
 
-Unleash bruker postgres database for å lagre data og den starter automatisk, hvis det kjøres med docker-compose. Etter Unleash startes kan features opprettes med nettleser via
-
-http://localhost:4242/#/features
+<idpaToggle> legges på unleash serveren og configureres der.
