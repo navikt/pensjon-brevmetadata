@@ -1,4 +1,4 @@
-K_BATCHBREV_ID;K_BREV_T;REDIGERBART;K_DOK_T;K_DOK_KATEGORI;BREVGRUPPE;DEKODE;K_BREV_REGEL_T;K_BREV_KATEGORI_T;K_BREV_UTLAND_T;K_BREV_KONTEKST_T;SYNLIG_FOR_VEILEDER;K_BREV_KRAV_T;VIS_I_PSELV;DOKSYS;DOKUMENT_TYPE_ID;DOKUMENTMAL;DOKUMENTMAL_FELLESELEMENT;ER_GYLDIG
+K_BATCHBREV_ID;K_BREV_T;REDIGERBART;K_DOK_T;K_DOK_KATEGORI;BREVGRUPPE;DEKODE;K_BREV_REGEL_T;K_BREV_KATEGORI_T;K_BREV_UTLAND_T;K_BREV_KONTEKST_T;SYNLIG_FOR_VEILEDER;K_BREV_KRAV_T;VIS_I_PSELV;DOKSYS;DOKUMENT_TYPE_ID;DOKUMENTMAL;DOKUMENTMAL_FELLESELEMENT;ER_GYLDIG;PRIORITET
 AUTO_INFOBREV_BP;DOD_INFO_RETT_AUTO;0;U;IB;brevgr001;Informasjon om gjenlevenderettigheter (automatisk);;INFORMASJON;;;;;1;1;000068;"<?xml version=""1.0"" encoding=""UTF-8""?>
   <xs:schema attributeFormDefault=""unqualified""
               elementFormDefault=""qualified""
@@ -83,7 +83,7 @@ xmlns:navEnhet=""http://nav.no/dok/pesysbrev/felles/v1/NavEnhet"">
 <xs:annotation><xs:documentation>Informasjon om hvordan bruker kan kontakte NAV fÃ¸r Ã¥ fÃ¸lge opp saken</xs:documentation>
 </xs:annotation>
 </xs:element><xs:element name=""returadresse"" type=""navEnhet:NavEnhet""><xs:annotation><xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter mÃ¥ sendes i retur per post</xs:documentation>
-</xs:annotation></xs:element></xs:all></xs:complexType></xs:schema>";1
+</xs:annotation></xs:element></xs:all></xs:complexType></xs:schema>";1;
 AUTO_INFOBREV_GJENL;DOD_INFO_RETT_AUTO;0;U;IB;brevgr001;Informasjon om gjenlevenderettigheter (automatisk);;INFORMASJON;;;;;1;1;000068;"<?xml version=""1.0"" encoding=""UTF-8""?>
   <xs:schema attributeFormDefault=""unqualified""
               elementFormDefault=""qualified""
@@ -168,7 +168,7 @@ xmlns:navEnhet=""http://nav.no/dok/pesysbrev/felles/v1/NavEnhet"">
 <xs:annotation><xs:documentation>Informasjon om hvordan bruker kan kontakte NAV fÃ¸r Ã¥ fÃ¸lge opp saken</xs:documentation>
 </xs:annotation>
 </xs:element><xs:element name=""returadresse"" type=""navEnhet:NavEnhet""><xs:annotation><xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter mÃ¥ sendes i retur per post</xs:documentation>
-</xs:annotation></xs:element></xs:all></xs:complexType></xs:schema>";1
+</xs:annotation></xs:element></xs:all></xs:complexType></xs:schema>";1;
 AP_INNVILG_AUTO;AP_INNV_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Innvilgelse av alderspensjon (auto);;;;;;;1;1;000098;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -304,7 +304,7 @@ AP_INNVILG_AUTO;AP_INNV_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Innvilgelse av ald
               </xs:element>
           </xs:all>
       </xs:complexType>
-  </xs:schema>";1
+  </xs:schema>";1;
 AP_INNVILG_UTL_AUTO;AP_INNV_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Innvilgelse av alderspensjon (auto);;;;;;;1;1;000098;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -440,7 +440,7 @@ AP_INNVILG_UTL_AUTO;AP_INNV_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Innvilgelse av
               </xs:element>
           </xs:all>
       </xs:complexType>
-  </xs:schema>";1
+  </xs:schema>";1;
 AUTO_VTK_EPS_DOD_AP;AP_DOD_ENSLIG_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - omregning til enslig alderspensjonist (automatisk);;VEDTAK;;;;;1;1;000070;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema	attributeFormDefault=""unqualified""
 			  elementFormDefault=""qualified""
@@ -560,7 +560,7 @@ xmlns:navEnhet=""http://nav.no/dok/pesysbrev/felles/v1/NavEnhet"">
 <xs:annotation><xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter må sendes i retur per post</xs:documentation>
 </xs:annotation></xs:element></xs:all>
 </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 TILST_DOD_UT;UT_DOD_ENSLIG_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - omregning til enslig uføretrygdet (automatisk);;VEDTAK;;;;;1;1;000073;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema	attributeFormDefault=""unqualified""
 			  elementFormDefault=""qualified""
@@ -709,7 +709,7 @@ xmlns:navEnhet=""http://nav.no/dok/pesysbrev/felles/v1/NavEnhet"">
 <xs:annotation><xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter mÃ¥ sendes i retur per post</xs:documentation>
 </xs:annotation></xs:element></xs:all>
 </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AUTO_VTK_EPS_DOD_AFP;AFP_DOD_ENSLIG_AUTO;0;U;VB;brevgr002;Vedtak - omregning av AFP til enslig pensjonist (automatisk);;VEDTAK;;;;;1;1;000078;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema	attributeFormDefault=""unqualified""
 			  elementFormDefault=""qualified""
@@ -849,7 +849,7 @@ AUTO_VTK_EPS_DOD_AFP;AFP_DOD_ENSLIG_AUTO;0;U;VB;brevgr002;Vedtak - omregning av 
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AO_AP_UT_67_2016;AP_INNV_AO_UT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - omregning av uføretrygd til alderspensjon;;VEDTAK;;;;;1;1;000086;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -1012,7 +1012,7 @@ AO_AP_UT_67_2016;AP_INNV_AO_UT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - omregning a
               </xs:element>
           </xs:all>
       </xs:complexType>
-  </xs:schema>";1
+  </xs:schema>";1;
 OMSORGP_GODSKRIVING;OMSORG_HJST_AUTO;0;U;B;brevgr004;Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4;OVRIGE;;;;;;0;1;000094;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -1128,7 +1128,7 @@ OMSORGP_GODSKRIVING;OMSORG_HJST_AUTO;0;U;B;brevgr004;Vedtak - innvilgelse av oms
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AFP_PR_NYTT_VEDTAK;AFP_ENDR_OPPTJ_AUTO;0;U;VB;INGEN BREVGRUPPE;Vedtak - endring av AFP fordi opptjening er endret;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000145;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -1259,7 +1259,7 @@ AFP_PR_NYTT_VEDTAK;AFP_ENDR_OPPTJ_AUTO;0;U;VB;INGEN BREVGRUPPE;Vedtak - endring 
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 OMSORGP_EGENMLD;OMSORG_EGEN_AUTO;0;U;B;INGEN_BREVGRUPPE;Brev med skjema Godskriving av omsorgspoeng - egenerklæring om pleieforhold - batchbrev;GG;BREV_MED_SKJEMA;NASJONALT;;;;1;1;000104;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -1381,7 +1381,7 @@ OMSORGP_EGENMLD;OMSORG_EGEN_AUTO;0;U;B;INGEN_BREVGRUPPE;Brev med skjema Godskriv
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AO_AP_FAP_PL_67_2011;AP_INNV_AO_FAP_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Omregning av familiepleier til alderspensjo;;VEDTAK;;;1;;1;1;000131;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -1506,7 +1506,7 @@ AO_AP_FAP_PL_67_2011;AP_INNV_AO_FAP_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Omregn
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AO_AP_FAP_PL_67_2016;AP_INNV_AO_FAP_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Omregning av familiepleier til alderspensjo;;VEDTAK;;;1;;1;1;000131;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -1631,7 +1631,7 @@ AO_AP_FAP_PL_67_2016;AP_INNV_AO_FAP_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - Omregn
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 GJP_INFOBREV_AP_GJT;GP_INFO_AP_GT;0;U;IB;INGEN_BREVGRUPPE;Informasjon om gjenlevendetillegg i alderspensjonen;ON;INFORMASJON;ALLTID;SAK;;ALLE;1;1;000154;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema	attributeFormDefault=""unqualified""
               elementFormDefault=""qualified""
@@ -1745,7 +1745,7 @@ GJP_INFOBREV_AP_GJT;GP_INFO_AP_GT;0;U;IB;INGEN_BREVGRUPPE;Informasjon om gjenlev
         </xs:all>
     </xs:complexType>
 </xs:schema>
-";1
+";1;
 INFO_INNT_ENDR_UT;INFO_ENDR_UT_INNT;0;U;VB;INGEN_BREVGRUPPE;Varsel - endring av ufÃ¸retrygd pÃ¥ grunn av inntekt;OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000105;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
             elementFormDefault=""qualified""
@@ -1863,7 +1863,7 @@ INFO_INNT_ENDR_UT;INFO_ENDR_UT_INNT;0;U;VB;INGEN_BREVGRUPPE;Varsel - endring av 
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 SAMMENSTOT_AP;AP_ENDR_EPS_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon - sivilstand (auto);;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000113;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
              elementFormDefault=""qualified""
@@ -1992,7 +1992,7 @@ SAMMENSTOT_AP;AP_ENDR_EPS_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alder
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 TILST_OMRG_AP;AP_ENDR_EPS_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon - sivilstand (auto);;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000113;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
              elementFormDefault=""qualified""
@@ -2121,7 +2121,7 @@ TILST_OMRG_AP;AP_ENDR_EPS_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alder
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AO_AP_GRAD_AP_75;AP_INNV_AO_75_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon fordi du fyller 75 år;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000118;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
              elementFormDefault=""qualified""
@@ -2244,7 +2244,7 @@ AO_AP_GRAD_AP_75;AP_INNV_AO_75_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av 
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AP_NYTT_VEDTAK;AP_ENDR_OPPTJ_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av opptjening;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000120;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -2390,7 +2390,7 @@ AP_NYTT_VEDTAK;AP_ENDR_OPPTJ_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av op
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 FAM_PL_3MND_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -2513,7 +2513,7 @@ FAM_PL_3MND_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for ald
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 FYLLER_67_INGEN_YT;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -2636,7 +2636,7 @@ FYLLER_67_INGEN_YT;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 UP_GRAD_AP_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -2759,7 +2759,7 @@ UP_GRAD_AP_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for alde
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 UP_GRAD_IKKE_AP_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -2882,7 +2882,7 @@ UP_GRAD_IKKE_AP_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 UP_HEL_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3005,7 +3005,7 @@ UP_HEL_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for aldersov
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 GJP_AVKORT_INFO_67;AP_INFO_AO67_AUTO;0;U;IB;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3128,7 +3128,7 @@ GJP_AVKORT_INFO_67;AP_INFO_AO67_AUTO;0;U;IB;INGEN_BREVGRUPPE;Informasjonsbrev fo
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 GJP_FULL_INFO_67;AP_INFO_AO67_AUTO;0;U;IB;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3251,7 +3251,7 @@ GJP_FULL_INFO_67;AP_INFO_AO67_AUTO;0;U;IB;INGEN_BREVGRUPPE;Informasjonsbrev for 
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 FAM_PL_INFO_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP;;VEDTAK;;;1;;1;1;000129;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3374,7 +3374,7 @@ FAM_PL_INFO_67;AP_INFO_AO67_AUTO;0;U;B;INGEN_BREVGRUPPE;Informasjonsbrev for ald
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AO_AP_GJP_FULL_67;AP_INNV_AO_GJP_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - omregning av gjenlevendepensjon til alderspensjon;;VEDTAK;ALLTID;VEDTAK;;;1;1;000143;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3508,7 +3508,7 @@ AO_AP_GJP_FULL_67;AP_INNV_AO_GJP_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - omregning
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 AUTO_AP_ENDR_RETTING;AP_RETTING_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon pga rettelser;;VEDTAK;ALLTID;VEDTAK;1;ALLE;1;1;000148;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3644,7 +3644,7 @@ AUTO_AP_ENDR_RETTING;AP_RETTING_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av
             </xs:element>
         </xs:all>
     </xs:complexType>
-</xs:schema>";1
+</xs:schema>";1;
 ADHOC_INFOBREV_AUTO;ADHOC_INFO_AUTO;0;U;B;INGEN_BREVGRUPPE;Automatisk brev engangsbruk;OVRIGE;INFORMASJON;ALLTID;SAK;;ALLE;1;1;000169;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3761,7 +3761,7 @@ ADHOC_INFOBREV_AUTO;ADHOC_INFO_AUTO;0;U;B;INGEN_BREVGRUPPE;Automatisk brev engan
         </xs:all>
     </xs:complexType>
 </xs:schema>
-";1
+";1;
 AO_AP_BT_18_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon ved aldersovergang;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000162;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -3904,7 +3904,7 @@ AO_AP_BT_18_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring a
         </xs:all>
     </xs:complexType>
 </xs:schema>
-";1
+";1;
 AO_AP_ET_BT_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon ved aldersovergang;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000162;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -4047,7 +4047,7 @@ AO_AP_ET_BT_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring a
         </xs:all>
     </xs:complexType>
 </xs:schema>
-";1
+";1;
 AO_AP_ET_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon ved aldersovergang;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000162;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -4190,7 +4190,7 @@ AO_AP_ET_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av a
         </xs:all>
     </xs:complexType>
 </xs:schema>
-";1
+";1;
 AO_AP_ET_60_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon ved aldersovergang;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000162;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -4333,7 +4333,7 @@ AO_AP_ET_60_2011;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring a
         </xs:all>
     </xs:complexType>
 </xs:schema>
-";1
+";1;
 AO_AP_FT_1967;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av alderspensjon ved aldersovergang;;VEDTAK;ALLTID;VEDTAK;;ALLE;1;1;000162;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
@@ -4476,78 +4476,78 @@ AO_AP_FT_1967;AP_OPPH_ENDR_FT_AUTO;0;U;VB;INGEN_BREVGRUPPE;Vedtak - endring av a
         </xs:all>
     </xs:complexType>
 </xs:schema>
-";1
-AFPEO_BREV_B;PE_AF_03_100;0;U;B;brevgr004;Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør;GG;;;;;;1;;;;;1
-AFPEO_BREV_A;PE_AF_04_100;0;U;VB;brevgr004;Vedtak - ingen endring - AFP etteroppgjør;GG;;;;;;1;;;;;1
-AFPEO_BREV_C;PE_AF_04_101;0;U;VB;brevgr004;Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør;GG;;;;;;1;;;;;1
-AFPEO_BREV_D;PE_AF_04_102;0;U;VB;brevgr004;Vedtak - ingen endring (andre avvik) - AFP etteroppgjør;GG;;;;;;1;;;;;1
-AFPEO_TILBAKEKREVING;PE_AF_04_107;0;U;VB;brevgr004;Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør;GG;VEDTAK;NASJONALT;VEDTAK;;AFP_EO;1;;;;;1
-AFPP_INNVILG_AUTO;PE_AF_04_115;0;U;VB;brevgr007;Vedtak - innvilgelse av AFP i privat sektor;;;;;;;1;;;;;1
-AFPP_AVSL_AUTO;PE_AF_04_116;0;U;VB;brevgr007;Vedtak - avslag på AFP i privat sektor;;;;;;;1;;;;;1
-FYLLER_67;PE_AP_01_001;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år;GG;INFORMASJON;NASJONALT;SAK;;;1;;;;;1
-HAR_AFP_FYLLER_67;PE_AP_01_002;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år som har hatt gradert AFP;GG;;;;;;1;;;;;0
-HAR_FP_FYLLER_67;PE_AP_01_003;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år som har mottatt redusert pensjon til familiepleier;GG;;;;;;1;;;;;0
-FYLLER_70;PE_AP_01_004;0;U;IB;brevgr001;Informasjon til deg som snart fyller 70 år som ikke har hatt ytelser fra folketrygden;GG;INFORMASJON;NASJONALT;SAK;;;1;;;;;0
-HAR_GJENLEV_FYLLE_67;PE_AP_01_005;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år som har mottatt redusert gjenlevendepensjon;GG;;;;;;1;;;;;0
-AP_INNVILG_UTL;PE_AP_04_203;1;U;VB;brevgr011;Vedtak - innvilgelse av alderspensjon - utenlandssak;GN;VEDTAK;UTLAND;VEDTAK;;ALLE;1;;;;;1
-AP_AVSLAG_AUTO;PE_AP_04_210;0;U;VB;brevgr011;Vedtak - avslag på alderspensjon;GN;;;;;;1;;;;;1
-AP_AVSL_UTL_AUTO;PE_AP_04_213;0;U;VB;brevgr011;Vedtak - avslag på alderspensjon - utenlandssak;GN;;;;;;1;;;;;1
-AP_ENDR_GRAD_AUTO;PE_AP_04_227;0;U;VB;brevgr011;Vedtak - innvilgelse av endret uttaksgrad for alderspensjon;GN;;;;;;1;;;;;1
-DUMMYBREV;PE_AP_05_001;1;U;VB;brevgr001;Dummybrev AP 2016/2025;;;;;;;1;;;;;1
-GJP_FULL_3MND_67;PE_BA_01_101;0;U;B;brevgr001;Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon;;;;;;;1;;;;;1
-GJP_AVKORT_3MND_67;PE_BA_01_102;0;U;B;brevgr001;Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon;;;;;;;1;;;;;1
-AFP_3MND_67;PE_BA_01_106;0;U;B;brevgr001;Informasjon til deg som fyller 67 år og mottar AFP;;;;;;;1;;;;;1
-INFOBREV_VP_ET;PE_BA_01_108;0;U;IB;brevgr001;Informasjon om vilkår for rett til ektefelletillegg;;INFORMASJON;NASJONALT;SAK;;;1;;;;;1
-AFP_EO_AVVIK_INFO;PE_BA_01_200;0;U;IB;brevgr001;Informasjonsbrev AFP etteroppgjør;;;;;;;1;;;;;0
-FORSORG_BT_OPPH;PE_BA_04_501;0;U;VB;brevgr002;Vedtak - forsørgingstillegg fra folketrygden;GG;;;;;;1;;;;;1
-FORSORG_ET_BT_OPPH;PE_BA_04_502;0;U;VB;brevgr002;Vedtak - forsørgingstillegg fra folketrygden;GG;;;;;;1;;;;;1
-FORSORG_ET_OPPH;PE_BA_04_503;0;U;VB;brevgr002;Vedtak - forsørgingstillegg fra folketrygden;GG;;;;;;1;;;;;1
-KONV_YT_ALDERSOVERG;PE_BA_04_504;0;U;VB;brevgr002;Vedtak - alderspensjon fra folketrygden;GG;;;;;;1;;;;;1
-UP_FULLTT_BELOPENDR;PE_BA_04_505;0;U;VB;brevgr010;Vedtak - endring av uføretrygd fordi du fyller 20 år;GG;;;;;;1;;;;;1
-AP_FULLTT_BELOPENDR;PE_BA_04_506;0;U;VB;brevgr002;Vedtak - endring av alderspensjon fordi du fyller 70 år;GG;;;;;;1;;;;;1
-P_UTBETALING_OKER;PE_BA_04_507;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1
-P_UTBETALING_MINKER;PE_BA_04_508;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1
-GJR_UTBET_OKER;PE_BA_04_509;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1
-GJR_UTBET_MINKER;PE_BA_04_510;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1
-BP_UTBET_OKER;PE_BA_04_511;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1
-BP_UTBET_MINKER;PE_BA_04_512;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1
-ALDER_IVERK;PE_BA_04_515;0;U;VB;brevgr002;Vedtak - alderspensjon fra folketrygden;GG;;;;;;1;;;;;1
-ALDER_SAMM_IVERK;PE_BA_04_516;0;U;VB;brevgr002;Vedtak - alderspensjon fra folketrygden;GG;;;;;;1;;;;;1
-REV_TIL_AP_PGA_DOD;PE_BA_04_520;0;U;VB;brevgr002;Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1
-TILST_AP;PE_BA_04_520;0;U;VB;brevgr002;Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1
-REV_TIL_UP_PGA_DOD;PE_BA_04_521;0;U;VB;brevgr002;Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret;GG;;;;;;1;;;;;1
-TILST_UP;PE_BA_04_521;0;U;VB;brevgr002;Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret;GG;;;;;;1;;;;;1
-REV_TIL_AFP_PGA_DOD;PE_BA_04_522;0;U;VB;brevgr002;Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1
-TILST_AFP;PE_BA_04_522;0;U;VB;brevgr002;Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1
-TILST_GJP;PE_BA_04_523;0;U;VB;brevgr002;Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1
-AO_AP_UP_67_2011;PE_BA_04_528;0;U;VB;brevgr007;Vedtak - omregning av uføretrygd til alderspensjon;GN;;;;;;1;;;;;1
-AO_AP_AFP_67_2011;PE_BA_04_530;0;U;VB;brevgr007;Vedtak - omregning av AFP til alderspensjon;GN;;;;;;1;;;;;1
-VEDTAK_SKJERMT;PE_BA_04_534;0;U;VB;brevgr007;Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg;GN;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-OMR_BP_OPPH;PE_BP_04_022;0;U;VB;brevgr002;Vedtak - omregning  av barnepensjon;GG;;;;;;1;;;;;1
-OPPHOR_ET_NN;PE_FT_01_004;0;U;VB;brevgr007;Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon;NN;;;;;;1;;;;;1
-OPPHOR_ET_GG;PE_FT_01_005;0;U;VB;brevgr002;Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon;GG;;;;;;1;;;;;1
-OMSORGP_INNVILG;PE_IY_04_001;0;U;VB;brevgr004;Vedtak - innvilgelse av omsorgsopptjening ved pleie og omsorg for eldre syke og funksjonshemmede;GG;VEDTAK;NASJONALT;VEDTAK;;ALLE;1;;;;;1
-VEDTAK_TILB_KREV;PE_IY_04_062;0;U;VB;brevgr004;Vedtak om tilbakekreving;OVRIGE;;;;;;1;;;;;1
-OO_MOTTAKER;PE_IY_04_120;0;U;VB;brevgr004;Vedtak - overføring av omsorgsopptjening brev til mottaker;GG;;;;;;1;;;;;1
-OO_AVGIVER;PE_IY_04_121;0;U;VB;brevgr004;Vedtak - overføring av omsorgsopptjening brev til avgiver;GG;;;;;;1;;;;;1
-VARSEL_TILB_KREV;PE_IY_05_028;0;U;IB;brevgr004;Forhåndsvarsel for tilbakekreving;OVRIGE;;;;;;1;;;;;1
-OMSORGP_SOKNAD_MOR;PE_IY_05_104;0;U;IB;brevgr001;Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01);OVRIGE;BREV_MED_SKJEMA;NASJONALT;SAK;;;1;;;;;1
-OMSORGP_SOKNAD_FAR;PE_IY_05_105;0;U;IB;brevgr001;Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02);OVRIGE;BREV_MED_SKJEMA;NASJONALT;SAK;;;1;;;;;1
-OMSORGP_ORIENT_GODS;PE_IY_05_200;0;U;B;brevgr004;Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4;GG;VEDTAK;NASJONALT;VEDTAK;;ALLE;1;;;;;1
-OMSORGP_BARN;PE_IY_05_201;0;U;B;brevgr004;Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn;GG;VEDTAK;NASJONALT;VEDTAK;;ALLE;1;;;;;1
-VARS_LANG_SAKS_AUTO;PE_IY_05_241;0;U;B;brevgr007;Varsel om lang saksbehandlingstid;OVRIGE;INFORMASJON;ALLTID;SAK;;ALLE;1;;;;;1
-LEVEATT;PE_IY_05_410;0;U;B;brevgr001;Brev med skjema Leveattest (NAV 21-03.05);OVRIGE;BREV_MED_SKJEMA;UTLAND;SAK;;ALLE;1;;;;;1
-LEVEATT_PURRING;PE_IY_05_411;0;U;B;brevgr001;Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05);OVRIGE;INNHENTE_OPPL;UTLAND;SAK;;ALLE;1;;;;;1
-LEVEATT_ALT;PE_IY_06_510;0;U;B;brevgr001;Brev med skjema Alternativ leveattest (NAV 21-03.06);OVRIGE;BREV_MED_SKJEMA;UTLAND;SAK;;ALLE;1;;;;;1
-LEVEATT_PURRING_ALT;PE_IY_06_511;0;U;B;brevgr001;Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06);OVRIGE;INNHENTE_OPPL;UTLAND;SAK;;ALLE;1;;;;;1
-KONV_UP_TIL_UT;PE_UT_01_001;0;U;IB;brevgr001;Informasjonsbrev om overgang fra uførepensjon til uføretrygd;;;;;;;0;;;;;1
-NY_BER_UT_BT;PE_UT_04_108;0;U;VB;brevgr010;Vedtak - Ny beregning av barnetillegget (auto);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-ENDRING_UT;PE_UT_04_300;1;U;VB;brevgr010;Vedtak - omregning av uførepensjon til uføretrygd;OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-TILST_UT;PE_UT_04_500;0;U;VB;brevgr010;Vedtak - endring av uføretrygd fordi ektefelles/partners/samboers ytelse er opphørt (automatisk);;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;0
-ENDR_UT_PGA_INNT;PE_UT_05_100;0;U;VB;brevgr010;Vedtak - endring av uføretrygd på grunn av inntekt (automatisk);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-NY_BER_UT_ENDR_OPPTJ;PE_UT_06_100;0;U;VB;brevgr010;Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-OMREGN_UP_TIL_UT;PE_UT_14_300;0;U;VB;brevgr010;Vedtak - omregning av uførepensjon til uføretrygd (automatisk);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-UT_EO_VARSEL_FU;PE_UT_23_001;0;U;VB;brevgr010;Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk);OVRIGE;VARSEL;ALLTID;VEDTAK;;ALLE;1;;;;;1
-UT_EO_VEDTAK_EB;PE_UT_23_101;0;U;VB;brevgr010;Vedtak om etteroppgjør - etterbetaling;OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-ENDRING_UT_BT;PE_UT_06_300;0;U;VB;brevgr010;Endring av barnetillegg i uføretrygden;OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1
-OPPHOR_ENDRING_UT_BT;PE_UT_07_200;0;U;VB;brevgr010;Vedtak - opphør av barnetillegg (automatisk);OVRIGE;VEDTAK;;;;;1;;;;;1
+";1;
+AFPEO_BREV_B;PE_AF_03_100;0;U;B;brevgr004;Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør;GG;;;;;;1;;;;;1;
+AFPEO_BREV_A;PE_AF_04_100;0;U;VB;brevgr004;Vedtak - ingen endring - AFP etteroppgjør;GG;;;;;;1;;;;;1;
+AFPEO_BREV_C;PE_AF_04_101;0;U;VB;brevgr004;Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør;GG;;;;;;1;;;;;1;
+AFPEO_BREV_D;PE_AF_04_102;0;U;VB;brevgr004;Vedtak - ingen endring (andre avvik) - AFP etteroppgjør;GG;;;;;;1;;;;;1;
+AFPEO_TILBAKEKREVING;PE_AF_04_107;0;U;VB;brevgr004;Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør;GG;VEDTAK;NASJONALT;VEDTAK;;AFP_EO;1;;;;;1;
+AFPP_INNVILG_AUTO;PE_AF_04_115;0;U;VB;brevgr007;Vedtak - innvilgelse av AFP i privat sektor;;;;;;;1;;;;;1;
+AFPP_AVSL_AUTO;PE_AF_04_116;0;U;VB;brevgr007;Vedtak - avslag på AFP i privat sektor;;;;;;;1;;;;;1;
+FYLLER_67;PE_AP_01_001;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år;GG;INFORMASJON;NASJONALT;SAK;;;1;;;;;1;
+HAR_AFP_FYLLER_67;PE_AP_01_002;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år som har hatt gradert AFP;GG;;;;;;1;;;;;0;
+HAR_FP_FYLLER_67;PE_AP_01_003;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år som har mottatt redusert pensjon til familiepleier;GG;;;;;;1;;;;;0;
+FYLLER_70;PE_AP_01_004;0;U;IB;brevgr001;Informasjon til deg som snart fyller 70 år som ikke har hatt ytelser fra folketrygden;GG;INFORMASJON;NASJONALT;SAK;;;1;;;;;0;
+HAR_GJENLEV_FYLLE_67;PE_AP_01_005;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 år som har mottatt redusert gjenlevendepensjon;GG;;;;;;1;;;;;0;
+AP_INNVILG_UTL;PE_AP_04_203;1;U;VB;brevgr011;Vedtak - innvilgelse av alderspensjon - utenlandssak;GN;VEDTAK;UTLAND;VEDTAK;;ALLE;1;;;;;1;
+AP_AVSLAG_AUTO;PE_AP_04_210;0;U;VB;brevgr011;Vedtak - avslag på alderspensjon;GN;;;;;;1;;;;;1;
+AP_AVSL_UTL_AUTO;PE_AP_04_213;0;U;VB;brevgr011;Vedtak - avslag på alderspensjon - utenlandssak;GN;;;;;;1;;;;;1;
+AP_ENDR_GRAD_AUTO;PE_AP_04_227;0;U;VB;brevgr011;Vedtak - innvilgelse av endret uttaksgrad for alderspensjon;GN;;;;;;1;;;;;1;
+DUMMYBREV;PE_AP_05_001;1;U;VB;brevgr001;Dummybrev AP 2016/2025;;;;;;;1;;;;;1;
+GJP_FULL_3MND_67;PE_BA_01_101;0;U;B;brevgr001;Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon;;;;;;;1;;;;;1;
+GJP_AVKORT_3MND_67;PE_BA_01_102;0;U;B;brevgr001;Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon;;;;;;;1;;;;;1;
+AFP_3MND_67;PE_BA_01_106;0;U;B;brevgr001;Informasjon til deg som fyller 67 år og mottar AFP;;;;;;;1;;;;;1;
+INFOBREV_VP_ET;PE_BA_01_108;0;U;IB;brevgr001;Informasjon om vilkår for rett til ektefelletillegg;;INFORMASJON;NASJONALT;SAK;;;1;;;;;1;
+AFP_EO_AVVIK_INFO;PE_BA_01_200;0;U;IB;brevgr001;Informasjonsbrev AFP etteroppgjør;;;;;;;1;;;;;0;
+FORSORG_BT_OPPH;PE_BA_04_501;0;U;VB;brevgr002;Vedtak - forsørgingstillegg fra folketrygden;GG;;;;;;1;;;;;1;
+FORSORG_ET_BT_OPPH;PE_BA_04_502;0;U;VB;brevgr002;Vedtak - forsørgingstillegg fra folketrygden;GG;;;;;;1;;;;;1;
+FORSORG_ET_OPPH;PE_BA_04_503;0;U;VB;brevgr002;Vedtak - forsørgingstillegg fra folketrygden;GG;;;;;;1;;;;;1;
+KONV_YT_ALDERSOVERG;PE_BA_04_504;0;U;VB;brevgr002;Vedtak - alderspensjon fra folketrygden;GG;;;;;;1;;;;;1;
+UP_FULLTT_BELOPENDR;PE_BA_04_505;0;U;VB;brevgr010;Vedtak - endring av uføretrygd fordi du fyller 20 år;GG;;;;;;1;;;;;1;
+AP_FULLTT_BELOPENDR;PE_BA_04_506;0;U;VB;brevgr002;Vedtak - endring av alderspensjon fordi du fyller 70 år;GG;;;;;;1;;;;;1;
+P_UTBETALING_OKER;PE_BA_04_507;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1;
+P_UTBETALING_MINKER;PE_BA_04_508;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1;
+GJR_UTBET_OKER;PE_BA_04_509;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1;
+GJR_UTBET_MINKER;PE_BA_04_510;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1;
+BP_UTBET_OKER;PE_BA_04_511;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1;
+BP_UTBET_MINKER;PE_BA_04_512;0;U;VB;brevgr002;Vedtak - endring i pensjonsopptjening;GG;;;;;;1;;;;;1;
+ALDER_IVERK;PE_BA_04_515;0;U;VB;brevgr002;Vedtak - alderspensjon fra folketrygden;GG;;;;;;1;;;;;1;
+ALDER_SAMM_IVERK;PE_BA_04_516;0;U;VB;brevgr002;Vedtak - alderspensjon fra folketrygden;GG;;;;;;1;;;;;1;
+REV_TIL_AP_PGA_DOD;PE_BA_04_520;0;U;VB;brevgr002;Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1;
+TILST_AP;PE_BA_04_520;0;U;VB;brevgr002;Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1;
+REV_TIL_UP_PGA_DOD;PE_BA_04_521;0;U;VB;brevgr002;Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret;GG;;;;;;1;;;;;1;
+TILST_UP;PE_BA_04_521;0;U;VB;brevgr002;Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret;GG;;;;;;1;;;;;1;
+REV_TIL_AFP_PGA_DOD;PE_BA_04_522;0;U;VB;brevgr002;Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1;
+TILST_AFP;PE_BA_04_522;0;U;VB;brevgr002;Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1;
+TILST_GJP;PE_BA_04_523;0;U;VB;brevgr002;Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret;GG;;;;;;1;;;;;1;
+AO_AP_UP_67_2011;PE_BA_04_528;0;U;VB;brevgr007;Vedtak - omregning av uføretrygd til alderspensjon;GN;;;;;;1;;;;;1;
+AO_AP_AFP_67_2011;PE_BA_04_530;0;U;VB;brevgr007;Vedtak - omregning av AFP til alderspensjon;GN;;;;;;1;;;;;1;
+VEDTAK_SKJERMT;PE_BA_04_534;0;U;VB;brevgr007;Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg;GN;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;
+OMR_BP_OPPH;PE_BP_04_022;0;U;VB;brevgr002;Vedtak - omregning  av barnepensjon;GG;;;;;;1;;;;;1;
+OPPHOR_ET_NN;PE_FT_01_004;0;U;VB;brevgr007;Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon;NN;;;;;;1;;;;;1;
+OPPHOR_ET_GG;PE_FT_01_005;0;U;VB;brevgr002;Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon;GG;;;;;;1;;;;;1;
+OMSORGP_INNVILG;PE_IY_04_001;0;U;VB;brevgr004;Vedtak - innvilgelse av omsorgsopptjening ved pleie og omsorg for eldre syke og funksjonshemmede;GG;VEDTAK;NASJONALT;VEDTAK;;ALLE;1;;;;;1;
+VEDTAK_TILB_KREV;PE_IY_04_062;0;U;VB;brevgr004;Vedtak om tilbakekreving;OVRIGE;;;;;;1;;;;;1;
+OO_MOTTAKER;PE_IY_04_120;0;U;VB;brevgr004;Vedtak - overføring av omsorgsopptjening brev til mottaker;GG;;;;;;1;;;;;1;
+OO_AVGIVER;PE_IY_04_121;0;U;VB;brevgr004;Vedtak - overføring av omsorgsopptjening brev til avgiver;GG;;;;;;1;;;;;1;
+VARSEL_TILB_KREV;PE_IY_05_028;0;U;IB;brevgr004;Forhåndsvarsel for tilbakekreving;OVRIGE;;;;;;1;;;;;1;
+OMSORGP_SOKNAD_MOR;PE_IY_05_104;0;U;IB;brevgr001;Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01);OVRIGE;BREV_MED_SKJEMA;NASJONALT;SAK;;;1;;;;;1;
+OMSORGP_SOKNAD_FAR;PE_IY_05_105;0;U;IB;brevgr001;Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02);OVRIGE;BREV_MED_SKJEMA;NASJONALT;SAK;;;1;;;;;1;
+OMSORGP_ORIENT_GODS;PE_IY_05_200;0;U;B;brevgr004;Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4;GG;VEDTAK;NASJONALT;VEDTAK;;ALLE;1;;;;;1;
+OMSORGP_BARN;PE_IY_05_201;0;U;B;brevgr004;Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn;GG;VEDTAK;NASJONALT;VEDTAK;;ALLE;1;;;;;1;
+VARS_LANG_SAKS_AUTO;PE_IY_05_241;0;U;B;brevgr007;Varsel om lang saksbehandlingstid;OVRIGE;INFORMASJON;ALLTID;SAK;;ALLE;1;;;;;1;
+LEVEATT;PE_IY_05_410;0;U;B;brevgr001;Brev med skjema Leveattest (NAV 21-03.05);OVRIGE;BREV_MED_SKJEMA;UTLAND;SAK;;ALLE;1;;;;;1;
+LEVEATT_PURRING;PE_IY_05_411;0;U;B;brevgr001;Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05);OVRIGE;INNHENTE_OPPL;UTLAND;SAK;;ALLE;1;;;;;1;
+LEVEATT_ALT;PE_IY_06_510;0;U;B;brevgr001;Brev med skjema Alternativ leveattest (NAV 21-03.06);OVRIGE;BREV_MED_SKJEMA;UTLAND;SAK;;ALLE;1;;;;;1;
+LEVEATT_PURRING_ALT;PE_IY_06_511;0;U;B;brevgr001;Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06);OVRIGE;INNHENTE_OPPL;UTLAND;SAK;;ALLE;1;;;;;1;
+KONV_UP_TIL_UT;PE_UT_01_001;0;U;IB;brevgr001;Informasjonsbrev om overgang fra uførepensjon til uføretrygd;;;;;;;0;;;;;1;3
+NY_BER_UT_BT;PE_UT_04_108;0;U;VB;brevgr010;Vedtak - Ny beregning av barnetillegget (auto);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;3
+ENDRING_UT;PE_UT_04_300;1;U;VB;brevgr010;Vedtak - omregning av uførepensjon til uføretrygd;OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;3
+TILST_UT;PE_UT_04_500;0;U;VB;brevgr010;Vedtak - endring av uføretrygd fordi ektefelles/partners/samboers ytelse er opphørt (automatisk);;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;0;
+ENDR_UT_PGA_INNT;PE_UT_05_100;0;U;VB;brevgr010;Vedtak - endring av uføretrygd på grunn av inntekt (automatisk);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;3
+NY_BER_UT_ENDR_OPPTJ;PE_UT_06_100;0;U;VB;brevgr010;Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;3
+OMREGN_UP_TIL_UT;PE_UT_14_300;0;U;VB;brevgr010;Vedtak - omregning av uførepensjon til uføretrygd (automatisk);OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;3
+UT_EO_VARSEL_FU;PE_UT_23_001;0;U;VB;brevgr010;Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk);OVRIGE;VARSEL;ALLTID;VEDTAK;;ALLE;1;;;;;1;
+UT_EO_VEDTAK_EB;PE_UT_23_101;0;U;VB;brevgr010;Vedtak om etteroppgjør - etterbetaling;OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;
+ENDRING_UT_BT;PE_UT_06_300;0;U;VB;brevgr010;Endring av barnetillegg i uføretrygden;OVRIGE;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;3
+OPPHOR_ENDRING_UT_BT;PE_UT_07_200;0;U;VB;brevgr010;Vedtak - opphør av barnetillegg (automatisk);OVRIGE;VEDTAK;;;;;1;;;;;1;

@@ -17,6 +17,7 @@ public abstract class Brev extends Brevdata {
     private BrevkontekstCode brevkontekst;
     private DokumentkategoriCode dokumentkategori;
     private Boolean synligForVeileder;
+    private Integer prioritet;
 
 
     public Brev(String brevkodeInBrevsystem,
@@ -32,7 +33,8 @@ public abstract class Brev extends Brevdata {
                 DokumentkategoriCode dokumentkategori,
                 Boolean synligForVeileder,
                 BrevkontekstCode brevkontekst,
-                BrevsystemCode brevsystem
+                BrevsystemCode brevsystem,
+                Integer prioritet
     ) {
         super(brevkodeInBrevsystem, brevsystem);
         this.redigerbart = redigerbart;
@@ -47,6 +49,7 @@ public abstract class Brev extends Brevdata {
         this.dokumentkategori = dokumentkategori;
         this.synligForVeileder = synligForVeileder;
         this.brevkontekst = brevkontekst;
+        this.prioritet = prioritet;
     }
 
     public boolean isRedigerbart() {
@@ -144,5 +147,13 @@ public abstract class Brev extends Brevdata {
 
     public void setSynligForVeileder(Boolean synligForVeileder) {
         this.synligForVeileder = synligForVeileder;
+    }
+
+    public Integer getPrioritet() {
+        return prioritet;
+    }
+
+    public void setPrioritet(Integer prioritet) {
+        this.prioritet = prioritet;
     }
 }

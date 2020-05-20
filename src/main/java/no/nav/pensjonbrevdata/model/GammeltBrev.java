@@ -21,6 +21,7 @@ public class GammeltBrev extends Brev {
                        DokumentkategoriCode dokumentkategori,
                        Boolean synligForVeileder,
                        BrevkontekstCode brevkontekst,
+                       Integer prioritet,
                        String brevgruppe) {
         super(brevkodeInBrevsystem,
                 redigerbart,
@@ -35,7 +36,8 @@ public class GammeltBrev extends Brev {
                 dokumentkategori,
                 synligForVeileder,
                 brevkontekst,
-                BrevsystemCode.GAMMEL);
+                BrevsystemCode.GAMMEL,
+                prioritet);
         this.brevgruppe = brevgruppe;
     }
 

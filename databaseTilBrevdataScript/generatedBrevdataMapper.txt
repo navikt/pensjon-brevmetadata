@@ -12,6 +12,7 @@ brevMap.put("E001", () ->
 		DokumentkategoriCode.E_BLANKETT,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("E204", () ->
 	new GammeltBrev("E204",
@@ -25,6 +26,7 @@ brevMap.put("E204", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.E_BLANKETT,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -42,6 +44,7 @@ brevMap.put("E205", () ->
 		DokumentkategoriCode.E_BLANKETT,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("E210", () ->
 	new GammeltBrev("E210",
@@ -55,6 +58,7 @@ brevMap.put("E210", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.E_BLANKETT,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -72,6 +76,7 @@ brevMap.put("E211", () ->
 		DokumentkategoriCode.E_BLANKETT,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("H001", () ->
 	new GammeltBrev("H001",
@@ -85,6 +90,7 @@ brevMap.put("H001", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -102,6 +108,7 @@ brevMap.put("H002", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("H061", () ->
 	new GammeltBrev("H061",
@@ -115,6 +122,7 @@ brevMap.put("H061", () ->
 		null,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"INGEN_BREVGRUPPE"));
@@ -132,6 +140,7 @@ brevMap.put("H062", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"INGEN_BREVGRUPPE"));
 brevMap.put("H070", () ->
 	new GammeltBrev("H070",
@@ -145,6 +154,7 @@ brevMap.put("H070", () ->
 		null,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"INGEN_BREVGRUPPE"));
@@ -162,6 +172,7 @@ brevMap.put("PE_AF_03_100", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_03_101", () ->
 	new GammeltBrev("PE_AF_03_101",
@@ -177,6 +188,7 @@ brevMap.put("PE_AF_03_101", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_001", () ->
 	new GammeltBrev("PE_AF_04_001",
@@ -192,6 +204,7 @@ brevMap.put("PE_AF_04_001", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AF_04_010", () ->
 	new GammeltBrev("PE_AF_04_010",
@@ -207,6 +220,7 @@ brevMap.put("PE_AF_04_010", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_AF_04_020", () ->
 	new GammeltBrev("PE_AF_04_020",
@@ -222,6 +236,7 @@ brevMap.put("PE_AF_04_020", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AF_04_100", () ->
 	new GammeltBrev("PE_AF_04_100",
@@ -235,6 +250,7 @@ brevMap.put("PE_AF_04_100", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -252,6 +268,7 @@ brevMap.put("PE_AF_04_101", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_102", () ->
 	new GammeltBrev("PE_AF_04_102",
@@ -265,6 +282,7 @@ brevMap.put("PE_AF_04_102", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -282,6 +300,7 @@ brevMap.put("PE_AF_04_103", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_104", () ->
 	new GammeltBrev("PE_AF_04_104",
@@ -297,6 +316,7 @@ brevMap.put("PE_AF_04_104", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_105", () ->
 	new GammeltBrev("PE_AF_04_105",
@@ -312,6 +332,7 @@ brevMap.put("PE_AF_04_105", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_106", () ->
 	new GammeltBrev("PE_AF_04_106",
@@ -327,6 +348,7 @@ brevMap.put("PE_AF_04_106", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_107", () ->
 	new GammeltBrev("PE_AF_04_107",
@@ -342,6 +364,7 @@ brevMap.put("PE_AF_04_107", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("E202", () ->
 	new GammeltBrev("E202",
@@ -355,6 +378,7 @@ brevMap.put("E202", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.E_BLANKETT,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -372,6 +396,7 @@ brevMap.put("E202_E205", () ->
 		DokumentkategoriCode.E_BLANKETT,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("PE_AF_04_108", () ->
 	new GammeltBrev("PE_AF_04_108",
@@ -387,6 +412,7 @@ brevMap.put("PE_AF_04_108", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_109", () ->
 	new GammeltBrev("PE_AF_04_109",
@@ -402,6 +428,7 @@ brevMap.put("PE_AF_04_109", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_110", () ->
 	new GammeltBrev("PE_AF_04_110",
@@ -417,6 +444,7 @@ brevMap.put("PE_AF_04_110", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_AF_04_111", () ->
 	new GammeltBrev("PE_AF_04_111",
@@ -432,6 +460,7 @@ brevMap.put("PE_AF_04_111", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_AF_04_112", () ->
 	new GammeltBrev("PE_AF_04_112",
@@ -447,6 +476,7 @@ brevMap.put("PE_AF_04_112", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_AF_04_113", () ->
 	new GammeltBrev("PE_AF_04_113",
@@ -460,6 +490,7 @@ brevMap.put("PE_AF_04_113", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -477,6 +508,7 @@ brevMap.put("PE_AF_04_114", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_AF_04_115", () ->
 	new GammeltBrev("PE_AF_04_115",
@@ -490,6 +522,7 @@ brevMap.put("PE_AF_04_115", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -507,6 +540,7 @@ brevMap.put("PE_AF_04_116", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("PE_AP_01_001", () ->
 	new GammeltBrev("PE_AP_01_001",
@@ -522,6 +556,7 @@ brevMap.put("PE_AP_01_001", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_AP_01_006", () ->
 	new GammeltBrev("PE_AP_01_006",
@@ -537,6 +572,7 @@ brevMap.put("PE_AP_01_006", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_AP_01_007", () ->
 	new GammeltBrev("PE_AP_01_007",
@@ -552,6 +588,7 @@ brevMap.put("PE_AP_01_007", () ->
 		DokumentkategoriCode.IB,
 		true,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_AP_01_011", () ->
 	new GammeltBrev("PE_AP_01_011",
@@ -565,6 +602,7 @@ brevMap.put("PE_AP_01_011", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.IB,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -582,6 +620,7 @@ brevMap.put("PE_AP_01_015", () ->
 		DokumentkategoriCode.IB,
 		null,
 		null,
+		null,
 		"brevgr001"));
 brevMap.put("PE_AP_01_019", () ->
 	new GammeltBrev("PE_AP_01_019",
@@ -595,6 +634,7 @@ brevMap.put("PE_AP_01_019", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.IB,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -612,6 +652,7 @@ brevMap.put("PE_AP_04_001", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_010", () ->
 	new GammeltBrev("PE_AP_04_010",
@@ -627,6 +668,7 @@ brevMap.put("PE_AP_04_010", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_AP_04_020", () ->
 	new GammeltBrev("PE_AP_04_020",
@@ -642,6 +684,7 @@ brevMap.put("PE_AP_04_020", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_202", () ->
 	new GammeltBrev("PE_AP_04_202",
@@ -657,6 +700,7 @@ brevMap.put("PE_AP_04_202", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_203", () ->
 	new GammeltBrev("PE_AP_04_203",
@@ -672,6 +716,7 @@ brevMap.put("PE_AP_04_203", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_210", () ->
 	new GammeltBrev("PE_AP_04_210",
@@ -685,6 +730,7 @@ brevMap.put("PE_AP_04_210", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr011"));
@@ -702,6 +748,7 @@ brevMap.put("PE_AP_04_211", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_212", () ->
 	new GammeltBrev("PE_AP_04_212",
@@ -717,6 +764,7 @@ brevMap.put("PE_AP_04_212", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_213", () ->
 	new GammeltBrev("PE_AP_04_213",
@@ -730,6 +778,7 @@ brevMap.put("PE_AP_04_213", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr011"));
@@ -747,6 +796,7 @@ brevMap.put("PE_AP_04_214", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_215", () ->
 	new GammeltBrev("PE_AP_04_215",
@@ -762,6 +812,7 @@ brevMap.put("PE_AP_04_215", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_216", () ->
 	new GammeltBrev("PE_AP_04_216",
@@ -777,6 +828,7 @@ brevMap.put("PE_AP_04_216", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_220", () ->
 	new GammeltBrev("PE_AP_04_220",
@@ -792,6 +844,7 @@ brevMap.put("PE_AP_04_220", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_221", () ->
 	new GammeltBrev("PE_AP_04_221",
@@ -805,6 +858,7 @@ brevMap.put("PE_AP_04_221", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr011"));
@@ -822,6 +876,7 @@ brevMap.put("PE_AP_04_222", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_AP_04_223", () ->
 	new GammeltBrev("PE_AP_04_223",
@@ -837,6 +892,7 @@ brevMap.put("PE_AP_04_223", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_224", () ->
 	new GammeltBrev("PE_AP_04_224",
@@ -852,6 +908,7 @@ brevMap.put("PE_AP_04_224", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_225", () ->
 	new GammeltBrev("PE_AP_04_225",
@@ -867,6 +924,7 @@ brevMap.put("PE_AP_04_225", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_226", () ->
 	new GammeltBrev("PE_AP_04_226",
@@ -880,6 +938,7 @@ brevMap.put("PE_AP_04_226", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr011"));
@@ -897,6 +956,7 @@ brevMap.put("PE_AP_04_227", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr011"));
 brevMap.put("PE_AP_04_901", () ->
 	new GammeltBrev("PE_AP_04_901",
@@ -912,6 +972,7 @@ brevMap.put("PE_AP_04_901", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_902", () ->
 	new GammeltBrev("PE_AP_04_902",
@@ -927,6 +988,7 @@ brevMap.put("PE_AP_04_902", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_903", () ->
 	new GammeltBrev("PE_AP_04_903",
@@ -942,6 +1004,7 @@ brevMap.put("PE_AP_04_903", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_904", () ->
 	new GammeltBrev("PE_AP_04_904",
@@ -957,6 +1020,7 @@ brevMap.put("PE_AP_04_904", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_910", () ->
 	new GammeltBrev("PE_AP_04_910",
@@ -972,6 +1036,7 @@ brevMap.put("PE_AP_04_910", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_AP_04_911", () ->
 	new GammeltBrev("PE_AP_04_911",
@@ -987,6 +1052,7 @@ brevMap.put("PE_AP_04_911", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_AP_04_912", () ->
 	new GammeltBrev("PE_AP_04_912",
@@ -1002,6 +1068,7 @@ brevMap.put("PE_AP_04_912", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_AP_04_913", () ->
 	new GammeltBrev("PE_AP_04_913",
@@ -1017,6 +1084,7 @@ brevMap.put("PE_AP_04_913", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_914", () ->
 	new GammeltBrev("PE_AP_04_914",
@@ -1032,6 +1100,7 @@ brevMap.put("PE_AP_04_914", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_920", () ->
 	new GammeltBrev("PE_AP_04_920",
@@ -1047,6 +1116,7 @@ brevMap.put("PE_AP_04_920", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_AP_04_921", () ->
 	new GammeltBrev("PE_AP_04_921",
@@ -1060,6 +1130,7 @@ brevMap.put("PE_AP_04_921", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr011"));
@@ -1077,6 +1148,7 @@ brevMap.put("PE_AP_04_922", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_AP_05_001", () ->
 	new GammeltBrev("PE_AP_05_001",
@@ -1090,6 +1162,7 @@ brevMap.put("PE_AP_05_001", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -1107,6 +1180,7 @@ brevMap.put("PE_BA_01_100", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr001"));
 brevMap.put("PE_BA_01_103", () ->
 	new GammeltBrev("PE_BA_01_103",
@@ -1120,6 +1194,7 @@ brevMap.put("PE_BA_01_103", () ->
 		null,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -1137,6 +1212,7 @@ brevMap.put("PE_BA_01_104", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr001"));
 brevMap.put("PE_BA_01_105", () ->
 	new GammeltBrev("PE_BA_01_105",
@@ -1150,6 +1226,7 @@ brevMap.put("PE_BA_01_105", () ->
 		null,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -1167,6 +1244,7 @@ brevMap.put("PE_BA_01_106", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr001"));
 brevMap.put("PE_BA_01_107", () ->
 	new GammeltBrev("PE_BA_01_107",
@@ -1180,6 +1258,7 @@ brevMap.put("PE_BA_01_107", () ->
 		null,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -1197,6 +1276,7 @@ brevMap.put("PE_BA_01_108", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_BA_04_501", () ->
 	new GammeltBrev("PE_BA_04_501",
@@ -1210,6 +1290,7 @@ brevMap.put("PE_BA_04_501", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1227,6 +1308,7 @@ brevMap.put("PE_BA_04_502", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_503", () ->
 	new GammeltBrev("PE_BA_04_503",
@@ -1240,6 +1322,7 @@ brevMap.put("PE_BA_04_503", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1257,6 +1340,7 @@ brevMap.put("PE_BA_04_504", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_505", () ->
 	new GammeltBrev("PE_BA_04_505",
@@ -1270,6 +1354,7 @@ brevMap.put("PE_BA_04_505", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr010"));
@@ -1287,6 +1372,7 @@ brevMap.put("PE_BA_04_506", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_507", () ->
 	new GammeltBrev("PE_BA_04_507",
@@ -1300,6 +1386,7 @@ brevMap.put("PE_BA_04_507", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1317,6 +1404,7 @@ brevMap.put("PE_BA_04_508", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_509", () ->
 	new GammeltBrev("PE_BA_04_509",
@@ -1330,6 +1418,7 @@ brevMap.put("PE_BA_04_509", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1347,6 +1436,7 @@ brevMap.put("PE_BA_04_510", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_511", () ->
 	new GammeltBrev("PE_BA_04_511",
@@ -1360,6 +1450,7 @@ brevMap.put("PE_BA_04_511", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1377,6 +1468,7 @@ brevMap.put("PE_BA_04_512", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_515", () ->
 	new GammeltBrev("PE_BA_04_515",
@@ -1390,6 +1482,7 @@ brevMap.put("PE_BA_04_515", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1407,6 +1500,7 @@ brevMap.put("PE_BA_04_516", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_520", () ->
 	new GammeltBrev("PE_BA_04_520",
@@ -1420,6 +1514,7 @@ brevMap.put("PE_BA_04_520", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1437,6 +1532,7 @@ brevMap.put("PE_BA_04_521", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_522", () ->
 	new GammeltBrev("PE_BA_04_522",
@@ -1450,6 +1546,7 @@ brevMap.put("PE_BA_04_522", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1467,6 +1564,7 @@ brevMap.put("PE_BA_04_523", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BA_04_525", () ->
 	new GammeltBrev("PE_BA_04_525",
@@ -1480,6 +1578,7 @@ brevMap.put("PE_BA_04_525", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -1497,6 +1596,7 @@ brevMap.put("PE_BA_04_526", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("PE_BA_04_527", () ->
 	new GammeltBrev("PE_BA_04_527",
@@ -1510,6 +1610,7 @@ brevMap.put("PE_BA_04_527", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -1527,6 +1628,7 @@ brevMap.put("PE_BA_04_528", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("PE_BA_04_530", () ->
 	new GammeltBrev("PE_BA_04_530",
@@ -1540,6 +1642,7 @@ brevMap.put("PE_BA_04_530", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -1557,6 +1660,7 @@ brevMap.put("PE_BA_04_531", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("PE_BA_04_532", () ->
 	new GammeltBrev("PE_BA_04_532",
@@ -1570,6 +1674,7 @@ brevMap.put("PE_BA_04_532", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -1587,6 +1692,7 @@ brevMap.put("PE_BA_04_533", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("PE_BA_04_534", () ->
 	new GammeltBrev("PE_BA_04_534",
@@ -1602,6 +1708,7 @@ brevMap.put("PE_BA_04_534", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_BP_01_001", () ->
 	new GammeltBrev("PE_BP_01_001",
@@ -1617,6 +1724,7 @@ brevMap.put("PE_BP_01_001", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_BP_01_002", () ->
 	new GammeltBrev("PE_BP_01_002",
@@ -1632,6 +1740,7 @@ brevMap.put("PE_BP_01_002", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_BP_04_001", () ->
 	new GammeltBrev("PE_BP_04_001",
@@ -1647,6 +1756,7 @@ brevMap.put("PE_BP_04_001", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BP_04_002", () ->
 	new GammeltBrev("PE_BP_04_002",
@@ -1662,6 +1772,7 @@ brevMap.put("PE_BP_04_002", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BP_04_010", () ->
 	new GammeltBrev("PE_BP_04_010",
@@ -1677,6 +1788,7 @@ brevMap.put("PE_BP_04_010", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_BP_04_011", () ->
 	new GammeltBrev("PE_BP_04_011",
@@ -1692,6 +1804,7 @@ brevMap.put("PE_BP_04_011", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_BP_04_020", () ->
 	new GammeltBrev("PE_BP_04_020",
@@ -1707,6 +1820,7 @@ brevMap.put("PE_BP_04_020", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BP_04_021", () ->
 	new GammeltBrev("PE_BP_04_021",
@@ -1722,6 +1836,7 @@ brevMap.put("PE_BP_04_021", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_BP_04_022", () ->
 	new GammeltBrev("PE_BP_04_022",
@@ -1735,6 +1850,7 @@ brevMap.put("PE_BP_04_022", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -1752,6 +1868,7 @@ brevMap.put("PE_BP_04_030", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_BP_04_031", () ->
 	new GammeltBrev("PE_BP_04_031",
@@ -1767,6 +1884,7 @@ brevMap.put("PE_BP_04_031", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_FT_01_001", () ->
 	new GammeltBrev("PE_FT_01_001",
@@ -1782,6 +1900,7 @@ brevMap.put("PE_FT_01_001", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_FT_01_002", () ->
 	new GammeltBrev("PE_FT_01_002",
@@ -1797,6 +1916,7 @@ brevMap.put("PE_FT_01_002", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_FT_01_003", () ->
 	new GammeltBrev("PE_FT_01_003",
@@ -1812,6 +1932,7 @@ brevMap.put("PE_FT_01_003", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_FT_01_004", () ->
 	new GammeltBrev("PE_FT_01_004",
@@ -1825,6 +1946,7 @@ brevMap.put("PE_FT_01_004", () ->
 		BrevregeltypeCode.NN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -1842,6 +1964,7 @@ brevMap.put("PE_FT_01_005", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("PE_FT_01_006", () ->
 	new GammeltBrev("PE_FT_01_006",
@@ -1857,6 +1980,7 @@ brevMap.put("PE_FT_01_006", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_FT_01_007", () ->
 	new GammeltBrev("PE_FT_01_007",
@@ -1872,6 +1996,7 @@ brevMap.put("PE_FT_01_007", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_01_010", () ->
 	new GammeltBrev("PE_GP_01_010",
@@ -1887,6 +2012,7 @@ brevMap.put("PE_GP_01_010", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_GP_01_011", () ->
 	new GammeltBrev("PE_GP_01_011",
@@ -1902,6 +2028,7 @@ brevMap.put("PE_GP_01_011", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_GP_01_012", () ->
 	new GammeltBrev("PE_GP_01_012",
@@ -1917,6 +2044,7 @@ brevMap.put("PE_GP_01_012", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_GP_04_001", () ->
 	new GammeltBrev("PE_GP_04_001",
@@ -1932,6 +2060,7 @@ brevMap.put("PE_GP_04_001", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_010", () ->
 	new GammeltBrev("PE_GP_04_010",
@@ -1947,6 +2076,7 @@ brevMap.put("PE_GP_04_010", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_GP_04_020", () ->
 	new GammeltBrev("PE_GP_04_020",
@@ -1962,6 +2092,7 @@ brevMap.put("PE_GP_04_020", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_022", () ->
 	new GammeltBrev("PE_GP_04_022",
@@ -1977,6 +2108,7 @@ brevMap.put("PE_GP_04_022", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_023", () ->
 	new GammeltBrev("PE_GP_04_023",
@@ -1992,6 +2124,7 @@ brevMap.put("PE_GP_04_023", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_024", () ->
 	new GammeltBrev("PE_GP_04_024",
@@ -2007,6 +2140,7 @@ brevMap.put("PE_GP_04_024", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_025", () ->
 	new GammeltBrev("PE_GP_04_025",
@@ -2022,6 +2156,7 @@ brevMap.put("PE_GP_04_025", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_026", () ->
 	new GammeltBrev("PE_GP_04_026",
@@ -2037,6 +2172,7 @@ brevMap.put("PE_GP_04_026", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_027", () ->
 	new GammeltBrev("PE_GP_04_027",
@@ -2052,6 +2188,7 @@ brevMap.put("PE_GP_04_027", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_028", () ->
 	new GammeltBrev("PE_GP_04_028",
@@ -2067,6 +2204,7 @@ brevMap.put("PE_GP_04_028", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_029", () ->
 	new GammeltBrev("PE_GP_04_029",
@@ -2082,6 +2220,7 @@ brevMap.put("PE_GP_04_029", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_GP_04_030", () ->
 	new GammeltBrev("PE_GP_04_030",
@@ -2097,6 +2236,7 @@ brevMap.put("PE_GP_04_030", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_GP_04_031", () ->
 	new GammeltBrev("PE_GP_04_031",
@@ -2112,6 +2252,7 @@ brevMap.put("PE_GP_04_031", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_GP_04_032", () ->
 	new GammeltBrev("PE_GP_04_032",
@@ -2127,6 +2268,7 @@ brevMap.put("PE_GP_04_032", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_GP_04_033", () ->
 	new GammeltBrev("PE_GP_04_033",
@@ -2142,6 +2284,7 @@ brevMap.put("PE_GP_04_033", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_GP_04_034", () ->
 	new GammeltBrev("PE_GP_04_034",
@@ -2157,6 +2300,7 @@ brevMap.put("PE_GP_04_034", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_IY_02_301", () ->
 	new GammeltBrev("PE_IY_02_301",
@@ -2170,6 +2314,7 @@ brevMap.put("PE_IY_02_301", () ->
 		null,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -2187,6 +2332,7 @@ brevMap.put("PE_IY_03_047", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_048", () ->
 	new GammeltBrev("PE_IY_03_048",
@@ -2202,6 +2348,7 @@ brevMap.put("PE_IY_03_048", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_049", () ->
 	new GammeltBrev("PE_IY_03_049",
@@ -2217,6 +2364,7 @@ brevMap.put("PE_IY_03_049", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_051", () ->
 	new GammeltBrev("PE_IY_03_051",
@@ -2232,6 +2380,7 @@ brevMap.put("PE_IY_03_051", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_150", () ->
 	new GammeltBrev("PE_IY_03_150",
@@ -2247,6 +2396,7 @@ brevMap.put("PE_IY_03_150", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_151", () ->
 	new GammeltBrev("PE_IY_03_151",
@@ -2262,6 +2412,7 @@ brevMap.put("PE_IY_03_151", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_152", () ->
 	new GammeltBrev("PE_IY_03_152",
@@ -2277,6 +2428,7 @@ brevMap.put("PE_IY_03_152", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_153", () ->
 	new GammeltBrev("PE_IY_03_153",
@@ -2292,6 +2444,7 @@ brevMap.put("PE_IY_03_153", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_154", () ->
 	new GammeltBrev("PE_IY_03_154",
@@ -2307,6 +2460,7 @@ brevMap.put("PE_IY_03_154", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_155", () ->
 	new GammeltBrev("PE_IY_03_155",
@@ -2322,6 +2476,7 @@ brevMap.put("PE_IY_03_155", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		1,
 		"brevgr001"));
 brevMap.put("PE_IY_03_156", () ->
 	new GammeltBrev("PE_IY_03_156",
@@ -2337,6 +2492,7 @@ brevMap.put("PE_IY_03_156", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		1,
 		"brevgr001"));
 brevMap.put("PE_IY_03_157", () ->
 	new GammeltBrev("PE_IY_03_157",
@@ -2352,6 +2508,7 @@ brevMap.put("PE_IY_03_157", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_158", () ->
 	new GammeltBrev("PE_IY_03_158",
@@ -2367,6 +2524,7 @@ brevMap.put("PE_IY_03_158", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_159", () ->
 	new GammeltBrev("PE_IY_03_159",
@@ -2382,6 +2540,7 @@ brevMap.put("PE_IY_03_159", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_160", () ->
 	new GammeltBrev("PE_IY_03_160",
@@ -2397,6 +2556,7 @@ brevMap.put("PE_IY_03_160", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_161", () ->
 	new GammeltBrev("PE_IY_03_161",
@@ -2412,6 +2572,7 @@ brevMap.put("PE_IY_03_161", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_162", () ->
 	new GammeltBrev("PE_IY_03_162",
@@ -2427,6 +2588,7 @@ brevMap.put("PE_IY_03_162", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_163", () ->
 	new GammeltBrev("PE_IY_03_163",
@@ -2442,6 +2604,7 @@ brevMap.put("PE_IY_03_163", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_164", () ->
 	new GammeltBrev("PE_IY_03_164",
@@ -2457,6 +2620,7 @@ brevMap.put("PE_IY_03_164", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_165", () ->
 	new GammeltBrev("PE_IY_03_165",
@@ -2472,6 +2636,7 @@ brevMap.put("PE_IY_03_165", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_166", () ->
 	new GammeltBrev("PE_IY_03_166",
@@ -2487,6 +2652,7 @@ brevMap.put("PE_IY_03_166", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_167", () ->
 	new GammeltBrev("PE_IY_03_167",
@@ -2502,6 +2668,7 @@ brevMap.put("PE_IY_03_167", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.ALLTID,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_168", () ->
 	new GammeltBrev("PE_IY_03_168",
@@ -2517,6 +2684,7 @@ brevMap.put("PE_IY_03_168", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_169", () ->
 	new GammeltBrev("PE_IY_03_169",
@@ -2532,6 +2700,7 @@ brevMap.put("PE_IY_03_169", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_170", () ->
 	new GammeltBrev("PE_IY_03_170",
@@ -2547,6 +2716,7 @@ brevMap.put("PE_IY_03_170", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_171", () ->
 	new GammeltBrev("PE_IY_03_171",
@@ -2562,6 +2732,7 @@ brevMap.put("PE_IY_03_171", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_172", () ->
 	new GammeltBrev("PE_IY_03_172",
@@ -2577,6 +2748,7 @@ brevMap.put("PE_IY_03_172", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_173", () ->
 	new GammeltBrev("PE_IY_03_173",
@@ -2592,6 +2764,7 @@ brevMap.put("PE_IY_03_173", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_174", () ->
 	new GammeltBrev("PE_IY_03_174",
@@ -2607,6 +2780,7 @@ brevMap.put("PE_IY_03_174", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_175", () ->
 	new GammeltBrev("PE_IY_03_175",
@@ -2622,6 +2796,7 @@ brevMap.put("PE_IY_03_175", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_176", () ->
 	new GammeltBrev("PE_IY_03_176",
@@ -2637,6 +2812,7 @@ brevMap.put("PE_IY_03_176", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_177", () ->
 	new GammeltBrev("PE_IY_03_177",
@@ -2652,6 +2828,7 @@ brevMap.put("PE_IY_03_177", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_178", () ->
 	new GammeltBrev("PE_IY_03_178",
@@ -2667,6 +2844,7 @@ brevMap.put("PE_IY_03_178", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_179", () ->
 	new GammeltBrev("PE_IY_03_179",
@@ -2682,6 +2860,7 @@ brevMap.put("PE_IY_03_179", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_03_180", () ->
 	new GammeltBrev("PE_IY_03_180",
@@ -2697,6 +2876,7 @@ brevMap.put("PE_IY_03_180", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_04_001", () ->
 	new GammeltBrev("PE_IY_04_001",
@@ -2712,6 +2892,7 @@ brevMap.put("PE_IY_04_001", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_IY_04_010", () ->
 	new GammeltBrev("PE_IY_04_010",
@@ -2727,6 +2908,7 @@ brevMap.put("PE_IY_04_010", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_IY_04_050", () ->
 	new GammeltBrev("PE_IY_04_050",
@@ -2742,6 +2924,7 @@ brevMap.put("PE_IY_04_050", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_04_051", () ->
 	new GammeltBrev("PE_IY_04_051",
@@ -2757,6 +2940,7 @@ brevMap.put("PE_IY_04_051", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_04_060", () ->
 	new GammeltBrev("PE_IY_04_060",
@@ -2772,6 +2956,7 @@ brevMap.put("PE_IY_04_060", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_IY_04_061", () ->
 	new GammeltBrev("PE_IY_04_061",
@@ -2787,6 +2972,7 @@ brevMap.put("PE_IY_04_061", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_IY_04_062", () ->
 	new GammeltBrev("PE_IY_04_062",
@@ -2800,6 +2986,7 @@ brevMap.put("PE_IY_04_062", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -2817,6 +3004,7 @@ brevMap.put("PE_IY_04_120", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr004"));
 brevMap.put("PE_IY_04_121", () ->
 	new GammeltBrev("PE_IY_04_121",
@@ -2830,6 +3018,7 @@ brevMap.put("PE_IY_04_121", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -2847,6 +3036,7 @@ brevMap.put("PE_IY_04_125", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_IY_04_126", () ->
 	new GammeltBrev("PE_IY_04_126",
@@ -2862,6 +3052,7 @@ brevMap.put("PE_IY_04_126", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_IY_04_127", () ->
 	new GammeltBrev("PE_IY_04_127",
@@ -2877,6 +3068,7 @@ brevMap.put("PE_IY_04_127", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_IY_05_006", () ->
 	new GammeltBrev("PE_IY_05_006",
@@ -2892,6 +3084,7 @@ brevMap.put("PE_IY_05_006", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_007", () ->
 	new GammeltBrev("PE_IY_05_007",
@@ -2907,6 +3100,7 @@ brevMap.put("PE_IY_05_007", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_008", () ->
 	new GammeltBrev("PE_IY_05_008",
@@ -2922,6 +3116,7 @@ brevMap.put("PE_IY_05_008", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_027", () ->
 	new GammeltBrev("PE_IY_05_027",
@@ -2937,6 +3132,7 @@ brevMap.put("PE_IY_05_027", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_028", () ->
 	new GammeltBrev("PE_IY_05_028",
@@ -2950,6 +3146,7 @@ brevMap.put("PE_IY_05_028", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.IB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -2967,6 +3164,7 @@ brevMap.put("PE_IY_05_041", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_101", () ->
 	new GammeltBrev("PE_IY_05_101",
@@ -2982,6 +3180,7 @@ brevMap.put("PE_IY_05_101", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_102", () ->
 	new GammeltBrev("PE_IY_05_102",
@@ -2997,6 +3196,7 @@ brevMap.put("PE_IY_05_102", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_104", () ->
 	new GammeltBrev("PE_IY_05_104",
@@ -3012,6 +3212,7 @@ brevMap.put("PE_IY_05_104", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_105", () ->
 	new GammeltBrev("PE_IY_05_105",
@@ -3027,6 +3228,7 @@ brevMap.put("PE_IY_05_105", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_111", () ->
 	new GammeltBrev("PE_IY_05_111",
@@ -3042,6 +3244,7 @@ brevMap.put("PE_IY_05_111", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_200", () ->
 	new GammeltBrev("PE_IY_05_200",
@@ -3057,6 +3260,7 @@ brevMap.put("PE_IY_05_200", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_IY_05_201", () ->
 	new GammeltBrev("PE_IY_05_201",
@@ -3072,6 +3276,7 @@ brevMap.put("PE_IY_05_201", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_IY_05_241", () ->
 	new GammeltBrev("PE_IY_05_241",
@@ -3087,6 +3292,7 @@ brevMap.put("PE_IY_05_241", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr007"));
 brevMap.put("PE_IY_05_300", () ->
 	new GammeltBrev("PE_IY_05_300",
@@ -3102,6 +3308,7 @@ brevMap.put("PE_IY_05_300", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		1,
 		"brevgr001"));
 brevMap.put("PE_IY_05_301", () ->
 	new GammeltBrev("PE_IY_05_301",
@@ -3117,6 +3324,7 @@ brevMap.put("PE_IY_05_301", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_302", () ->
 	new GammeltBrev("PE_IY_05_302",
@@ -3130,6 +3338,7 @@ brevMap.put("PE_IY_05_302", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr009"));
@@ -3147,6 +3356,7 @@ brevMap.put("PE_IY_05_303", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr009"));
 brevMap.put("PE_IY_05_304", () ->
 	new GammeltBrev("PE_IY_05_304",
@@ -3160,6 +3370,7 @@ brevMap.put("PE_IY_05_304", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr009"));
@@ -3177,6 +3388,7 @@ brevMap.put("PE_IY_05_305", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr009"));
 brevMap.put("PE_IY_05_306", () ->
 	new GammeltBrev("PE_IY_05_306",
@@ -3192,6 +3404,7 @@ brevMap.put("PE_IY_05_306", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_401", () ->
 	new GammeltBrev("PE_IY_05_401",
@@ -3207,6 +3420,7 @@ brevMap.put("PE_IY_05_401", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_402", () ->
 	new GammeltBrev("PE_IY_05_402",
@@ -3222,6 +3436,7 @@ brevMap.put("PE_IY_05_402", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_410", () ->
 	new GammeltBrev("PE_IY_05_410",
@@ -3237,6 +3452,7 @@ brevMap.put("PE_IY_05_410", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_411", () ->
 	new GammeltBrev("PE_IY_05_411",
@@ -3252,6 +3468,7 @@ brevMap.put("PE_IY_05_411", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_05_502", () ->
 	new GammeltBrev("PE_IY_05_502",
@@ -3265,6 +3482,7 @@ brevMap.put("PE_IY_05_502", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.IB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -3282,6 +3500,7 @@ brevMap.put("PE_IY_06_103", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_06_510", () ->
 	new GammeltBrev("PE_IY_06_510",
@@ -3297,6 +3516,7 @@ brevMap.put("PE_IY_06_510", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_IY_06_511", () ->
 	new GammeltBrev("PE_IY_06_511",
@@ -3312,6 +3532,7 @@ brevMap.put("PE_IY_06_511", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_OK_06_100", () ->
 	new GammeltBrev("PE_OK_06_100",
@@ -3327,6 +3548,7 @@ brevMap.put("PE_OK_06_100", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_OK_06_101", () ->
 	new GammeltBrev("PE_OK_06_101",
@@ -3342,6 +3564,7 @@ brevMap.put("PE_OK_06_101", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.ALLTID,
+		null,
 		"brevgr001"));
 brevMap.put("PE_OK_06_102", () ->
 	new GammeltBrev("PE_OK_06_102",
@@ -3357,6 +3580,7 @@ brevMap.put("PE_OK_06_102", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("PE_UP_01_001", () ->
 	new GammeltBrev("PE_UP_01_001",
@@ -3372,6 +3596,7 @@ brevMap.put("PE_UP_01_001", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_UP_04_001", () ->
 	new GammeltBrev("PE_UP_04_001",
@@ -3387,6 +3612,7 @@ brevMap.put("PE_UP_04_001", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_010", () ->
 	new GammeltBrev("PE_UP_04_010",
@@ -3402,6 +3628,7 @@ brevMap.put("PE_UP_04_010", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_UP_04_020", () ->
 	new GammeltBrev("PE_UP_04_020",
@@ -3417,6 +3644,7 @@ brevMap.put("PE_UP_04_020", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_021", () ->
 	new GammeltBrev("PE_UP_04_021",
@@ -3432,6 +3660,7 @@ brevMap.put("PE_UP_04_021", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_UP_04_022", () ->
 	new GammeltBrev("PE_UP_04_022",
@@ -3447,6 +3676,7 @@ brevMap.put("PE_UP_04_022", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_023", () ->
 	new GammeltBrev("PE_UP_04_023",
@@ -3462,6 +3692,7 @@ brevMap.put("PE_UP_04_023", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_024", () ->
 	new GammeltBrev("PE_UP_04_024",
@@ -3477,6 +3708,7 @@ brevMap.put("PE_UP_04_024", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_025", () ->
 	new GammeltBrev("PE_UP_04_025",
@@ -3492,6 +3724,7 @@ brevMap.put("PE_UP_04_025", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_026", () ->
 	new GammeltBrev("PE_UP_04_026",
@@ -3507,6 +3740,7 @@ brevMap.put("PE_UP_04_026", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_027", () ->
 	new GammeltBrev("PE_UP_04_027",
@@ -3522,6 +3756,7 @@ brevMap.put("PE_UP_04_027", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_028", () ->
 	new GammeltBrev("PE_UP_04_028",
@@ -3537,6 +3772,7 @@ brevMap.put("PE_UP_04_028", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_029", () ->
 	new GammeltBrev("PE_UP_04_029",
@@ -3552,6 +3788,7 @@ brevMap.put("PE_UP_04_029", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_04_030", () ->
 	new GammeltBrev("PE_UP_04_030",
@@ -3567,6 +3804,7 @@ brevMap.put("PE_UP_04_030", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr002"));
 brevMap.put("PE_UP_07_010", () ->
 	new GammeltBrev("PE_UP_07_010",
@@ -3582,6 +3820,7 @@ brevMap.put("PE_UP_07_010", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr003"));
 brevMap.put("PE_UP_07_100", () ->
 	new GammeltBrev("PE_UP_07_100",
@@ -3597,6 +3836,7 @@ brevMap.put("PE_UP_07_100", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_UP_07_105", () ->
 	new GammeltBrev("PE_UP_07_105",
@@ -3612,6 +3852,7 @@ brevMap.put("PE_UP_07_105", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_UT_01_001", () ->
 	new GammeltBrev("PE_UT_01_001",
@@ -3627,6 +3868,7 @@ brevMap.put("PE_UT_01_001", () ->
 		DokumentkategoriCode.IB,
 		null,
 		null,
+		3,
 		"brevgr001"));
 brevMap.put("PE_UT_04_001", () ->
 	new GammeltBrev("PE_UT_04_001",
@@ -3642,6 +3884,7 @@ brevMap.put("PE_UT_04_001", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		3,
 		"brevgr001"));
 brevMap.put("PE_UT_04_002", () ->
 	new GammeltBrev("PE_UT_04_002",
@@ -3657,6 +3900,7 @@ brevMap.put("PE_UT_04_002", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.ALLTID,
+		3,
 		"brevgr001"));
 brevMap.put("PE_UT_04_003", () ->
 	new GammeltBrev("PE_UT_04_003",
@@ -3672,6 +3916,7 @@ brevMap.put("PE_UT_04_003", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.ALLTID,
+		3,
 		"brevgr001"));
 brevMap.put("PE_UT_04_004", () ->
 	new GammeltBrev("PE_UT_04_004",
@@ -3687,6 +3932,7 @@ brevMap.put("PE_UT_04_004", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_UT_04_100", () ->
 	new GammeltBrev("PE_UT_04_100",
@@ -3702,6 +3948,7 @@ brevMap.put("PE_UT_04_100", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_101", () ->
 	new GammeltBrev("PE_UT_04_101",
@@ -3717,6 +3964,7 @@ brevMap.put("PE_UT_04_101", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		2,
 		"brevgr010"));
 brevMap.put("PE_UT_04_102", () ->
 	new GammeltBrev("PE_UT_04_102",
@@ -3732,6 +3980,7 @@ brevMap.put("PE_UT_04_102", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		2,
 		"brevgr010"));
 brevMap.put("PE_UT_04_103", () ->
 	new GammeltBrev("PE_UT_04_103",
@@ -3747,6 +3996,7 @@ brevMap.put("PE_UT_04_103", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_104", () ->
 	new GammeltBrev("PE_UT_04_104",
@@ -3762,6 +4012,7 @@ brevMap.put("PE_UT_04_104", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		2,
 		"brevgr010"));
 brevMap.put("PE_UT_04_106", () ->
 	new GammeltBrev("PE_UT_04_106",
@@ -3777,6 +4028,7 @@ brevMap.put("PE_UT_04_106", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_107", () ->
 	new GammeltBrev("PE_UT_04_107",
@@ -3792,6 +4044,7 @@ brevMap.put("PE_UT_04_107", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_108", () ->
 	new GammeltBrev("PE_UT_04_108",
@@ -3807,6 +4060,7 @@ brevMap.put("PE_UT_04_108", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_109", () ->
 	new GammeltBrev("PE_UT_04_109",
@@ -3822,6 +4076,7 @@ brevMap.put("PE_UT_04_109", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_114", () ->
 	new GammeltBrev("PE_UT_04_114",
@@ -3837,6 +4092,7 @@ brevMap.put("PE_UT_04_114", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_115", () ->
 	new GammeltBrev("PE_UT_04_115",
@@ -3852,6 +4108,7 @@ brevMap.put("PE_UT_04_115", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_117", () ->
 	new GammeltBrev("PE_UT_04_117",
@@ -3867,6 +4124,7 @@ brevMap.put("PE_UT_04_117", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_118", () ->
 	new GammeltBrev("PE_UT_04_118",
@@ -3882,6 +4140,7 @@ brevMap.put("PE_UT_04_118", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_300", () ->
 	new GammeltBrev("PE_UT_04_300",
@@ -3897,6 +4156,7 @@ brevMap.put("PE_UT_04_300", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_400", () ->
 	new GammeltBrev("PE_UT_04_400",
@@ -3912,6 +4172,7 @@ brevMap.put("PE_UT_04_400", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_04_401", () ->
 	new GammeltBrev("PE_UT_04_401",
@@ -3927,6 +4188,7 @@ brevMap.put("PE_UT_04_401", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr010"));
 brevMap.put("PE_UT_04_402", () ->
 	new GammeltBrev("PE_UT_04_402",
@@ -3942,6 +4204,7 @@ brevMap.put("PE_UT_04_402", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_05_100", () ->
 	new GammeltBrev("PE_UT_05_100",
@@ -3957,6 +4220,7 @@ brevMap.put("PE_UT_05_100", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_06_100", () ->
 	new GammeltBrev("PE_UT_06_100",
@@ -3972,6 +4236,7 @@ brevMap.put("PE_UT_06_100", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_06_200", () ->
 	new GammeltBrev("PE_UT_06_200",
@@ -3987,6 +4252,7 @@ brevMap.put("PE_UT_06_200", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("PE_UT_07_100", () ->
 	new GammeltBrev("PE_UT_07_100",
@@ -4002,6 +4268,7 @@ brevMap.put("PE_UT_07_100", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr010"));
 brevMap.put("PE_UT_14_300", () ->
 	new GammeltBrev("PE_UT_14_300",
@@ -4017,6 +4284,7 @@ brevMap.put("PE_UT_14_300", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_23_001", () ->
 	new GammeltBrev("PE_UT_23_001",
@@ -4032,6 +4300,7 @@ brevMap.put("PE_UT_23_001", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr010"));
 brevMap.put("PE_UT_23_101", () ->
 	new GammeltBrev("PE_UT_23_101",
@@ -4047,6 +4316,7 @@ brevMap.put("PE_UT_23_101", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr010"));
 brevMap.put("P1000", () ->
 	new GammeltBrev("P1000",
@@ -4060,6 +4330,7 @@ brevMap.put("P1000", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4077,6 +4348,7 @@ brevMap.put("P10000", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("P11000", () ->
 	new GammeltBrev("P11000",
@@ -4090,6 +4362,7 @@ brevMap.put("P11000", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4107,6 +4380,7 @@ brevMap.put("P12000", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("P13000", () ->
 	new GammeltBrev("P13000",
@@ -4120,6 +4394,7 @@ brevMap.put("P13000", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4137,6 +4412,7 @@ brevMap.put("PE_UT_06_300", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("PE_UT_07_200", () ->
 	new GammeltBrev("PE_UT_07_200",
@@ -4150,6 +4426,7 @@ brevMap.put("PE_UT_07_200", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr010"));
@@ -4167,6 +4444,7 @@ brevMap.put("P4000", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("P6000", () ->
 	new GammeltBrev("P6000",
@@ -4180,6 +4458,7 @@ brevMap.put("P6000", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4197,6 +4476,7 @@ brevMap.put("P7000", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("P8000", () ->
 	new GammeltBrev("P8000",
@@ -4210,6 +4490,7 @@ brevMap.put("P8000", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4227,6 +4508,7 @@ brevMap.put("P9000", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("R001", () ->
 	new GammeltBrev("R001",
@@ -4240,6 +4522,7 @@ brevMap.put("R001", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4257,6 +4540,7 @@ brevMap.put("R002", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("R003", () ->
 	new GammeltBrev("R003",
@@ -4270,6 +4554,7 @@ brevMap.put("R003", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4287,6 +4572,7 @@ brevMap.put("R004", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("R005", () ->
 	new GammeltBrev("R005",
@@ -4300,6 +4586,7 @@ brevMap.put("R005", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.SED,
+		null,
 		null,
 		null,
 		"brevgr008"));
@@ -4317,6 +4604,7 @@ brevMap.put("R006", () ->
 		DokumentkategoriCode.SED,
 		null,
 		null,
+		null,
 		"brevgr008"));
 brevMap.put("AP_AVSL_ENDR", () ->
 	new Doksysbrev("AP_AVSL_ENDR",
@@ -4332,6 +4620,7 @@ brevMap.put("AP_AVSL_ENDR", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000065",
 		"00001",
 		null));
@@ -4349,6 +4638,7 @@ brevMap.put("AP_AVSL_TIDLUTTAK", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000064",
 		"00001",
 		null));
@@ -4366,6 +4656,7 @@ brevMap.put("AP_AVSL_UTTAK", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000066",
 		"00001",
 		null));
@@ -4383,6 +4674,7 @@ brevMap.put("DOD_INFO_RETT_MAN", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.ALLTID,
+		null,
 		"000069",
 		"00001",
 		null));
@@ -4398,6 +4690,7 @@ brevMap.put("DOD_INFO_RETT_AUTO", () ->
 		null,
 		null,
 		DokumentkategoriCode.IB,
+		null,
 		null,
 		null,
 		"000068",
@@ -4417,6 +4710,7 @@ brevMap.put("AP_DOD_ENSLIG_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"000070",
 		"00001",
 		null));
@@ -4432,6 +4726,7 @@ brevMap.put("UT_DOD_ENSLIG_AUTO", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"000073",
@@ -4451,6 +4746,7 @@ brevMap.put("AFP_DOD_ENSLIG_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"000078",
 		"00001",
 		null));
@@ -4466,6 +4762,7 @@ brevMap.put("AP_INNV_AO_UT_AUTO", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"000086",
@@ -4485,6 +4782,7 @@ brevMap.put("INFO_P1", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000090",
 		"00001",
 		null));
@@ -4502,9 +4800,10 @@ brevMap.put("AP_INNV_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000092",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
 brevMap.put("OMSORG_HJST_AUTO", () ->
 	new Doksysbrev("OMSORG_HJST_AUTO",
 		false,
@@ -4517,6 +4816,7 @@ brevMap.put("OMSORG_HJST_AUTO", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"000094",
@@ -4536,9 +4836,10 @@ brevMap.put("AP_INNV_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"000098",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
 brevMap.put("AP_INNV_AVT_MAN", () ->
 	new Doksysbrev("AP_INNV_AVT_MAN",
 		true,
@@ -4553,9 +4854,10 @@ brevMap.put("AP_INNV_AVT_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		1,
 		"000097",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
 brevMap.put("AP_ENDR_GRAD_MAN", () ->
 	new Doksysbrev("AP_ENDR_GRAD_MAN",
 		true,
@@ -4570,9 +4872,10 @@ brevMap.put("AP_ENDR_GRAD_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000100",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1")));
 brevMap.put("AP_ENDR_STANS_MAN", () ->
 	new Doksysbrev("AP_ENDR_STANS_MAN",
 		true,
@@ -4587,9 +4890,10 @@ brevMap.put("AP_ENDR_STANS_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000101",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_V1")));
 brevMap.put("AP_ENDR_EPS_MAN", () ->
 	new Doksysbrev("AP_ENDR_EPS_MAN",
 		true,
@@ -4604,9 +4908,10 @@ brevMap.put("AP_ENDR_EPS_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000102",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
 brevMap.put("BP_AVSL_MAN", () ->
 	new Doksysbrev("BP_AVSL_MAN",
 		true,
@@ -4621,9 +4926,10 @@ brevMap.put("BP_AVSL_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000106",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_V1")));
 brevMap.put("BP_OPPH_MAN", () ->
 	new Doksysbrev("BP_OPPH_MAN",
 		true,
@@ -4638,9 +4944,10 @@ brevMap.put("BP_OPPH_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000107",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_V1")));
 brevMap.put("INFO_ENDR_UT_INNT", () ->
 	new Doksysbrev("INFO_ENDR_UT_INNT",
 		false,
@@ -4655,6 +4962,7 @@ brevMap.put("INFO_ENDR_UT_INNT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000105",
 		"00001",
 		null));
@@ -4672,9 +4980,10 @@ brevMap.put("AP_ENDR_EPS_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000113",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
 brevMap.put("AP_INNV_AO_75_AUTO", () ->
 	new Doksysbrev("AP_INNV_AO_75_AUTO",
 		false,
@@ -4689,9 +4998,10 @@ brevMap.put("AP_INNV_AO_75_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000118",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
 brevMap.put("AP_ENDR_FLYTT_MAN", () ->
 	new Doksysbrev("AP_ENDR_FLYTT_MAN",
 		true,
@@ -4706,9 +5016,10 @@ brevMap.put("AP_ENDR_FLYTT_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000117",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
 brevMap.put("AP_ENDR_GJRETT_MAN", () ->
 	new Doksysbrev("AP_ENDR_GJRETT_MAN",
 		true,
@@ -4723,9 +5034,10 @@ brevMap.put("AP_ENDR_GJRETT_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000126",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_AVDOD_OPPL_BER_V1")));
 brevMap.put("VARSEL_REVURD", () ->
 	new Doksysbrev("VARSEL_REVURD",
 		true,
@@ -4740,6 +5052,7 @@ brevMap.put("VARSEL_REVURD", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		null,
 		"000156",
 		"00001",
 		null));
@@ -4757,6 +5070,7 @@ brevMap.put("ADHOC_INFO_AUTO", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"000169",
 		"00001",
 		null));
@@ -4774,9 +5088,10 @@ brevMap.put("AP_OPPH_ENDR_FT_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000162",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
 brevMap.put("AP_AVSL_FT_MAN", () ->
 	new Doksysbrev("AP_AVSL_FT_MAN",
 		true,
@@ -4791,9 +5106,10 @@ brevMap.put("AP_AVSL_FT_MAN", () ->
 		DokumentkategoriCode.VB,
 		true,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000164",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_V1", "AP_MND_UTB_V1")));
 brevMap.put("AP_RETTING_AUTO", () ->
 	new Doksysbrev("AP_RETTING_AUTO",
 		false,
@@ -4808,9 +5124,10 @@ brevMap.put("AP_RETTING_AUTO", () ->
 		DokumentkategoriCode.VB,
 		true,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000148",
 		"00001",
-		null));
+		doksysVedleggMapper.map("AP_MND_UTB_V1", "RETTIGH_PLIKT_V1")));
 brevMap.put("GP_INFO_AP_GT", () ->
 	new Doksysbrev("GP_INFO_AP_GT",
 		false,
@@ -4825,6 +5142,7 @@ brevMap.put("GP_INFO_AP_GT", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"000154",
 		"00001",
 		null));
@@ -4842,9 +5160,10 @@ brevMap.put("AFP_ENDR_OPPTJ_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000145",
 		"00001",
-		null));
+		doksysVedleggMapper.map("AFP_PRIV_MND_UTB_V1", "RETTIGH_V1")));
 brevMap.put("AP_OPPH_FT_MAN", () ->
 	new Doksysbrev("AP_OPPH_FT_MAN",
 		true,
@@ -4859,9 +5178,10 @@ brevMap.put("AP_OPPH_FT_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000147",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
 brevMap.put("AP_AVSL_GJRETT_MAN", () ->
 	new Doksysbrev("AP_AVSL_GJRETT_MAN",
 		true,
@@ -4876,9 +5196,10 @@ brevMap.put("AP_AVSL_GJRETT_MAN", () ->
 		DokumentkategoriCode.VB,
 		true,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000152",
 		"00001",
-		null));
+		doksysVedleggMapper.map("AP_MND_UTB_V1", "RETTIGH_V1")));
 brevMap.put("AP_ENDR_OPPTJ_MAN", () ->
 	new Doksysbrev("AP_ENDR_OPPTJ_MAN",
 		true,
@@ -4893,9 +5214,10 @@ brevMap.put("AP_ENDR_OPPTJ_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000119",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
 brevMap.put("AP_ENDR_FT_MAN", () ->
 	new Doksysbrev("AP_ENDR_FT_MAN",
 		true,
@@ -4910,9 +5232,10 @@ brevMap.put("AP_ENDR_FT_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000121",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
 brevMap.put("OMSORG_EGEN_AUTO", () ->
 	new Doksysbrev("OMSORG_EGEN_AUTO",
 		false,
@@ -4925,6 +5248,7 @@ brevMap.put("OMSORG_EGEN_AUTO", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"000104",
@@ -4944,6 +5268,7 @@ brevMap.put("OMSORG_EGEN_MAN", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"000103",
 		"00001",
 		null));
@@ -4961,9 +5286,10 @@ brevMap.put("AP_INNV_AO_FAP_AUTO", () ->
 		DokumentkategoriCode.VB,
 		true,
 		null,
+		null,
 		"000131",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
 brevMap.put("AP_STANS_FLYTT_MAN", () ->
 	new Doksysbrev("AP_STANS_FLYTT_MAN",
 		true,
@@ -4978,9 +5304,10 @@ brevMap.put("AP_STANS_FLYTT_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000128",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_V1")));
 brevMap.put("VARSEL_TILBAKEBET", () ->
 	new Doksysbrev("VARSEL_TILBAKEBET",
 		true,
@@ -4995,6 +5322,7 @@ brevMap.put("VARSEL_TILBAKEBET", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		null,
 		"000150",
 		"00001",
 		null));
@@ -5012,6 +5340,7 @@ brevMap.put("AP_INFO_STID_MAN", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		3,
 		"000130",
 		"00001",
 		null));
@@ -5029,9 +5358,10 @@ brevMap.put("AP_ENDR_INST_MAN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000122",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V4")));
 brevMap.put("AP_INFO_AO67_AUTO", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
@@ -5045,6 +5375,7 @@ brevMap.put("AP_INFO_AO67_AUTO", () ->
 		null,
 		DokumentkategoriCode.B,
 		true,
+		null,
 		null,
 		"000129",
 		"00001",
@@ -5063,9 +5394,10 @@ brevMap.put("AP_ENDR_OPPTJ_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000120",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
 brevMap.put("HENT_INFO_MAN", () ->
 	new Doksysbrev("HENT_INFO_MAN",
 		true,
@@ -5080,6 +5412,7 @@ brevMap.put("HENT_INFO_MAN", () ->
 		DokumentkategoriCode.B,
 		true,
 		BrevkontekstCode.ALLTID,
+		null,
 		"000133",
 		"00001",
 		null));
@@ -5097,9 +5430,10 @@ brevMap.put("AP_INNV_AO_GJP_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000143",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
 brevMap.put("AUTO_INFOBREV_BP", () ->
 	new Doksysbrev("DOD_INFO_RETT_AUTO",
 		false,
@@ -5112,6 +5446,7 @@ brevMap.put("AUTO_INFOBREV_BP", () ->
 		null,
 		null,
 		DokumentkategoriCode.IB,
+		null,
 		null,
 		null,
 		"000068",
@@ -5131,6 +5466,7 @@ brevMap.put("AUTO_INFOBREV_GJENL", () ->
 		DokumentkategoriCode.IB,
 		null,
 		null,
+		null,
 		"000068",
 		"00001",
 		null));
@@ -5146,6 +5482,7 @@ brevMap.put("AP_INNVILG_AUTO", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"000098",
@@ -5165,6 +5502,7 @@ brevMap.put("AP_INNVILG_UTL_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"000098",
 		"00001",
 		null));
@@ -5180,6 +5518,7 @@ brevMap.put("AUTO_VTK_EPS_DOD_AP", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"000070",
@@ -5199,6 +5538,7 @@ brevMap.put("TILST_DOD_UT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"000073",
 		"00001",
 		null));
@@ -5214,6 +5554,7 @@ brevMap.put("AUTO_VTK_EPS_DOD_AFP", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"000078",
@@ -5233,6 +5574,7 @@ brevMap.put("AO_AP_UT_67_2016", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"000086",
 		"00001",
 		null));
@@ -5248,6 +5590,7 @@ brevMap.put("OMSORGP_GODSKRIVING", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"000094",
@@ -5267,6 +5610,7 @@ brevMap.put("AFP_PR_NYTT_VEDTAK", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000145",
 		"00001",
 		null));
@@ -5282,6 +5626,7 @@ brevMap.put("OMSORGP_EGENMLD", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"000104",
@@ -5301,6 +5646,7 @@ brevMap.put("AO_AP_FAP_PL_67_2011", () ->
 		DokumentkategoriCode.VB,
 		true,
 		null,
+		null,
 		"000131",
 		"00001",
 		null));
@@ -5317,6 +5663,7 @@ brevMap.put("AO_AP_FAP_PL_67_2016", () ->
 		null,
 		DokumentkategoriCode.VB,
 		true,
+		null,
 		null,
 		"000131",
 		"00001",
@@ -5335,6 +5682,7 @@ brevMap.put("GJP_INFOBREV_AP_GJT", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"000154",
 		"00001",
 		null));
@@ -5352,6 +5700,7 @@ brevMap.put("INFO_INNT_ENDR_UT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000105",
 		"00001",
 		null));
@@ -5369,6 +5718,7 @@ brevMap.put("SAMMENSTOT_AP", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000113",
 		"00001",
 		null));
@@ -5386,6 +5736,7 @@ brevMap.put("TILST_OMRG_AP", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000113",
 		"00001",
 		null));
@@ -5403,6 +5754,7 @@ brevMap.put("AO_AP_GRAD_AP_75", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000118",
 		"00001",
 		null));
@@ -5420,6 +5772,7 @@ brevMap.put("AP_NYTT_VEDTAK", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000120",
 		"00001",
 		null));
@@ -5436,6 +5789,7 @@ brevMap.put("FAM_PL_3MND_67", () ->
 		null,
 		DokumentkategoriCode.B,
 		true,
+		null,
 		null,
 		"000129",
 		"00001",
@@ -5454,6 +5808,7 @@ brevMap.put("FYLLER_67_INGEN_YT", () ->
 		DokumentkategoriCode.B,
 		true,
 		null,
+		null,
 		"000129",
 		"00001",
 		null));
@@ -5470,6 +5825,7 @@ brevMap.put("UP_GRAD_AP_67", () ->
 		null,
 		DokumentkategoriCode.B,
 		true,
+		null,
 		null,
 		"000129",
 		"00001",
@@ -5488,6 +5844,7 @@ brevMap.put("UP_GRAD_IKKE_AP_67", () ->
 		DokumentkategoriCode.B,
 		true,
 		null,
+		null,
 		"000129",
 		"00001",
 		null));
@@ -5504,6 +5861,7 @@ brevMap.put("UP_HEL_67", () ->
 		null,
 		DokumentkategoriCode.B,
 		true,
+		null,
 		null,
 		"000129",
 		"00001",
@@ -5522,6 +5880,7 @@ brevMap.put("GJP_AVKORT_INFO_67", () ->
 		DokumentkategoriCode.IB,
 		true,
 		null,
+		null,
 		"000129",
 		"00001",
 		null));
@@ -5538,6 +5897,7 @@ brevMap.put("GJP_FULL_INFO_67", () ->
 		null,
 		DokumentkategoriCode.IB,
 		true,
+		null,
 		null,
 		"000129",
 		"00001",
@@ -5556,6 +5916,7 @@ brevMap.put("FAM_PL_INFO_67", () ->
 		DokumentkategoriCode.B,
 		true,
 		null,
+		null,
 		"000129",
 		"00001",
 		null));
@@ -5573,6 +5934,7 @@ brevMap.put("AO_AP_GJP_FULL_67", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000143",
 		"00001",
 		null));
@@ -5590,6 +5952,7 @@ brevMap.put("AUTO_AP_ENDR_RETTING", () ->
 		DokumentkategoriCode.VB,
 		true,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000148",
 		"00001",
 		null));
@@ -5607,6 +5970,7 @@ brevMap.put("ADHOC_INFOBREV_AUTO", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"000169",
 		"00001",
 		null));
@@ -5624,6 +5988,7 @@ brevMap.put("AO_AP_BT_18_2011", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000162",
 		"00001",
 		null));
@@ -5641,6 +6006,7 @@ brevMap.put("AO_AP_ET_BT_2011", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000162",
 		"00001",
 		null));
@@ -5658,6 +6024,7 @@ brevMap.put("AO_AP_ET_2011", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000162",
 		"00001",
 		null));
@@ -5675,6 +6042,7 @@ brevMap.put("AO_AP_ET_60_2011", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000162",
 		"00001",
 		null));
@@ -5692,6 +6060,7 @@ brevMap.put("AO_AP_FT_1967", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"000162",
 		"00001",
 		null));
@@ -5709,6 +6078,7 @@ brevMap.put("AFPEO_BREV_B", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr004"));
 brevMap.put("AFPEO_BREV_A", () ->
 	new GammeltBrev("PE_AF_04_100",
@@ -5722,6 +6092,7 @@ brevMap.put("AFPEO_BREV_A", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -5739,6 +6110,7 @@ brevMap.put("AFPEO_BREV_C", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr004"));
 brevMap.put("AFPEO_BREV_D", () ->
 	new GammeltBrev("PE_AF_04_102",
@@ -5752,6 +6124,7 @@ brevMap.put("AFPEO_BREV_D", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -5769,6 +6142,7 @@ brevMap.put("AFPEO_TILBAKEKREVING", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("AFPP_INNVILG_AUTO", () ->
 	new GammeltBrev("PE_AF_04_115",
@@ -5782,6 +6156,7 @@ brevMap.put("AFPP_INNVILG_AUTO", () ->
 		null,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -5799,6 +6174,7 @@ brevMap.put("AFPP_AVSL_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("FYLLER_67", () ->
 	new GammeltBrev("PE_AP_01_001",
@@ -5814,6 +6190,7 @@ brevMap.put("FYLLER_67", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("AP_INNVILG_UTL", () ->
 	new GammeltBrev("PE_AP_04_203",
@@ -5829,6 +6206,7 @@ brevMap.put("AP_INNVILG_UTL", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr011"));
 brevMap.put("AP_AVSLAG_AUTO", () ->
 	new GammeltBrev("PE_AP_04_210",
@@ -5842,6 +6220,7 @@ brevMap.put("AP_AVSLAG_AUTO", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr011"));
@@ -5859,6 +6238,7 @@ brevMap.put("AP_AVSL_UTL_AUTO", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr011"));
 brevMap.put("AP_ENDR_GRAD_AUTO", () ->
 	new GammeltBrev("PE_AP_04_227",
@@ -5872,6 +6252,7 @@ brevMap.put("AP_ENDR_GRAD_AUTO", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr011"));
@@ -5889,6 +6270,7 @@ brevMap.put("DUMMYBREV", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr001"));
 brevMap.put("GJP_FULL_3MND_67", () ->
 	new GammeltBrev("PE_BA_01_101",
@@ -5902,6 +6284,7 @@ brevMap.put("GJP_FULL_3MND_67", () ->
 		null,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -5919,6 +6302,7 @@ brevMap.put("GJP_AVKORT_3MND_67", () ->
 		DokumentkategoriCode.B,
 		null,
 		null,
+		null,
 		"brevgr001"));
 brevMap.put("AFP_3MND_67", () ->
 	new GammeltBrev("PE_BA_01_106",
@@ -5932,6 +6316,7 @@ brevMap.put("AFP_3MND_67", () ->
 		null,
 		null,
 		DokumentkategoriCode.B,
+		null,
 		null,
 		null,
 		"brevgr001"));
@@ -5949,6 +6334,7 @@ brevMap.put("INFOBREV_VP_ET", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("FORSORG_BT_OPPH", () ->
 	new GammeltBrev("PE_BA_04_501",
@@ -5962,6 +6348,7 @@ brevMap.put("FORSORG_BT_OPPH", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -5979,6 +6366,7 @@ brevMap.put("FORSORG_ET_BT_OPPH", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("FORSORG_ET_OPPH", () ->
 	new GammeltBrev("PE_BA_04_503",
@@ -5992,6 +6380,7 @@ brevMap.put("FORSORG_ET_OPPH", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6009,6 +6398,7 @@ brevMap.put("KONV_YT_ALDERSOVERG", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("UP_FULLTT_BELOPENDR", () ->
 	new GammeltBrev("PE_BA_04_505",
@@ -6022,6 +6412,7 @@ brevMap.put("UP_FULLTT_BELOPENDR", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr010"));
@@ -6039,6 +6430,7 @@ brevMap.put("AP_FULLTT_BELOPENDR", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("P_UTBETALING_OKER", () ->
 	new GammeltBrev("PE_BA_04_507",
@@ -6052,6 +6444,7 @@ brevMap.put("P_UTBETALING_OKER", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6069,6 +6462,7 @@ brevMap.put("P_UTBETALING_MINKER", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("GJR_UTBET_OKER", () ->
 	new GammeltBrev("PE_BA_04_509",
@@ -6082,6 +6476,7 @@ brevMap.put("GJR_UTBET_OKER", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6099,6 +6494,7 @@ brevMap.put("GJR_UTBET_MINKER", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("BP_UTBET_OKER", () ->
 	new GammeltBrev("PE_BA_04_511",
@@ -6112,6 +6508,7 @@ brevMap.put("BP_UTBET_OKER", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6129,6 +6526,7 @@ brevMap.put("BP_UTBET_MINKER", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("ALDER_IVERK", () ->
 	new GammeltBrev("PE_BA_04_515",
@@ -6142,6 +6540,7 @@ brevMap.put("ALDER_IVERK", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6159,6 +6558,7 @@ brevMap.put("ALDER_SAMM_IVERK", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("REV_TIL_AP_PGA_DOD", () ->
 	new GammeltBrev("PE_BA_04_520",
@@ -6172,6 +6572,7 @@ brevMap.put("REV_TIL_AP_PGA_DOD", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6189,6 +6590,7 @@ brevMap.put("TILST_AP", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("REV_TIL_UP_PGA_DOD", () ->
 	new GammeltBrev("PE_BA_04_521",
@@ -6202,6 +6604,7 @@ brevMap.put("REV_TIL_UP_PGA_DOD", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6219,6 +6622,7 @@ brevMap.put("TILST_UP", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("REV_TIL_AFP_PGA_DOD", () ->
 	new GammeltBrev("PE_BA_04_522",
@@ -6232,6 +6636,7 @@ brevMap.put("REV_TIL_AFP_PGA_DOD", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6249,6 +6654,7 @@ brevMap.put("TILST_AFP", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr002"));
 brevMap.put("TILST_GJP", () ->
 	new GammeltBrev("PE_BA_04_523",
@@ -6262,6 +6668,7 @@ brevMap.put("TILST_GJP", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6279,6 +6686,7 @@ brevMap.put("AO_AP_UP_67_2011", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("AO_AP_AFP_67_2011", () ->
 	new GammeltBrev("PE_BA_04_530",
@@ -6292,6 +6700,7 @@ brevMap.put("AO_AP_AFP_67_2011", () ->
 		BrevregeltypeCode.GN,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr007"));
@@ -6309,6 +6718,7 @@ brevMap.put("VEDTAK_SKJERMT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr007"));
 brevMap.put("OMR_BP_OPPH", () ->
 	new GammeltBrev("PE_BP_04_022",
@@ -6322,6 +6732,7 @@ brevMap.put("OMR_BP_OPPH", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6339,6 +6750,7 @@ brevMap.put("OPPHOR_ET_NN", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr007"));
 brevMap.put("OPPHOR_ET_GG", () ->
 	new GammeltBrev("PE_FT_01_005",
@@ -6352,6 +6764,7 @@ brevMap.put("OPPHOR_ET_GG", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr002"));
@@ -6369,6 +6782,7 @@ brevMap.put("OMSORGP_INNVILG", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("VEDTAK_TILB_KREV", () ->
 	new GammeltBrev("PE_IY_04_062",
@@ -6382,6 +6796,7 @@ brevMap.put("VEDTAK_TILB_KREV", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -6399,6 +6814,7 @@ brevMap.put("OO_MOTTAKER", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
+		null,
 		"brevgr004"));
 brevMap.put("OO_AVGIVER", () ->
 	new GammeltBrev("PE_IY_04_121",
@@ -6412,6 +6828,7 @@ brevMap.put("OO_AVGIVER", () ->
 		BrevregeltypeCode.GG,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr004"));
@@ -6429,6 +6846,7 @@ brevMap.put("VARSEL_TILB_KREV", () ->
 		DokumentkategoriCode.IB,
 		null,
 		null,
+		null,
 		"brevgr004"));
 brevMap.put("OMSORGP_SOKNAD_MOR", () ->
 	new GammeltBrev("PE_IY_05_104",
@@ -6444,6 +6862,7 @@ brevMap.put("OMSORGP_SOKNAD_MOR", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("OMSORGP_SOKNAD_FAR", () ->
 	new GammeltBrev("PE_IY_05_105",
@@ -6459,6 +6878,7 @@ brevMap.put("OMSORGP_SOKNAD_FAR", () ->
 		DokumentkategoriCode.IB,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("OMSORGP_ORIENT_GODS", () ->
 	new GammeltBrev("PE_IY_05_200",
@@ -6474,6 +6894,7 @@ brevMap.put("OMSORGP_ORIENT_GODS", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("OMSORGP_BARN", () ->
 	new GammeltBrev("PE_IY_05_201",
@@ -6489,6 +6910,7 @@ brevMap.put("OMSORGP_BARN", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr004"));
 brevMap.put("VARS_LANG_SAKS_AUTO", () ->
 	new GammeltBrev("PE_IY_05_241",
@@ -6504,6 +6926,7 @@ brevMap.put("VARS_LANG_SAKS_AUTO", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr007"));
 brevMap.put("LEVEATT", () ->
 	new GammeltBrev("PE_IY_05_410",
@@ -6519,6 +6942,7 @@ brevMap.put("LEVEATT", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("LEVEATT_PURRING", () ->
 	new GammeltBrev("PE_IY_05_411",
@@ -6534,6 +6958,7 @@ brevMap.put("LEVEATT_PURRING", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("LEVEATT_ALT", () ->
 	new GammeltBrev("PE_IY_06_510",
@@ -6549,6 +6974,7 @@ brevMap.put("LEVEATT_ALT", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("LEVEATT_PURRING_ALT", () ->
 	new GammeltBrev("PE_IY_06_511",
@@ -6564,6 +6990,7 @@ brevMap.put("LEVEATT_PURRING_ALT", () ->
 		DokumentkategoriCode.B,
 		null,
 		BrevkontekstCode.SAK,
+		null,
 		"brevgr001"));
 brevMap.put("KONV_UP_TIL_UT", () ->
 	new GammeltBrev("PE_UT_01_001",
@@ -6579,6 +7006,7 @@ brevMap.put("KONV_UP_TIL_UT", () ->
 		DokumentkategoriCode.IB,
 		null,
 		null,
+		3,
 		"brevgr001"));
 brevMap.put("NY_BER_UT_BT", () ->
 	new GammeltBrev("PE_UT_04_108",
@@ -6594,6 +7022,7 @@ brevMap.put("NY_BER_UT_BT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("ENDRING_UT", () ->
 	new GammeltBrev("PE_UT_04_300",
@@ -6609,6 +7038,7 @@ brevMap.put("ENDRING_UT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("ENDR_UT_PGA_INNT", () ->
 	new GammeltBrev("PE_UT_05_100",
@@ -6624,6 +7054,7 @@ brevMap.put("ENDR_UT_PGA_INNT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("NY_BER_UT_ENDR_OPPTJ", () ->
 	new GammeltBrev("PE_UT_06_100",
@@ -6639,6 +7070,7 @@ brevMap.put("NY_BER_UT_ENDR_OPPTJ", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("OMREGN_UP_TIL_UT", () ->
 	new GammeltBrev("PE_UT_14_300",
@@ -6654,6 +7086,7 @@ brevMap.put("OMREGN_UP_TIL_UT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("UT_EO_VARSEL_FU", () ->
 	new GammeltBrev("PE_UT_23_001",
@@ -6669,6 +7102,7 @@ brevMap.put("UT_EO_VARSEL_FU", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr010"));
 brevMap.put("UT_EO_VEDTAK_EB", () ->
 	new GammeltBrev("PE_UT_23_101",
@@ -6684,6 +7118,7 @@ brevMap.put("UT_EO_VEDTAK_EB", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		null,
 		"brevgr010"));
 brevMap.put("ENDRING_UT_BT", () ->
 	new GammeltBrev("PE_UT_06_300",
@@ -6699,6 +7134,7 @@ brevMap.put("ENDRING_UT_BT", () ->
 		DokumentkategoriCode.VB,
 		null,
 		BrevkontekstCode.VEDTAK,
+		3,
 		"brevgr010"));
 brevMap.put("OPPHOR_ENDRING_UT_BT", () ->
 	new GammeltBrev("PE_UT_07_200",
@@ -6712,6 +7148,7 @@ brevMap.put("OPPHOR_ENDRING_UT_BT", () ->
 		BrevregeltypeCode.OVRIGE,
 		null,
 		DokumentkategoriCode.VB,
+		null,
 		null,
 		null,
 		"brevgr010"));

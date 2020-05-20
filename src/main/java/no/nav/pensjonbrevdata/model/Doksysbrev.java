@@ -26,6 +26,7 @@ public class Doksysbrev extends Brev {
                       DokumentkategoriCode dokumentkategori,
                       Boolean synligForVeileder,
                       BrevkontekstCode brevkontekst,
+                      Integer prioritet,
                       String dokumentmalId,
                       String dokumentmalFelleselementId,
                       List<DoksysVedlegg> vedleggListe) {
@@ -42,7 +43,8 @@ public class Doksysbrev extends Brev {
                 dokumentkategori,
                 synligForVeileder,
                 brevkontekst,
-                BrevsystemCode.DOKSYS);
+                BrevsystemCode.DOKSYS,
+                prioritet);
 
         this.vedleggListe = vedleggListe;
         this.dokumentmalId = dokumentmalId;
