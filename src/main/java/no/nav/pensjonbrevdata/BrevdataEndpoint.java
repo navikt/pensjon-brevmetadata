@@ -4,10 +4,7 @@ import java.util.List;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
@@ -38,9 +35,9 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping("/brevdataForSaktype/{saktype}")
-    public List<Brevdata> getBrevdatForSaktype(@PathVariable(value = "saktype") String saktype) {
+    public List<Brevdata> getBrevdatForSaktype(@PathVariable(value = "saktype") String saktype, @RequestParam(value = "includeXsd") boolean includeXsd) {
         try {
-            return provider.getBrevdataForSaktype(saktype);
+            return provider.getBrevdataForSaktype(saktype, includeXsd);
         } catch (Exception e) {
             //TODO: Logging her
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);

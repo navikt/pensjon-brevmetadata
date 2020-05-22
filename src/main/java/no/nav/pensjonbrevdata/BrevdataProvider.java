@@ -4,6 +4,7 @@ import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brev;
 import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 import java.util.ArrayList;
@@ -19,18 +20,26 @@ public class BrevdataProvider {
     }
 
     public Brevdata getBrevForBrevkode(String brevkode) throws Exception {
-        return brevdataMapper.map(brevkode);
+        Brevdata brevdata = brevdataMapper.map(brevkode);
+        if (brevdata instanceof Doksysbrev) {
+            ((Doksysbrev) brevdata).generateDokumentmalFromFile();
+        }
+        return brevdata;
     }
 
-    public List<Brevdata> getBrevdataForSaktype(String saktype) throws Exception {
+    public List<Brevdata> getBrevdataForSaktype(String saktype, boolean includeXsd) throws Exception {
         List<Brevdata> brevList = new ArrayList<>();
         for (String brevkode : sakBrevMapper.map(saktype)) {
-            brevList.add(getBrevForBrevkode(brevkode));
+            Brevdata brevdata = brevdataMapper.map(brevkode);
+            if (includeXsd && brevdata instanceof Doksysbrev) {
+                ((Doksysbrev) brevdata).generateDokumentmalFromFile();
+            }
+            brevList.add(brevdata);
         }
         return brevList;
     }
 
-    public List<String> getBrevkoderForSaktype(String saktype){
+    public List<String> getBrevkoderForSaktype(String saktype) {
         return sakBrevMapper.map(saktype);
     }
 }

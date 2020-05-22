@@ -51,6 +51,22 @@ public class Doksysbrev extends Brev {
         this.dokumentmalFelleselementId = dokumentmalFelleselementId;
     }
 
+    public void generateDokumentmalFromFile() throws IOException {
+//        DETTE FUNGERTE IKKE I DOCKER, MEN FUNGERTE UTENFOR DOCKER:
+//        File dokumentmalFile = ResourceUtils.getFile("classpath:xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
+//        dokumentmal = new String(Files.readAllBytes(Paths.get(dokumentmalFile.getPath())));
+//        File dokumentMalFelleselementFile = ResourceUtils.getFile("classpath:xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
+//        dokumentmalFelleselement = new String(Files.readAllBytes(Paths.get(dokumentMalFelleselementFile.getPath())));
+        XsdFileReader fileReader = new XsdFileReader();
+        dokumentmal = fileReader.read("xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
+        dokumentmalFelleselement = fileReader.read("xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
+        if (vedleggListe != null) {
+            for (DoksysVedlegg vedlegg : vedleggListe) {
+                vedlegg.generateDokumentmalFromFile();
+            }
+        }
+    }
+
     public String getDokumentmalId() {
         return dokumentmalId;
     }
@@ -68,13 +84,6 @@ public class Doksysbrev extends Brev {
     }
 
     public String getDokumentmal() throws IOException {
-        if (dokumentmal == null) {
-//        DETTE FUNGERTE IKKE I DOCKER, MEN FUNGERTE UTENFOR DOCKER:
-//        File dokumentmalFile = ResourceUtils.getFile("classpath:xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
-//        dokumentmal = new String(Files.readAllBytes(Paths.get(dokumentmalFile.getPath())));
-            XsdFileReader fileReader = new XsdFileReader();
-            dokumentmal = fileReader.read("xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
-        }
         return dokumentmal;
     }
 
@@ -82,15 +91,7 @@ public class Doksysbrev extends Brev {
         this.dokumentmal = dokumentmal;
     }
 
-    public String getDokumentmalFelleselement() throws IOException {
-        if (dokumentmalFelleselement == null) {
-            //        DETTE FUNGERTE IKKE I DOCKER, MEN FUNGERTE UTENFOR DOCKER:
-            //        File dokumentmalFile = ResourceUtils.getFile("classpath:xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
-            //        File dokumentMalFelleselementFile = ResourceUtils.getFile("classpath:xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
-            //        dokumentmalFelleselement = new String(Files.readAllBytes(Paths.get(dokumentMalFelleselementFile.getPath())));
-            XsdFileReader fileReader = new XsdFileReader();
-            dokumentmalFelleselement = fileReader.read("xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
-        }
+    public String getDokumentmalFelleselement() {
         return dokumentmalFelleselement;
     }
 

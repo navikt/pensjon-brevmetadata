@@ -20,6 +20,12 @@ public class DoksysVedlegg {
         this.dokumentmalFelleselementId = dokumentmalFelleselementId;
     }
 
+    public void generateDokumentmalFromFile() throws IOException {
+        XsdFileReader fileReader = new XsdFileReader();
+        dokumentmal = fileReader.read("xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
+        dokumentmalFelleselement = fileReader.read("xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
+    }
+
     public String getDekode() {
         return dekode;
     }
@@ -44,11 +50,7 @@ public class DoksysVedlegg {
         this.dokumentmalFelleselementId = dokumentmalFelleselementId;
     }
 
-    public String getDokumentmal() throws IOException {
-        if(dokumentmal==null) {
-            XsdFileReader fileReader = new XsdFileReader();
-            dokumentmal = fileReader.read("xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
-        }
+    public String getDokumentmal() {
         return dokumentmal;
     }
 
@@ -56,11 +58,7 @@ public class DoksysVedlegg {
         this.dokumentmal = dokumentmal;
     }
 
-    public String getDokumentmalFelleselement() throws IOException {
-        if(dokumentmalFelleselement==null) {
-            XsdFileReader fileReader = new XsdFileReader();
-            dokumentmalFelleselement = fileReader.read("xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
-        }
+    public String getDokumentmalFelleselement() {
         return dokumentmalFelleselement;
     }
 
