@@ -53,4 +53,14 @@ public class BrevdataEndpoint {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
+
+    @GetMapping("/allBrev")
+    public List<Brevdata> getAllBrev(@RequestParam(value = "includeXsd") boolean includeXsd) {
+        try {
+            return provider.getAllBrev(includeXsd);
+        } catch (Exception e) {
+            //TODO: Logging her
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+        }
+    }
 }

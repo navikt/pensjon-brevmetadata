@@ -7,6 +7,7 @@ import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +42,17 @@ public class BrevdataProvider {
 
     public List<String> getBrevkoderForSaktype(String saktype) {
         return sakBrevMapper.map(saktype);
+    }
+
+    public List<Brevdata> getAllBrev(boolean includeXsd) throws Exception {
+        List<Brevdata> brevdataList = brevdataMapper.getAllBrev();
+        if(includeXsd){
+            for(Brevdata brevdata : brevdataList){
+                if(brevdata instanceof Doksysbrev){
+                    ((Doksysbrev) brevdata).generateDokumentmalFromFile();
+                }
+            }
+        }
+        return brevdataList;
     }
 }

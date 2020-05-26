@@ -1,9 +1,8 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
@@ -7183,5 +7182,14 @@ public class BrevdataMapper {
 
     public Brevdata map(String brevkode) throws Exception {
         return brevMap.get(brevkode).call();
+    }
+
+    public List<Brevdata> getAllBrev() throws Exception {
+        List<Brevdata> brevdataList = new ArrayList<>();
+
+        for (Callable<Brevdata> brevdataCallable : brevMap.values()) {
+            brevdataList.add(brevdataCallable.call());
+        }
+        return brevdataList;
     }
 }
