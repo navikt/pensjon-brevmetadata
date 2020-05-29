@@ -7185,7 +7185,11 @@ public class BrevdataMapper {
     }
 
     public Brevdata map(String brevkode) throws Exception {
-        return brevMap.get(brevkode).call();
+        if (brevMap.containsKey(brevkode)) {
+            return brevMap.get(brevkode).call();
+        } else {
+            throw new IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist");
+        }
     }
 
     public List<Brevdata> getAllBrevAsList() throws Exception {
