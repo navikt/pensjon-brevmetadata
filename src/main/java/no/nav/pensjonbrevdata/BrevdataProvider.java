@@ -9,6 +9,8 @@ import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 public class BrevdataProvider {
     private final BrevdataMapper brevdataMapper = new BrevdataMapper();
@@ -41,5 +43,28 @@ public class BrevdataProvider {
 
     public List<String> getBrevkoderForSaktype(String saktype) {
         return sakBrevMapper.map(saktype);
+    }
+
+    public List<Brevdata> getAllBrev(boolean includeXsd) throws Exception {
+        List<Brevdata> brevdataList = brevdataMapper.getAllBrevAsList();
+        if (includeXsd) {
+            for (Brevdata brevdata : brevdataList) {
+                if (brevdata instanceof Doksysbrev) {
+                    ((Doksysbrev) brevdata).generateDokumentmalFromFile();
+                }
+            }
+        }
+        return brevdataList;
+    }
+
+    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws Exception {
+        Map<String, Callable<Brevdata>> brevdataMap = brevdataMapper.getBrevMap();
+        List<String> brevkeys = new ArrayList<>();
+        for (String key : brevdataMap.keySet()) {
+            if (brevdataMap.get(key).call().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
+                brevkeys.add(key);
+            }
+        }
+        return brevkeys;
     }
 }

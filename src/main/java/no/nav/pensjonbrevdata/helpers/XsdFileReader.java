@@ -16,18 +16,18 @@ public class XsdFileReader {
     }
 
     private String readFile(String resourcePath) throws IOException {
-        Resource resource=new ClassPathResource(resourcePath);
+        Resource resource = new ClassPathResource(resourcePath);
 
-        InputStream inputStream= resource.getInputStream();
+        InputStream inputStream = resource.getInputStream();
 
-        String xsd = null;
+        String xsd;
 
         try {
             byte[] bdata = FileCopyUtils.copyToByteArray(inputStream);
             xsd = new String(bdata, StandardCharsets.UTF_8);
         } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
+            throw new IOException("Failed when trying to read file on path " + resourcePath);
+        } finally {
             IOUtils.closeQuietly(inputStream);
         }
         return xsd;

@@ -27,6 +27,10 @@ public class SakBrevMapper {
     }
 
     public List<String> map(String saktype) {
-        return sakToBrevMap.get(saktype);
+        if (sakToBrevMap.containsKey(saktype)) {
+            return sakToBrevMap.get(saktype);
+        } else {
+            throw new IllegalArgumentException("Saktype \"" + saktype + "\" does not exist");
+        }
     }
 }

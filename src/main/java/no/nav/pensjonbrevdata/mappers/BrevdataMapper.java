@@ -1,10 +1,5 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Callable;
-
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.GammeltBrev;
@@ -16,6 +11,14 @@ import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+
 
 public class BrevdataMapper {
 
@@ -7182,6 +7185,23 @@ public class BrevdataMapper {
     }
 
     public Brevdata map(String brevkode) throws Exception {
-        return brevMap.get(brevkode).call();
+        if (brevMap.containsKey(brevkode)) {
+            return brevMap.get(brevkode).call();
+        } else {
+            throw new IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist");
+        }
+    }
+
+    public List<Brevdata> getAllBrevAsList() throws Exception {
+        List<Brevdata> brevdataList = new ArrayList<>();
+
+        for (Callable<Brevdata> brevdataCallable : brevMap.values()) {
+            brevdataList.add(brevdataCallable.call());
+        }
+        return brevdataList;
+    }
+
+    public Map<String, Callable<Brevdata>> getBrevMap() {
+        return brevMap;
     }
 }
