@@ -4,8 +4,12 @@ Mapping av brev og vedlegg.
 
 === BrevdataMapper
 
-BrevdataMapper inneholder alle brevene i pesys og er generert basert på PEN databasen med et script.
-Scriptet kopierer over kolonner og tabeller som er relevant for å bygge opp et brev.
+BrevdataMapper inneholder alle brevene i pesys.
+
+Utgangspunktet er generert basert på PEN databasen hvor det er kjørt et script som kopierer over kolonner og tabeller som er relevant for å bygge opp et brev.
+
+IMPORTANT: Når applikasjonen er produksjonsatt og i full bruk, vil det ikke være nødvendig å kjøre databsescriptet igjen.
+Scriptet er kun brukt for å gi et utgangspunkt for applikasjonen slik at innholdet er det samme som i PEN databasen.
 
 For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et gammeltbrev(hpextream brev).
 
