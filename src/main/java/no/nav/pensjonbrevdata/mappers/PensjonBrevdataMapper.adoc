@@ -10,7 +10,7 @@ Scriptet kopierer over kolonner og tabeller som er relevant for å bygge opp et 
 For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et gammeltbrev(hpextream brev).
 
 .Brev
-[cols="1,1,3",]
+[#brev-tabell,cols="1,1,3",]
 |===
 |Element |Type |Beskrivelse
 
@@ -62,10 +62,13 @@ For å legge til et nytt brev må det legges til en ny mapping med følgende ele
 |BrevkontekstCode
 |Inneholder verdi om brevkontektsen: Alltid, sak, vedtak
 
+|prioritet
+|Integer
+|Inneholder verdi om rekkeføle/prioritering brevet har.
 
 |===
 
-Doksysbrev må inneholde følgende elementer i tillegg til elementene beskrevet over
+Doksysbrev må inneholde følgende elementer i tillegg til elementene beskrevet over i <<index.adoc#brev-tabell,brev-tabellen>>:
 
 .Doksysbrev
 [cols="1,1,3",]
@@ -83,6 +86,17 @@ Doksysbrev må inneholde følgende elementer i tillegg til elementene beskrevet 
 |vedleggListe
 |List<DoksysVedlegg>
 |Inneholder en liste med doksysvedlegg som tilhører brevet.
+
+|===
+
+GammeltBrev (HPExstream brev) må inneholde følgende elementer i tillegg til elementene beskrevet over i <<index.adoc#brev-tabell,brev-tabellen>>:
+
+|===
+|Element | Type | Beskrivelse
+
+|brevgruppe
+|String
+|Inneholder verdi om hvilke brevbruppe brevet tilhører.
 
 |===
 

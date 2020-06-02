@@ -1,37 +1,35 @@
 == Brevdata Endepunkt
 
-Inneholder kall til tjenestene som applikasjonen tilbyr
-
 Applikasjonen eksponerer følgende tjenester:
 
-[cols="1,1,3",]
+[cols="1,3,1",]
 |===
-|Tjeneste | Endepunkt | Beskrivelse
+|Tjeneste |  Beskrivelse | Endepunkt
 
 | sprakForBrevkode
-|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/sprakForBrevkode/{brevkode}"
 | Henter alle språk til en gitt brevkode
+|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/sprakForBrevkode/{brevkode}"
 
 |brevForBrevkode
-|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevForBrevkode/{brevkode}"
 | Henter brevinformasjon om gitt brevkode. Dette inkluderer xsd.
+|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevForBrevkode/{brevkode}"
 
 |brevdataForSaktype
-|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevdataForSaktype/{saktype}"
 | Henter ut en liste med informasjon om brev for en gitt saktype
+|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevdataForSaktype/{saktype}"
 
 |brevkoderForSaktype
-| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevkoderForSaktype/{saktype}"
 | Henter ut en liste med brevkoder for en gitt saktype
+| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevkoderForSaktype/{saktype}"
 
 |allBrev
-| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/allBrev?includeXsd={false/true}"
 | Henter ut en liste med alle brev i brevmappet/applikasjonen.
 Hvis det er ønsket å få med xsd i output kan det spesifiseres med input "_includeXsd_".
+| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/allBrev?includeXsd={false/true}"
 
 |brevKeyForBrevkodeIBrevsystem
-| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}"
 | Henter ut brevkey for en gitt brevkode.
 _brevKey_ er identifikatoren som brukes i bestilling brev.
+| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}"
 
 |===

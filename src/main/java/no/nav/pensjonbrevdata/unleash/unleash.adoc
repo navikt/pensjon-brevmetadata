@@ -7,8 +7,10 @@ Dette kan gjøres ved å legge inn følgende:
 ----
 if(toggle(<idpaToggle>).isEnabled) {
     Utfør kodesnutt 1
+    Legg til brev X med denne informasjonen
 } else {
     Utfør kodesnutt 2
+    Legg til brev X med annen informasjonen
 }
 ----
 

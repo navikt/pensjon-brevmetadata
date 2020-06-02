@@ -18,6 +18,9 @@ Pesys
 
 Dette er dokumentasjonen til Pensjon Brevdata som er generert ved bruk av Asciidoc og PlantUML.
 
+Pensjon-brevdata er en applikasjon som inneholder xsd'er og informasjon om brev som benyttes av Pesys i bestilling av brev.
+Applikasjonen inneholder tjenester for å hente ut denne informasjonen.
+
 include::{dir}../main/java/no/nav/pensjonbrevdata/samleside.adoc[]
 
 //Det er videre lagt til ADR for å spore beslutninger som har blitt tatt i denne applikasjonen.
