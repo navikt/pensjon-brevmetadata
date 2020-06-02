@@ -1,6 +1,4 @@
 
-include::NaisRestController.adoc[]
-
 include::mappers/PensjonBrevdataMapper.adoc[]
 
 include::model/Model.adoc[]

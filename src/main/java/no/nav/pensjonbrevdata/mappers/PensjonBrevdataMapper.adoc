@@ -14,6 +14,7 @@ Scriptet kopierer over kolonner og tabeller som er relevant for å bygge opp et 
 For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et hpextream brev.
 
 .Brev
+[cols="1,1,3",]
 |===
 |Element |Type |Beskrivelse
 
@@ -71,6 +72,7 @@ For å legge til et nytt brev må det legges til en ny mapping med følgende ele
 Doksysbrev må inneholde følgende elementer i tillegg til elementene beskrevet over
 
 .Doksysbrev
+[cols="1,1,3",]
 |===
 |Element | Type | Beskrivelse
 

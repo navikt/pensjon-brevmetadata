@@ -4,6 +4,7 @@
 
 Slik er brevklassen satt opp:
 
+[cols="1,1,3",]
 |===
 |Header 1 |Header 2 |Header 3
 
@@ -21,7 +22,7 @@ Slik er brevklassen satt opp:
 
 Slik er vedleggklassen satt opp:
 
-
+[cols="1,1,3",]
 |===
 |Header 1 |Header 2 |Header 3
 

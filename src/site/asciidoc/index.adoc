@@ -15,9 +15,10 @@ Pesys
 :dir: ../
 
 == Innhold
+
 Dette er dokumentasjonen til Pensjon Brevdata som er generert ved bruk av Asciidoc og PlantUML.
-Det er videre lagt til ADR for å spore beslutninger som har blitt tatt i denne applikasjonen.
 
 include::{dir}../main/java/no/nav/pensjonbrevdata/samleside.adoc[]
 
-include::adr/introADR.adoc[]
+//Det er videre lagt til ADR for å spore beslutninger som har blitt tatt i denne applikasjonen.
+//include::adr/introADR.adoc[]
