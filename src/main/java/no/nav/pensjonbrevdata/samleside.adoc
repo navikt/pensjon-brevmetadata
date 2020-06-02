@@ -1,3 +1,4 @@
+include::BrevdataEndpoint.adoc[]
 
 include::mappers/PensjonBrevdataMapper.adoc[]
 

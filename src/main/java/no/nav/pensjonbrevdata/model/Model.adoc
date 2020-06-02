@@ -2,6 +2,9 @@
 
 === Brev
 
+Forskjellen mellom _brevkode_ og _brevKey_ i denne konteksten er at brevkode, som kommer som input til tjensten, er både en T_K_BATCHBREV og T_K_BREV_T.
+_Brevkey_ er identifikatoren som brukes i bestillingen av brevet.
+
 Slik er brevklassen satt opp:
 
 [cols="1,1,3",]

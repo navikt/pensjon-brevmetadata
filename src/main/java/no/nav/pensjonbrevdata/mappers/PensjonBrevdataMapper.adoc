@@ -2,16 +2,12 @@
 
 Mapping av brev og vedlegg.
 
-=== Hvordan legge inn nye brev
-
-Here is how
-
 === BrevdataMapper
 
 BrevdataMapper inneholder alle brevene i pesys og er generert basert på PEN databasen med et script.
 Scriptet kopierer over kolonner og tabeller som er relevant for å bygge opp et brev.
 
-For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et hpextream brev.
+For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et gammeltbrev(hpextream brev).
 
 .Brev
 [cols="1,1,3",]
@@ -89,6 +85,24 @@ Doksysbrev må inneholde følgende elementer i tillegg til elementene beskrevet 
 |Inneholder en liste med doksysvedlegg som tilhører brevet.
 
 |===
+
+=== Hvordan legge inn nye brev
+
+==== Teknisk
+
+Brev er kategorisert som enten Doksysbrev eller "Gammeltbrev" (HPExstream osv.).
+Alle brev er lagt inn i et Hashmap med brevkode som keyId og Brev som et objekt.
+
+[source,java]
+----
+brevMap.put("OPPHOR_ENDRING_UT_BT",() ->
+                new GammeltBrev("PE_UT_07_200",false, ... )
+
+brevMap.put("AP_AVSL_ENDR", () ->
+                new Doksysbrev("AP_AVSL_ENDR",true, ... )
+----
+
+For å legge inn et nytt brev må det legges inn en ny mapping i "brevMap" med informasjon om det nye brevet.
 
 === DoksysVedleggMapper
 
