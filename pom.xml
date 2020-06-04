@@ -87,6 +87,7 @@
                     <attributes>
                         <toc-title>Innholdsfortegnelse</toc-title>
                         <important-caption>Viktig</important-caption>
+                        <tip-caption>Tips</tip-caption>
                         <note-caption>NB</note-caption>
                         <table-caption>Tabell</table-caption>
                         <sectnums>true</sectnums>

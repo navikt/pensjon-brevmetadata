@@ -121,7 +121,27 @@ brevMap.put("AP_AVSL_ENDR", () ->
 ----
 
 For å legge inn et nytt brev må det legges inn en ny mapping i "brevMap" med informasjon om det nye brevet.
+[TIP]
+====
+_Brevkode_, som er input til tjensten, kan både være av type T_K_BATCHBREV og T_K_BREV_T.
+
+* _Brevkode_ er nøkkelen som brukes i brevmappet
+* _brevkodeInBrevsystem_ er verdien som blir brukt til brevbestillinger
+====
 
 === DoksysVedleggMapper
 
-Slik fungerer det her
+DoksysVedleggMapper er bygget opp likt som BrevdataMapper ved at alle vedleggene er lagt inn i et _hashmap_.
+Vedleggene er knyttet til Brevdata med _vedleggkey_, hvor nøkkelen legges til Brevdata i den rekkefølgen vedleggene er ønsket.
+
+.Brevdatamapper
+----
+brevMap.put("AP_INNV_AO_UT_AUTO", () ->
+                new Doksysbrev("AP_INNV_AO_UT_AUTO",
+                        false,
+                        ...
+                        "000086",
+                        "00001",
+                        doksysVedleggMapper
+.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
+----

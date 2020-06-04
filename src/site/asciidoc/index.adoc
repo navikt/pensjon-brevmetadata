@@ -21,7 +21,8 @@ Dette er dokumentasjonen til Pensjon Brevdata som er generert ved bruk av Asciid
 Pensjon-brevdata er en applikasjon som inneholder xsd'er og informasjon om brev som benyttes av Pesys i bestilling av brev.
 Applikasjonen inneholder tjenester for å hente ut denne informasjonen.
 
-include::{dir}../main/java/no/nav/pensjonbrevdata/samleside.adoc[]
+Det er videre lagt til ADR for å støtte om beslutninger som er under vurdering eller forslag til applikasjonen.
 
-//Det er videre lagt til ADR for å spore beslutninger som har blitt tatt i denne applikasjonen.
-//include::adr/introADR.adoc[]
+include::{dir}../main/java/no/nav/pensjonbrevdata/docs/samleside.adoc[]
+
+include::adr/introADR.adoc[]
