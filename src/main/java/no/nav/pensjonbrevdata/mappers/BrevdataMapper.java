@@ -5228,7 +5228,7 @@ public class BrevdataMapper {
                         null,
                         "000152",
                         "00001",
-                        doksysVedleggMapper.map("AP_MND_UTB_V1", "RETTIGH_V1")));
+                        doksysVedleggMapper.map("RETTIGH_V1", "AP_MND_UTB_V1")));
         brevMap.put("AP_ENDR_OPPTJ_MAN", () ->
                 new Doksysbrev("AP_ENDR_OPPTJ_MAN",
                         true,

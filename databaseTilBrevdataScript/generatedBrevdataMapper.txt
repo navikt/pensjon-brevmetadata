@@ -17,7 +17,7 @@ brevMap.put("E001", () ->
 brevMap.put("E204", () ->
 	new GammeltBrev("E204",
 		true,
-		"E 204 - Behandling av krav om uføretrygd/uførepensjon",
+		"E 204 - Behandling av krav om ufï¿½retrygd/ufï¿½repensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -97,7 +97,7 @@ brevMap.put("H001", () ->
 brevMap.put("H002", () ->
 	new GammeltBrev("H002",
 		true,
-		"H002 - Svar på anmodning om informasjon",
+		"H002 - Svar pï¿½ anmodning om informasjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -129,7 +129,7 @@ brevMap.put("H061", () ->
 brevMap.put("H062", () ->
 	new GammeltBrev("H062",
 		false,
-		"H062 - Bekreftelse/svar på anmodning om personnummer",
+		"H062 - Bekreftelse/svar pï¿½ anmodning om personnummer",
 		null,
 		DokumenttypeCode.I,
 		null,
@@ -145,7 +145,7 @@ brevMap.put("H062", () ->
 brevMap.put("H070", () ->
 	new GammeltBrev("H070",
 		false,
-		"H070 - Melding om dødsfall",
+		"H070 - Melding om dï¿½dsfall",
 		null,
 		DokumenttypeCode.I,
 		null,
@@ -161,7 +161,7 @@ brevMap.put("H070", () ->
 brevMap.put("PE_AF_03_100", () ->
 	new GammeltBrev("PE_AF_03_100",
 		false,
-		"Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
+		"Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -177,7 +177,7 @@ brevMap.put("PE_AF_03_100", () ->
 brevMap.put("PE_AF_03_101", () ->
 	new GammeltBrev("PE_AF_03_101",
 		true,
-		"Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
+		"Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -209,7 +209,7 @@ brevMap.put("PE_AF_04_001", () ->
 brevMap.put("PE_AF_04_010", () ->
 	new GammeltBrev("PE_AF_04_010",
 		true,
-		"Vedtak - avslag på AFP",
+		"Vedtak - avslag pï¿½ AFP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -241,7 +241,7 @@ brevMap.put("PE_AF_04_020", () ->
 brevMap.put("PE_AF_04_100", () ->
 	new GammeltBrev("PE_AF_04_100",
 		false,
-		"Vedtak - ingen endring - AFP etteroppgjør",
+		"Vedtak - ingen endring - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -257,7 +257,7 @@ brevMap.put("PE_AF_04_100", () ->
 brevMap.put("PE_AF_04_101", () ->
 	new GammeltBrev("PE_AF_04_101",
 		false,
-		"Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
+		"Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -273,7 +273,7 @@ brevMap.put("PE_AF_04_101", () ->
 brevMap.put("PE_AF_04_102", () ->
 	new GammeltBrev("PE_AF_04_102",
 		false,
-		"Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
+		"Vedtak - ingen endring (andre avvik) - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -289,7 +289,7 @@ brevMap.put("PE_AF_04_102", () ->
 brevMap.put("PE_AF_04_103", () ->
 	new GammeltBrev("PE_AF_04_103",
 		true,
-		"Vedtak - ingen endring etter mottatt svar - AFP etteroppgjør",
+		"Vedtak - ingen endring etter mottatt svar - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -305,7 +305,7 @@ brevMap.put("PE_AF_04_103", () ->
 brevMap.put("PE_AF_04_104", () ->
 	new GammeltBrev("PE_AF_04_104",
 		true,
-		"Vedtak - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
+		"Vedtak - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -321,7 +321,7 @@ brevMap.put("PE_AF_04_104", () ->
 brevMap.put("PE_AF_04_105", () ->
 	new GammeltBrev("PE_AF_04_105",
 		true,
-		"Vedtak - etterbetaling av for lite utbetalt pensjon etter mottatt svar - AFP etteroppgjør",
+		"Vedtak - etterbetaling av for lite utbetalt pensjon etter mottatt svar - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -337,7 +337,7 @@ brevMap.put("PE_AF_04_105", () ->
 brevMap.put("PE_AF_04_106", () ->
 	new GammeltBrev("PE_AF_04_106",
 		true,
-		"Vedtak - ingen endring (andre avvik) etter mottatt svar - AFP etteroppgjør",
+		"Vedtak - ingen endring (andre avvik) etter mottatt svar - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -353,7 +353,7 @@ brevMap.put("PE_AF_04_106", () ->
 brevMap.put("PE_AF_04_107", () ->
 	new GammeltBrev("PE_AF_04_107",
 		false,
-		"Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
+		"Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -401,7 +401,7 @@ brevMap.put("E202_E205", () ->
 brevMap.put("PE_AF_04_108", () ->
 	new GammeltBrev("PE_AF_04_108",
 		true,
-		"Vedtak - ingen endring - AFP etteroppgjør",
+		"Vedtak - ingen endring - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -417,7 +417,7 @@ brevMap.put("PE_AF_04_108", () ->
 brevMap.put("PE_AF_04_109", () ->
 	new GammeltBrev("PE_AF_04_109",
 		true,
-		"Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
+		"Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -433,7 +433,7 @@ brevMap.put("PE_AF_04_109", () ->
 brevMap.put("PE_AF_04_110", () ->
 	new GammeltBrev("PE_AF_04_110",
 		true,
-		"Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
+		"Vedtak - ingen endring (andre avvik) - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -465,7 +465,7 @@ brevMap.put("PE_AF_04_111", () ->
 brevMap.put("PE_AF_04_112", () ->
 	new GammeltBrev("PE_AF_04_112",
 		true,
-		"Vedtak - avslag på AFP i privat sektor",
+		"Vedtak - avslag pï¿½ AFP i privat sektor",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
@@ -529,7 +529,7 @@ brevMap.put("PE_AF_04_115", () ->
 brevMap.put("PE_AF_04_116", () ->
 	new GammeltBrev("PE_AF_04_116",
 		false,
-		"Vedtak - avslag på AFP i privat sektor",
+		"Vedtak - avslag pï¿½ AFP i privat sektor",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NN, SprakCode.NB),
@@ -545,7 +545,7 @@ brevMap.put("PE_AF_04_116", () ->
 brevMap.put("PE_AP_01_001", () ->
 	new GammeltBrev("PE_AP_01_001",
 		false,
-		"Informasjon til deg som snart fyller 67 år",
+		"Informasjon til deg som snart fyller 67 ï¿½r",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -561,7 +561,7 @@ brevMap.put("PE_AP_01_001", () ->
 brevMap.put("PE_AP_01_006", () ->
 	new GammeltBrev("PE_AP_01_006",
 		false,
-		"Brev med skjema Søknad om alderspensjon (NAV 19-01.05)",
+		"Brev med skjema Sï¿½knad om alderspensjon (NAV 19-01.05)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.FR, SprakCode.SE, SprakCode.NN),
@@ -593,7 +593,7 @@ brevMap.put("PE_AP_01_007", () ->
 brevMap.put("PE_AP_01_011", () ->
 	new GammeltBrev("PE_AP_01_011",
 		false,
-		"Ikke løpende ytelse",
+		"Ikke lï¿½pende ytelse",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -609,7 +609,7 @@ brevMap.put("PE_AP_01_011", () ->
 brevMap.put("PE_AP_01_015", () ->
 	new GammeltBrev("PE_AP_01_015",
 		false,
-		"Løpende gjenlevendepensjon",
+		"Lï¿½pende gjenlevendepensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -625,7 +625,7 @@ brevMap.put("PE_AP_01_015", () ->
 brevMap.put("PE_AP_01_019", () ->
 	new GammeltBrev("PE_AP_01_019",
 		false,
-		"Løpende delvis uførepensjon",
+		"Lï¿½pende delvis ufï¿½repensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -641,7 +641,7 @@ brevMap.put("PE_AP_01_019", () ->
 brevMap.put("PE_AP_04_001", () ->
 	new GammeltBrev("PE_AP_04_001",
 		true,
-		"Vedtak - innvilgelse av alderspensjon (ev. innvilgelse/avslag forsørgingstillegg)",
+		"Vedtak - innvilgelse av alderspensjon (ev. innvilgelse/avslag forsï¿½rgingstillegg)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -657,7 +657,7 @@ brevMap.put("PE_AP_04_001", () ->
 brevMap.put("PE_AP_04_010", () ->
 	new GammeltBrev("PE_AP_04_010",
 		true,
-		"Vedtak - avslag på alderspensjon",
+		"Vedtak - avslag pï¿½ alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -673,7 +673,7 @@ brevMap.put("PE_AP_04_010", () ->
 brevMap.put("PE_AP_04_020", () ->
 	new GammeltBrev("PE_AP_04_020",
 		true,
-		"Vedtak - endring av alderspensjon  (ev. innvilgelse/avslag forsørgingstillegg)",
+		"Vedtak - endring av alderspensjon  (ev. innvilgelse/avslag forsï¿½rgingstillegg)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -721,7 +721,7 @@ brevMap.put("PE_AP_04_203", () ->
 brevMap.put("PE_AP_04_210", () ->
 	new GammeltBrev("PE_AP_04_210",
 		false,
-		"Vedtak - avslag på alderspensjon",
+		"Vedtak - avslag pï¿½ alderspensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
@@ -737,7 +737,7 @@ brevMap.put("PE_AP_04_210", () ->
 brevMap.put("PE_AP_04_211", () ->
 	new GammeltBrev("PE_AP_04_211",
 		true,
-		"Vedtak - avslag på alderspensjon",
+		"Vedtak - avslag pï¿½ alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
@@ -753,7 +753,7 @@ brevMap.put("PE_AP_04_211", () ->
 brevMap.put("PE_AP_04_212", () ->
 	new GammeltBrev("PE_AP_04_212",
 		true,
-		"Vedtak - avslag på alderspensjon - utenlandssak",
+		"Vedtak - avslag pï¿½ alderspensjon - utenlandssak",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -769,7 +769,7 @@ brevMap.put("PE_AP_04_212", () ->
 brevMap.put("PE_AP_04_213", () ->
 	new GammeltBrev("PE_AP_04_213",
 		false,
-		"Vedtak - avslag på alderspensjon - utenlandssak",
+		"Vedtak - avslag pï¿½ alderspensjon - utenlandssak",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN),
@@ -801,7 +801,7 @@ brevMap.put("PE_AP_04_214", () ->
 brevMap.put("PE_AP_04_215", () ->
 	new GammeltBrev("PE_AP_04_215",
 		true,
-		"Vedtak - opphør av alderspensjon fordi opptjening er endret",
+		"Vedtak - opphï¿½r av alderspensjon fordi opptjening er endret",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -817,7 +817,7 @@ brevMap.put("PE_AP_04_215", () ->
 brevMap.put("PE_AP_04_216", () ->
 	new GammeltBrev("PE_AP_04_216",
 		true,
-		"Vedtak - opphør av alderspensjon og AFP i privat sektor fordi opptjening er endret",
+		"Vedtak - opphï¿½r av alderspensjon og AFP i privat sektor fordi opptjening er endret",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -849,7 +849,7 @@ brevMap.put("PE_AP_04_220", () ->
 brevMap.put("PE_AP_04_221", () ->
 	new GammeltBrev("PE_AP_04_221",
 		false,
-		"Vedtak - endring av alderspensjon på grunn av innvilgelse eller opphør av ektefelle/partner/samboers pensjon eller uføretrygd",
+		"Vedtak - endring av alderspensjon pï¿½ grunn av innvilgelse eller opphï¿½r av ektefelle/partner/samboers pensjon eller ufï¿½retrygd",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
@@ -913,7 +913,7 @@ brevMap.put("PE_AP_04_224", () ->
 brevMap.put("PE_AP_04_225", () ->
 	new GammeltBrev("PE_AP_04_225",
 		true,
-		"Vedtak - avslag på eksport av alderspensjon",
+		"Vedtak - avslag pï¿½ eksport av alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -929,7 +929,7 @@ brevMap.put("PE_AP_04_225", () ->
 brevMap.put("PE_AP_04_226", () ->
 	new GammeltBrev("PE_AP_04_226",
 		false,
-		"Vedtak - endring av alderspensjon på grunn av endring av ektefelle/partner/samboers pensjon eller uføretrygd",
+		"Vedtak - endring av alderspensjon pï¿½ grunn av endring av ektefelle/partner/samboers pensjon eller ufï¿½retrygd",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NN, SprakCode.NB, SprakCode.EN),
@@ -977,7 +977,7 @@ brevMap.put("PE_AP_04_901", () ->
 brevMap.put("PE_AP_04_902", () ->
 	new GammeltBrev("PE_AP_04_902",
 		true,
-		"Vedtak - foreløpig innvilgelse av alderspensjon - Norge/avtaleland",
+		"Vedtak - forelï¿½pig innvilgelse av alderspensjon - Norge/avtaleland",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1025,7 +1025,7 @@ brevMap.put("PE_AP_04_904", () ->
 brevMap.put("PE_AP_04_910", () ->
 	new GammeltBrev("PE_AP_04_910",
 		true,
-		"Vedtak - avslag på alderspensjon - bosatt i utlandet",
+		"Vedtak - avslag pï¿½ alderspensjon - bosatt i utlandet",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1041,7 +1041,7 @@ brevMap.put("PE_AP_04_910", () ->
 brevMap.put("PE_AP_04_911", () ->
 	new GammeltBrev("PE_AP_04_911",
 		true,
-		"Vedtak - foreløpig avslag på alderspensjon - Norge/avtaleland",
+		"Vedtak - forelï¿½pig avslag pï¿½ alderspensjon - Norge/avtaleland",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1057,7 +1057,7 @@ brevMap.put("PE_AP_04_911", () ->
 brevMap.put("PE_AP_04_912", () ->
 	new GammeltBrev("PE_AP_04_912",
 		true,
-		"Vedtak - endelig avslag på alderspensjon - Norge/avtaleland",
+		"Vedtak - endelig avslag pï¿½ alderspensjon - Norge/avtaleland",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1169,7 +1169,7 @@ brevMap.put("PE_AP_05_001", () ->
 brevMap.put("PE_BA_01_100", () ->
 	new GammeltBrev("PE_BA_01_100",
 		false,
-		"Informasjon til deg som fyller 67 år",
+		"Informasjon til deg som fyller 67 ï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1185,7 +1185,7 @@ brevMap.put("PE_BA_01_100", () ->
 brevMap.put("PE_BA_01_103", () ->
 	new GammeltBrev("PE_BA_01_103",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar uføretrygd",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar ufï¿½retrygd",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1201,7 +1201,7 @@ brevMap.put("PE_BA_01_103", () ->
 brevMap.put("PE_BA_01_104", () ->
 	new GammeltBrev("PE_BA_01_104",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar gradert uføretrygd",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar gradert ufï¿½retrygd",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1217,7 +1217,7 @@ brevMap.put("PE_BA_01_104", () ->
 brevMap.put("PE_BA_01_105", () ->
 	new GammeltBrev("PE_BA_01_105",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar uføretrygd og alderspensjon",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar ufï¿½retrygd og alderspensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1233,7 +1233,7 @@ brevMap.put("PE_BA_01_105", () ->
 brevMap.put("PE_BA_01_106", () ->
 	new GammeltBrev("PE_BA_01_106",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar AFP",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar AFP",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1249,7 +1249,7 @@ brevMap.put("PE_BA_01_106", () ->
 brevMap.put("PE_BA_01_107", () ->
 	new GammeltBrev("PE_BA_01_107",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar familiepleierytelse",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar familiepleierytelse",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1265,7 +1265,7 @@ brevMap.put("PE_BA_01_107", () ->
 brevMap.put("PE_BA_01_108", () ->
 	new GammeltBrev("PE_BA_01_108",
 		false,
-		"Informasjon om vilkår for rett til ektefelletillegg",
+		"Informasjon om vilkï¿½r for rett til ektefelletillegg",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1281,7 +1281,7 @@ brevMap.put("PE_BA_01_108", () ->
 brevMap.put("PE_BA_04_501", () ->
 	new GammeltBrev("PE_BA_04_501",
 		false,
-		"Vedtak - forsørgingstillegg fra folketrygden",
+		"Vedtak - forsï¿½rgingstillegg fra folketrygden",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1297,7 +1297,7 @@ brevMap.put("PE_BA_04_501", () ->
 brevMap.put("PE_BA_04_502", () ->
 	new GammeltBrev("PE_BA_04_502",
 		false,
-		"Vedtak - forsørgingstillegg fra folketrygden",
+		"Vedtak - forsï¿½rgingstillegg fra folketrygden",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1313,7 +1313,7 @@ brevMap.put("PE_BA_04_502", () ->
 brevMap.put("PE_BA_04_503", () ->
 	new GammeltBrev("PE_BA_04_503",
 		false,
-		"Vedtak - forsørgingstillegg fra folketrygden",
+		"Vedtak - forsï¿½rgingstillegg fra folketrygden",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1345,7 +1345,7 @@ brevMap.put("PE_BA_04_504", () ->
 brevMap.put("PE_BA_04_505", () ->
 	new GammeltBrev("PE_BA_04_505",
 		false,
-		"Vedtak - endring av uføretrygd fordi du fyller 20 år",
+		"Vedtak - endring av ufï¿½retrygd fordi du fyller 20 ï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -1361,7 +1361,7 @@ brevMap.put("PE_BA_04_505", () ->
 brevMap.put("PE_BA_04_506", () ->
 	new GammeltBrev("PE_BA_04_506",
 		false,
-		"Vedtak - endring av alderspensjon fordi du fyller 70 år",
+		"Vedtak - endring av alderspensjon fordi du fyller 70 ï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -1505,7 +1505,7 @@ brevMap.put("PE_BA_04_516", () ->
 brevMap.put("PE_BA_04_520", () ->
 	new GammeltBrev("PE_BA_04_520",
 		false,
-		"Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1521,7 +1521,7 @@ brevMap.put("PE_BA_04_520", () ->
 brevMap.put("PE_BA_04_521", () ->
 	new GammeltBrev("PE_BA_04_521",
 		false,
-		"Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
+		"Vedtak - endring av ufï¿½repensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1537,7 +1537,7 @@ brevMap.put("PE_BA_04_521", () ->
 brevMap.put("PE_BA_04_522", () ->
 	new GammeltBrev("PE_BA_04_522",
 		false,
-		"Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1553,7 +1553,7 @@ brevMap.put("PE_BA_04_522", () ->
 brevMap.put("PE_BA_04_523", () ->
 	new GammeltBrev("PE_BA_04_523",
 		false,
-		"Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1569,7 +1569,7 @@ brevMap.put("PE_BA_04_523", () ->
 brevMap.put("PE_BA_04_525", () ->
 	new GammeltBrev("PE_BA_04_525",
 		false,
-		"Vedtak - opphør av barnetillegg",
+		"Vedtak - opphï¿½r av barnetillegg",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1585,7 +1585,7 @@ brevMap.put("PE_BA_04_525", () ->
 brevMap.put("PE_BA_04_526", () ->
 	new GammeltBrev("PE_BA_04_526",
 		false,
-		"Vedtak - opphør barne- og ektefelletillegg",
+		"Vedtak - opphï¿½r barne- og ektefelletillegg",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1601,7 +1601,7 @@ brevMap.put("PE_BA_04_526", () ->
 brevMap.put("PE_BA_04_527", () ->
 	new GammeltBrev("PE_BA_04_527",
 		false,
-		"Vedtak - opphør av ektefelletilegg",
+		"Vedtak - opphï¿½r av ektefelletilegg",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1617,7 +1617,7 @@ brevMap.put("PE_BA_04_527", () ->
 brevMap.put("PE_BA_04_528", () ->
 	new GammeltBrev("PE_BA_04_528",
 		false,
-		"Vedtak - omregning av uføretrygd til alderspensjon",
+		"Vedtak - omregning av ufï¿½retrygd til alderspensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1665,7 +1665,7 @@ brevMap.put("PE_BA_04_531", () ->
 brevMap.put("PE_BA_04_532", () ->
 	new GammeltBrev("PE_BA_04_532",
 		false,
-		"Vedtak - endring av alderspensjon fordi ektefelle fyller 60 år",
+		"Vedtak - endring av alderspensjon fordi ektefelle fyller 60 ï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1681,7 +1681,7 @@ brevMap.put("PE_BA_04_532", () ->
 brevMap.put("PE_BA_04_533", () ->
 	new GammeltBrev("PE_BA_04_533",
 		false,
-		"Vedtak - endring av alderspensjon fordi du fyller 75 år",
+		"Vedtak - endring av alderspensjon fordi du fyller 75 ï¿½r",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -1713,7 +1713,7 @@ brevMap.put("PE_BA_04_534", () ->
 brevMap.put("PE_BP_01_001", () ->
 	new GammeltBrev("PE_BP_01_001",
 		false,
-		"Informasjon til deg som snart fyller 18 år om forlenget barnepensjon til foreldreløse barn",
+		"Informasjon til deg som snart fyller 18 ï¿½r om forlenget barnepensjon til foreldrelï¿½se barn",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1729,7 +1729,7 @@ brevMap.put("PE_BP_01_001", () ->
 brevMap.put("PE_BP_01_002", () ->
 	new GammeltBrev("PE_BP_01_002",
 		false,
-		"Informasjon til deg som snart fyller 18 år om forlenget barnepensjon",
+		"Informasjon til deg som snart fyller 18 ï¿½r om forlenget barnepensjon",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1777,7 +1777,7 @@ brevMap.put("PE_BP_04_002", () ->
 brevMap.put("PE_BP_04_010", () ->
 	new GammeltBrev("PE_BP_04_010",
 		true,
-		"Vedtak - avslag på barnepensjon",
+		"Vedtak - avslag pï¿½ barnepensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1793,7 +1793,7 @@ brevMap.put("PE_BP_04_010", () ->
 brevMap.put("PE_BP_04_011", () ->
 	new GammeltBrev("PE_BP_04_011",
 		true,
-		"Vedtak - avslag på barnepensjon - utenlandssak",
+		"Vedtak - avslag pï¿½ barnepensjon - utenlandssak",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1857,7 +1857,7 @@ brevMap.put("PE_BP_04_022", () ->
 brevMap.put("PE_BP_04_030", () ->
 	new GammeltBrev("PE_BP_04_030",
 		true,
-		"Vedtak - opphør av barnepensjon",
+		"Vedtak - opphï¿½r av barnepensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -1873,7 +1873,7 @@ brevMap.put("PE_BP_04_030", () ->
 brevMap.put("PE_BP_04_031", () ->
 	new GammeltBrev("PE_BP_04_031",
 		true,
-		"Vedtak - opphør av barnepensjon - utenlandssak",
+		"Vedtak - opphï¿½r av barnepensjon - utenlandssak",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -1889,7 +1889,7 @@ brevMap.put("PE_BP_04_031", () ->
 brevMap.put("PE_FT_01_001", () ->
 	new GammeltBrev("PE_FT_01_001",
 		false,
-		"Brev med skjema Søknad om forsørgingstillegg (NAV 03-24.05)",
+		"Brev med skjema Sï¿½knad om forsï¿½rgingstillegg (NAV 03-24.05)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.FR, SprakCode.NN),
@@ -1921,7 +1921,7 @@ brevMap.put("PE_FT_01_002", () ->
 brevMap.put("PE_FT_01_003", () ->
 	new GammeltBrev("PE_FT_01_003",
 		true,
-		"Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
+		"Vedtak - opphï¿½r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -1937,7 +1937,7 @@ brevMap.put("PE_FT_01_003", () ->
 brevMap.put("PE_FT_01_004", () ->
 	new GammeltBrev("PE_FT_01_004",
 		false,
-		"Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
+		"Vedtak - opphï¿½r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -1953,7 +1953,7 @@ brevMap.put("PE_FT_01_004", () ->
 brevMap.put("PE_FT_01_005", () ->
 	new GammeltBrev("PE_FT_01_005",
 		false,
-		"Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
+		"Vedtak - opphï¿½r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -1969,7 +1969,7 @@ brevMap.put("PE_FT_01_005", () ->
 brevMap.put("PE_FT_01_006", () ->
 	new GammeltBrev("PE_FT_01_006",
 		true,
-		"Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
+		"Vedtak - opphï¿½r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -2001,7 +2001,7 @@ brevMap.put("PE_FT_01_007", () ->
 brevMap.put("PE_GP_01_010", () ->
 	new GammeltBrev("PE_GP_01_010",
 		false,
-		"Brev med skjema Krav om stønad til gjenlevende ektefelle/partner/samboer og gjenlevende barn (NAV 17-01.05)",
+		"Brev med skjema Krav om stï¿½nad til gjenlevende ektefelle/partner/samboer og gjenlevende barn (NAV 17-01.05)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.FR, SprakCode.NN),
@@ -2017,7 +2017,7 @@ brevMap.put("PE_GP_01_010", () ->
 brevMap.put("PE_GP_01_011", () ->
 	new GammeltBrev("PE_GP_01_011",
 		false,
-		"Brev med skjema Søknad om barnepensjon når en forelder er død (NAV 18-04.01)",
+		"Brev med skjema Sï¿½knad om barnepensjon nï¿½r en forelder er dï¿½d (NAV 18-04.01)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2033,7 +2033,7 @@ brevMap.put("PE_GP_01_011", () ->
 brevMap.put("PE_GP_01_012", () ->
 	new GammeltBrev("PE_GP_01_012",
 		false,
-		"Brev med skjema Søknad om barnepensjon til foreldreløse barn (NAV 18-01.05)",
+		"Brev med skjema Sï¿½knad om barnepensjon til foreldrelï¿½se barn (NAV 18-01.05)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2065,7 +2065,7 @@ brevMap.put("PE_GP_04_001", () ->
 brevMap.put("PE_GP_04_010", () ->
 	new GammeltBrev("PE_GP_04_010",
 		true,
-		"Vedtak - avslag på ytelse til gjenlevende",
+		"Vedtak - avslag pï¿½ ytelse til gjenlevende",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -2113,7 +2113,7 @@ brevMap.put("PE_GP_04_022", () ->
 brevMap.put("PE_GP_04_023", () ->
 	new GammeltBrev("PE_GP_04_023",
 		true,
-		"Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - før utland)",
+		"Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - fï¿½r utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -2225,7 +2225,7 @@ brevMap.put("PE_GP_04_029", () ->
 brevMap.put("PE_GP_04_030", () ->
 	new GammeltBrev("PE_GP_04_030",
 		true,
-		"Vedtak - opphør av ytelse til gjenlevende",
+		"Vedtak - opphï¿½r av ytelse til gjenlevende",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -2241,7 +2241,7 @@ brevMap.put("PE_GP_04_030", () ->
 brevMap.put("PE_GP_04_031", () ->
 	new GammeltBrev("PE_GP_04_031",
 		true,
-		"Vedtak - avslag ytelse til gjenlevende (bosatt Norge - før utland)",
+		"Vedtak - avslag ytelse til gjenlevende (bosatt Norge - fï¿½r utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -2353,7 +2353,7 @@ brevMap.put("PE_IY_03_048", () ->
 brevMap.put("PE_IY_03_049", () ->
 	new GammeltBrev("PE_IY_03_049",
 		false,
-		"Innhente bekreftelse på flyktningstatus fra UDI",
+		"Innhente bekreftelse pï¿½ flyktningstatus fra UDI",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2369,7 +2369,7 @@ brevMap.put("PE_IY_03_049", () ->
 brevMap.put("PE_IY_03_051", () ->
 	new GammeltBrev("PE_IY_03_051",
 		false,
-		"Varsel om mulig avslag/opphør p.g.a. manglende opplysninger",
+		"Varsel om mulig avslag/opphï¿½r p.g.a. manglende opplysninger",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2449,7 +2449,7 @@ brevMap.put("PE_IY_03_153", () ->
 brevMap.put("PE_IY_03_154", () ->
 	new GammeltBrev("PE_IY_03_154",
 		true,
-		"Klage - følgeskriv til oversendelse til NAV Klageinstans",
+		"Klage - fï¿½lgeskriv til oversendelse til NAV Klageinstans",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2529,7 +2529,7 @@ brevMap.put("PE_IY_03_158", () ->
 brevMap.put("PE_IY_03_159", () ->
 	new GammeltBrev("PE_IY_03_159",
 		true,
-		"Anke - følgeskriv til oversendelse til Trygderetten",
+		"Anke - fï¿½lgeskriv til oversendelse til Trygderetten",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2625,7 +2625,7 @@ brevMap.put("PE_IY_03_164", () ->
 brevMap.put("PE_IY_03_165", () ->
 	new GammeltBrev("PE_IY_03_165",
 		true,
-		"Innhente opplysninger i EØS-sak (bruker bosatt i Norge)",
+		"Innhente opplysninger i Eï¿½S-sak (bruker bosatt i Norge)",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2641,7 +2641,7 @@ brevMap.put("PE_IY_03_165", () ->
 brevMap.put("PE_IY_03_166", () ->
 	new GammeltBrev("PE_IY_03_166",
 		true,
-		"Forespørsel om fartstidsoppgave",
+		"Forespï¿½rsel om fartstidsoppgave",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2657,7 +2657,7 @@ brevMap.put("PE_IY_03_166", () ->
 brevMap.put("PE_IY_03_167", () ->
 	new GammeltBrev("PE_IY_03_167",
 		true,
-		"Forespørsel om dokumentasjon av botid i Norge",
+		"Forespï¿½rsel om dokumentasjon av botid i Norge",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2689,7 +2689,7 @@ brevMap.put("PE_IY_03_168", () ->
 brevMap.put("PE_IY_03_169", () ->
 	new GammeltBrev("PE_IY_03_169",
 		true,
-		"Bekreftelse på at bruker mottar uføretrygd (norsk)",
+		"Bekreftelse pï¿½ at bruker mottar ufï¿½retrygd (norsk)",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2705,7 +2705,7 @@ brevMap.put("PE_IY_03_169", () ->
 brevMap.put("PE_IY_03_170", () ->
 	new GammeltBrev("PE_IY_03_170",
 		true,
-		"Bekreftelse på at bruker mottar uføretrygd (engelsk)",
+		"Bekreftelse pï¿½ at bruker mottar ufï¿½retrygd (engelsk)",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2721,7 +2721,7 @@ brevMap.put("PE_IY_03_170", () ->
 brevMap.put("PE_IY_03_171", () ->
 	new GammeltBrev("PE_IY_03_171",
 		true,
-		"Bekreftelse på at bruker mottar uføretrygd (tysk)",
+		"Bekreftelse pï¿½ at bruker mottar ufï¿½retrygd (tysk)",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2737,7 +2737,7 @@ brevMap.put("PE_IY_03_171", () ->
 brevMap.put("PE_IY_03_172", () ->
 	new GammeltBrev("PE_IY_03_172",
 		true,
-		"Bekreftelse på at bruker mottar uføretrygd (fransk)",
+		"Bekreftelse pï¿½ at bruker mottar ufï¿½retrygd (fransk)",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2753,7 +2753,7 @@ brevMap.put("PE_IY_03_172", () ->
 brevMap.put("PE_IY_03_173", () ->
 	new GammeltBrev("PE_IY_03_173",
 		true,
-		"Bekreftelse på at bruker mottar uføretrygd (spansk)",
+		"Bekreftelse pï¿½ at bruker mottar ufï¿½retrygd (spansk)",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2769,7 +2769,7 @@ brevMap.put("PE_IY_03_173", () ->
 brevMap.put("PE_IY_03_174", () ->
 	new GammeltBrev("PE_IY_03_174",
 		true,
-		"Bekreftelse på at bruker mottar pensjon (engelsk)",
+		"Bekreftelse pï¿½ at bruker mottar pensjon (engelsk)",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2785,7 +2785,7 @@ brevMap.put("PE_IY_03_174", () ->
 brevMap.put("PE_IY_03_175", () ->
 	new GammeltBrev("PE_IY_03_175",
 		true,
-		"Informasjon til deg som er bosatt i utlandet og snart fyller 67 år",
+		"Informasjon til deg som er bosatt i utlandet og snart fyller 67 ï¿½r",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2801,7 +2801,7 @@ brevMap.put("PE_IY_03_175", () ->
 brevMap.put("PE_IY_03_176", () ->
 	new GammeltBrev("PE_IY_03_176",
 		true,
-		"Vedtak - stans av pensjon på grunn av manglende leveattest",
+		"Vedtak - stans av pensjon pï¿½ grunn av manglende leveattest",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2817,7 +2817,7 @@ brevMap.put("PE_IY_03_176", () ->
 brevMap.put("PE_IY_03_177", () ->
 	new GammeltBrev("PE_IY_03_177",
 		true,
-		"Varsel - melding om stans eller gjenopptatt utbetaling på grunn av leveattest",
+		"Varsel - melding om stans eller gjenopptatt utbetaling pï¿½ grunn av leveattest",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2833,7 +2833,7 @@ brevMap.put("PE_IY_03_177", () ->
 brevMap.put("PE_IY_03_178", () ->
 	new GammeltBrev("PE_IY_03_178",
 		true,
-		"Påminnelse generell",
+		"Pï¿½minnelse generell",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2865,7 +2865,7 @@ brevMap.put("PE_IY_03_179", () ->
 brevMap.put("PE_IY_03_180", () ->
 	new GammeltBrev("PE_IY_03_180",
 		true,
-		"Orientering om saksbehandlingstid  i EØS-sak (bruker bosatt i Norge)",
+		"Orientering om saksbehandlingstid  i Eï¿½S-sak (bruker bosatt i Norge)",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2897,7 +2897,7 @@ brevMap.put("PE_IY_04_001", () ->
 brevMap.put("PE_IY_04_010", () ->
 	new GammeltBrev("PE_IY_04_010",
 		true,
-		"Vedtak- avslag på omsorgsopptjening",
+		"Vedtak- avslag pï¿½ omsorgsopptjening",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2929,7 +2929,7 @@ brevMap.put("PE_IY_04_050", () ->
 brevMap.put("PE_IY_04_051", () ->
 	new GammeltBrev("PE_IY_04_051",
 		true,
-		"Vedtak - omgjøring i ankesak - NAV Klageinstans",
+		"Vedtak - omgjï¿½ring i ankesak - NAV Klageinstans",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -2945,7 +2945,7 @@ brevMap.put("PE_IY_04_051", () ->
 brevMap.put("PE_IY_04_060", () ->
 	new GammeltBrev("PE_IY_04_060",
 		true,
-		"Vedtak om tilbakekreving av feilutbetalt beløp",
+		"Vedtak om tilbakekreving av feilutbetalt belï¿½p",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2961,7 +2961,7 @@ brevMap.put("PE_IY_04_060", () ->
 brevMap.put("PE_IY_04_061", () ->
 	new GammeltBrev("PE_IY_04_061",
 		true,
-		"Vedtak om at feilutbetalt beløp ikke vil bli tilbakekrevet",
+		"Vedtak om at feilutbetalt belï¿½p ikke vil bli tilbakekrevet",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -2993,7 +2993,7 @@ brevMap.put("PE_IY_04_062", () ->
 brevMap.put("PE_IY_04_120", () ->
 	new GammeltBrev("PE_IY_04_120",
 		false,
-		"Vedtak - overføring av omsorgsopptjening brev til mottaker",
+		"Vedtak - overfï¿½ring av omsorgsopptjening brev til mottaker",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3009,7 +3009,7 @@ brevMap.put("PE_IY_04_120", () ->
 brevMap.put("PE_IY_04_121", () ->
 	new GammeltBrev("PE_IY_04_121",
 		false,
-		"Vedtak - overføring av omsorgsopptjening brev til avgiver",
+		"Vedtak - overfï¿½ring av omsorgsopptjening brev til avgiver",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3041,7 +3041,7 @@ brevMap.put("PE_IY_04_125", () ->
 brevMap.put("PE_IY_04_126", () ->
 	new GammeltBrev("PE_IY_04_126",
 		true,
-		"Vedtak - avslag på eksport av alderspensjon",
+		"Vedtak - avslag pï¿½ eksport av alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3089,7 +3089,7 @@ brevMap.put("PE_IY_05_006", () ->
 brevMap.put("PE_IY_05_007", () ->
 	new GammeltBrev("PE_IY_05_007",
 		true,
-		"Forespørsel på grunn av uleselig dokument",
+		"Forespï¿½rsel pï¿½ grunn av uleselig dokument",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3121,7 +3121,7 @@ brevMap.put("PE_IY_05_008", () ->
 brevMap.put("PE_IY_05_027", () ->
 	new GammeltBrev("PE_IY_05_027",
 		true,
-		"Varsel - tilbakekreving av feilutbetalt beløp",
+		"Varsel - tilbakekreving av feilutbetalt belï¿½p",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -3137,7 +3137,7 @@ brevMap.put("PE_IY_05_027", () ->
 brevMap.put("PE_IY_05_028", () ->
 	new GammeltBrev("PE_IY_05_028",
 		false,
-		"Forhåndsvarsel for tilbakekreving",
+		"Forhï¿½ndsvarsel for tilbakekreving",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -3169,7 +3169,7 @@ brevMap.put("PE_IY_05_041", () ->
 brevMap.put("PE_IY_05_101", () ->
 	new GammeltBrev("PE_IY_05_101",
 		false,
-		"Brev med skjema Overføring av Omsorgsopptjening (NAV 03-16.10)",
+		"Brev med skjema Overfï¿½ring av Omsorgsopptjening (NAV 03-16.10)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3185,7 +3185,7 @@ brevMap.put("PE_IY_05_101", () ->
 brevMap.put("PE_IY_05_102", () ->
 	new GammeltBrev("PE_IY_05_102",
 		false,
-		"Brev med skjema Søknad om godskriving av pensjonsopptjening for pleie og omsorg for eldre syke og funksjonshemmede (NAV 03-16.05)",
+		"Brev med skjema Sï¿½knad om godskriving av pensjonsopptjening for pleie og omsorg for eldre syke og funksjonshemmede (NAV 03-16.05)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3201,7 +3201,7 @@ brevMap.put("PE_IY_05_102", () ->
 brevMap.put("PE_IY_05_104", () ->
 	new GammeltBrev("PE_IY_05_104",
 		false,
-		"Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01)",
+		"Brev med skjema Sï¿½knad om godskriving av pensjonsopptjening for omsorg av barn under 7 ï¿½r fï¿½r 1992 mor (NAV 03-16.01)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
@@ -3217,7 +3217,7 @@ brevMap.put("PE_IY_05_104", () ->
 brevMap.put("PE_IY_05_105", () ->
 	new GammeltBrev("PE_IY_05_105",
 		false,
-		"Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02)",
+		"Brev med skjema Sï¿½knad om godskriving av pensjonsopptjening for omsorg av barn under 7 ï¿½r fï¿½r 1992 far (NAV 03-16.02)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
@@ -3233,7 +3233,7 @@ brevMap.put("PE_IY_05_105", () ->
 brevMap.put("PE_IY_05_111", () ->
 	new GammeltBrev("PE_IY_05_111",
 		false,
-		"Brev med skjema Søknad om ytelser til tidligere familiepleier (NAV 16-01.05)",
+		"Brev med skjema Sï¿½knad om ytelser til tidligere familiepleier (NAV 16-01.05)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -3249,7 +3249,7 @@ brevMap.put("PE_IY_05_111", () ->
 brevMap.put("PE_IY_05_200", () ->
 	new GammeltBrev("PE_IY_05_200",
 		false,
-		"Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
+		"Vedtak - innvilgelse av omsorgsopptjening ved forhï¿½yet hjelpestï¿½nad sats 3 eller 4",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3265,7 +3265,7 @@ brevMap.put("PE_IY_05_200", () ->
 brevMap.put("PE_IY_05_201", () ->
 	new GammeltBrev("PE_IY_05_201",
 		false,
-		"Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn",
+		"Vedtak - innvilgelse av omsorgsopptjening ved omsorg for smï¿½ barn",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB),
@@ -3457,7 +3457,7 @@ brevMap.put("PE_IY_05_410", () ->
 brevMap.put("PE_IY_05_411", () ->
 	new GammeltBrev("PE_IY_05_411",
 		false,
-		"Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
+		"Pï¿½minnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -3473,7 +3473,7 @@ brevMap.put("PE_IY_05_411", () ->
 brevMap.put("PE_IY_05_502", () ->
 	new GammeltBrev("PE_IY_05_502",
 		false,
-		"Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn før 1992",
+		"Vedtak - innvilgelse av omsorgsopptjening ved omsorg for smï¿½ barn fï¿½r 1992",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -3521,7 +3521,7 @@ brevMap.put("PE_IY_06_510", () ->
 brevMap.put("PE_IY_06_511", () ->
 	new GammeltBrev("PE_IY_06_511",
 		false,
-		"Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)",
+		"Pï¿½minnelse ï¿½ brev med skjema Alternativ leveattest (NAV 21-03.06)",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		null,
@@ -3537,7 +3537,7 @@ brevMap.put("PE_IY_06_511", () ->
 brevMap.put("PE_OK_06_100", () ->
 	new GammeltBrev("PE_OK_06_100",
 		true,
-		"Posteringsgrunnlag (virkningstidspunkt før 01.01.09)",
+		"Posteringsgrunnlag (virkningstidspunkt fï¿½r 01.01.09)",
 		BrevkategoriCode.OVRIG,
 		DokumenttypeCode.N,
 		Arrays.asList(SprakCode.NB),
@@ -3585,7 +3585,7 @@ brevMap.put("PE_OK_06_102", () ->
 brevMap.put("PE_UP_01_001", () ->
 	new GammeltBrev("PE_UP_01_001",
 		true,
-		"Orientering om utvidelse av perioden med hvilende rett til uførepensjon - med skjema Krav om forlengelse av hvilende rett til uførepensjon i nye fem år/meldng om inntektsøking (NAV 12-06.14)",
+		"Orientering om utvidelse av perioden med hvilende rett til ufï¿½repensjon - med skjema Krav om forlengelse av hvilende rett til ufï¿½repensjon i nye fem ï¿½r/meldng om inntektsï¿½king (NAV 12-06.14)",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NB),
@@ -3601,7 +3601,7 @@ brevMap.put("PE_UP_01_001", () ->
 brevMap.put("PE_UP_04_001", () ->
 	new GammeltBrev("PE_UP_04_001",
 		true,
-		"Vedtak - innvilgelse av uførepensjon",
+		"Vedtak - innvilgelse av ufï¿½repensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -3617,7 +3617,7 @@ brevMap.put("PE_UP_04_001", () ->
 brevMap.put("PE_UP_04_010", () ->
 	new GammeltBrev("PE_UP_04_010",
 		true,
-		"Vedtak - opphør av uførepensjon",
+		"Vedtak - opphï¿½r av ufï¿½repensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -3633,7 +3633,7 @@ brevMap.put("PE_UP_04_010", () ->
 brevMap.put("PE_UP_04_020", () ->
 	new GammeltBrev("PE_UP_04_020",
 		true,
-		"Vedtak - endring av uførepensjon",
+		"Vedtak - endring av ufï¿½repensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.NN),
@@ -3649,7 +3649,7 @@ brevMap.put("PE_UP_04_020", () ->
 brevMap.put("PE_UP_04_021", () ->
 	new GammeltBrev("PE_UP_04_021",
 		true,
-		"Vedtak - forlengelse av perioden med hvilende rett til uførepensjon",
+		"Vedtak - forlengelse av perioden med hvilende rett til ufï¿½repensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3665,7 +3665,7 @@ brevMap.put("PE_UP_04_021", () ->
 brevMap.put("PE_UP_04_022", () ->
 	new GammeltBrev("PE_UP_04_022",
 		true,
-		"Vedtak - delvis eksport av uførepensjon",
+		"Vedtak - delvis eksport av ufï¿½repensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -3681,7 +3681,7 @@ brevMap.put("PE_UP_04_022", () ->
 brevMap.put("PE_UP_04_023", () ->
 	new GammeltBrev("PE_UP_04_023",
 		true,
-		"Vedtak - innvilgelse av uførepensjon (bosatt Norge - før utland)",
+		"Vedtak - innvilgelse av ufï¿½repensjon (bosatt Norge - fï¿½r utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3697,7 +3697,7 @@ brevMap.put("PE_UP_04_023", () ->
 brevMap.put("PE_UP_04_024", () ->
 	new GammeltBrev("PE_UP_04_024",
 		true,
-		"Vedtak - innvilgelse av uførepensjon med endring (bosatt Norge - etter utland)",
+		"Vedtak - innvilgelse av ufï¿½repensjon med endring (bosatt Norge - etter utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3713,7 +3713,7 @@ brevMap.put("PE_UP_04_024", () ->
 brevMap.put("PE_UP_04_025", () ->
 	new GammeltBrev("PE_UP_04_025",
 		true,
-		"Vedtak - innvilgelse av uførepensjon (bosatt Norge - etter utland)",
+		"Vedtak - innvilgelse av ufï¿½repensjon (bosatt Norge - etter utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3729,7 +3729,7 @@ brevMap.put("PE_UP_04_025", () ->
 brevMap.put("PE_UP_04_026", () ->
 	new GammeltBrev("PE_UP_04_026",
 		true,
-		"Vedtak - innvilgelse av uførepensjon (bosatt utland - avtaleland)",
+		"Vedtak - innvilgelse av ufï¿½repensjon (bosatt utland - avtaleland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3745,7 +3745,7 @@ brevMap.put("PE_UP_04_026", () ->
 brevMap.put("PE_UP_04_027", () ->
 	new GammeltBrev("PE_UP_04_027",
 		true,
-		"Vedtak - innvilgelse av uførepensjon (bosatt utland - ikke avtaleland)",
+		"Vedtak - innvilgelse av ufï¿½repensjon (bosatt utland - ikke avtaleland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3761,7 +3761,7 @@ brevMap.put("PE_UP_04_027", () ->
 brevMap.put("PE_UP_04_028", () ->
 	new GammeltBrev("PE_UP_04_028",
 		true,
-		"Vedtak - endring av uførepensjon (bosatt Norge)",
+		"Vedtak - endring av ufï¿½repensjon (bosatt Norge)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3777,7 +3777,7 @@ brevMap.put("PE_UP_04_028", () ->
 brevMap.put("PE_UP_04_029", () ->
 	new GammeltBrev("PE_UP_04_029",
 		true,
-		"Vedtak - endring av uførepensjon (bosatt utland)",
+		"Vedtak - endring av ufï¿½repensjon (bosatt utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3793,7 +3793,7 @@ brevMap.put("PE_UP_04_029", () ->
 brevMap.put("PE_UP_04_030", () ->
 	new GammeltBrev("PE_UP_04_030",
 		true,
-		"Vedtak - innvilgelse av uførepensjon (bosatt Norge - mellombehandling)",
+		"Vedtak - innvilgelse av ufï¿½repensjon (bosatt Norge - mellombehandling)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -3809,7 +3809,7 @@ brevMap.put("PE_UP_04_030", () ->
 brevMap.put("PE_UP_07_010", () ->
 	new GammeltBrev("PE_UP_07_010",
 		true,
-		"Vedtak - avslag på uførepensjon",
+		"Vedtak - avslag pï¿½ ufï¿½repensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3825,7 +3825,7 @@ brevMap.put("PE_UP_07_010", () ->
 brevMap.put("PE_UP_07_100", () ->
 	new GammeltBrev("PE_UP_07_100",
 		true,
-		"Innhente opplysninger (uførepensjon - med førsteside for ettersendelse)",
+		"Innhente opplysninger (ufï¿½repensjon - med fï¿½rsteside for ettersendelse)",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3841,7 +3841,7 @@ brevMap.put("PE_UP_07_100", () ->
 brevMap.put("PE_UP_07_105", () ->
 	new GammeltBrev("PE_UP_07_105",
 		true,
-		"Orientering om saksbehandlingstid (uføretrygd)",
+		"Orientering om saksbehandlingstid (ufï¿½retrygd)",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3857,7 +3857,7 @@ brevMap.put("PE_UP_07_105", () ->
 brevMap.put("PE_UT_01_001", () ->
 	new GammeltBrev("PE_UT_01_001",
 		false,
-		"Informasjonsbrev om overgang fra uførepensjon til uføretrygd",
+		"Informasjonsbrev om overgang fra ufï¿½repensjon til ufï¿½retrygd",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3873,7 +3873,7 @@ brevMap.put("PE_UT_01_001", () ->
 brevMap.put("PE_UT_04_001", () ->
 	new GammeltBrev("PE_UT_04_001",
 		true,
-		"Forsidebrev - ny omregning av uførepensjon til uføretrygd",
+		"Forsidebrev - ny omregning av ufï¿½repensjon til ufï¿½retrygd",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3889,7 +3889,7 @@ brevMap.put("PE_UT_04_001", () ->
 brevMap.put("PE_UT_04_002", () ->
 	new GammeltBrev("PE_UT_04_002",
 		true,
-		"Innhenting av opplysninger - EØS",
+		"Innhenting av opplysninger - Eï¿½S",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3921,7 +3921,7 @@ brevMap.put("PE_UT_04_003", () ->
 brevMap.put("PE_UT_04_004", () ->
 	new GammeltBrev("PE_UT_04_004",
 		true,
-		"Brev om forventet saksbehandlingstid (bosatt Norge - før utland)",
+		"Brev om forventet saksbehandlingstid (bosatt Norge - fï¿½r utland)",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3937,7 +3937,7 @@ brevMap.put("PE_UT_04_004", () ->
 brevMap.put("PE_UT_04_100", () ->
 	new GammeltBrev("PE_UT_04_100",
 		true,
-		"Vedtak - opphør av uføretrygd",
+		"Vedtak - opphï¿½r av ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -3953,7 +3953,7 @@ brevMap.put("PE_UT_04_100", () ->
 brevMap.put("PE_UT_04_101", () ->
 	new GammeltBrev("PE_UT_04_101",
 		true,
-		"Vedtak - innvilgelse av uføretrygd",
+		"Vedtak - innvilgelse av ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -3969,7 +3969,7 @@ brevMap.put("PE_UT_04_101", () ->
 brevMap.put("PE_UT_04_102", () ->
 	new GammeltBrev("PE_UT_04_102",
 		true,
-		"Vedtak - endring av uføretrygd",
+		"Vedtak - endring av ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -3985,7 +3985,7 @@ brevMap.put("PE_UT_04_102", () ->
 brevMap.put("PE_UT_04_103", () ->
 	new GammeltBrev("PE_UT_04_103",
 		true,
-		"Vedtak - delvis eksport av uføretrygd",
+		"Vedtak - delvis eksport av ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4001,7 +4001,7 @@ brevMap.put("PE_UT_04_103", () ->
 brevMap.put("PE_UT_04_104", () ->
 	new GammeltBrev("PE_UT_04_104",
 		true,
-		"Vedtak - avslag på uføretrygd",
+		"Vedtak - avslag pï¿½ ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4017,7 +4017,7 @@ brevMap.put("PE_UT_04_104", () ->
 brevMap.put("PE_UT_04_106", () ->
 	new GammeltBrev("PE_UT_04_106",
 		true,
-		"Vedtak - innvilgelse av uføretrygd med endring (bosatt Norge - etter utland)",
+		"Vedtak - innvilgelse av ufï¿½retrygd med endring (bosatt Norge - etter utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4033,7 +4033,7 @@ brevMap.put("PE_UT_04_106", () ->
 brevMap.put("PE_UT_04_107", () ->
 	new GammeltBrev("PE_UT_04_107",
 		true,
-		"Vedtak - innvilgelse av uføretrygd (bosatt Norge - etter utland)",
+		"Vedtak - innvilgelse av ufï¿½retrygd (bosatt Norge - etter utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4081,7 +4081,7 @@ brevMap.put("PE_UT_04_109", () ->
 brevMap.put("PE_UT_04_114", () ->
 	new GammeltBrev("PE_UT_04_114",
 		true,
-		"Vedtak - økning av uføregrad",
+		"Vedtak - ï¿½kning av ufï¿½regrad",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4097,7 +4097,7 @@ brevMap.put("PE_UT_04_114", () ->
 brevMap.put("PE_UT_04_115", () ->
 	new GammeltBrev("PE_UT_04_115",
 		true,
-		"Vedtak - full eksport av uføretrygd",
+		"Vedtak - full eksport av ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4113,7 +4113,7 @@ brevMap.put("PE_UT_04_115", () ->
 brevMap.put("PE_UT_04_117", () ->
 	new GammeltBrev("PE_UT_04_117",
 		true,
-		"Vedtak - foreløpig avslag på uføretrygd (bosatt Norge - før utland)",
+		"Vedtak - forelï¿½pig avslag pï¿½ ufï¿½retrygd (bosatt Norge - fï¿½r utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4129,7 +4129,7 @@ brevMap.put("PE_UT_04_117", () ->
 brevMap.put("PE_UT_04_118", () ->
 	new GammeltBrev("PE_UT_04_118",
 		true,
-		"Vedtak avslag uføretrygd medlemskap under ett år (bosatt utland)",
+		"Vedtak avslag ufï¿½retrygd medlemskap under ett ï¿½r (bosatt utland)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.EN),
@@ -4145,7 +4145,7 @@ brevMap.put("PE_UT_04_118", () ->
 brevMap.put("PE_UT_04_300", () ->
 	new GammeltBrev("PE_UT_04_300",
 		true,
-		"Vedtak - omregning av uførepensjon til uføretrygd",
+		"Vedtak - omregning av ufï¿½repensjon til ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4161,7 +4161,7 @@ brevMap.put("PE_UT_04_300", () ->
 brevMap.put("PE_UT_04_400", () ->
 	new GammeltBrev("PE_UT_04_400",
 		true,
-		"Vedtak om etteroppgjør - etterbetaling (manuell)",
+		"Vedtak om etteroppgjï¿½r - etterbetaling (manuell)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4177,7 +4177,7 @@ brevMap.put("PE_UT_04_400", () ->
 brevMap.put("PE_UT_04_401", () ->
 	new GammeltBrev("PE_UT_04_401",
 		true,
-		"Vedtak om etteroppgjør - endelig vedtak etter mottatt svar",
+		"Vedtak om etteroppgjï¿½r - endelig vedtak etter mottatt svar",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4193,7 +4193,7 @@ brevMap.put("PE_UT_04_401", () ->
 brevMap.put("PE_UT_04_402", () ->
 	new GammeltBrev("PE_UT_04_402",
 		true,
-		"Varsel - etteroppgjør av uføretrygd ved feilutbetaling (manuell)",
+		"Varsel - etteroppgjï¿½r av ufï¿½retrygd ved feilutbetaling (manuell)",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4209,7 +4209,7 @@ brevMap.put("PE_UT_04_402", () ->
 brevMap.put("PE_UT_05_100", () ->
 	new GammeltBrev("PE_UT_05_100",
 		false,
-		"Vedtak - endring av uføretrygd på grunn av inntekt (automatisk)",
+		"Vedtak - endring av ufï¿½retrygd pï¿½ grunn av inntekt (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4225,7 +4225,7 @@ brevMap.put("PE_UT_05_100", () ->
 brevMap.put("PE_UT_06_100", () ->
 	new GammeltBrev("PE_UT_06_100",
 		false,
-		"Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",
+		"Vedtak - ny beregning av ufï¿½retrygd pï¿½ grunn av endring i opptjening (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4257,7 +4257,7 @@ brevMap.put("PE_UT_06_200", () ->
 brevMap.put("PE_UT_07_100", () ->
 	new GammeltBrev("PE_UT_07_100",
 		true,
-		"Vedtak - endring av uføretrygd på grunn av inntekt",
+		"Vedtak - endring av ufï¿½retrygd pï¿½ grunn av inntekt",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4273,7 +4273,7 @@ brevMap.put("PE_UT_07_100", () ->
 brevMap.put("PE_UT_14_300", () ->
 	new GammeltBrev("PE_UT_14_300",
 		false,
-		"Vedtak - omregning av uførepensjon til uføretrygd (automatisk)",
+		"Vedtak - omregning av ufï¿½repensjon til ufï¿½retrygd (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4289,7 +4289,7 @@ brevMap.put("PE_UT_14_300", () ->
 brevMap.put("PE_UT_23_001", () ->
 	new GammeltBrev("PE_UT_23_001",
 		false,
-		"Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
+		"Varsel - etteroppgjï¿½r av ufï¿½retrygd ved feilutbetaling (automatisk)",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4305,7 +4305,7 @@ brevMap.put("PE_UT_23_001", () ->
 brevMap.put("PE_UT_23_101", () ->
 	new GammeltBrev("PE_UT_23_101",
 		false,
-		"Vedtak om etteroppgjør - etterbetaling",
+		"Vedtak om etteroppgjï¿½r - etterbetaling",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN),
@@ -4337,7 +4337,7 @@ brevMap.put("P1000", () ->
 brevMap.put("P10000", () ->
 	new GammeltBrev("P10000",
 		true,
-		"P10000 - Overføring av utfyllende opplysninger",
+		"P10000 - Overfï¿½ring av utfyllende opplysninger",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4353,7 +4353,7 @@ brevMap.put("P10000", () ->
 brevMap.put("P11000", () ->
 	new GammeltBrev("P11000",
 		true,
-		"P11000 - Anmodning om pensjonsbeløp",
+		"P11000 - Anmodning om pensjonsbelï¿½p",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4369,7 +4369,7 @@ brevMap.put("P11000", () ->
 brevMap.put("P12000", () ->
 	new GammeltBrev("P12000",
 		true,
-		"P12000 - Informasjon om pensjonsbeløp",
+		"P12000 - Informasjon om pensjonsbelï¿½p",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4401,7 +4401,7 @@ brevMap.put("P13000", () ->
 brevMap.put("PE_UT_06_300", () ->
 	new GammeltBrev("PE_UT_06_300",
 		false,
-		"Endring av barnetillegg i uføretrygden",
+		"Endring av barnetillegg i ufï¿½retrygden",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4417,7 +4417,7 @@ brevMap.put("PE_UT_06_300", () ->
 brevMap.put("PE_UT_07_200", () ->
 	new GammeltBrev("PE_UT_07_200",
 		false,
-		"Vedtak - opphør av barnetillegg (automatisk)",
+		"Vedtak - opphï¿½r av barnetillegg (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -4497,7 +4497,7 @@ brevMap.put("P8000", () ->
 brevMap.put("P9000", () ->
 	new GammeltBrev("P9000",
 		true,
-		"P9000 - Svar på anmodning om tilleggsinformasjon",
+		"P9000 - Svar pï¿½ anmodning om tilleggsinformasjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4513,7 +4513,7 @@ brevMap.put("P9000", () ->
 brevMap.put("R001", () ->
 	new GammeltBrev("R001",
 		true,
-		"R001 - Anmodning om motregning i etterbetalinger/løpende utbetalinger",
+		"R001 - Anmodning om motregning i etterbetalinger/lï¿½pende utbetalinger",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4529,7 +4529,7 @@ brevMap.put("R001", () ->
 brevMap.put("R002", () ->
 	new GammeltBrev("R002",
 		true,
-		"R002 - Svar på anmodning om motregning i etterbetalinger/løpende utbetalinger",
+		"R002 - Svar pï¿½ anmodning om motregning i etterbetalinger/lï¿½pende utbetalinger",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4545,7 +4545,7 @@ brevMap.put("R002", () ->
 brevMap.put("R003", () ->
 	new GammeltBrev("R003",
 		true,
-		"R003 - Beslutning om motregning i etterbetalinger/løpende utbetalinger",
+		"R003 - Beslutning om motregning i etterbetalinger/lï¿½pende utbetalinger",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4593,7 +4593,7 @@ brevMap.put("R005", () ->
 brevMap.put("R006", () ->
 	new GammeltBrev("R006",
 		true,
-		"R006 - Svar på anmodning om informasjon",
+		"R006 - Svar pï¿½ anmodning om informasjon",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB),
@@ -4627,7 +4627,7 @@ brevMap.put("AP_AVSL_ENDR", () ->
 brevMap.put("AP_AVSL_TIDLUTTAK", () ->
 	new Doksysbrev("AP_AVSL_TIDLUTTAK",
 		true,
-		"Vedtak - avslag uttak av alderspensjon før 67 år",
+		"Vedtak - avslag uttak av alderspensjon fï¿½r 67 ï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4645,7 +4645,7 @@ brevMap.put("AP_AVSL_TIDLUTTAK", () ->
 brevMap.put("AP_AVSL_UTTAK", () ->
 	new Doksysbrev("AP_AVSL_UTTAK",
 		true,
-		"Vedtak - avslag på alderspensjon",
+		"Vedtak - avslag pï¿½ alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4717,7 +4717,7 @@ brevMap.put("AP_DOD_ENSLIG_AUTO", () ->
 brevMap.put("UT_DOD_ENSLIG_AUTO", () ->
 	new Doksysbrev("UT_DOD_ENSLIG_AUTO",
 		false,
-		"Vedtak - omregning til enslig uføretrygdet (automatisk)",
+		"Vedtak - omregning til enslig ufï¿½retrygdet (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4753,7 +4753,7 @@ brevMap.put("AFP_DOD_ENSLIG_AUTO", () ->
 brevMap.put("AP_INNV_AO_UT_AUTO", () ->
 	new Doksysbrev("AP_INNV_AO_UT_AUTO",
 		false,
-		"Vedtak - omregning av uføretrygd til alderspensjon",
+		"Vedtak - omregning av ufï¿½retrygd til alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4767,7 +4767,7 @@ brevMap.put("AP_INNV_AO_UT_AUTO", () ->
 		null,
 		"000086",
 		"00001",
-		null));
+		doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
 brevMap.put("INFO_P1", () ->
 	new Doksysbrev("INFO_P1",
 		true,
@@ -4807,7 +4807,7 @@ brevMap.put("AP_INNV_MAN", () ->
 brevMap.put("OMSORG_HJST_AUTO", () ->
 	new Doksysbrev("OMSORG_HJST_AUTO",
 		false,
-		"Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
+		"Vedtak - innvilgelse av omsorgsopptjening ved forhï¿½yet hjelpestï¿½nad sats 3 eller 4",
 		null,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4915,7 +4915,7 @@ brevMap.put("AP_ENDR_EPS_MAN", () ->
 brevMap.put("BP_AVSL_MAN", () ->
 	new Doksysbrev("BP_AVSL_MAN",
 		true,
-		"Vedtak - avslag på søknad om barnepensjon",
+		"Vedtak - avslag pï¿½ sï¿½knad om barnepensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4987,7 +4987,7 @@ brevMap.put("AP_ENDR_EPS_AUTO", () ->
 brevMap.put("AP_INNV_AO_75_AUTO", () ->
 	new Doksysbrev("AP_INNV_AO_75_AUTO",
 		false,
-		"Vedtak - endring av alderspensjon fordi du fyller 75 år",
+		"Vedtak - endring av alderspensjon fordi du fyller 75 ï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5095,7 +5095,7 @@ brevMap.put("AP_OPPH_ENDR_FT_AUTO", () ->
 brevMap.put("AP_AVSL_FT_MAN", () ->
 	new Doksysbrev("AP_AVSL_FT_MAN",
 		true,
-		"Vedtak - avslag på forsørgingstillegg i alderspensjon",
+		"Vedtak - avslag pï¿½ forsï¿½rgingstillegg i alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5167,7 +5167,7 @@ brevMap.put("AFP_ENDR_OPPTJ_AUTO", () ->
 brevMap.put("AP_OPPH_FT_MAN", () ->
 	new Doksysbrev("AP_OPPH_FT_MAN",
 		true,
-		"Vedtak - opphør av forsørgingstillegg",
+		"Vedtak - opphï¿½r av forsï¿½rgingstillegg",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5185,7 +5185,7 @@ brevMap.put("AP_OPPH_FT_MAN", () ->
 brevMap.put("AP_AVSL_GJRETT_MAN", () ->
 	new Doksysbrev("AP_AVSL_GJRETT_MAN",
 		true,
-		"Vedtak - avslag på alderspensjon med gjenlevenderett",
+		"Vedtak - avslag pï¿½ alderspensjon med gjenlevenderett",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5199,7 +5199,7 @@ brevMap.put("AP_AVSL_GJRETT_MAN", () ->
 		null,
 		"000152",
 		"00001",
-		doksysVedleggMapper.map("AP_MND_UTB_V1", "RETTIGH_V1")));
+		doksysVedleggMapper.map("RETTIGH_V1", "AP_MND_UTB_V1")));
 brevMap.put("AP_ENDR_OPPTJ_MAN", () ->
 	new Doksysbrev("AP_ENDR_OPPTJ_MAN",
 		true,
@@ -5221,7 +5221,7 @@ brevMap.put("AP_ENDR_OPPTJ_MAN", () ->
 brevMap.put("AP_ENDR_FT_MAN", () ->
 	new Doksysbrev("AP_ENDR_FT_MAN",
 		true,
-		"Vedtak - behandling av forsørgingstillegg",
+		"Vedtak - behandling av forsï¿½rgingstillegg",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5239,7 +5239,7 @@ brevMap.put("AP_ENDR_FT_MAN", () ->
 brevMap.put("OMSORG_EGEN_AUTO", () ->
 	new Doksysbrev("OMSORG_EGEN_AUTO",
 		false,
-		"Brev med skjema Godskriving av omsorgspoeng - egenerklæring om pleieforhold - batchbrev",
+		"Brev med skjema Godskriving av omsorgspoeng - egenerklï¿½ring om pleieforhold - batchbrev",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5257,7 +5257,7 @@ brevMap.put("OMSORG_EGEN_AUTO", () ->
 brevMap.put("OMSORG_EGEN_MAN", () ->
 	new Doksysbrev("OMSORG_EGEN_MAN",
 		true,
-		"Innhenting av egenerklæring om pleie- og omsorgsarbeid (omsorgsopptjening)",
+		"Innhenting av egenerklï¿½ring om pleie- og omsorgsarbeid (omsorgsopptjening)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5311,7 +5311,7 @@ brevMap.put("AP_STANS_FLYTT_MAN", () ->
 brevMap.put("VARSEL_TILBAKEBET", () ->
 	new Doksysbrev("VARSEL_TILBAKEBET",
 		true,
-		"Varsel - tilbakekreving av feilutbetalt beløp",
+		"Varsel - tilbakekreving av feilutbetalt belï¿½p",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5365,7 +5365,7 @@ brevMap.put("AP_ENDR_INST_MAN", () ->
 brevMap.put("AP_INFO_AO67_AUTO", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -5527,7 +5527,7 @@ brevMap.put("AUTO_VTK_EPS_DOD_AP", () ->
 brevMap.put("TILST_DOD_UT", () ->
 	new Doksysbrev("UT_DOD_ENSLIG_AUTO",
 		false,
-		"Vedtak - omregning til enslig uføretrygdet (automatisk)",
+		"Vedtak - omregning til enslig ufï¿½retrygdet (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5563,7 +5563,7 @@ brevMap.put("AUTO_VTK_EPS_DOD_AFP", () ->
 brevMap.put("AO_AP_UT_67_2016", () ->
 	new Doksysbrev("AP_INNV_AO_UT_AUTO",
 		false,
-		"Vedtak - omregning av uføretrygd til alderspensjon",
+		"Vedtak - omregning av ufï¿½retrygd til alderspensjon",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5581,7 +5581,7 @@ brevMap.put("AO_AP_UT_67_2016", () ->
 brevMap.put("OMSORGP_GODSKRIVING", () ->
 	new Doksysbrev("OMSORG_HJST_AUTO",
 		false,
-		"Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
+		"Vedtak - innvilgelse av omsorgsopptjening ved forhï¿½yet hjelpestï¿½nad sats 3 eller 4",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -5617,7 +5617,7 @@ brevMap.put("AFP_PR_NYTT_VEDTAK", () ->
 brevMap.put("OMSORGP_EGENMLD", () ->
 	new Doksysbrev("OMSORG_EGEN_AUTO",
 		false,
-		"Brev med skjema Godskriving av omsorgspoeng - egenerklæring om pleieforhold - batchbrev",
+		"Brev med skjema Godskriving av omsorgspoeng - egenerklï¿½ring om pleieforhold - batchbrev",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		null,
@@ -5743,7 +5743,7 @@ brevMap.put("TILST_OMRG_AP", () ->
 brevMap.put("AO_AP_GRAD_AP_75", () ->
 	new Doksysbrev("AP_INNV_AO_75_AUTO",
 		false,
-		"Vedtak - endring av alderspensjon fordi du fyller 75 år",
+		"Vedtak - endring av alderspensjon fordi du fyller 75 ï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5779,7 +5779,7 @@ brevMap.put("AP_NYTT_VEDTAK", () ->
 brevMap.put("FAM_PL_3MND_67", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5797,7 +5797,7 @@ brevMap.put("FAM_PL_3MND_67", () ->
 brevMap.put("FYLLER_67_INGEN_YT", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5815,7 +5815,7 @@ brevMap.put("FYLLER_67_INGEN_YT", () ->
 brevMap.put("UP_GRAD_AP_67", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5833,7 +5833,7 @@ brevMap.put("UP_GRAD_AP_67", () ->
 brevMap.put("UP_GRAD_IKKE_AP_67", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5851,7 +5851,7 @@ brevMap.put("UP_GRAD_IKKE_AP_67", () ->
 brevMap.put("UP_HEL_67", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5869,7 +5869,7 @@ brevMap.put("UP_HEL_67", () ->
 brevMap.put("GJP_AVKORT_INFO_67", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5887,7 +5887,7 @@ brevMap.put("GJP_AVKORT_INFO_67", () ->
 brevMap.put("GJP_FULL_INFO_67", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -5905,7 +5905,7 @@ brevMap.put("GJP_FULL_INFO_67", () ->
 brevMap.put("FAM_PL_INFO_67", () ->
 	new Doksysbrev("AP_INFO_AO67_AUTO",
 		false,
-		"Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
+		"Informasjonsbrev for aldersovergang ved 67 ï¿½r, for personer uten ytelse, med UT og/eller AP",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -6067,7 +6067,7 @@ brevMap.put("AO_AP_FT_1967", () ->
 brevMap.put("AFPEO_BREV_B", () ->
 	new GammeltBrev("PE_AF_03_100",
 		false,
-		"Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
+		"Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6083,7 +6083,7 @@ brevMap.put("AFPEO_BREV_B", () ->
 brevMap.put("AFPEO_BREV_A", () ->
 	new GammeltBrev("PE_AF_04_100",
 		false,
-		"Vedtak - ingen endring - AFP etteroppgjør",
+		"Vedtak - ingen endring - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6099,7 +6099,7 @@ brevMap.put("AFPEO_BREV_A", () ->
 brevMap.put("AFPEO_BREV_C", () ->
 	new GammeltBrev("PE_AF_04_101",
 		false,
-		"Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
+		"Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6115,7 +6115,7 @@ brevMap.put("AFPEO_BREV_C", () ->
 brevMap.put("AFPEO_BREV_D", () ->
 	new GammeltBrev("PE_AF_04_102",
 		false,
-		"Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
+		"Vedtak - ingen endring (andre avvik) - AFP etteroppgjï¿½r",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6131,7 +6131,7 @@ brevMap.put("AFPEO_BREV_D", () ->
 brevMap.put("AFPEO_TILBAKEKREVING", () ->
 	new GammeltBrev("PE_AF_04_107",
 		false,
-		"Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
+		"Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjï¿½r",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -6163,7 +6163,7 @@ brevMap.put("AFPP_INNVILG_AUTO", () ->
 brevMap.put("AFPP_AVSL_AUTO", () ->
 	new GammeltBrev("PE_AF_04_116",
 		false,
-		"Vedtak - avslag på AFP i privat sektor",
+		"Vedtak - avslag pï¿½ AFP i privat sektor",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6179,7 +6179,7 @@ brevMap.put("AFPP_AVSL_AUTO", () ->
 brevMap.put("FYLLER_67", () ->
 	new GammeltBrev("PE_AP_01_001",
 		false,
-		"Informasjon til deg som snart fyller 67 år",
+		"Informasjon til deg som snart fyller 67 ï¿½r",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		null,
@@ -6211,7 +6211,7 @@ brevMap.put("AP_INNVILG_UTL", () ->
 brevMap.put("AP_AVSLAG_AUTO", () ->
 	new GammeltBrev("PE_AP_04_210",
 		false,
-		"Vedtak - avslag på alderspensjon",
+		"Vedtak - avslag pï¿½ alderspensjon",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6227,7 +6227,7 @@ brevMap.put("AP_AVSLAG_AUTO", () ->
 brevMap.put("AP_AVSL_UTL_AUTO", () ->
 	new GammeltBrev("PE_AP_04_213",
 		false,
-		"Vedtak - avslag på alderspensjon - utenlandssak",
+		"Vedtak - avslag pï¿½ alderspensjon - utenlandssak",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6275,7 +6275,7 @@ brevMap.put("DUMMYBREV", () ->
 brevMap.put("GJP_FULL_3MND_67", () ->
 	new GammeltBrev("PE_BA_01_101",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar gjenlevendepensjon",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6291,7 +6291,7 @@ brevMap.put("GJP_FULL_3MND_67", () ->
 brevMap.put("GJP_AVKORT_3MND_67", () ->
 	new GammeltBrev("PE_BA_01_102",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar gjenlevendepensjon",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6307,7 +6307,7 @@ brevMap.put("GJP_AVKORT_3MND_67", () ->
 brevMap.put("AFP_3MND_67", () ->
 	new GammeltBrev("PE_BA_01_106",
 		false,
-		"Informasjon til deg som fyller 67 år og mottar AFP",
+		"Informasjon til deg som fyller 67 ï¿½r og mottar AFP",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6323,7 +6323,7 @@ brevMap.put("AFP_3MND_67", () ->
 brevMap.put("INFOBREV_VP_ET", () ->
 	new GammeltBrev("PE_BA_01_108",
 		false,
-		"Informasjon om vilkår for rett til ektefelletillegg",
+		"Informasjon om vilkï¿½r for rett til ektefelletillegg",
 		BrevkategoriCode.INFORMASJON,
 		DokumenttypeCode.U,
 		null,
@@ -6339,7 +6339,7 @@ brevMap.put("INFOBREV_VP_ET", () ->
 brevMap.put("FORSORG_BT_OPPH", () ->
 	new GammeltBrev("PE_BA_04_501",
 		false,
-		"Vedtak - forsørgingstillegg fra folketrygden",
+		"Vedtak - forsï¿½rgingstillegg fra folketrygden",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6355,7 +6355,7 @@ brevMap.put("FORSORG_BT_OPPH", () ->
 brevMap.put("FORSORG_ET_BT_OPPH", () ->
 	new GammeltBrev("PE_BA_04_502",
 		false,
-		"Vedtak - forsørgingstillegg fra folketrygden",
+		"Vedtak - forsï¿½rgingstillegg fra folketrygden",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6371,7 +6371,7 @@ brevMap.put("FORSORG_ET_BT_OPPH", () ->
 brevMap.put("FORSORG_ET_OPPH", () ->
 	new GammeltBrev("PE_BA_04_503",
 		false,
-		"Vedtak - forsørgingstillegg fra folketrygden",
+		"Vedtak - forsï¿½rgingstillegg fra folketrygden",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6403,7 +6403,7 @@ brevMap.put("KONV_YT_ALDERSOVERG", () ->
 brevMap.put("UP_FULLTT_BELOPENDR", () ->
 	new GammeltBrev("PE_BA_04_505",
 		false,
-		"Vedtak - endring av uføretrygd fordi du fyller 20 år",
+		"Vedtak - endring av ufï¿½retrygd fordi du fyller 20 ï¿½r",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6419,7 +6419,7 @@ brevMap.put("UP_FULLTT_BELOPENDR", () ->
 brevMap.put("AP_FULLTT_BELOPENDR", () ->
 	new GammeltBrev("PE_BA_04_506",
 		false,
-		"Vedtak - endring av alderspensjon fordi du fyller 70 år",
+		"Vedtak - endring av alderspensjon fordi du fyller 70 ï¿½r",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6563,7 +6563,7 @@ brevMap.put("ALDER_SAMM_IVERK", () ->
 brevMap.put("REV_TIL_AP_PGA_DOD", () ->
 	new GammeltBrev("PE_BA_04_520",
 		false,
-		"Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6579,7 +6579,7 @@ brevMap.put("REV_TIL_AP_PGA_DOD", () ->
 brevMap.put("TILST_AP", () ->
 	new GammeltBrev("PE_BA_04_520",
 		false,
-		"Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6595,7 +6595,7 @@ brevMap.put("TILST_AP", () ->
 brevMap.put("REV_TIL_UP_PGA_DOD", () ->
 	new GammeltBrev("PE_BA_04_521",
 		false,
-		"Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
+		"Vedtak - endring av ufï¿½repensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6611,7 +6611,7 @@ brevMap.put("REV_TIL_UP_PGA_DOD", () ->
 brevMap.put("TILST_UP", () ->
 	new GammeltBrev("PE_BA_04_521",
 		false,
-		"Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
+		"Vedtak - endring av ufï¿½repensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6627,7 +6627,7 @@ brevMap.put("TILST_UP", () ->
 brevMap.put("REV_TIL_AFP_PGA_DOD", () ->
 	new GammeltBrev("PE_BA_04_522",
 		false,
-		"Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6643,7 +6643,7 @@ brevMap.put("REV_TIL_AFP_PGA_DOD", () ->
 brevMap.put("TILST_AFP", () ->
 	new GammeltBrev("PE_BA_04_522",
 		false,
-		"Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6659,7 +6659,7 @@ brevMap.put("TILST_AFP", () ->
 brevMap.put("TILST_GJP", () ->
 	new GammeltBrev("PE_BA_04_523",
 		false,
-		"Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
+		"Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller ufï¿½retrygd er endret",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6675,7 +6675,7 @@ brevMap.put("TILST_GJP", () ->
 brevMap.put("AO_AP_UP_67_2011", () ->
 	new GammeltBrev("PE_BA_04_528",
 		false,
-		"Vedtak - omregning av uføretrygd til alderspensjon",
+		"Vedtak - omregning av ufï¿½retrygd til alderspensjon",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6739,7 +6739,7 @@ brevMap.put("OMR_BP_OPPH", () ->
 brevMap.put("OPPHOR_ET_NN", () ->
 	new GammeltBrev("PE_FT_01_004",
 		false,
-		"Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
+		"Vedtak - opphï¿½r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6755,7 +6755,7 @@ brevMap.put("OPPHOR_ET_NN", () ->
 brevMap.put("OPPHOR_ET_GG", () ->
 	new GammeltBrev("PE_FT_01_005",
 		false,
-		"Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
+		"Vedtak - opphï¿½r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6803,7 +6803,7 @@ brevMap.put("VEDTAK_TILB_KREV", () ->
 brevMap.put("OO_MOTTAKER", () ->
 	new GammeltBrev("PE_IY_04_120",
 		false,
-		"Vedtak - overføring av omsorgsopptjening brev til mottaker",
+		"Vedtak - overfï¿½ring av omsorgsopptjening brev til mottaker",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6819,7 +6819,7 @@ brevMap.put("OO_MOTTAKER", () ->
 brevMap.put("OO_AVGIVER", () ->
 	new GammeltBrev("PE_IY_04_121",
 		false,
-		"Vedtak - overføring av omsorgsopptjening brev til avgiver",
+		"Vedtak - overfï¿½ring av omsorgsopptjening brev til avgiver",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6835,7 +6835,7 @@ brevMap.put("OO_AVGIVER", () ->
 brevMap.put("VARSEL_TILB_KREV", () ->
 	new GammeltBrev("PE_IY_05_028",
 		false,
-		"Forhåndsvarsel for tilbakekreving",
+		"Forhï¿½ndsvarsel for tilbakekreving",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -6851,7 +6851,7 @@ brevMap.put("VARSEL_TILB_KREV", () ->
 brevMap.put("OMSORGP_SOKNAD_MOR", () ->
 	new GammeltBrev("PE_IY_05_104",
 		false,
-		"Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01)",
+		"Brev med skjema Sï¿½knad om godskriving av pensjonsopptjening for omsorg av barn under 7 ï¿½r fï¿½r 1992 mor (NAV 03-16.01)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		null,
@@ -6867,7 +6867,7 @@ brevMap.put("OMSORGP_SOKNAD_MOR", () ->
 brevMap.put("OMSORGP_SOKNAD_FAR", () ->
 	new GammeltBrev("PE_IY_05_105",
 		false,
-		"Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02)",
+		"Brev med skjema Sï¿½knad om godskriving av pensjonsopptjening for omsorg av barn under 7 ï¿½r fï¿½r 1992 far (NAV 03-16.02)",
 		BrevkategoriCode.BREV_MED_SKJEMA,
 		DokumenttypeCode.U,
 		null,
@@ -6883,7 +6883,7 @@ brevMap.put("OMSORGP_SOKNAD_FAR", () ->
 brevMap.put("OMSORGP_ORIENT_GODS", () ->
 	new GammeltBrev("PE_IY_05_200",
 		false,
-		"Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
+		"Vedtak - innvilgelse av omsorgsopptjening ved forhï¿½yet hjelpestï¿½nad sats 3 eller 4",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -6899,7 +6899,7 @@ brevMap.put("OMSORGP_ORIENT_GODS", () ->
 brevMap.put("OMSORGP_BARN", () ->
 	new GammeltBrev("PE_IY_05_201",
 		false,
-		"Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn",
+		"Vedtak - innvilgelse av omsorgsopptjening ved omsorg for smï¿½ barn",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -6947,7 +6947,7 @@ brevMap.put("LEVEATT", () ->
 brevMap.put("LEVEATT_PURRING", () ->
 	new GammeltBrev("PE_IY_05_411",
 		false,
-		"Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
+		"Pï¿½minnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		null,
@@ -6979,7 +6979,7 @@ brevMap.put("LEVEATT_ALT", () ->
 brevMap.put("LEVEATT_PURRING_ALT", () ->
 	new GammeltBrev("PE_IY_06_511",
 		false,
-		"Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)",
+		"Pï¿½minnelse ï¿½ brev med skjema Alternativ leveattest (NAV 21-03.06)",
 		BrevkategoriCode.INNHENTE_OPPL,
 		DokumenttypeCode.U,
 		null,
@@ -6995,7 +6995,7 @@ brevMap.put("LEVEATT_PURRING_ALT", () ->
 brevMap.put("KONV_UP_TIL_UT", () ->
 	new GammeltBrev("PE_UT_01_001",
 		false,
-		"Informasjonsbrev om overgang fra uførepensjon til uføretrygd",
+		"Informasjonsbrev om overgang fra ufï¿½repensjon til ufï¿½retrygd",
 		null,
 		DokumenttypeCode.U,
 		null,
@@ -7027,7 +7027,7 @@ brevMap.put("NY_BER_UT_BT", () ->
 brevMap.put("ENDRING_UT", () ->
 	new GammeltBrev("PE_UT_04_300",
 		true,
-		"Vedtak - omregning av uførepensjon til uføretrygd",
+		"Vedtak - omregning av ufï¿½repensjon til ufï¿½retrygd",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -7043,7 +7043,7 @@ brevMap.put("ENDRING_UT", () ->
 brevMap.put("ENDR_UT_PGA_INNT", () ->
 	new GammeltBrev("PE_UT_05_100",
 		false,
-		"Vedtak - endring av uføretrygd på grunn av inntekt (automatisk)",
+		"Vedtak - endring av ufï¿½retrygd pï¿½ grunn av inntekt (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -7059,7 +7059,7 @@ brevMap.put("ENDR_UT_PGA_INNT", () ->
 brevMap.put("NY_BER_UT_ENDR_OPPTJ", () ->
 	new GammeltBrev("PE_UT_06_100",
 		false,
-		"Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",
+		"Vedtak - ny beregning av ufï¿½retrygd pï¿½ grunn av endring i opptjening (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -7075,7 +7075,7 @@ brevMap.put("NY_BER_UT_ENDR_OPPTJ", () ->
 brevMap.put("OMREGN_UP_TIL_UT", () ->
 	new GammeltBrev("PE_UT_14_300",
 		false,
-		"Vedtak - omregning av uførepensjon til uføretrygd (automatisk)",
+		"Vedtak - omregning av ufï¿½repensjon til ufï¿½retrygd (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -7091,7 +7091,7 @@ brevMap.put("OMREGN_UP_TIL_UT", () ->
 brevMap.put("UT_EO_VARSEL_FU", () ->
 	new GammeltBrev("PE_UT_23_001",
 		false,
-		"Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
+		"Varsel - etteroppgjï¿½r av ufï¿½retrygd ved feilutbetaling (automatisk)",
 		BrevkategoriCode.VARSEL,
 		DokumenttypeCode.U,
 		null,
@@ -7107,7 +7107,7 @@ brevMap.put("UT_EO_VARSEL_FU", () ->
 brevMap.put("UT_EO_VEDTAK_EB", () ->
 	new GammeltBrev("PE_UT_23_101",
 		false,
-		"Vedtak om etteroppgjør - etterbetaling",
+		"Vedtak om etteroppgjï¿½r - etterbetaling",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -7123,7 +7123,7 @@ brevMap.put("UT_EO_VEDTAK_EB", () ->
 brevMap.put("ENDRING_UT_BT", () ->
 	new GammeltBrev("PE_UT_06_300",
 		false,
-		"Endring av barnetillegg i uføretrygden",
+		"Endring av barnetillegg i ufï¿½retrygden",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,
@@ -7139,7 +7139,7 @@ brevMap.put("ENDRING_UT_BT", () ->
 brevMap.put("OPPHOR_ENDRING_UT_BT", () ->
 	new GammeltBrev("PE_UT_07_200",
 		false,
-		"Vedtak - opphør av barnetillegg (automatisk)",
+		"Vedtak - opphï¿½r av barnetillegg (automatisk)",
 		BrevkategoriCode.VEDTAK,
 		DokumenttypeCode.U,
 		null,

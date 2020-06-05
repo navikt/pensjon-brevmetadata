@@ -2,7 +2,7 @@ import csv
 
 def getSprakForBrev(brevkode):
     with open('inputfiler/sprakForBrev.csv') as csvfile:
-        readCSV = csv.reader(csvfile, delimiter=',')
+        readCSV = csv.reader(csvfile, delimiter=';')
         sprakList = []
         for row in readCSV:
             if(row[0]==brevkode):
