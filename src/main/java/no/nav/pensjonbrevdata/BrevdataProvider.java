@@ -13,8 +13,13 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 
 public class BrevdataProvider {
-    private final BrevdataMapper brevdataMapper = new BrevdataMapper();
-    private final SakBrevMapper sakBrevMapper = new SakBrevMapper();
+    private BrevdataMapper brevdataMapper;
+    private SakBrevMapper sakBrevMapper;
+
+    public BrevdataProvider() {
+        brevdataMapper = new BrevdataMapper();
+        sakBrevMapper = new SakBrevMapper();
+    }
 
     public List<SprakCode> getSprakForBrevkode(String brevkode) throws Exception {
         Brevdata brevdata = brevdataMapper.map(brevkode);
@@ -66,5 +71,13 @@ public class BrevdataProvider {
             }
         }
         return brevkeys;
+    }
+
+    public void setBrevdataMapper(BrevdataMapper brevdataMapper) {
+        this.brevdataMapper = brevdataMapper;
+    }
+
+    public void setSakBrevMapper(SakBrevMapper sakBrevMapper) {
+        this.sakBrevMapper = sakBrevMapper;
     }
 }

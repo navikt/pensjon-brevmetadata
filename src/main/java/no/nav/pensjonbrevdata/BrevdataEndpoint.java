@@ -13,7 +13,11 @@ import no.nav.pensjonbrevdata.model.codes.SprakCode;
 @RestController
 @RequestMapping("api/brevdata")
 public class BrevdataEndpoint {
-    private final BrevdataProvider provider = new BrevdataProvider();
+    private BrevdataProvider provider;
+
+    public BrevdataEndpoint(){
+        provider = new BrevdataProvider();
+    }
     //TODO: Implementere noen form for logging?
 
     @GetMapping("/sprakForBrevkode/{brevkode}")
@@ -41,7 +45,7 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping("/brevdataForSaktype/{saktype}")
-    public List<Brevdata> getBrevdatForSaktype(@PathVariable(value = "saktype") String saktype, @RequestParam(value = "includeXsd") boolean includeXsd) {
+    public List<Brevdata> getBrevdataForSaktype(@PathVariable(value = "saktype") String saktype, @RequestParam(value = "includeXsd") boolean includeXsd) {
         try {
             return provider.getBrevdataForSaktype(saktype, includeXsd);
         } catch (IllegalArgumentException e) {
@@ -82,5 +86,9 @@ public class BrevdataEndpoint {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
+    }
+
+    public void setProvider(BrevdataProvider provider) {
+        this.provider = provider;
     }
 }
