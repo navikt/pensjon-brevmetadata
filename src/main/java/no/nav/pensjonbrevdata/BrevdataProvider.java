@@ -16,7 +16,7 @@ public class BrevdataProvider {
     private BrevdataMapper brevdataMapper;
     private SakBrevMapper sakBrevMapper;
 
-    public BrevdataProvider(){
+    public BrevdataProvider() {
         brevdataMapper = new BrevdataMapper();
         sakBrevMapper = new SakBrevMapper();
     }
@@ -73,16 +73,8 @@ public class BrevdataProvider {
         return brevkeys;
     }
 
-    public BrevdataMapper getBrevdataMapper() {
-        return brevdataMapper;
-    }
-
     public void setBrevdataMapper(BrevdataMapper brevdataMapper) {
         this.brevdataMapper = brevdataMapper;
-    }
-
-    public SakBrevMapper getSakBrevMapper() {
-        return sakBrevMapper;
     }
 
     public void setSakBrevMapper(SakBrevMapper sakBrevMapper) {
