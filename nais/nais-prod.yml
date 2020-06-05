@@ -16,7 +16,7 @@ spec:
     initialDelay: 3
     timeout: 1
   ingresses:
-    - https://pensjon-brevdata.nais.preprod.local
+    - https://pensjon-brevdata.prod.nais.adeo.no
   readiness:
     path: "/api/brevdata/isReady"
     initialDelay: 3
