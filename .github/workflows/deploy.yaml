@@ -45,10 +45,10 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
+          RESOURCE: nais/nais-dev-fss.yml
       - name: Deploy to dev-sbs
-          uses: nais/deploy/actions/deploy@v1
-          env:
-            APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-            CLUSTER: dev-sbs
-            RESOURCE: nais/nais-dev-sbs.yml
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-sbs
+          RESOURCE: nais/nais-dev-sbs.yml
