@@ -4,7 +4,7 @@ metadata:
   name: pensjon-brevdata
   namespace: default
   labels:
-    team: pensjonpersondialog
+    team: pensjonsbrev
 spec:
   image: {{ image }}
   port: 8080
@@ -21,3 +21,6 @@ spec:
     path: "/api/internal/isReady"
     initialDelay: 3
     timeout: 1
+  env:
+    - name: UNLEASH_ENDPOINT_URL
+      value: https://unleash.nais.adeo.no/api/
