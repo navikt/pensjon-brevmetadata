@@ -52,3 +52,9 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-sbs
           RESOURCE: nais/nais-dev-sbs.yml
+      - name: Deploy to prod-fss
+          uses: nais/deploy/actions/deploy@v1
+          env:
+            APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+            CLUSTER: prod-fss
+            RESOURCE: nais/nais-prod-fss.yml
