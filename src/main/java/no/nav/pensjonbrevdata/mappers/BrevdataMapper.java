@@ -6238,21 +6238,23 @@ public class BrevdataMapper {
                         null,
                         "brevgr011"));
         brevMap.put("AP_AVSLAG_AUTO", () ->
-                new GammeltBrev("PE_AP_04_210",
+                new Doksysbrev("AP_AVSL_AUTO",
                         false,
-                        "Vedtak - avslag på alderspensjon",
-                        null,
+                        "Vedtak - avslag på søknad om alderspensjon (automatisk)",
+                        BrevkategoriCode.VEDTAK,
                         DokumenttypeCode.U,
-                        null,
+                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
                         true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
+                        BrevUtlandCode.ALLTID,
+                        BrevregeltypeCode.OVRIGE,
+                        BrevkravtypeCode.ALLE,
                         DokumentkategoriCode.VB,
+                        true,
+                        BrevkontekstCode.VEDTAK,
                         null,
-                        null,
-                        null,
-                        "brevgr011"));
+                        "000176",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_OPPL_BER_V1")));
         brevMap.put("AP_AVSL_UTL_AUTO", () ->
                 new GammeltBrev("PE_AP_04_213",
                         false,
