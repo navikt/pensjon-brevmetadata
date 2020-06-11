@@ -747,22 +747,6 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_210", () ->
-                new GammeltBrev("PE_AP_04_210",
-                        false,
-                        "Vedtak - avslag på alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011"));
         brevMap.put("PE_AP_04_211", () ->
                 new GammeltBrev("PE_AP_04_211",
                         true,
