@@ -5032,7 +5032,7 @@ public class BrevdataMapper {
                         null,
                         "000117",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1", "INFO_MEDLEM_HELSE_V1")));
         brevMap.put("AP_ENDR_GJRETT_MAN", () ->
                 new Doksysbrev("AP_ENDR_GJRETT_MAN",
                         true,
@@ -5320,7 +5320,7 @@ public class BrevdataMapper {
                         null,
                         "000128",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_V1")));
+                        doksysVedleggMapper.map("RETTIGH_V1", "INFO_MEDLEM_HELSE_V1")));
         brevMap.put("VARSEL_TILBAKEBET", () ->
                 new Doksysbrev("VARSEL_TILBAKEBET",
                         true,
