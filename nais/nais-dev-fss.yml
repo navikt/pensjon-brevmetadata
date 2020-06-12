@@ -21,6 +21,9 @@ spec:
     path: "/api/internal/isReady"
     initialDelay: 3
     timeout: 1
+  prometheus:
+    enabled: true
+    path: "/api/internal/prometheus"
   env:
     - name: UNLEASH_ENDPOINT_URL
       value: https://unleash.nais.adeo.no/api/
