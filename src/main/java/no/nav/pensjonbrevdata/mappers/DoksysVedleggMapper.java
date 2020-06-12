@@ -61,6 +61,12 @@ public class DoksysVedleggMapper {
                         "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4",
                         "V00007",
                         "00001"));
+        vedleggMap.put("INFO_MEDLEM_HELSE_V1", () ->
+                new DoksysVedlegg(
+                        "INFO_MEDLEM_HELSE_V1",
+                        "VEDLEGG: Informasjon om medlemskap i folketrygden og rett til helsetjenester",
+                        "V00009",
+                        "00001"));
 
     }
 
