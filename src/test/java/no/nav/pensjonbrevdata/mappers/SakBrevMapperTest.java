@@ -1,32 +1,27 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(MockitoExtension.class)
 public class SakBrevMapperTest {
     private SakBrevMapper mapper;
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void setup() {
         mapper = new SakBrevMapper();
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenUnknownSaktype() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenUnknownSaktype() {
         String invalidBrevkode = "UGYLDIG_SAKTYPE";
 
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Saktype \"" + invalidBrevkode + "\" does not exist");
-
-        mapper.map(invalidBrevkode);
+        assertThrows(IllegalArgumentException.class, () -> mapper.map(invalidBrevkode), "Saktype \"" + invalidBrevkode + "\" does not exist");
     }
 
 }
