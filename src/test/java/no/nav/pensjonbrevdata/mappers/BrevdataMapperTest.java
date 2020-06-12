@@ -1,42 +1,27 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import no.nav.pensjonbrevdata.model.Brevdata;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.hamcrest.CoreMatchers.is;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
-
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class BrevdataMapperTest {
     private BrevdataMapper mapper;
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void setup() {
         mapper = new BrevdataMapper();
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenUnknownBrevkode() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenUnknownBrevkode() {
         String invalidBrevkode = "UGYLDIG_BREVKODE";
 
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Brevkode \"" + invalidBrevkode + "\" does not exist");
-
-        mapper.map(invalidBrevkode);
+        assertThrows(IllegalArgumentException.class, () -> mapper.map(invalidBrevkode),"Brevkode \"" + invalidBrevkode + "\" does not exist");
     }
 }

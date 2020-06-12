@@ -1,5 +1,12 @@
 package no.nav.pensjonbrevdata.mappers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.GammeltBrev;
@@ -11,13 +18,6 @@ import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
 
 
 public class BrevdataMapper {
@@ -6222,6 +6222,24 @@ public class BrevdataMapper {
                         null,
                         "brevgr011"));
         brevMap.put("AP_AVSLAG_AUTO", () ->
+                new Doksysbrev("AP_AVSL_AUTO",
+                        false,
+                        "Vedtak - avslag på søknad om alderspensjon (automatisk)",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                        true,
+                        BrevUtlandCode.ALLTID,
+                        BrevregeltypeCode.OVRIGE,
+                        BrevkravtypeCode.ALLE,
+                        DokumentkategoriCode.VB,
+                        true,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "000176",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_OPPL_BER_V1")));
+        brevMap.put("AP_AVSL_AUTO", () ->
                 new Doksysbrev("AP_AVSL_AUTO",
                         false,
                         "Vedtak - avslag på søknad om alderspensjon (automatisk)",

@@ -1,21 +1,21 @@
 package no.nav.pensjonbrevdata.unleash;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import no.finn.unleash.Unleash;
 import no.finn.unleash.repository.ToggleFetcher;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class UnleashBeanTest {
     private static final String ENDPOINT_URL = "http://127.0.0.1:9998";
 
@@ -27,7 +27,7 @@ public class UnleashBeanTest {
     @Mock
     private Unleash unleash;
 
-    @Before
+    @BeforeEach
     public void setup() {
         unleashConsumerService = new UnleashBean();
         unleashConsumerService.setUnleash(unleash);
