@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import no.finn.unleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
+import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,8 +20,10 @@ import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import static com.google.gson.JsonParser.parseString;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
@@ -37,12 +40,17 @@ public class KomponentTest {
 
     @Test
     public void testGetSprakForBrevkode() {
-        brevkoder().forEach((E) brevkode -> testEndpoint("sprakForBrevkode",brevkode));
+        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("sprakForBrevkode",brevkode));
     }
 
     @Test
     public void testGetBrevForBrevkode() {
-        brevkoder().forEach((E) brevkode -> testEndpoint("brevForBrevkode",brevkode));
+        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("brevForBrevkode",brevkode));
+    }
+
+    @Test
+    public void testGetBrevdataForSaktype() {
+        sakstyper().forEach((TransformCheckedExceptionToUnchecked) this::testGetBrevdataForSaktype);
     }
 
     private void testEndpoint(String endpoint, String brevkode) throws IOException, InterruptedException, URISyntaxException {
@@ -53,10 +61,26 @@ public class KomponentTest {
         assertEquals("Feil i respons til brevkode "+brevkode, parseString(loadResult(endpoint,brevkode)), parseString(resp.body()));
     }
 
+    private void testGetBrevdataForSaktype(String sakstype) throws IOException, InterruptedException, URISyntaxException {
+        testGetBrevdataForSaktype(sakstype, true);
+        testGetBrevdataForSaktype(sakstype, false);
+    }
+
+    private void testGetBrevdataForSaktype(String sakstype, boolean includeXsd) throws IOException, InterruptedException, URISyntaxException {
+        HttpResponse<String> resp = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:"+port+"/api/brevdata/brevdataForSaktype/"+sakstype+"?includeXsd="+includeXsd))
+                .build(), HttpResponse.BodyHandlers.ofString());
+        assertEquals("Feil i respons til sakstype "+sakstype,200, resp.statusCode());
+        assertEquals("Feil i respons til sakstype "+sakstype, parseString(loadResult("brevdataForSaktype",sakstype,includeXsd)), parseString(resp.body()));
+    }
+
     private String loadResult(String endpoint, String brevkode) throws IOException, URISyntaxException {
-        URL url = getClass().getResource("/"+endpoint+"/" + brevkode);
+        return loadResult(endpoint, brevkode, null);
+    }
+    private String loadResult(String endpoint, String brevkode, Boolean includeXsd) throws IOException, URISyntaxException {
+        URL url = getClass().getResource("/"+endpoint+"/" + (includeXsd != null ? includeXsd+"/" :"") + brevkode);
         if (url == null)
-            throw new IOException(endpoint+"-resultat ikke funnet for brevkode: " + brevkode);
+            throw new IOException(endpoint+"-resultat ikke funnet for kode: " + brevkode);
         return Files.readString(Path.of(url.toURI()));
     }
 
@@ -64,7 +88,11 @@ public class KomponentTest {
         return new ArrayList<>(new BrevdataMapper().getBrevMap().keySet());
     }
 
-    private interface E extends Consumer<String> {
+    private static List<String> sakstyper() {
+        return Arrays.asList("FAM_PL","GAM_YRK","OMSORG","AFP","BARNEP","UFOREP","GJENLEV","ALDER","GRBL","GENRL","KRIGSP","AFP_PRIVAT");
+    }
+
+    private interface TransformCheckedExceptionToUnchecked extends Consumer<String> {
         void transformException(String s) throws Exception;
 
         @Override
@@ -84,8 +112,9 @@ public class KomponentTest {
             GsonBuilder gson = new GsonBuilder();
             gson.serializeNulls();
             ResultBuilder.gson = gson.create();
-            brevkoder().stream().peek((E) ResultBuilder::fixgetBrevForBrevkode)
-                    .forEach((E) ResultBuilder::fixgetSprakForBrevkode);
+            brevkoder().stream().peek((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevForBrevkode)
+                    .forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetSprakForBrevkode);
+            sakstyper().forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevdataForSaktype);
         }
 
         private static void fixgetSprakForBrevkode(String brevkode) throws IOException {
@@ -94,6 +123,14 @@ public class KomponentTest {
 
         private static void fixgetBrevForBrevkode(String brevkode) throws IOException {
             Files.writeString(dir("brevForBrevkode").resolve(brevkode), toJSON(be.getBrevForBrevkode(brevkode)));
+        }
+        private static void fixgetBrevdataForSaktype(String sakstype) throws IOException {
+            fixgetBrevdataForSaktype(sakstype,true);
+            fixgetBrevdataForSaktype(sakstype,false);
+        }
+
+        private static void fixgetBrevdataForSaktype(String sakstype, boolean includeXsd) throws IOException {
+            Files.writeString(dir("brevdataForSaktype/"+includeXsd).resolve(sakstype), toJSON(be.getBrevdataForSaktype(sakstype,includeXsd)));
         }
 
         private static Path dir(String stringPath) throws IOException {
