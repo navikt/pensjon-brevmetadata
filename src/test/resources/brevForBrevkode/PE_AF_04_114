@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr007","redigerbart":true,"dekode":"Vedtak - endring av AFP i privat sektor","brevkategori":"VEDTAK","dokType":"U","sprak":["NN","NB"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":null,"brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_AF_04_114","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr007",
+  "redigerbart": true,
+  "dekode": "Vedtak - endring av AFP i privat sektor",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NN",
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": null,
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AF_04_114",
+  "brevsystem": "GAMMEL"
+}

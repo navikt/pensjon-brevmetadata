@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr001","redigerbart":true,"dekode":"Anke - tilsvar til ankende part","brevkategori":"OVRIG","dokType":"U","sprak":["EN","NB"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ANKE","brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_IY_03_151","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": true,
+  "dekode": "Anke - tilsvar til ankende part",
+  "brevkategori": "OVRIG",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ANKE",
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_IY_03_151",
+  "brevsystem": "GAMMEL"
+}

@@ -1,1 +1,22 @@
-{"brevgruppe":"brevgr003","redigerbart":true,"dekode":"Vedtak - avslag på alderspensjon","brevkategori":"VEDTAK","dokType":"U","sprak":["EN","NB","NN"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":"GG","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_AP_04_010","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr003",
+  "redigerbart": true,
+  "dekode": "Vedtak - avslag på alderspensjon",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": "GG",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AP_04_010",
+  "brevsystem": "GAMMEL"
+}

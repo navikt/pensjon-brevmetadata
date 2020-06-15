@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr001","redigerbart":true,"dekode":"Vedtak - forlengelse av perioden med hvilende rett til uførepensjon","brevkategori":"VEDTAK","dokType":"U","sprak":["NB","NN"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":"GG","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_UP_04_021","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": true,
+  "dekode": "Vedtak - forlengelse av perioden med hvilende rett til uførepensjon",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": "GG",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_UP_04_021",
+  "brevsystem": "GAMMEL"
+}

@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr002","redigerbart":true,"dekode":"Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - mellombehandling)","brevkategori":"VEDTAK","dokType":"U","sprak":["NB","EN"],"visIPselv":true,"utland":"UTLAND","brevregeltype":null,"brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_GP_04_034","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr002",
+  "redigerbart": true,
+  "dekode": "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - mellombehandling)",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "EN"
+  ],
+  "visIPselv": true,
+  "utland": "UTLAND",
+  "brevregeltype": null,
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_GP_04_034",
+  "brevsystem": "GAMMEL"
+}

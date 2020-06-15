@@ -1,1 +1,20 @@
-{"brevgruppe":"brevgr001","redigerbart":false,"dekode":"Brev med skjema Leveattest (NAV 21-03.05)","brevkategori":"BREV_MED_SKJEMA","dokType":"U","sprak":["NB"],"visIPselv":true,"utland":"UTLAND","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_IY_05_410","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": false,
+  "dekode": "Brev med skjema Leveattest (NAV 21-03.05)",
+  "brevkategori": "BREV_MED_SKJEMA",
+  "dokType": "U",
+  "sprak": [
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "UTLAND",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_IY_05_410",
+  "brevsystem": "GAMMEL"
+}

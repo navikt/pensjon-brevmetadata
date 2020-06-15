@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr010","redigerbart":true,"dekode":"Vedtak - endring av uføretrygd på grunn av inntekt","brevkategori":"VEDTAK","dokType":"U","sprak":["NB","NN"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_UT_07_100","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr010",
+  "redigerbart": true,
+  "dekode": "Vedtak - endring av uføretrygd på grunn av inntekt",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_UT_07_100",
+  "brevsystem": "GAMMEL"
+}

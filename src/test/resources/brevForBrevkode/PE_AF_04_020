@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr002","redigerbart":true,"dekode":"Vedtak - endring av AFP","brevkategori":"VEDTAK","dokType":"U","sprak":["NB","NN"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":"GG","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_AF_04_020","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr002",
+  "redigerbart": true,
+  "dekode": "Vedtak - endring av AFP",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": "GG",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AF_04_020",
+  "brevsystem": "GAMMEL"
+}

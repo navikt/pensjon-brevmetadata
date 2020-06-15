@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr002","redigerbart":true,"dekode":"Vedtak - innvilgelse av uførepensjon med endring (bosatt Norge - etter utland)","brevkategori":"VEDTAK","dokType":"U","sprak":["NB","EN"],"visIPselv":true,"utland":"UTLAND","brevregeltype":"GG","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_UP_04_024","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr002",
+  "redigerbart": true,
+  "dekode": "Vedtak - innvilgelse av uførepensjon med endring (bosatt Norge - etter utland)",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "EN"
+  ],
+  "visIPselv": true,
+  "utland": "UTLAND",
+  "brevregeltype": "GG",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_UP_04_024",
+  "brevsystem": "GAMMEL"
+}

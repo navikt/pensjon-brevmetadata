@@ -1,1 +1,22 @@
-{"brevgruppe":"brevgr011","redigerbart":false,"dekode":"Vedtak - endring av alderspensjon på grunn av endring av ektefelle/partner/samboers pensjon eller uføretrygd","brevkategori":null,"dokType":"U","sprak":["NN","NB","EN"],"visIPselv":true,"utland":null,"brevregeltype":null,"brevkravtype":null,"brevkontekst":null,"dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_AP_04_226","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr011",
+  "redigerbart": false,
+  "dekode": "Vedtak - endring av alderspensjon på grunn av endring av ektefelle/partner/samboers pensjon eller uføretrygd",
+  "brevkategori": null,
+  "dokType": "U",
+  "sprak": [
+    "NN",
+    "NB",
+    "EN"
+  ],
+  "visIPselv": true,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AP_04_226",
+  "brevsystem": "GAMMEL"
+}

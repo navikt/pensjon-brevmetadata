@@ -1,1 +1,23 @@
-{"brevgruppe":"brevgr001","redigerbart":false,"dekode":"Brev med skjema Krav om stønad til gjenlevende ektefelle/partner/samboer og gjenlevende barn (NAV 17-01.05)","brevkategori":"BREV_MED_SKJEMA","dokType":"U","sprak":["EN","NB","FR","NN"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":"GG","brevkravtype":null,"brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":true,"prioritet":null,"brevkodeIBrevsystem":"PE_GP_01_010","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": false,
+  "dekode": "Brev med skjema Krav om stønad til gjenlevende ektefelle/partner/samboer og gjenlevende barn (NAV 17-01.05)",
+  "brevkategori": "BREV_MED_SKJEMA",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB",
+    "FR",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": "GG",
+  "brevkravtype": null,
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": true,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_GP_01_010",
+  "brevsystem": "GAMMEL"
+}

@@ -1,1 +1,24 @@
-{"brevgruppe":"brevgr001","redigerbart":false,"dekode":"Brev med skjema Søknad om alderspensjon (NAV 19-01.05)","brevkategori":"BREV_MED_SKJEMA","dokType":"U","sprak":["NB","EN","FR","SE","NN"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":"GG","brevkravtype":null,"brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":true,"prioritet":null,"brevkodeIBrevsystem":"PE_AP_01_006","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": false,
+  "dekode": "Brev med skjema Søknad om alderspensjon (NAV 19-01.05)",
+  "brevkategori": "BREV_MED_SKJEMA",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "EN",
+    "FR",
+    "SE",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": "GG",
+  "brevkravtype": null,
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": true,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AP_01_006",
+  "brevsystem": "GAMMEL"
+}

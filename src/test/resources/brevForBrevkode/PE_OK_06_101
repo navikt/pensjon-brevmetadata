@@ -1,1 +1,20 @@
-{"brevgruppe":"brevgr001","redigerbart":true,"dekode":"Posteringsgrunnlag","brevkategori":"OVRIG","dokType":"N","sprak":["NB"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"ALLTID","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_OK_06_101","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": true,
+  "dekode": "Posteringsgrunnlag",
+  "brevkategori": "OVRIG",
+  "dokType": "N",
+  "sprak": [
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "ALLTID",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_OK_06_101",
+  "brevsystem": "GAMMEL"
+}

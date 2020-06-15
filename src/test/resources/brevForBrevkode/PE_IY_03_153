@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr001","redigerbart":true,"dekode":"Klage - orientering om saksbehandlingstid ved NAV Pensjon","brevkategori":"OVRIG","dokType":"U","sprak":["EN","NB"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"KLAGE","brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_IY_03_153","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": true,
+  "dekode": "Klage - orientering om saksbehandlingstid ved NAV Pensjon",
+  "brevkategori": "OVRIG",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "KLAGE",
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_IY_03_153",
+  "brevsystem": "GAMMEL"
+}

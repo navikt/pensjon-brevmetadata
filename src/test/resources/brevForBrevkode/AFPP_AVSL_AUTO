@@ -1,1 +1,18 @@
-{"brevgruppe":"brevgr007","redigerbart":false,"dekode":"Vedtak - avslag på AFP i privat sektor","brevkategori":null,"dokType":"U","sprak":null,"visIPselv":true,"utland":null,"brevregeltype":null,"brevkravtype":null,"brevkontekst":null,"dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_AF_04_116","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr007",
+  "redigerbart": false,
+  "dekode": "Vedtak - avslag på AFP i privat sektor",
+  "brevkategori": null,
+  "dokType": "U",
+  "sprak": null,
+  "visIPselv": true,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AF_04_116",
+  "brevsystem": "GAMMEL"
+}

@@ -1,1 +1,18 @@
-{"brevgruppe":"INGEN_BREVGRUPPE","redigerbart":false,"dekode":"H070 - Melding om dødsfall","brevkategori":null,"dokType":"I","sprak":null,"visIPselv":null,"utland":null,"brevregeltype":null,"brevkravtype":null,"brevkontekst":null,"dokumentkategori":"SED","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"H070","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "INGEN_BREVGRUPPE",
+  "redigerbart": false,
+  "dekode": "H070 - Melding om dødsfall",
+  "brevkategori": null,
+  "dokType": "I",
+  "sprak": null,
+  "visIPselv": null,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "SED",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "H070",
+  "brevsystem": "GAMMEL"
+}

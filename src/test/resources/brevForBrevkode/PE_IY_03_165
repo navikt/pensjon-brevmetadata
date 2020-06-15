@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr001","redigerbart":true,"dekode":"Innhente opplysninger i EØS-sak (bruker bosatt i Norge)","brevkategori":"INNHENTE_OPPL","dokType":"U","sprak":["EN","NB"],"visIPselv":true,"utland":"UTLAND","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_IY_03_165","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": true,
+  "dekode": "Innhente opplysninger i EØS-sak (bruker bosatt i Norge)",
+  "brevkategori": "INNHENTE_OPPL",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "UTLAND",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_IY_03_165",
+  "brevsystem": "GAMMEL"
+}

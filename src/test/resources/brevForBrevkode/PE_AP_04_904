@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr002","redigerbart":true,"dekode":"Vedtak - endelig innvilgelse av alderspensjon - endret - Norge/avtaleland","brevkategori":"VEDTAK","dokType":"U","sprak":["EN","NB"],"visIPselv":true,"utland":"UTLAND","brevregeltype":"GG","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_AP_04_904","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr002",
+  "redigerbart": true,
+  "dekode": "Vedtak - endelig innvilgelse av alderspensjon - endret - Norge/avtaleland",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "UTLAND",
+  "brevregeltype": "GG",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AP_04_904",
+  "brevsystem": "GAMMEL"
+}

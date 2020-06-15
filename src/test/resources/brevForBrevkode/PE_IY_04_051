@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr001","redigerbart":true,"dekode":"Vedtak - omgjøring i ankesak - NAV Klageinstans","brevkategori":"VEDTAK","dokType":"U","sprak":["EN","NB"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ANKE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_IY_04_051","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": true,
+  "dekode": "Vedtak - omgjøring i ankesak - NAV Klageinstans",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ANKE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_IY_04_051",
+  "brevsystem": "GAMMEL"
+}

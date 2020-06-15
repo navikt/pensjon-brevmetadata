@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr010","redigerbart":true,"dekode":"Vedtak om etteroppgjør - endelig vedtak etter mottatt svar","brevkategori":"VEDTAK","dokType":"U","sprak":["NB","NN"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_UT_04_401","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr010",
+  "redigerbart": true,
+  "dekode": "Vedtak om etteroppgjør - endelig vedtak etter mottatt svar",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_UT_04_401",
+  "brevsystem": "GAMMEL"
+}

@@ -1,1 +1,20 @@
-{"brevgruppe":"brevgr001","redigerbart":true,"dekode":"Bekreftelse på at bruker mottar uføretrygd (spansk)","brevkategori":"OVRIG","dokType":"U","sprak":["NB"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":"OVRIGE","brevkravtype":null,"brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_IY_03_173","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": true,
+  "dekode": "Bekreftelse på at bruker mottar uføretrygd (spansk)",
+  "brevkategori": "OVRIG",
+  "dokType": "U",
+  "sprak": [
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": null,
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_IY_03_173",
+  "brevsystem": "GAMMEL"
+}

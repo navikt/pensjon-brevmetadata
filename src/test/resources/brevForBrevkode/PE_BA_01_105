@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr001","redigerbart":false,"dekode":"Informasjon til deg som fyller 67 år og mottar uføretrygd og alderspensjon","brevkategori":null,"dokType":"U","sprak":["NB","EN"],"visIPselv":true,"utland":null,"brevregeltype":null,"brevkravtype":null,"brevkontekst":null,"dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_BA_01_105","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": false,
+  "dekode": "Informasjon til deg som fyller 67 år og mottar uføretrygd og alderspensjon",
+  "brevkategori": null,
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "EN"
+  ],
+  "visIPselv": true,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_BA_01_105",
+  "brevsystem": "GAMMEL"
+}

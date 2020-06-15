@@ -1,1 +1,18 @@
-{"brevgruppe":"brevgr001","redigerbart":false,"dekode":"Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)","brevkategori":"INNHENTE_OPPL","dokType":"U","sprak":null,"visIPselv":true,"utland":"UTLAND","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"SAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_IY_06_511","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": false,
+  "dekode": "Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)",
+  "brevkategori": "INNHENTE_OPPL",
+  "dokType": "U",
+  "sprak": null,
+  "visIPselv": true,
+  "utland": "UTLAND",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "SAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_IY_06_511",
+  "brevsystem": "GAMMEL"
+}

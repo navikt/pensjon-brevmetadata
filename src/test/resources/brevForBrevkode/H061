@@ -1,1 +1,18 @@
-{"brevgruppe":"INGEN_BREVGRUPPE","redigerbart":false,"dekode":"H061 - Melding/anmodning om personnummer","brevkategori":null,"dokType":"I","sprak":null,"visIPselv":null,"utland":null,"brevregeltype":null,"brevkravtype":null,"brevkontekst":null,"dokumentkategori":"SED","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"H061","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "INGEN_BREVGRUPPE",
+  "redigerbart": false,
+  "dekode": "H061 - Melding/anmodning om personnummer",
+  "brevkategori": null,
+  "dokType": "I",
+  "sprak": null,
+  "visIPselv": null,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "SED",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "H061",
+  "brevsystem": "GAMMEL"
+}

@@ -1,1 +1,18 @@
-{"brevgruppe":"brevgr004","redigerbart":false,"dekode":"Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør","brevkategori":null,"dokType":"U","sprak":null,"visIPselv":true,"utland":null,"brevregeltype":"GG","brevkravtype":null,"brevkontekst":null,"dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_AF_03_100","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr004",
+  "redigerbart": false,
+  "dekode": "Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
+  "brevkategori": null,
+  "dokType": "U",
+  "sprak": null,
+  "visIPselv": true,
+  "utland": null,
+  "brevregeltype": "GG",
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_AF_03_100",
+  "brevsystem": "GAMMEL"
+}

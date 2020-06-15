@@ -1,1 +1,20 @@
-{"brevgruppe":"brevgr004","redigerbart":true,"dekode":"Posteringsgrunnlag ved tilbakekrevingssaker","brevkategori":"OVRIG","dokType":"N","sprak":["NB"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_OK_06_102","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr004",
+  "redigerbart": true,
+  "dekode": "Posteringsgrunnlag ved tilbakekrevingssaker",
+  "brevkategori": "OVRIG",
+  "dokType": "N",
+  "sprak": [
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_OK_06_102",
+  "brevsystem": "GAMMEL"
+}

@@ -1,1 +1,18 @@
-{"brevgruppe":"brevgr001","redigerbart":false,"dekode":"Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon","brevkategori":null,"dokType":"U","sprak":null,"visIPselv":true,"utland":null,"brevregeltype":null,"brevkravtype":null,"brevkontekst":null,"dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_BA_01_102","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr001",
+  "redigerbart": false,
+  "dekode": "Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon",
+  "brevkategori": null,
+  "dokType": "U",
+  "sprak": null,
+  "visIPselv": true,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_BA_01_102",
+  "brevsystem": "GAMMEL"
+}

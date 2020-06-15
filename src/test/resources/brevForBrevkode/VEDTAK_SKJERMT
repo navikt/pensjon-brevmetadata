@@ -1,1 +1,18 @@
-{"brevgruppe":"brevgr007","redigerbart":false,"dekode":"Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg","brevkategori":"VEDTAK","dokType":"U","sprak":null,"visIPselv":true,"utland":"ALLTID","brevregeltype":"GN","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_BA_04_534","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr007",
+  "redigerbart": false,
+  "dekode": "Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": null,
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "GN",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_BA_04_534",
+  "brevsystem": "GAMMEL"
+}

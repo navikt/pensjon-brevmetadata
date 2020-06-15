@@ -1,1 +1,21 @@
-{"brevgruppe":"brevgr010","redigerbart":true,"dekode":"Vedtak - Ny beregning av barnetillegget (manuelt)","brevkategori":"VEDTAK","dokType":"U","sprak":["NB","NN"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":3,"brevkodeIBrevsystem":"PE_UT_04_109","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr010",
+  "redigerbart": true,
+  "dekode": "Vedtak - Ny beregning av barnetillegget (manuelt)",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "NB",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": 3,
+  "brevkodeIBrevsystem": "PE_UT_04_109",
+  "brevsystem": "GAMMEL"
+}

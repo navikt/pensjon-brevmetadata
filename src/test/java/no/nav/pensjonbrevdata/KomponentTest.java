@@ -58,7 +58,8 @@ public class KomponentTest {
                 .uri(URI.create("http://localhost:"+port+"/api/brevdata/"+endpoint+"/"+brevkode))
                 .build(), HttpResponse.BodyHandlers.ofString());
         assertEquals("Feil i respons til brevkode "+brevkode,200, resp.statusCode());
-        assertEquals("Feil i respons til brevkode "+brevkode, parseString(loadResult(endpoint,brevkode)), parseString(resp.body()));
+        assertEquals("Feil i respons til brevkode "+brevkode+"\nOm man har endret i xsd-er burde man kjøre KomponentTest.ResultBuilder på nytt.",
+                parseString(loadResult(endpoint,brevkode)), parseString(resp.body()));
     }
 
     private void testGetBrevdataForSaktype(String sakstype) throws IOException, InterruptedException, URISyntaxException {
@@ -71,7 +72,8 @@ public class KomponentTest {
                 .uri(URI.create("http://localhost:"+port+"/api/brevdata/brevdataForSaktype/"+sakstype+"?includeXsd="+includeXsd))
                 .build(), HttpResponse.BodyHandlers.ofString());
         assertEquals("Feil i respons til sakstype "+sakstype,200, resp.statusCode());
-        assertEquals("Feil i respons til sakstype "+sakstype, parseString(loadResult("brevdataForSaktype",sakstype,includeXsd)), parseString(resp.body()));
+        assertEquals("Feil i respons til sakstype "+sakstype+"\nOm man har endret i xsd-er burde man kjøre KomponentTest.ResultBuilder på nytt.",
+                parseString(loadResult("brevdataForSaktype",sakstype,includeXsd)), parseString(resp.body()));
     }
 
     private String loadResult(String endpoint, String brevkode) throws IOException, URISyntaxException {
@@ -104,6 +106,10 @@ public class KomponentTest {
             }
         }
     }
+
+    /**
+     * Bygger en base-line av responser som applikasjonen gjør akkurat nå, og som benyttes av KomponentTest
+     */
     private static class ResultBuilder {
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
         private static Gson gson = null;
@@ -111,6 +117,7 @@ public class KomponentTest {
         public static void main(String[] args) {
             GsonBuilder gson = new GsonBuilder();
             gson.serializeNulls();
+            gson.setPrettyPrinting();
             ResultBuilder.gson = gson.create();
             brevkoder().stream().peek((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevForBrevkode)
                     .forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetSprakForBrevkode);

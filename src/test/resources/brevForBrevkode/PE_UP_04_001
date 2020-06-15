@@ -1,1 +1,22 @@
-{"brevgruppe":"brevgr002","redigerbart":true,"dekode":"Vedtak - innvilgelse av uførepensjon","brevkategori":"VEDTAK","dokType":"U","sprak":["EN","NB","NN"],"visIPselv":true,"utland":"NASJONALT","brevregeltype":"GG","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_UP_04_001","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr002",
+  "redigerbart": true,
+  "dekode": "Vedtak - innvilgelse av uførepensjon",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": [
+    "EN",
+    "NB",
+    "NN"
+  ],
+  "visIPselv": true,
+  "utland": "NASJONALT",
+  "brevregeltype": "GG",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_UP_04_001",
+  "brevsystem": "GAMMEL"
+}

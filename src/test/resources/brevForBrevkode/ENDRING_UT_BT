@@ -1,1 +1,18 @@
-{"brevgruppe":"brevgr010","redigerbart":false,"dekode":"Endring av barnetillegg i uføretrygden","brevkategori":"VEDTAK","dokType":"U","sprak":null,"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"VB","synligForVeileder":null,"prioritet":3,"brevkodeIBrevsystem":"PE_UT_06_300","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr010",
+  "redigerbart": false,
+  "dekode": "Endring av barnetillegg i uføretrygden",
+  "brevkategori": "VEDTAK",
+  "dokType": "U",
+  "sprak": null,
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "VB",
+  "synligForVeileder": null,
+  "prioritet": 3,
+  "brevkodeIBrevsystem": "PE_UT_06_300",
+  "brevsystem": "GAMMEL"
+}

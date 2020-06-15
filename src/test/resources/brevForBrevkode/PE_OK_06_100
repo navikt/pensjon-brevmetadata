@@ -1,1 +1,20 @@
-{"brevgruppe":"brevgr002","redigerbart":true,"dekode":"Posteringsgrunnlag (virkningstidspunkt før 01.01.09)","brevkategori":"OVRIG","dokType":"N","sprak":["NB"],"visIPselv":true,"utland":"ALLTID","brevregeltype":"OVRIGE","brevkravtype":"ALLE","brevkontekst":"VEDTAK","dokumentkategori":"B","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"PE_OK_06_100","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr002",
+  "redigerbart": true,
+  "dekode": "Posteringsgrunnlag (virkningstidspunkt før 01.01.09)",
+  "brevkategori": "OVRIG",
+  "dokType": "N",
+  "sprak": [
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": "ALLTID",
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": "ALLE",
+  "brevkontekst": "VEDTAK",
+  "dokumentkategori": "B",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "PE_OK_06_100",
+  "brevsystem": "GAMMEL"
+}

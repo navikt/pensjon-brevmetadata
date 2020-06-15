@@ -1,1 +1,20 @@
-{"brevgruppe":"brevgr008","redigerbart":true,"dekode":"P4000 - Rapport om trygdehistorikk","brevkategori":null,"dokType":"U","sprak":["NB"],"visIPselv":true,"utland":null,"brevregeltype":"OVRIGE","brevkravtype":null,"brevkontekst":null,"dokumentkategori":"SED","synligForVeileder":null,"prioritet":null,"brevkodeIBrevsystem":"P4000","brevsystem":"GAMMEL"}
+{
+  "brevgruppe": "brevgr008",
+  "redigerbart": true,
+  "dekode": "P4000 - Rapport om trygdehistorikk",
+  "brevkategori": null,
+  "dokType": "U",
+  "sprak": [
+    "NB"
+  ],
+  "visIPselv": true,
+  "utland": null,
+  "brevregeltype": "OVRIGE",
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "SED",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "P4000",
+  "brevsystem": "GAMMEL"
+}
