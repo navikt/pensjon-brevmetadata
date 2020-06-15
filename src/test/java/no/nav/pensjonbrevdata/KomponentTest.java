@@ -5,7 +5,9 @@ import com.google.gson.GsonBuilder;
 import no.finn.unleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
+import org.json.JSONException;
 import org.junit.jupiter.api.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -53,27 +55,33 @@ public class KomponentTest {
         sakstyper().forEach((TransformCheckedExceptionToUnchecked) this::testGetBrevdataForSaktype);
     }
 
-    private void testEndpoint(String endpoint, String brevkode) throws IOException, InterruptedException, URISyntaxException {
+    private void testEndpoint(String endpoint, String brevkode) throws IOException, InterruptedException, URISyntaxException, JSONException {
         HttpResponse<String> resp = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:"+port+"/api/brevdata/"+endpoint+"/"+brevkode))
                 .build(), HttpResponse.BodyHandlers.ofString());
         assertEquals("Feil i respons til brevkode "+brevkode,200, resp.statusCode());
-        assertEquals("Feil i respons til brevkode "+brevkode+"\nOm man har endret i xsd-er burde man kjøre KomponentTest.ResultBuilder på nytt.",
-                parseString(loadResult(endpoint,brevkode)), parseString(resp.body()));
+        var expected = loadResult(endpoint,brevkode);
+        var actual = resp.body();
+        if(!(expected.equals("") && actual.equals("")))
+            JSONAssert.assertEquals("Feil i respons til brevkode "+brevkode+"\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
+                    expected, actual, true);
     }
 
-    private void testGetBrevdataForSaktype(String sakstype) throws IOException, InterruptedException, URISyntaxException {
+    private void testGetBrevdataForSaktype(String sakstype) throws IOException, InterruptedException, URISyntaxException, JSONException {
         testGetBrevdataForSaktype(sakstype, true);
         testGetBrevdataForSaktype(sakstype, false);
     }
 
-    private void testGetBrevdataForSaktype(String sakstype, boolean includeXsd) throws IOException, InterruptedException, URISyntaxException {
+    private void testGetBrevdataForSaktype(String sakstype, boolean includeXsd) throws IOException, InterruptedException, URISyntaxException, JSONException {
         HttpResponse<String> resp = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:"+port+"/api/brevdata/brevdataForSaktype/"+sakstype+"?includeXsd="+includeXsd))
                 .build(), HttpResponse.BodyHandlers.ofString());
         assertEquals("Feil i respons til sakstype "+sakstype,200, resp.statusCode());
-        assertEquals("Feil i respons til sakstype "+sakstype+"\nOm man har endret i xsd-er burde man kjøre KomponentTest.ResultBuilder på nytt.",
-                parseString(loadResult("brevdataForSaktype",sakstype,includeXsd)), parseString(resp.body()));
+        var expected = loadResult("brevdataForSaktype",sakstype,includeXsd);
+        var actual = resp.body();
+        if(!(expected.equals("") && actual.equals("")))
+            JSONAssert.assertEquals("Feil i respons til sakstype "+sakstype+"\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
+                    expected, actual, true);
     }
 
     private String loadResult(String endpoint, String brevkode) throws IOException, URISyntaxException {
