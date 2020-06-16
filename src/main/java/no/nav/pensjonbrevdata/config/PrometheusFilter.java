@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.config;
 
 import io.prometheus.client.Counter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,8 @@ import java.util.List;
 @Component
 @Order(10)
 public class PrometheusFilter implements Filter {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PrometheusFilter.class);
 
     static final Counter totalIncomingRequests = Counter.build().name("brevdata_rest_incoming_requests_total")
             .help("Number of total requests")
@@ -59,6 +63,8 @@ public class PrometheusFilter implements Filter {
         }
 
         totalIncomingRequests.inc();
+
+        LOGGER.info(req.getRequestURI());
 
         try {
             chain.doFilter(servletRequest, servletResponse);
