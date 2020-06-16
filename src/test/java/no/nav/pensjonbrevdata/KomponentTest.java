@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import no.finn.unleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
-import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -25,9 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
-import static com.google.gson.JsonParser.parseString;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 
@@ -52,7 +49,8 @@ public class KomponentTest {
 
     @Test
     public void testGetBrevdataForSaktype() {
-        sakstyper().forEach((TransformCheckedExceptionToUnchecked) this::testGetBrevdataForSaktype);
+        sakstyper().stream().peek((TransformCheckedExceptionToUnchecked) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",false))
+                .forEach((TransformCheckedExceptionToUnchecked) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",true));
     }
 
     @Test
@@ -61,37 +59,21 @@ public class KomponentTest {
     }
 
     private void testEndpoint(String endpoint, String kode, String kodeDesc) throws IOException, InterruptedException, URISyntaxException, JSONException {
+        testEndpoint(endpoint, kode, kodeDesc, null);
+    }
+
+    private void testEndpoint(String endpoint, String kode, String kodeDesc, Boolean includeXsd) throws IOException, InterruptedException, URISyntaxException, JSONException {
         HttpResponse<String> resp = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:"+port+"/api/brevdata/"+endpoint+"/"+kode))
+                .uri(URI.create("http://localhost:"+port+"/api/brevdata/"+endpoint+"/"+kode+(includeXsd!=null?"?includeXsd="+includeXsd:"")))
                 .build(), HttpResponse.BodyHandlers.ofString());
         assertEquals("Feil i respons til " + kodeDesc + " "+kode,200, resp.statusCode());
-        var expected = loadResult(endpoint,kode);
+        var expected = loadResult(endpoint,kode, includeXsd);
         var actual = resp.body();
         if(!(expected.equals("") && actual.equals("")))
             JSONAssert.assertEquals("Feil i respons til " + kodeDesc + " "+kode+"\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
                     expected, actual, true);
     }
 
-    private void testGetBrevdataForSaktype(String sakstype) throws IOException, InterruptedException, URISyntaxException, JSONException {
-        testGetBrevdataForSaktype(sakstype, true);
-        testGetBrevdataForSaktype(sakstype, false);
-    }
-
-    private void testGetBrevdataForSaktype(String sakstype, boolean includeXsd) throws IOException, InterruptedException, URISyntaxException, JSONException {
-        HttpResponse<String> resp = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:"+port+"/api/brevdata/brevdataForSaktype/"+sakstype+"?includeXsd="+includeXsd))
-                .build(), HttpResponse.BodyHandlers.ofString());
-        assertEquals("Feil i respons til sakstype "+sakstype,200, resp.statusCode());
-        var expected = loadResult("brevdataForSaktype",sakstype,includeXsd);
-        var actual = resp.body();
-        if(!(expected.equals("") && actual.equals("")))
-            JSONAssert.assertEquals("Feil i respons til sakstype "+sakstype+"\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
-                    expected, actual, true);
-    }
-
-    private String loadResult(String endpoint, String brevkode) throws IOException, URISyntaxException {
-        return loadResult(endpoint, brevkode, null);
-    }
     private String loadResult(String endpoint, String brevkode, Boolean includeXsd) throws IOException, URISyntaxException {
         URL url = getClass().getResource("/"+endpoint+"/" + (includeXsd != null ? includeXsd+"/" :"") + brevkode);
         if (url == null)
