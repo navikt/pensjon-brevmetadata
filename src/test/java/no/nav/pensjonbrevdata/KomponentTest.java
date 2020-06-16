@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static org.springframework.test.util.AssertionErrors.assertEquals;
@@ -44,28 +43,28 @@ public class KomponentTest {
 
     @Test
     public void testGetSprakForBrevkode() {
-        brevkoder().forEach((TransformCheckedExceptionToUncheckedConsumer) brevkode -> testEndpoint("sprakForBrevkode", brevkode, "brevkode"));
+        brevkoder().forEach((UncheckingConsumer) brevkode -> testEndpoint("sprakForBrevkode", brevkode, "brevkode"));
     }
 
     @Test
     public void testGetBrevForBrevkode() {
-        brevkoder().forEach((TransformCheckedExceptionToUncheckedConsumer) brevkode -> testEndpoint("brevForBrevkode", brevkode, "brevkode"));
+        brevkoder().forEach((UncheckingConsumer) brevkode -> testEndpoint("brevForBrevkode", brevkode, "brevkode"));
     }
 
     @Test
     public void testGetBrevdataForSaktype() {
-        sakstyper().stream().peek((TransformCheckedExceptionToUncheckedConsumer) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",false))
-                .forEach((TransformCheckedExceptionToUncheckedConsumer) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",true));
+        sakstyper().stream().peek((UncheckingConsumer) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",false))
+                .forEach((UncheckingConsumer) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",true));
     }
 
     @Test
     public void testGetBrevkoderForSaktype() {
-        sakstyper().forEach((TransformCheckedExceptionToUncheckedConsumer) sakstype -> testEndpoint("brevkoderForSaktype", sakstype, "sakstype"));
+        sakstyper().forEach((UncheckingConsumer) sakstype -> testEndpoint("brevkoderForSaktype", sakstype, "sakstype"));
     }
 
     @Test
     public void testGetBrevKeyForBrevkodeIBrevsystem() {
-        brevkoderIBrevSystem().forEach((TransformCheckedExceptionToUncheckedConsumer) brevkodeIBrevsystem -> testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem"));
+        brevkoderIBrevSystem().forEach((UncheckingConsumer) brevkodeIBrevsystem -> testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem"));
     }
 
     private void testEndpoint(String endpoint, String kode, String kodeDesc) throws IOException, InterruptedException, URISyntaxException, JSONException {
@@ -100,11 +99,11 @@ public class KomponentTest {
     }
 
     private static List<String> brevkoderIBrevSystem() {
-        return new BrevdataMapper().getBrevMap().values().stream().map((TransformCheckedExceptionToUncheckedFunction) Callable::call)
+        return new BrevdataMapper().getBrevMap().values().stream().map((UncheckingFunction) Callable::call)
                 .map(Brevdata::getBrevkodeIBrevsystem).collect(Collectors.toList());
     }
 
-    private interface TransformCheckedExceptionToUncheckedConsumer extends Consumer<String> {
+    private interface UncheckingConsumer extends Consumer<String> {
         void transformException(String s) throws Exception;
 
         @Override
@@ -117,7 +116,7 @@ public class KomponentTest {
         }
     }
 
-    private interface TransformCheckedExceptionToUncheckedFunction extends Function<Callable<Brevdata>, Brevdata> {
+    private interface UncheckingFunction extends Function<Callable<Brevdata>, Brevdata> {
         Brevdata transformException(Callable<Brevdata> callable) throws Exception;
 
         @Override
@@ -142,11 +141,11 @@ public class KomponentTest {
             gson.serializeNulls();
             gson.setPrettyPrinting();
             ResultBuilder.gson = gson.create();
-            brevkoder().stream().peek((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevForBrevkode)
-                    .forEach((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetSprakForBrevkode);
-            sakstyper().stream().peek((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevdataForSaktype)
-                    .forEach((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevkoderForSaktype);
-            brevkoderIBrevSystem().forEach((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevKeyForBrevkodeIBrevsystem);
+            brevkoder().stream().peek((UncheckingConsumer) ResultBuilder::fixgetBrevForBrevkode)
+                    .forEach((UncheckingConsumer) ResultBuilder::fixgetSprakForBrevkode);
+            sakstyper().stream().peek((UncheckingConsumer) ResultBuilder::fixgetBrevdataForSaktype)
+                    .forEach((UncheckingConsumer) ResultBuilder::fixgetBrevkoderForSaktype);
+            brevkoderIBrevSystem().forEach((UncheckingConsumer) ResultBuilder::fixgetBrevKeyForBrevkodeIBrevsystem);
         }
 
         private static void fixgetBrevKeyForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws IOException {
