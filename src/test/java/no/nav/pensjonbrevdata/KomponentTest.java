@@ -42,12 +42,12 @@ public class KomponentTest {
 
     @Test
     public void testGetSprakForBrevkode() {
-        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("sprakForBrevkode",brevkode));
+        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("sprakForBrevkode", brevkode, "brevkode"));
     }
 
     @Test
     public void testGetBrevForBrevkode() {
-        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("brevForBrevkode",brevkode));
+        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("brevForBrevkode", brevkode, "brevkode"));
     }
 
     @Test
@@ -55,15 +55,20 @@ public class KomponentTest {
         sakstyper().forEach((TransformCheckedExceptionToUnchecked) this::testGetBrevdataForSaktype);
     }
 
-    private void testEndpoint(String endpoint, String brevkode) throws IOException, InterruptedException, URISyntaxException, JSONException {
+    @Test
+    public void testGetBrevkoderForSaktype() {
+        sakstyper().forEach((TransformCheckedExceptionToUnchecked) sakstype -> testEndpoint("brevkoderForSaktype", sakstype, "sakstype"));
+    }
+
+    private void testEndpoint(String endpoint, String kode, String kodeDesc) throws IOException, InterruptedException, URISyntaxException, JSONException {
         HttpResponse<String> resp = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:"+port+"/api/brevdata/"+endpoint+"/"+brevkode))
+                .uri(URI.create("http://localhost:"+port+"/api/brevdata/"+endpoint+"/"+kode))
                 .build(), HttpResponse.BodyHandlers.ofString());
-        assertEquals("Feil i respons til brevkode "+brevkode,200, resp.statusCode());
-        var expected = loadResult(endpoint,brevkode);
+        assertEquals("Feil i respons til " + kodeDesc + " "+kode,200, resp.statusCode());
+        var expected = loadResult(endpoint,kode);
         var actual = resp.body();
         if(!(expected.equals("") && actual.equals("")))
-            JSONAssert.assertEquals("Feil i respons til brevkode "+brevkode+"\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
+            JSONAssert.assertEquals("Feil i respons til " + kodeDesc + " "+kode+"\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
                     expected, actual, true);
     }
 
@@ -129,7 +134,8 @@ public class KomponentTest {
             ResultBuilder.gson = gson.create();
             brevkoder().stream().peek((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevForBrevkode)
                     .forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetSprakForBrevkode);
-            sakstyper().forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevdataForSaktype);
+            sakstyper().stream().peek((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevdataForSaktype)
+                    .forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevkoderForSaktype);
         }
 
         private static void fixgetSprakForBrevkode(String brevkode) throws IOException {
@@ -146,6 +152,10 @@ public class KomponentTest {
 
         private static void fixgetBrevdataForSaktype(String sakstype, boolean includeXsd) throws IOException {
             Files.writeString(dir("brevdataForSaktype/"+includeXsd).resolve(sakstype), toJSON(be.getBrevdataForSaktype(sakstype,includeXsd)));
+        }
+
+        private static void fixgetBrevkoderForSaktype(String sakstype) throws IOException {
+            Files.writeString(dir("brevkoderForSaktype").resolve(sakstype), toJSON(be.getBrevkoderForSaktype(sakstype)));
         }
 
         private static Path dir(String stringPath) throws IOException {
