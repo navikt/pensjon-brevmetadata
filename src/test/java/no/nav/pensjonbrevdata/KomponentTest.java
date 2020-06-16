@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import no.finn.unleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
+import no.nav.pensjonbrevdata.model.Brevdata;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -23,7 +24,11 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
@@ -39,23 +44,28 @@ public class KomponentTest {
 
     @Test
     public void testGetSprakForBrevkode() {
-        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("sprakForBrevkode", brevkode, "brevkode"));
+        brevkoder().forEach((TransformCheckedExceptionToUncheckedConsumer) brevkode -> testEndpoint("sprakForBrevkode", brevkode, "brevkode"));
     }
 
     @Test
     public void testGetBrevForBrevkode() {
-        brevkoder().forEach((TransformCheckedExceptionToUnchecked) brevkode -> testEndpoint("brevForBrevkode", brevkode, "brevkode"));
+        brevkoder().forEach((TransformCheckedExceptionToUncheckedConsumer) brevkode -> testEndpoint("brevForBrevkode", brevkode, "brevkode"));
     }
 
     @Test
     public void testGetBrevdataForSaktype() {
-        sakstyper().stream().peek((TransformCheckedExceptionToUnchecked) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",false))
-                .forEach((TransformCheckedExceptionToUnchecked) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",true));
+        sakstyper().stream().peek((TransformCheckedExceptionToUncheckedConsumer) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",false))
+                .forEach((TransformCheckedExceptionToUncheckedConsumer) sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype",true));
     }
 
     @Test
     public void testGetBrevkoderForSaktype() {
-        sakstyper().forEach((TransformCheckedExceptionToUnchecked) sakstype -> testEndpoint("brevkoderForSaktype", sakstype, "sakstype"));
+        sakstyper().forEach((TransformCheckedExceptionToUncheckedConsumer) sakstype -> testEndpoint("brevkoderForSaktype", sakstype, "sakstype"));
+    }
+
+    @Test
+    public void testGetBrevKeyForBrevkodeIBrevsystem() {
+        brevkoderIBrevSystem().forEach((TransformCheckedExceptionToUncheckedConsumer) brevkodeIBrevsystem -> testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem"));
     }
 
     private void testEndpoint(String endpoint, String kode, String kodeDesc) throws IOException, InterruptedException, URISyntaxException, JSONException {
@@ -89,13 +99,31 @@ public class KomponentTest {
         return Arrays.asList("FAM_PL","GAM_YRK","OMSORG","AFP","BARNEP","UFOREP","GJENLEV","ALDER","GRBL","GENRL","KRIGSP","AFP_PRIVAT");
     }
 
-    private interface TransformCheckedExceptionToUnchecked extends Consumer<String> {
+    private static List<String> brevkoderIBrevSystem() {
+        return new BrevdataMapper().getBrevMap().values().stream().map((TransformCheckedExceptionToUncheckedFunction) Callable::call)
+                .map(Brevdata::getBrevkodeIBrevsystem).collect(Collectors.toList());
+    }
+
+    private interface TransformCheckedExceptionToUncheckedConsumer extends Consumer<String> {
         void transformException(String s) throws Exception;
 
         @Override
         default void accept(String s) {
             try {
                 transformException(s);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private interface TransformCheckedExceptionToUncheckedFunction extends Function<Callable<Brevdata>, Brevdata> {
+        Brevdata transformException(Callable<Brevdata> callable) throws Exception;
+
+        @Override
+        default Brevdata apply(Callable<Brevdata> callable) {
+            try {
+                return transformException(callable);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -114,10 +142,15 @@ public class KomponentTest {
             gson.serializeNulls();
             gson.setPrettyPrinting();
             ResultBuilder.gson = gson.create();
-            brevkoder().stream().peek((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevForBrevkode)
-                    .forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetSprakForBrevkode);
-            sakstyper().stream().peek((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevdataForSaktype)
-                    .forEach((TransformCheckedExceptionToUnchecked) ResultBuilder::fixgetBrevkoderForSaktype);
+            brevkoder().stream().peek((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevForBrevkode)
+                    .forEach((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetSprakForBrevkode);
+            sakstyper().stream().peek((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevdataForSaktype)
+                    .forEach((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevkoderForSaktype);
+            brevkoderIBrevSystem().forEach((TransformCheckedExceptionToUncheckedConsumer) ResultBuilder::fixgetBrevKeyForBrevkodeIBrevsystem);
+        }
+
+        private static void fixgetBrevKeyForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws IOException {
+            Files.writeString(dir("brevKeyForBrevkodeIBrevsystem").resolve(brevkodeIBrevsystem), toJSON(be.getBrevKeyForBrevkodeIBrevsystem(brevkodeIBrevsystem)));
         }
 
         private static void fixgetSprakForBrevkode(String brevkode) throws IOException {
