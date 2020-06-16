@@ -67,6 +67,24 @@ public class KomponentTest {
         brevkoderIBrevSystem().forEach((UncheckingConsumer) brevkodeIBrevsystem -> testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem"));
     }
 
+    @Test
+    public void testGetAllBrev() throws InterruptedException, IOException, JSONException, URISyntaxException {
+        testGetAllBrev(false);
+        testGetAllBrev(true);
+    }
+
+    private void testGetAllBrev(boolean includeXsd) throws IOException, InterruptedException, URISyntaxException, JSONException {
+        HttpResponse<String> resp = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:"+port+"/api/brevdata/allBrev?includeXsd="+includeXsd))
+                .build(), HttpResponse.BodyHandlers.ofString());
+        assertEquals("Feil i respons til allBrev med includeXsd "+includeXsd,200, resp.statusCode());
+        var expected = loadResult("allBrev", ""+includeXsd, null);
+        var actual = resp.body();
+        if(!(expected.equals("") && actual.equals("")))
+            JSONAssert.assertEquals("Feil i respons til allBrev med includeXsd "+includeXsd + "\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
+                    expected, actual, true);
+    }
+
     private void testEndpoint(String endpoint, String kode, String kodeDesc) throws IOException, InterruptedException, URISyntaxException, JSONException {
         testEndpoint(endpoint, kode, kodeDesc, null);
     }
@@ -136,7 +154,7 @@ public class KomponentTest {
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
         private static Gson gson = null;
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws IOException {
             GsonBuilder gson = new GsonBuilder();
             gson.serializeNulls();
             gson.setPrettyPrinting();
@@ -146,6 +164,7 @@ public class KomponentTest {
             sakstyper().stream().peek((UncheckingConsumer) ResultBuilder::fixgetBrevdataForSaktype)
                     .forEach((UncheckingConsumer) ResultBuilder::fixgetBrevkoderForSaktype);
             brevkoderIBrevSystem().forEach((UncheckingConsumer) ResultBuilder::fixgetBrevKeyForBrevkodeIBrevsystem);
+            fixGetAllBrev();
         }
 
         private static void fixgetBrevKeyForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws IOException {
@@ -170,6 +189,15 @@ public class KomponentTest {
 
         private static void fixgetBrevkoderForSaktype(String sakstype) throws IOException {
             Files.writeString(dir("brevkoderForSaktype").resolve(sakstype), toJSON(be.getBrevkoderForSaktype(sakstype)));
+        }
+
+        private static void fixGetAllBrev() throws IOException {
+            fixGetAllBrev(false);
+            fixGetAllBrev(true);
+        }
+
+        private static void fixGetAllBrev(boolean includeXsd) throws IOException {
+            Files.writeString(dir("allBrev").resolve(""+includeXsd), toJSON(be.getAllBrev(includeXsd)));
         }
 
         private static Path dir(String stringPath) throws IOException {
