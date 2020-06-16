@@ -27,7 +27,7 @@
             <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
         </xs:annotation>
         <xs:all>
-            <xs:element name="avtaleland" type="land:Land"/>
+            <xs:element name="avtaleland" type="land:Land"  minOccurs="0"/>
             <xs:element name="sak" type="sak:Sak"/>
         </xs:all>
     </xs:complexType>
