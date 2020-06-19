@@ -1996,47 +1996,22 @@
     "brevsystem": "GAMMEL"
   },
   {
-    "vedleggListe": [
-      {
-        "vedleggkode": "RETTIGH_PLIKT_V1",
-        "dekode": "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-        "dokumentmalId": "V00002",
-        "dokumentmalFelleselementId": "00001",
-        "dokumentmal": null,
-        "dokumentmalFelleselement": null
-      },
-      {
-        "vedleggkode": "AP_OPPL_BER_V1",
-        "dekode": "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-        "dokumentmalId": "V00004",
-        "dokumentmalFelleselementId": "00001",
-        "dokumentmal": null,
-        "dokumentmalFelleselement": null
-      }
-    ],
-    "dokumentmalId": "000176",
-    "dokumentmalFelleselementId": "00001",
-    "dokumentmal": null,
-    "dokumentmalFelleselement": null,
+    "brevgruppe": "brevgr011",
     "redigerbart": false,
-    "dekode": "Vedtak - avslag på søknad om alderspensjon (automatisk)",
-    "brevkategori": "VEDTAK",
+    "dekode": "Vedtak - avslag på alderspensjon",
+    "brevkategori": null,
     "dokType": "U",
-    "sprak": [
-      "NB",
-      "NN",
-      "EN"
-    ],
+    "sprak": null,
     "visIPselv": true,
-    "utland": "ALLTID",
-    "brevregeltype": "OVRIGE",
-    "brevkravtype": "ALLE",
-    "brevkontekst": "VEDTAK",
+    "utland": null,
+    "brevregeltype": "GN",
+    "brevkravtype": null,
+    "brevkontekst": null,
     "dokumentkategori": "VB",
-    "synligForVeileder": true,
+    "synligForVeileder": null,
     "prioritet": null,
-    "brevkodeIBrevsystem": "AP_AVSL_AUTO",
-    "brevsystem": "DOKSYS"
+    "brevkodeIBrevsystem": "PE_AP_04_210",
+    "brevsystem": "GAMMEL"
   },
   {
     "vedleggListe": null,
@@ -9255,6 +9230,28 @@
     "synligForVeileder": null,
     "prioritet": null,
     "brevkodeIBrevsystem": "PE_IY_06_103",
+    "brevsystem": "GAMMEL"
+  },
+  {
+    "brevgruppe": "brevgr011",
+    "redigerbart": false,
+    "dekode": "Vedtak - avslag på alderspensjon",
+    "brevkategori": null,
+    "dokType": "U",
+    "sprak": [
+      "NB",
+      "EN",
+      "NN"
+    ],
+    "visIPselv": true,
+    "utland": null,
+    "brevregeltype": "GN",
+    "brevkravtype": null,
+    "brevkontekst": null,
+    "dokumentkategori": "VB",
+    "synligForVeileder": null,
+    "prioritet": null,
+    "brevkodeIBrevsystem": "PE_AP_04_210",
     "brevsystem": "GAMMEL"
   },
   {
