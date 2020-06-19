@@ -4,7 +4,11 @@
   "dekode": "Vedtak - avslag på alderspensjon",
   "brevkategori": null,
   "dokType": "U",
-  "sprak": null,
+  "sprak": [
+    "NB",
+    "EN",
+    "NN"
+  ],
   "visIPselv": true,
   "utland": null,
   "brevregeltype": "GN",
