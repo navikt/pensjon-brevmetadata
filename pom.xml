@@ -20,7 +20,7 @@
         <asciidoctorj-diagram.version>1.5.18</asciidoctorj-diagram.version>
         <graphviz-java.version>0.14.1</graphviz-java.version>
 
-        <unleash-client-java.version>3.2.9</unleash-client-java.version>
+        <unleash-client-java.version>3.3.3</unleash-client-java.version>
         <prometheus.version>0.8.0</prometheus.version>
     </properties>
 
