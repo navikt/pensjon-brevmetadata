@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
+import no.nav.pensjonbrevdata.config.BrevdataFeature;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.GammeltBrev;
@@ -18,6 +19,8 @@ import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
+
+import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
 public class BrevdataMapper {
 
@@ -7199,6 +7202,25 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr010"));
+
+        if (toggle(BrevdataFeature.TEST_BREV_FEATURE).isEnabled()) {
+            brevMap.put("TEST_BREVE", () ->
+                    new GammeltBrev("TEST_BREV",
+                            false,
+                            "",
+                            BrevkategoriCode.INFORMASJON,
+                            DokumenttypeCode.I,
+                            null,
+                            false,
+                            null,
+                            BrevregeltypeCode.OVRIGE,
+                            null,
+                            DokumentkategoriCode.B,
+                            null,
+                            null,
+                            null,
+                            "test"));
+        }
     }
 
     public Brevdata map(String brevkode) throws Exception {
