@@ -47,10 +47,11 @@ public class PrometheusFilter implements Filter {
             .help("Number of total failed requests (status == 2xx)")
             .register();
 
-    static final List<String> skipUris = Arrays.asList("/api/internal/prometheus", "/api/internal/isalive", "/api/internal/isready");
+    static final List<String> skipUris = Arrays.asList("/api/internal/prometheus", "/api/internal/isalive", "/api/internal/isready", "/api/internal/docs", "/api/internal/docs/swagger-config");
+    static final String swaggerUriPattern = "/swagger-ui";
 
     private boolean skipCounting(String uriPath) {
-        return skipUris.contains(uriPath.toLowerCase());
+        return skipUris.contains(uriPath.toLowerCase()) || uriPath.startsWith(swaggerUriPattern);
     }
 
     @Override
