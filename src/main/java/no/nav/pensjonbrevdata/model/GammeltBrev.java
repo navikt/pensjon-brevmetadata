@@ -44,8 +44,4 @@ public class GammeltBrev extends Brev {
     public String getBrevgruppe() {
         return brevgruppe;
     }
-
-    public void setBrevgruppe(String brevgruppe) {
-        this.brevgruppe = brevgruppe;
-    }
 }

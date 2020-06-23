@@ -56,104 +56,51 @@ public abstract class Brev extends Brevdata {
         return redigerbart;
     }
 
-    public void setRedigerbart(boolean redigerbart) {
-        this.redigerbart = redigerbart;
-    }
-
     public String getDekode() {
         return dekode;
     }
 
-    public void setDekode(String dekode) {
-        this.dekode = dekode;
-    }
-
-
     public List<SprakCode> getSprak() {
         return sprak;
-    }
-
-    public void setSprak(List<SprakCode> sprak) {
-        this.sprak = sprak;
     }
 
     public BrevkategoriCode getBrevkategori() {
         return brevkategori;
     }
 
-    public void setBrevkategori(BrevkategoriCode brevkategori) {
-        this.brevkategori = brevkategori;
-    }
-
     public DokumenttypeCode getDokType() {
         return dokType;
-    }
-
-    public void setDokType(DokumenttypeCode dokType) {
-        this.dokType = dokType;
     }
 
     public Boolean getVisIPselv() {
         return visIPselv;
     }
 
-    public void setVisIPselv(Boolean visIPselv) {
-        this.visIPselv = visIPselv;
-    }
-
     public BrevUtlandCode getUtland() {
         return utland;
-    }
-
-    public void setUtland(BrevUtlandCode utland) {
-        this.utland = utland;
     }
 
     public BrevregeltypeCode getBrevregeltype() {
         return brevregeltype;
     }
 
-    public void setBrevregeltype(BrevregeltypeCode brevregeltype) {
-        this.brevregeltype = brevregeltype;
-    }
-
     public BrevkravtypeCode getBrevkravtype() {
         return brevkravtype;
-    }
-
-    public void setBrevkravtype(BrevkravtypeCode brevkravtype) {
-        this.brevkravtype = brevkravtype;
     }
 
     public BrevkontekstCode getBrevkontekst() {
         return brevkontekst;
     }
 
-    public void setBrevkontekst(BrevkontekstCode brevkontekst) {
-        this.brevkontekst = brevkontekst;
-    }
-
     public DokumentkategoriCode getDokumentkategori() {
         return dokumentkategori;
-    }
-
-    public void setDokumentkategori(DokumentkategoriCode dokumentkategori) {
-        this.dokumentkategori = dokumentkategori;
     }
 
     public Boolean getSynligForVeileder() {
         return synligForVeileder;
     }
 
-    public void setSynligForVeileder(Boolean synligForVeileder) {
-        this.synligForVeileder = synligForVeileder;
-    }
-
     public Integer getPrioritet() {
         return prioritet;
-    }
-
-    public void setPrioritet(Integer prioritet) {
-        this.prioritet = prioritet;
     }
 }
