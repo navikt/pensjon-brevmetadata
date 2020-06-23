@@ -161,6 +161,9 @@ public class KomponentTest {
      * Bygger en base-line av responser som applikasjonen gjør akkurat nå, og som benyttes av KomponentTest
      */
     private static class ResultBuilder {
+        static {
+            UnleashProvider.initialize(new FakeUnleash());
+        }
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
         private static Gson gson = null;
 
