@@ -6051,49 +6051,6 @@
     "brevsystem": "GAMMEL"
   },
   {
-    "vedleggListe": [
-      {
-        "vedleggkode": "RETTIGH_PLIKT_V1",
-        "dekode": "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-        "dokumentmalId": "V00002",
-        "dokumentmalFelleselementId": "00001",
-        "dokumentmal": null,
-        "dokumentmalFelleselement": null
-      },
-      {
-        "vedleggkode": "AP_OPPL_BER_V1",
-        "dekode": "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-        "dokumentmalId": "V00004",
-        "dokumentmalFelleselementId": "00001",
-        "dokumentmal": null,
-        "dokumentmalFelleselement": null
-      }
-    ],
-    "dokumentmalId": "000176",
-    "dokumentmalFelleselementId": "00001",
-    "dokumentmal": null,
-    "dokumentmalFelleselement": null,
-    "redigerbart": false,
-    "dekode": "Vedtak - avslag på søknad om alderspensjon (automatisk)",
-    "brevkategori": "VEDTAK",
-    "dokType": "U",
-    "sprak": [
-      "NB",
-      "NN",
-      "EN"
-    ],
-    "visIPselv": true,
-    "utland": "ALLTID",
-    "brevregeltype": "OVRIGE",
-    "brevkravtype": "ALLE",
-    "brevkontekst": "VEDTAK",
-    "dokumentkategori": "VB",
-    "synligForVeileder": true,
-    "prioritet": null,
-    "brevkodeIBrevsystem": "AP_AVSL_AUTO",
-    "brevsystem": "DOKSYS"
-  },
-  {
     "brevgruppe": "brevgr010",
     "redigerbart": false,
     "dekode": "Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",
