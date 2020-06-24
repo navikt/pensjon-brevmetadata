@@ -14,6 +14,9 @@ import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
+import no.nav.pensjonbrevdata.unleash.UnleashProvider;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,6 +33,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import no.finn.unleash.FakeUnleash;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataProviderTest {
@@ -46,6 +50,11 @@ public class BrevdataProviderTest {
     private GammeltBrev gammeltBrevMock;
 
     private BrevdataProvider provider;
+
+    @BeforeAll
+    static public void setupForAll() {
+        UnleashProvider.initialize(new FakeUnleash());
+    }
 
     @BeforeEach
     public void setup() {

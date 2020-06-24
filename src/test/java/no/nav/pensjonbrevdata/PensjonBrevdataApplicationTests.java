@@ -1,9 +1,11 @@
 package no.nav.pensjonbrevdata;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import no.finn.unleash.FakeUnleash;
 import no.finn.unleash.Unleash;
 import org.springframework.boot.web.server.LocalServerPort;
 
@@ -15,6 +17,8 @@ import java.net.http.HttpResponse;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import no.nav.pensjonbrevdata.unleash.UnleashProvider;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PensjonBrevdataApplicationTests {
 
@@ -23,6 +27,11 @@ class PensjonBrevdataApplicationTests {
 
     @LocalServerPort
     private int port;
+
+    @BeforeAll
+    static public void setupForAll() {
+        UnleashProvider.initialize(new FakeUnleash());
+    }
 
     @Test
     void contextLoads() {
