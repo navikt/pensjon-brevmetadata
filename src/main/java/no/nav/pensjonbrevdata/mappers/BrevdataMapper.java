@@ -7218,7 +7218,13 @@ public class BrevdataMapper {
         return brevdataList;
     }
 
-    public Map<String, Callable<Brevdata>> getBrevMap() {
-        return brevMap;
+    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws Exception {
+        List<String> brevkeys = new ArrayList<>();
+        for (String key : brevMap.keySet()) {
+            if (brevMap.get(key).call().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
+                brevkeys.add(key);
+            }
+        }
+        return brevkeys;
     }
 }

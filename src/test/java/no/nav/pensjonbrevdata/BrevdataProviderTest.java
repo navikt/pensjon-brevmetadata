@@ -21,10 +21,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -129,56 +126,8 @@ public class BrevdataProviderTest {
 
     @Test
     public void shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() throws Exception {
-        Map<String, Callable<Brevdata>> brevdataMap = new HashMap<>();
-        brevdataMap.put("PE_AF_04_001", () ->
-                new GammeltBrev("TEST",
-                        true,
-                        "Vedtak - innvilgelse av AFP",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr002"));
-        brevdataMap.put("PE_AF_04_002", () ->
-                new GammeltBrev("TEST2",
-                        true,
-                        "Vedtak - innvilgelse av AFP",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr002"));
-        brevdataMap.put("PE_AF_04_003", () ->
-                new GammeltBrev("TEST",
-                        true,
-                        "Vedtak - innvilgelse av AFP",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr002"));
-        when(brevdataMapperMock.getBrevMap()).thenReturn(brevdataMap);
+        List<String> brevkeys = Arrays.asList("PE_AF_04_001","PE_AF_04_003");
+        when(brevdataMapperMock.getBrevKeysForBrevkodeIBrevsystem("TEST")).thenReturn(brevkeys);
 
         List<String> brevkeysReturned = provider.getBrevKeysForBrevkodeIBrevsystem("TEST");
 

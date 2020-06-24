@@ -63,14 +63,7 @@ public class BrevdataProvider {
     }
 
     public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws Exception {
-        Map<String, Callable<Brevdata>> brevdataMap = brevdataMapper.getBrevMap();
-        List<String> brevkeys = new ArrayList<>();
-        for (String key : brevdataMap.keySet()) {
-            if (brevdataMap.get(key).call().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
-                brevkeys.add(key);
-            }
-        }
-        return brevkeys;
+        return brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem);
     }
 
     public void setBrevdataMapper(BrevdataMapper brevdataMapper) {
