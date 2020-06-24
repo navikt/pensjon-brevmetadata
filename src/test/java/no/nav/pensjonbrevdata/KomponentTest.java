@@ -2,10 +2,15 @@ package no.nav.pensjonbrevdata;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import no.finn.unleash.FakeUnleash;
 import no.finn.unleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.unleash.UnleashProvider;
+
 import org.json.JSONException;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -40,6 +45,11 @@ public class KomponentTest {
 
     @LocalServerPort
     private int port;
+
+    @BeforeAll
+    static public void setupForAll() {
+        UnleashProvider.initialize(new FakeUnleash());
+    }
 
     @Test
     public void testGetSprakForBrevkode() {
@@ -151,6 +161,9 @@ public class KomponentTest {
      * Bygger en base-line av responser som applikasjonen gjør akkurat nå, og som benyttes av KomponentTest
      */
     private static class ResultBuilder {
+        static {
+            UnleashProvider.initialize(new FakeUnleash());
+        }
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
         private static Gson gson = null;
 
