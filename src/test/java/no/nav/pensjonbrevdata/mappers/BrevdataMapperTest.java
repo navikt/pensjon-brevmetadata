@@ -40,7 +40,7 @@ public class BrevdataMapperTest {
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSLAG_AUTOAndToggleOn() throws Exception {
+    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSLAG_AUTOAndToggleOn() {
         String testBrev = "AP_AVSLAG_AUTO";
 
         fakeUnleash.enable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
@@ -53,7 +53,7 @@ public class BrevdataMapperTest {
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTOAndToggleOn() throws Exception {
+    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTOAndToggleOn() {
         String testBrev = "AP_AVSL_AUTO";
 
         fakeUnleash.enable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
@@ -76,7 +76,7 @@ public class BrevdataMapperTest {
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTOAndToggleOff() throws Exception {
+    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTOAndToggleOff() {
         String testBrev = "AP_AVSLAG_AUTO";
 
         fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
@@ -89,7 +89,7 @@ public class BrevdataMapperTest {
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyPE_AP_04_210AndToggleOff() throws Exception {
+    public void test_TestShowAPAvslAutoWhenUsingKeyPE_AP_04_210AndToggleOff() {
         String testBrev = "PE_AP_04_210";
 
         fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);

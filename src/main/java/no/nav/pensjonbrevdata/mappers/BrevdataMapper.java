@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Callable;
+import java.util.function.Supplier;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
@@ -21,11 +21,10 @@ import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 
 public class BrevdataMapper {
 
-    private final Map<String, Callable<Brevdata>> brevMap;
+    private final Map<String, Supplier<Brevdata>> brevMap;
 
     public BrevdataMapper() {
         brevMap = new HashMap<>();
@@ -7226,27 +7225,27 @@ public class BrevdataMapper {
                         "brevgr010"));
     }
 
-    public Brevdata map(String brevkode) throws Exception {
+    public Brevdata map(String brevkode) {
         if (brevMap.containsKey(brevkode)) {
-            return brevMap.get(brevkode).call();
+            return brevMap.get(brevkode).get();
         } else {
             throw new IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist");
         }
     }
 
-    public List<Brevdata> getAllBrevAsList() throws Exception {
+    public List<Brevdata> getAllBrevAsList() {
         List<Brevdata> brevdataList = new ArrayList<>();
 
-        for (Callable<Brevdata> brevdataCallable : brevMap.values()) {
-            brevdataList.add(brevdataCallable.call());
+        for (Supplier<Brevdata> brevdataCallable : brevMap.values()) {
+            brevdataList.add(brevdataCallable.get());
         }
         return brevdataList;
     }
 
-    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws Exception {
+    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
         List<String> brevkeys = new ArrayList<>();
         for (String key : brevMap.keySet()) {
-            if (brevMap.get(key).call().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
+            if (brevMap.get(key).get().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
                 brevkeys.add(key);
             }
         }

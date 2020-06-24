@@ -7,6 +7,7 @@ import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,12 +22,12 @@ public class BrevdataProvider {
         sakBrevMapper = new SakBrevMapper();
     }
 
-    public List<SprakCode> getSprakForBrevkode(String brevkode) throws Exception {
+    public List<SprakCode> getSprakForBrevkode(String brevkode) {
         Brevdata brevdata = brevdataMapper.map(brevkode);
         return brevdata instanceof Brev ? ((Brev) brevdata).getSprak() : null;
     }
 
-    public Brevdata getBrevForBrevkode(String brevkode) throws Exception {
+    public Brevdata getBrevForBrevkode(String brevkode) throws IOException {
         Brevdata brevdata = brevdataMapper.map(brevkode);
         if (brevdata instanceof Doksysbrev) {
             ((Doksysbrev) brevdata).generateDokumentmalFromFile();
@@ -34,7 +35,7 @@ public class BrevdataProvider {
         return brevdata;
     }
 
-    public List<Brevdata> getBrevdataForSaktype(String saktype, boolean includeXsd) throws Exception {
+    public List<Brevdata> getBrevdataForSaktype(String saktype, boolean includeXsd) throws IOException {
         List<Brevdata> brevList = new ArrayList<>();
         for (String brevkode : sakBrevMapper.map(saktype)) {
             Brevdata brevdata = brevdataMapper.map(brevkode);
@@ -50,7 +51,7 @@ public class BrevdataProvider {
         return sakBrevMapper.map(saktype);
     }
 
-    public List<Brevdata> getAllBrev(boolean includeXsd) throws Exception {
+    public List<Brevdata> getAllBrev(boolean includeXsd) throws IOException {
         List<Brevdata> brevdataList = brevdataMapper.getAllBrevAsList();
         if (includeXsd) {
             for (Brevdata brevdata : brevdataList) {
@@ -62,7 +63,7 @@ public class BrevdataProvider {
         return brevdataList;
     }
 
-    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) throws Exception {
+    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
         return brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem);
     }
 

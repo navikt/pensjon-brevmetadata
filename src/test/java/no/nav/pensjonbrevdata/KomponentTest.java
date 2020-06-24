@@ -74,7 +74,7 @@ public class KomponentTest {
     }
 
     @Test
-    public void testGetBrevKeyForBrevkodeIBrevsystem() throws Exception {
+    public void testGetBrevKeyForBrevkodeIBrevsystem() {
         brevkoderIBrevSystem().forEach((UncheckingConsumer) brevkodeIBrevsystem -> testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem"));
     }
 
@@ -196,7 +196,7 @@ public class KomponentTest {
         return Arrays.asList("FAM_PL","GAM_YRK","OMSORG","AFP","BARNEP","UFOREP","GJENLEV","ALDER","GRBL","GENRL","KRIGSP","AFP_PRIVAT");
     }
 
-    private static List<String> brevkoderIBrevSystem() throws Exception {
+    private static List<String> brevkoderIBrevSystem() {
         return new BrevdataMapper().getAllBrevAsList().stream().map(Brevdata::getBrevkodeIBrevsystem).collect(Collectors.toList());
     }
 
@@ -213,19 +213,6 @@ public class KomponentTest {
         }
     }
 
-    private interface UncheckingFunction extends Function<Callable<Brevdata>, Brevdata> {
-        Brevdata transformException(Callable<Brevdata> callable) throws Exception;
-
-        @Override
-        default Brevdata apply(Callable<Brevdata> callable) {
-            try {
-                return transformException(callable);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
     /**
      * Bygger en base-line av responser som applikasjonen gjør akkurat nå, og som benyttes av KomponentTest
      */
@@ -236,7 +223,7 @@ public class KomponentTest {
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
         private static Gson gson = null;
 
-        public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws IOException {
             GsonBuilder gson = new GsonBuilder();
             gson.serializeNulls();
             gson.setPrettyPrinting();

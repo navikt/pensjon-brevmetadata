@@ -24,6 +24,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.Callable;
 
@@ -64,7 +65,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldGetBrevForBrevkodeWithXsdWhenGetBrevForBrevkode() throws Exception {
+    public void shouldGetBrevForBrevkodeWithXsdWhenGetBrevForBrevkode() throws IOException {
         String brevkode = "TEST";
         when(brevdataMapperMock.map(brevkode)).thenReturn(doksysbrevMock);
 
@@ -76,7 +77,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnBrevdataForSaktypeWithXsdWhenGetBrevdataForSaktypeAndIncludeXsdTrue() throws Exception {
+    public void shouldReturnBrevdataForSaktypeWithXsdWhenGetBrevdataForSaktypeAndIncludeXsdTrue() throws IOException {
         String sak = "TESTSAK";
         List<String> brevkoder = Arrays.asList("DOKSYS1", "GAMMEL1", "GAMMEL2", "DOKSYS2", "GAMMEL3");
         when(sakBrevMapperMock.map(sak)).thenReturn(brevkoder);
@@ -93,7 +94,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnBrevdataForSaktypeWithOutXsdWhenGetBrevdataForSaktypeAndIncludeXsdFalse() throws Exception {
+    public void shouldReturnBrevdataForSaktypeWithOutXsdWhenGetBrevdataForSaktypeAndIncludeXsdFalse() throws IOException {
         String sak = "TESTSAK";
         List<String> brevkoder = Arrays.asList("DOKSYS1", "GAMMEL1", "GAMMEL2", "DOKSYS2", "GAMMEL3");
         when(sakBrevMapperMock.map(sak)).thenReturn(brevkoder);
@@ -110,7 +111,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnAllBrevWithXsdWhenGetAllBrevAndIncludeXsdTrue() throws Exception {
+    public void shouldReturnAllBrevWithXsdWhenGetAllBrevAndIncludeXsdTrue() throws IOException {
         List<Brevdata> returnedBrevList = Arrays.asList(doksysbrevMock, gammeltBrevMock, doksysbrevMock, doksysbrevMock, gammeltBrevMock);
 
         when(brevdataMapperMock.getAllBrevAsList()).thenReturn(returnedBrevList);
@@ -122,7 +123,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnAllBrevWithOutXsdWhenGetAllBrevAndIncludeXsdFalse() throws Exception {
+    public void shouldReturnAllBrevWithOutXsdWhenGetAllBrevAndIncludeXsdFalse() throws IOException {
         List<Brevdata> returnedBrevList = Arrays.asList(doksysbrevMock, gammeltBrevMock, doksysbrevMock, doksysbrevMock, gammeltBrevMock);
 
         when(brevdataMapperMock.getAllBrevAsList()).thenReturn(returnedBrevList);
@@ -134,7 +135,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() throws Exception {
+    public void shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() {
         List<String> brevkeys = Arrays.asList("PE_AF_04_001","PE_AF_04_003");
         when(brevdataMapperMock.getBrevKeysForBrevkodeIBrevsystem("TEST")).thenReturn(brevkeys);
 
@@ -147,7 +148,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldGetListOfSprakWhenGetSprakForBrevkode() throws Exception {
+    public void shouldGetListOfSprakWhenGetSprakForBrevkode() {
         String brevkode = "TEST";
         Brev brev = new GammeltBrev("PE_AF_04_001",
                         true,
