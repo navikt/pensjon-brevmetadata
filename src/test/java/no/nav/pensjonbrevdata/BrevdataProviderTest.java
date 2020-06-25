@@ -14,6 +14,9 @@ import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
+import no.nav.pensjonbrevdata.unleash.UnleashProvider;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,10 +24,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -33,6 +34,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import no.finn.unleash.FakeUnleash;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataProviderTest {
@@ -50,6 +52,11 @@ public class BrevdataProviderTest {
 
     private BrevdataProvider provider;
 
+    @BeforeAll
+    static public void setupForAll() {
+        UnleashProvider.initialize(new FakeUnleash());
+    }
+
     @BeforeEach
     public void setup() {
         provider = new BrevdataProvider();
@@ -58,7 +65,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldGetBrevForBrevkodeWithXsdWhenGetBrevForBrevkode() throws Exception {
+    public void shouldGetBrevForBrevkodeWithXsdWhenGetBrevForBrevkode() throws IOException {
         String brevkode = "TEST";
         when(brevdataMapperMock.map(brevkode)).thenReturn(doksysbrevMock);
 
@@ -70,7 +77,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnBrevdataForSaktypeWithXsdWhenGetBrevdataForSaktypeAndIncludeXsdTrue() throws Exception {
+    public void shouldReturnBrevdataForSaktypeWithXsdWhenGetBrevdataForSaktypeAndIncludeXsdTrue() throws IOException {
         String sak = "TESTSAK";
         List<String> brevkoder = Arrays.asList("DOKSYS1", "GAMMEL1", "GAMMEL2", "DOKSYS2", "GAMMEL3");
         when(sakBrevMapperMock.map(sak)).thenReturn(brevkoder);
@@ -87,7 +94,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnBrevdataForSaktypeWithOutXsdWhenGetBrevdataForSaktypeAndIncludeXsdFalse() throws Exception {
+    public void shouldReturnBrevdataForSaktypeWithOutXsdWhenGetBrevdataForSaktypeAndIncludeXsdFalse() throws IOException {
         String sak = "TESTSAK";
         List<String> brevkoder = Arrays.asList("DOKSYS1", "GAMMEL1", "GAMMEL2", "DOKSYS2", "GAMMEL3");
         when(sakBrevMapperMock.map(sak)).thenReturn(brevkoder);
@@ -104,7 +111,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnAllBrevWithXsdWhenGetAllBrevAndIncludeXsdTrue() throws Exception {
+    public void shouldReturnAllBrevWithXsdWhenGetAllBrevAndIncludeXsdTrue() throws IOException {
         List<Brevdata> returnedBrevList = Arrays.asList(doksysbrevMock, gammeltBrevMock, doksysbrevMock, doksysbrevMock, gammeltBrevMock);
 
         when(brevdataMapperMock.getAllBrevAsList()).thenReturn(returnedBrevList);
@@ -116,7 +123,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldReturnAllBrevWithOutXsdWhenGetAllBrevAndIncludeXsdFalse() throws Exception {
+    public void shouldReturnAllBrevWithOutXsdWhenGetAllBrevAndIncludeXsdFalse() throws IOException {
         List<Brevdata> returnedBrevList = Arrays.asList(doksysbrevMock, gammeltBrevMock, doksysbrevMock, doksysbrevMock, gammeltBrevMock);
 
         when(brevdataMapperMock.getAllBrevAsList()).thenReturn(returnedBrevList);
@@ -128,57 +135,9 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() throws Exception {
-        Map<String, Callable<Brevdata>> brevdataMap = new HashMap<>();
-        brevdataMap.put("PE_AF_04_001", () ->
-                new GammeltBrev("TEST",
-                        true,
-                        "Vedtak - innvilgelse av AFP",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr002"));
-        brevdataMap.put("PE_AF_04_002", () ->
-                new GammeltBrev("TEST2",
-                        true,
-                        "Vedtak - innvilgelse av AFP",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr002"));
-        brevdataMap.put("PE_AF_04_003", () ->
-                new GammeltBrev("TEST",
-                        true,
-                        "Vedtak - innvilgelse av AFP",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr002"));
-        when(brevdataMapperMock.getBrevMap()).thenReturn(brevdataMap);
+    public void shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() {
+        List<String> brevkeys = Arrays.asList("PE_AF_04_001","PE_AF_04_003");
+        when(brevdataMapperMock.getBrevKeysForBrevkodeIBrevsystem("TEST")).thenReturn(brevkeys);
 
         List<String> brevkeysReturned = provider.getBrevKeysForBrevkodeIBrevsystem("TEST");
 
@@ -189,7 +148,7 @@ public class BrevdataProviderTest {
     }
 
     @Test
-    public void shouldGetListOfSprakWhenGetSprakForBrevkode() throws Exception {
+    public void shouldGetListOfSprakWhenGetSprakForBrevkode() {
         String brevkode = "TEST";
         Brev brev = new GammeltBrev("PE_AF_04_001",
                         true,

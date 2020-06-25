@@ -15,15 +15,7 @@ public abstract class Brevdata {
         return brevkodeIBrevsystem;
     }
 
-    public void setBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
-        this.brevkodeIBrevsystem = brevkodeIBrevsystem;
-    }
-
     public BrevsystemCode getBrevsystem() {
         return brevsystem;
-    }
-
-    public void setBrevsystem(BrevsystemCode brevsystem) {
-        this.brevsystem = brevsystem;
     }
 }

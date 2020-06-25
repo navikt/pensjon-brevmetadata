@@ -16,8 +16,7 @@ spec:
     initialDelay: 3
     timeout: 1
   ingresses:
-    - https://pensjon-brevdata.nais.adeo.no
-    - https://pensjon-brevdata.prod-fss.nais.io
+    - https://pensjon-brevdata.nais.oera.no
   readiness:
     path: "/api/internal/isReady"
     initialDelay: 3
@@ -27,4 +26,4 @@ spec:
     path: "/api/internal/prometheus"
   env:
     - name: UNLEASH_ENDPOINT_URL
-      value: https://unleash.nais.adeo.no/api/
+      value: https://unleashproxy.nais.oera.no/api/

@@ -1,11 +1,14 @@
 package no.nav.pensjonbrevdata.mappers;
 
+import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_AUTO;
+import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Callable;
+import java.util.function.Supplier;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
@@ -21,7 +24,7 @@ import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 public class BrevdataMapper {
 
-    private final Map<String, Callable<Brevdata>> brevMap;
+    private final Map<String, Supplier<Brevdata>> brevMap;
 
     public BrevdataMapper() {
         brevMap = new HashMap<>();
@@ -6221,56 +6224,77 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("AP_AVSLAG_AUTO", () ->
-                new GammeltBrev("PE_AP_04_210",
-                        false,
-                        "Vedtak - avslag på alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        null,
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011"));
-        brevMap.put("PE_AP_04_210", () ->
-                new GammeltBrev("PE_AP_04_210",
-                        false,
-                        "Vedtak - avslag på alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011"));
-        brevMap.put("AP_AVSL_AUTO", () ->
-                new Doksysbrev("AP_AVSL_AUTO",
-                        false,
-                        "Vedtak - avslag på søknad om alderspensjon (automatisk)",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.OVRIGE,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        true,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "000176",
-                        "00001",
-                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_OPPL_BER_V1")));
+        if (toggle(BRUK_AP_AVSL_AUTO).isEnabled()) {
+            brevMap.put("AP_AVSLAG_AUTO", () ->
+                    new Doksysbrev("AP_AVSL_AUTO",
+                            false,
+                            "Vedtak - avslag på søknad om alderspensjon (automatisk)",
+                            BrevkategoriCode.VEDTAK,
+                            DokumenttypeCode.U,
+                            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                            true,
+                            BrevUtlandCode.ALLTID,
+                            BrevregeltypeCode.OVRIGE,
+                            BrevkravtypeCode.ALLE,
+                            DokumentkategoriCode.VB,
+                            true,
+                            BrevkontekstCode.VEDTAK,
+                            null,
+                            "000176",
+                            "00001",
+                            doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_OPPL_BER_V1")));
+            brevMap.put("AP_AVSL_AUTO", () ->
+                    new Doksysbrev("AP_AVSL_AUTO",
+                            false,
+                            "Vedtak - avslag på søknad om alderspensjon (automatisk)",
+                            BrevkategoriCode.VEDTAK,
+                            DokumenttypeCode.U,
+                            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                            true,
+                            BrevUtlandCode.ALLTID,
+                            BrevregeltypeCode.OVRIGE,
+                            BrevkravtypeCode.ALLE,
+                            DokumentkategoriCode.VB,
+                            true,
+                            BrevkontekstCode.VEDTAK,
+                            null,
+                            "000176",
+                            "00001",
+                            doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_OPPL_BER_V1")));
+        } else {
+            brevMap.put("AP_AVSLAG_AUTO", () ->
+                    new GammeltBrev("PE_AP_04_210",
+                            false,
+                            "Vedtak - avslag på alderspensjon",
+                            null,
+                            DokumenttypeCode.U,
+                            null,
+                            true,
+                            null,
+                            BrevregeltypeCode.GN,
+                            null,
+                            DokumentkategoriCode.VB,
+                            null,
+                            null,
+                            null,
+                            "brevgr011"));
+            brevMap.put("PE_AP_04_210", () ->
+                    new GammeltBrev("PE_AP_04_210",
+                            false,
+                            "Vedtak - avslag på alderspensjon",
+                            null,
+                            DokumenttypeCode.U,
+                            Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
+                            true,
+                            null,
+                            BrevregeltypeCode.GN,
+                            null,
+                            DokumentkategoriCode.VB,
+                            null,
+                            null,
+                            null,
+                            "brevgr011"));
+        }
         brevMap.put("AP_AVSL_UTL_AUTO", () ->
                 new GammeltBrev("PE_AP_04_213",
                         false,
@@ -7201,24 +7225,30 @@ public class BrevdataMapper {
                         "brevgr010"));
     }
 
-    public Brevdata map(String brevkode) throws Exception {
+    public Brevdata map(String brevkode) {
         if (brevMap.containsKey(brevkode)) {
-            return brevMap.get(brevkode).call();
+            return brevMap.get(brevkode).get();
         } else {
             throw new IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist");
         }
     }
 
-    public List<Brevdata> getAllBrevAsList() throws Exception {
+    public List<Brevdata> getAllBrevAsList() {
         List<Brevdata> brevdataList = new ArrayList<>();
 
-        for (Callable<Brevdata> brevdataCallable : brevMap.values()) {
-            brevdataList.add(brevdataCallable.call());
+        for (Supplier<Brevdata> brevdataCallable : brevMap.values()) {
+            brevdataList.add(brevdataCallable.get());
         }
         return brevdataList;
     }
 
-    public Map<String, Callable<Brevdata>> getBrevMap() {
-        return brevMap;
+    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
+        List<String> brevkeys = new ArrayList<>();
+        for (String key : brevMap.keySet()) {
+            if (brevMap.get(key).get().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
+                brevkeys.add(key);
+            }
+        }
+        return brevkeys;
     }
 }

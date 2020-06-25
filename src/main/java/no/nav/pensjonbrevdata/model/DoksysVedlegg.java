@@ -30,47 +30,23 @@ public class DoksysVedlegg {
         return dekode;
     }
 
-    public void setDekode(String dekode) {
-        this.dekode = dekode;
-    }
-
     public String getDokumentmalId() {
         return dokumentmalId;
-    }
-
-    public void setDokumentmalId(String dokumentmalId) {
-        this.dokumentmalId = dokumentmalId;
     }
 
     public String getDokumentmalFelleselementId() {
         return dokumentmalFelleselementId;
     }
 
-    public void setDokumentmalFelleselementId(String dokumentmalFelleselementId) {
-        this.dokumentmalFelleselementId = dokumentmalFelleselementId;
-    }
-
     public String getDokumentmal() {
         return dokumentmal;
-    }
-
-    public void setDokumentmal(String dokumentmal) {
-        this.dokumentmal = dokumentmal;
     }
 
     public String getDokumentmalFelleselement() {
         return dokumentmalFelleselement;
     }
 
-    public void setDokumentmalFelleselement(String dokumentmalFelleselement) {
-        this.dokumentmalFelleselement = dokumentmalFelleselement;
-    }
-
     public String getVedleggkode() {
         return vedleggkode;
-    }
-
-    public void setVedleggkode(String vedleggkode) {
-        this.vedleggkode = vedleggkode;
     }
 }

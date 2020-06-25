@@ -71,39 +71,19 @@ public class Doksysbrev extends Brev {
         return dokumentmalId;
     }
 
-    public void setDokumentmalId(String dokumentmalId) {
-        this.dokumentmalId = dokumentmalId;
-    }
-
     public List<DoksysVedlegg> getVedleggListe() {
         return vedleggListe;
     }
 
-    public void setVedleggListe(List<DoksysVedlegg> vedleggListe) {
-        this.vedleggListe = vedleggListe;
-    }
-
-    public String getDokumentmal() throws IOException {
+    public String getDokumentmal() {
         return dokumentmal;
-    }
-
-    public void setDokumentmal(String dokumentmal) {
-        this.dokumentmal = dokumentmal;
     }
 
     public String getDokumentmalFelleselement() {
         return dokumentmalFelleselement;
     }
 
-    public void setDokumentmalFelleselement(String dokumentmalFelleselement) {
-        this.dokumentmalFelleselement = dokumentmalFelleselement;
-    }
-
     public String getDokumentmalFelleselementId() {
         return dokumentmalFelleselementId;
-    }
-
-    public void setDokumentmalFelleselementId(String dokumentmalFelleselementId) {
-        this.dokumentmalFelleselementId = dokumentmalFelleselementId;
     }
 }

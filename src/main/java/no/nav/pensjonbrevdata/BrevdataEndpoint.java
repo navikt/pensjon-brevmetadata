@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 @RestController
+@DependsOn({"defaultUnleash"})
 @RequestMapping("api/brevdata")
 public class BrevdataEndpoint {
     private BrevdataProvider provider;
