@@ -13,15 +13,15 @@ spec:
     max: 2
   liveness:
     path: "/api/internal/isAlive"
-    initialDelay: 3
-    timeout: 1
+    initialDelay: 35
+    timeout: 3
   ingresses:
     - https://pensjon-brevdata.nais.adeo.no
     - https://pensjon-brevdata.prod-fss.nais.io
   readiness:
     path: "/api/internal/isReady"
-    initialDelay: 3
-    timeout: 1
+    initialDelay: 35
+    timeout: 3
   prometheus:
     enabled: true
     path: "/api/internal/prometheus"
