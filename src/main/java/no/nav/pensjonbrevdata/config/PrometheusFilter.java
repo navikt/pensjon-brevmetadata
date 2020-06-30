@@ -73,6 +73,7 @@ public class PrometheusFilter implements Filter {
             HttpServletResponse response = (HttpServletResponse) servletResponse;
 
             if (response.getStatus() >= 300) {
+                LOGGER.error(req.getRequestURI() + " failing with code " + response.getStatus());
                 totalFailedRequests.inc();
                 if (response.getStatus() >= 500) {
                     totalFailedRequests500.inc();
