@@ -3,6 +3,7 @@ package no.nav.pensjonbrevdata.unleash.strategies;
 import java.util.Map;
 
 import no.finn.unleash.strategy.Strategy;
+import org.apache.commons.lang3.StringUtils;
 
 public class IsNotProdStrategy implements Strategy {
     @Override
@@ -12,6 +13,7 @@ public class IsNotProdStrategy implements Strategy {
 
     @Override
     public boolean isEnabled(Map<String, String> map) {
-        return !"p".equals(System.getProperty("environment.name", "local"));
+        return !"p".equals(System.getProperty("environment.name", "local")) &&
+                !StringUtils.startsWithIgnoreCase(System.getenv("NAIS_CLUSTER_NAME"), "prod-");
     }
 }

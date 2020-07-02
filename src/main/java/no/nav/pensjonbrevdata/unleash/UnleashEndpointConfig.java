@@ -12,7 +12,6 @@ import no.finn.unleash.DefaultUnleash;
 import no.finn.unleash.Unleash;
 import no.finn.unleash.repository.HttpToggleFetcher;
 import no.finn.unleash.repository.ToggleFetcher;
-import no.finn.unleash.strategy.ApplicationHostnameStrategy;
 import no.finn.unleash.strategy.Strategy;
 import no.finn.unleash.util.UnleashConfig;
 
@@ -50,7 +49,7 @@ public class UnleashEndpointConfig {
     @Bean
     @Autowired
     public Unleash defaultUnleash(UnleashConfig unleashConfig) {
-        Strategy[] strategies = {new IsNotProdStrategy(), new ByEnvironmentStrategy(), new ByInstanceIdStrategy(), new ApplicationHostnameStrategy()};
+        Strategy[] strategies = {new IsNotProdStrategy(), new ByEnvironmentStrategy(), new ByInstanceIdStrategy()};
         DefaultUnleash unleash = new DefaultUnleash(unleashConfig, strategies);
         UnleashProvider.initialize(unleash);
         return unleash;
