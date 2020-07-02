@@ -6051,6 +6051,24 @@
     "brevsystem": "GAMMEL"
   },
   {
+    "brevgruppe": "brevgr011",
+    "redigerbart": false,
+    "dekode": "Vedtak - avslag på alderspensjon",
+    "brevkategori": null,
+    "dokType": "U",
+    "sprak": null,
+    "visIPselv": true,
+    "utland": null,
+    "brevregeltype": "GN",
+    "brevkravtype": null,
+    "brevkontekst": null,
+    "dokumentkategori": "VB",
+    "synligForVeileder": null,
+    "prioritet": null,
+    "brevkodeIBrevsystem": "PE_AP_04_210",
+    "brevsystem": "GAMMEL"
+  },
+  {
     "brevgruppe": "brevgr010",
     "redigerbart": false,
     "dekode": "Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",

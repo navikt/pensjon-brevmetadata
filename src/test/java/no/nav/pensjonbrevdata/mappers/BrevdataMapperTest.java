@@ -108,6 +108,7 @@ public class BrevdataMapperTest {
         fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
         mapper = new BrevdataMapper();
 
-        assertThrows(IllegalArgumentException.class, () -> mapper.map(testBrev));
+        assertNotNull(mapper.map(testBrev));
+        //assertThrows(IllegalArgumentException.class, () -> mapper.map(testBrev)); // noen fra pesys kaller dette med ny kode og forventer gammel brev
     }
 }
