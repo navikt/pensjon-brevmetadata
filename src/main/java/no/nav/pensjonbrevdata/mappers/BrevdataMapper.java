@@ -6263,6 +6263,22 @@ public class BrevdataMapper {
                             "00001",
                             doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_OPPL_BER_V1")));
         } else {
+            brevMap.put("AP_AVSL_AUTO", () ->
+                    new GammeltBrev("PE_AP_04_210",
+                            false,
+                            "Vedtak - avslag på alderspensjon",
+                            null,
+                            DokumenttypeCode.U,
+                            null,
+                            true,
+                            null,
+                            BrevregeltypeCode.GN,
+                            null,
+                            DokumentkategoriCode.VB,
+                            null,
+                            null,
+                            null,
+                            "brevgr011"));
             brevMap.put("AP_AVSLAG_AUTO", () ->
                     new GammeltBrev("PE_AP_04_210",
                             false,
