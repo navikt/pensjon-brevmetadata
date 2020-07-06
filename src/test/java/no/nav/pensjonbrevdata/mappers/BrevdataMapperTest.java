@@ -1,5 +1,7 @@
 package no.nav.pensjonbrevdata.mappers;
 
+import no.nav.pensjonbrevdata.model.Doksysbrev;
+import no.nav.pensjonbrevdata.model.GammeltBrev;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import no.finn.unleash.FakeUnleash;
 
@@ -110,5 +113,24 @@ public class BrevdataMapperTest {
 
         assertNotNull(mapper.map(testBrev));
         //assertThrows(IllegalArgumentException.class, () -> mapper.map(testBrev)); // noen fra pesys kaller dette med ny kode og forventer gammel brev
+    }
+
+    @Test
+    public void test_runtimeFeatureToggle() {
+        String testBrev = "AP_AVSLAG_AUTO";
+
+        mapper = new BrevdataMapper();
+
+        fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
+
+        Brevdata brev1 = mapper.map(testBrev);
+
+        assertTrue(brev1 instanceof GammeltBrev);
+
+        fakeUnleash.enable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
+
+        Brevdata brev3 = mapper.map(testBrev);
+
+        assertTrue(brev3 instanceof Doksysbrev);
     }
 }
