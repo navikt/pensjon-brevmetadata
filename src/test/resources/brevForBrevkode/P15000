@@ -1,0 +1,18 @@
+{
+  "brevgruppe": "INGEN_BREVGRUPPE",
+  "redigerbart": false,
+  "dekode": "P15000 - Overføring av pensjonssaker til EESSI",
+  "brevkategori": null,
+  "dokType": "I",
+  "sprak": null,
+  "visIPselv": null,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "SED",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "P15000",
+  "brevsystem": "GAMMEL"
+}

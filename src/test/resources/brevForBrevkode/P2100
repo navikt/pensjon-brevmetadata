@@ -1,0 +1,18 @@
+{
+  "brevgruppe": "INGEN_BREVGRUPPE",
+  "redigerbart": false,
+  "dekode": "P2100 - Krav om ytelser til gjenlevende",
+  "brevkategori": null,
+  "dokType": "I",
+  "sprak": null,
+  "visIPselv": null,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "SED",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "P2100",
+  "brevsystem": "GAMMEL"
+}

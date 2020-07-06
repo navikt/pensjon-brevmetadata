@@ -1,0 +1,18 @@
+{
+  "brevgruppe": "INGEN_BREVGRUPPE",
+  "redigerbart": false,
+  "dekode": "P2200 - Krav om uføretrygd",
+  "brevkategori": null,
+  "dokType": "I",
+  "sprak": null,
+  "visIPselv": null,
+  "utland": null,
+  "brevregeltype": null,
+  "brevkravtype": null,
+  "brevkontekst": null,
+  "dokumentkategori": "SED",
+  "synligForVeileder": null,
+  "prioritet": null,
+  "brevkodeIBrevsystem": "P2200",
+  "brevsystem": "GAMMEL"
+}

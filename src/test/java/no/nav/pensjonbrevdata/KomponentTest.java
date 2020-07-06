@@ -27,12 +27,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -40,6 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class KomponentTest {
+    static private FakeUnleash unleash = new FakeUnleash();
 
     @MockBean
     private Unleash defaultUnleash;
@@ -49,7 +47,7 @@ public class KomponentTest {
 
     @BeforeAll
     static public void setupForAll() {
-        UnleashProvider.initialize(new FakeUnleash());
+        UnleashProvider.initialize(unleash);
     }
 
     @Test
@@ -189,7 +187,11 @@ public class KomponentTest {
                 "P8000","PE_IY_06_103","PE_AP_04_210","PE_AP_04_211","PE_BP_04_030","PE_AP_04_212","PE_BP_04_031","PE_AP_04_213",
                 "TILST_DOD_UT","AP_FULLTT_BELOPENDR","PE_GP_04_020","PE_GP_04_001","PE_AP_04_214","PE_AP_04_215","PE_AP_04_216",
                 "PE_UT_04_300","E001","PE_AP_04_220","PE_AP_04_221","AUTO_VTK_EPS_DOD_AFP","PE_AP_04_222","PE_AP_04_223",
-                "PE_AP_04_224","PE_IY_05_300","PE_IY_05_301","PE_UT_05_100","VEDTAK_TILB_KREV");
+                "PE_AP_04_224","PE_IY_05_300","PE_IY_05_301","PE_UT_05_100","VEDTAK_TILB_KREV",
+                "P1100", "P5000", "P14000", "P15000", "H020", "H021", "H065", "H066", "H120", "H121",
+                "X001", "X002", "X003", "X004", "X005", "X006", "X007", "X008", "X009", "X010", "X011", "X012", "X013", "X050", "X100",
+                "P2000", "P2100", "P2200", "P3000"
+                );
     }
 
     private static List<String> sakstyper() {

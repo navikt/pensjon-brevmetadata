@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,6 +24,7 @@ import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 @ExtendWith(MockitoExtension.class)
 public class BrevdataEndpointTest {
 
+    static private FakeUnleash unleash = new FakeUnleash();
 
     @Mock
     private BrevdataProvider brevdataProviderMock;
@@ -33,7 +33,7 @@ public class BrevdataEndpointTest {
 
     @BeforeAll
     static public void setupForAll() {
-        UnleashProvider.initialize(new FakeUnleash());
+        UnleashProvider.initialize(unleash);
     }
 
     @BeforeEach

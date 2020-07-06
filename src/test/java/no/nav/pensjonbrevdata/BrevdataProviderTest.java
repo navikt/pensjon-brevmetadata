@@ -21,7 +21,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
@@ -38,6 +37,8 @@ import no.finn.unleash.FakeUnleash;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataProviderTest {
+    static private FakeUnleash unleash = new FakeUnleash();
+
     @Mock
     private BrevdataMapper brevdataMapperMock;
 
@@ -54,7 +55,7 @@ public class BrevdataProviderTest {
 
     @BeforeAll
     static public void setupForAll() {
-        UnleashProvider.initialize(new FakeUnleash());
+        UnleashProvider.initialize(unleash);
     }
 
     @BeforeEach

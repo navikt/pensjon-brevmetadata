@@ -21,6 +21,7 @@ import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PensjonBrevdataApplicationTests {
+    static private FakeUnleash unleash = new FakeUnleash();
 
     @MockBean
     private Unleash defaultUnleash;
@@ -30,7 +31,7 @@ class PensjonBrevdataApplicationTests {
 
     @BeforeAll
     static public void setupForAll() {
-        UnleashProvider.initialize(new FakeUnleash());
+        UnleashProvider.initialize(unleash);
     }
 
     @Test
