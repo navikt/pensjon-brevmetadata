@@ -1,5 +1,6 @@
 package no.nav.pensjonbrevdata.model;
 
+import no.nav.pensjonbrevdata.json.JSONVisitor;
 import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.util.List;
@@ -41,7 +42,8 @@ public class GammeltBrev extends Brev {
         this.brevgruppe = brevgruppe;
     }
 
-    public String getBrevgruppe() {
-        return brevgruppe;
+    @Override
+    public JSONVisitor visit(JSONVisitor jsonVisitor) {
+        return super.visit(jsonVisitor.field("brevgruppe", brevgruppe));
     }
 }

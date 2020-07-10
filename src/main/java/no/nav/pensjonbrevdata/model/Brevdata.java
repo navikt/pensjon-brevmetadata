@@ -1,8 +1,10 @@
 package no.nav.pensjonbrevdata.model;
 
+import no.nav.pensjonbrevdata.json.JSONVisitor;
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
+import no.nav.pensjonbrevdata.json.JSONVisitable;
 
-public abstract class Brevdata {
+public abstract class Brevdata implements JSONVisitable {
     private String brevkodeIBrevsystem;
     private BrevsystemCode brevsystem;
 
@@ -15,7 +17,9 @@ public abstract class Brevdata {
         return brevkodeIBrevsystem;
     }
 
-    public BrevsystemCode getBrevsystem() {
-        return brevsystem;
+    @Override
+    public JSONVisitor visit(JSONVisitor jsonVisitor) {
+        return jsonVisitor.field("brevkodeIBrevsystem",brevkodeIBrevsystem)
+                .field("brevsystem", brevsystem);
     }
 }

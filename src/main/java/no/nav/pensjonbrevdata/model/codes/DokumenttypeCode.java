@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model.codes;
 
-public enum DokumenttypeCode {
+import no.nav.pensjonbrevdata.json.JSONIfiableEnum;
+
+public enum DokumenttypeCode implements JSONIfiableEnum {
         /**
          * Inng&aring;ende dokument
          */

@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model.codes;
 
-public enum BrevregeltypeCode {
+import no.nav.pensjonbrevdata.json.JSONIfiableEnum;
+
+public enum BrevregeltypeCode implements JSONIfiableEnum {
         /**
          * Gammelt regelverk
          */

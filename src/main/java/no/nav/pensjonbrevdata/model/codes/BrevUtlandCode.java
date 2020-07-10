@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model.codes;
 
-public enum BrevUtlandCode {
+import no.nav.pensjonbrevdata.json.JSONIfiableEnum;
+
+public enum BrevUtlandCode implements JSONIfiableEnum {
         /**
          * Brev vises for innland og utland
          */

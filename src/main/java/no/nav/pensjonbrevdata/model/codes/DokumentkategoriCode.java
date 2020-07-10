@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model.codes;
 
-public enum DokumentkategoriCode {
+import no.nav.pensjonbrevdata.json.JSONIfiableEnum;
+
+public enum DokumentkategoriCode implements JSONIfiableEnum {
         /**
          * Brev
          */

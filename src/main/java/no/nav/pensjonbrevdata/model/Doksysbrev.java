@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model;
 
 import no.nav.pensjonbrevdata.helpers.XsdFileReader;
+import no.nav.pensjonbrevdata.json.JSONList;
+import no.nav.pensjonbrevdata.json.JSONVisitor;
 import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.io.*;
@@ -67,23 +69,12 @@ public class Doksysbrev extends Brev {
         }
     }
 
-    public String getDokumentmalId() {
-        return dokumentmalId;
-    }
-
-    public List<DoksysVedlegg> getVedleggListe() {
-        return vedleggListe;
-    }
-
-    public String getDokumentmal() {
-        return dokumentmal;
-    }
-
-    public String getDokumentmalFelleselement() {
-        return dokumentmalFelleselement;
-    }
-
-    public String getDokumentmalFelleselementId() {
-        return dokumentmalFelleselementId;
+    @Override
+    public JSONVisitor visit(JSONVisitor jsonVisitor) {
+        return super.visit(jsonVisitor.field("vedleggListe", JSONList.jsonVisitableList(vedleggListe))
+                .field("dokumentmalId",dokumentmalId)
+                .field("dokumentmalFelleselementId",dokumentmalFelleselementId)
+                .field("dokumentmal",dokumentmal)
+                .field("dokumentmalFelleselement",dokumentmalFelleselement));
     }
 }

@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model.codes;
 
-public enum BrevkravtypeCode {
+import no.nav.pensjonbrevdata.json.JSONIfiableEnum;
+
+public enum BrevkravtypeCode implements JSONIfiableEnum {
         /**
          * AFP etteroppgj&oslash;r
          */

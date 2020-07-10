@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model.codes;
 
-public enum BrevkontekstCode {
+import no.nav.pensjonbrevdata.json.JSONIfiableEnum;
+
+public enum BrevkontekstCode implements JSONIfiableEnum {
         /**
          * Alle kontekster
          */

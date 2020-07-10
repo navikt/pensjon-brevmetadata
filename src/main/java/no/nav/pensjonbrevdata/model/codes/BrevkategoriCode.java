@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.model.codes;
 
-public enum BrevkategoriCode {
+import no.nav.pensjonbrevdata.json.JSONIfiableEnum;
+
+public enum BrevkategoriCode implements JSONIfiableEnum {
         /**
          * Brev med skjema
          */

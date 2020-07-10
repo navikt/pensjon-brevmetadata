@@ -1,5 +1,7 @@
 package no.nav.pensjonbrevdata.model;
 
+import no.nav.pensjonbrevdata.json.JSONList;
+import no.nav.pensjonbrevdata.json.JSONVisitor;
 import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.util.List;
@@ -52,55 +54,24 @@ public abstract class Brev extends Brevdata {
         this.prioritet = prioritet;
     }
 
-    public boolean isRedigerbart() {
-        return redigerbart;
-    }
-
-    public String getDekode() {
-        return dekode;
-    }
-
     public List<SprakCode> getSprak() {
         return sprak;
     }
 
-    public BrevkategoriCode getBrevkategori() {
-        return brevkategori;
-    }
-
-    public DokumenttypeCode getDokType() {
-        return dokType;
-    }
-
-    public Boolean getVisIPselv() {
-        return visIPselv;
-    }
-
-    public BrevUtlandCode getUtland() {
-        return utland;
-    }
-
-    public BrevregeltypeCode getBrevregeltype() {
-        return brevregeltype;
-    }
-
-    public BrevkravtypeCode getBrevkravtype() {
-        return brevkravtype;
-    }
-
-    public BrevkontekstCode getBrevkontekst() {
-        return brevkontekst;
-    }
-
-    public DokumentkategoriCode getDokumentkategori() {
-        return dokumentkategori;
-    }
-
-    public Boolean getSynligForVeileder() {
-        return synligForVeileder;
-    }
-
-    public Integer getPrioritet() {
-        return prioritet;
+    @Override
+    public JSONVisitor visit(JSONVisitor jsonVisitor) {
+        return super.visit(jsonVisitor.field("redigerbart",redigerbart)
+                .field("dekode", dekode)
+                .field("brevkategori", brevkategori)
+                .field("dokType", dokType)
+                .field("sprak", JSONList.jsonIfiableList(sprak))
+                .field("visIPselv", visIPselv)
+                .field("utland", utland)
+                .field("brevregeltype", brevregeltype)
+                .field("brevkravtype", brevkravtype)
+                .field("brevkontekst", brevkontekst)
+                .field("dokumentkategori", dokumentkategori)
+                .field("synligForVeileder", synligForVeileder)
+                .field("prioritet", prioritet));
     }
 }

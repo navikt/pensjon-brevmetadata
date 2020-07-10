@@ -1,11 +1,13 @@
 package no.nav.pensjonbrevdata.model;
 
 import no.nav.pensjonbrevdata.helpers.XsdFileReader;
+import no.nav.pensjonbrevdata.json.JSONVisitable;
+import no.nav.pensjonbrevdata.json.JSONVisitor;
 
 import java.io.File;
 import java.io.IOException;
 
-public class DoksysVedlegg {
+public class DoksysVedlegg implements JSONVisitable {
     private String vedleggkode;
     private String dekode;
     private String dokumentmalId;
@@ -26,27 +28,13 @@ public class DoksysVedlegg {
         dokumentmalFelleselement = fileReader.read("xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
     }
 
-    public String getDekode() {
-        return dekode;
-    }
-
-    public String getDokumentmalId() {
-        return dokumentmalId;
-    }
-
-    public String getDokumentmalFelleselementId() {
-        return dokumentmalFelleselementId;
-    }
-
-    public String getDokumentmal() {
-        return dokumentmal;
-    }
-
-    public String getDokumentmalFelleselement() {
-        return dokumentmalFelleselement;
-    }
-
-    public String getVedleggkode() {
-        return vedleggkode;
+    @Override
+    public JSONVisitor visit(JSONVisitor jsonVisitor) {
+        return jsonVisitor.field("vedleggkode",vedleggkode)
+                .field("dekode",dekode)
+                .field("dokumentmalId",dokumentmalId)
+                .field("dokumentmalFelleselementId",dokumentmalFelleselementId)
+                .field("dokumentmal",dokumentmal)
+                .field("dokumentmalFelleselement",dokumentmalFelleselement);
     }
 }
