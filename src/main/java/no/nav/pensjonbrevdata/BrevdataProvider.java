@@ -2,7 +2,6 @@ package no.nav.pensjonbrevdata;
 
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
-import no.nav.pensjonbrevdata.model.Brev;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
@@ -10,8 +9,6 @@ import no.nav.pensjonbrevdata.model.codes.SprakCode;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
 
 public class BrevdataProvider {
     private BrevdataMapper brevdataMapper;
@@ -24,7 +21,7 @@ public class BrevdataProvider {
 
     public List<SprakCode> getSprakForBrevkode(String brevkode) {
         Brevdata brevdata = brevdataMapper.map(brevkode);
-        return brevdata instanceof Brev ? ((Brev) brevdata).getSprak() : null;
+        return brevdata.getSprak();
     }
 
     public Brevdata getBrevForBrevkode(String brevkode) throws IOException {

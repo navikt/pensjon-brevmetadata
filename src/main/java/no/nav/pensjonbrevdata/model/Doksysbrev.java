@@ -6,7 +6,7 @@ import no.nav.pensjonbrevdata.model.codes.*;
 import java.io.*;
 import java.util.List;
 
-public class Doksysbrev extends Brev {
+public class Doksysbrev extends Brevdata {
     private List<DoksysVedlegg> vedleggListe;
     private String dokumentmalId;
     private String dokumentmalFelleselementId;

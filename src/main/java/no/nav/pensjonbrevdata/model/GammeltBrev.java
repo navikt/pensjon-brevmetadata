@@ -4,7 +4,7 @@ import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.util.List;
 
-public class GammeltBrev extends Brev {
+public class GammeltBrev extends Brevdata {
 
     private String brevgruppe;
 

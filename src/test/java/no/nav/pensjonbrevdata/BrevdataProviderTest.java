@@ -2,7 +2,6 @@ package no.nav.pensjonbrevdata;
 
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
-import no.nav.pensjonbrevdata.model.Brev;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.GammeltBrev;
@@ -151,7 +150,7 @@ public class BrevdataProviderTest {
     @Test
     public void shouldGetListOfSprakWhenGetSprakForBrevkode() {
         String brevkode = "TEST";
-        Brev brev = new GammeltBrev("PE_AF_04_001",
+        Brevdata brev = new GammeltBrev("PE_AF_04_001",
                         true,
                         "Vedtak - innvilgelse av AFP",
                         BrevkategoriCode.VEDTAK,
