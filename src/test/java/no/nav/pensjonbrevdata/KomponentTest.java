@@ -113,9 +113,12 @@ public class KomponentTest {
         assertEquals(200, resp.statusCode(), "Feil i respons til " + kodeDesc + " "+kode);
         var expected = loadResult(endpoint,kode, includeXsd);
         var actual = resp.body();
-        if(!(expected.equals("") && actual.equals("")))
-            JSONAssert.assertEquals("Feil i respons til " + kodeDesc + " "+kode+"\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
+        if(expected.equals("") || actual.equals("")){
+            assertEquals(expected, actual);
+        } else {
+            JSONAssert.assertEquals("Feil i respons til " + kodeDesc + " " + kode + "\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
                     expected, actual, true);
+        }
     }
 
     private String loadResult(String endpoint, String brevkode, Boolean includeXsd) throws IOException, URISyntaxException {
@@ -210,7 +213,7 @@ public class KomponentTest {
             try {
                 transformException(s);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Feil når den prossesserte " + s, e);
             }
         }
     }

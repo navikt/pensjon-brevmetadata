@@ -782,8 +782,11 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_213", () ->
-                new GammeltBrev("PE_AP_04_213",
+        brevMap.put("PE_AP_04_213", () -> {
+            if (toggle(BRUK_AP_AVSL_UTL_AUTO).isEnabled()) {
+                throw new IllegalArgumentException("PE_AP_04_213 is not compactible with BRUK_AP_AVSL_UTL_AUTO");
+            } else {
+                return new GammeltBrev("PE_AP_04_213",
                         false,
                         "Vedtak - avslag på alderspensjon - utenlandssak",
                         null,
@@ -797,7 +800,9 @@ public class BrevdataMapper {
                         null,
                         null,
                         null,
-                        "brevgr011"));
+                        "brevgr011");
+            }
+        });
         brevMap.put("PE_AP_04_214", () ->
                 new GammeltBrev("PE_AP_04_214",
                         true,
