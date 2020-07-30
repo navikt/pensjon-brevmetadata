@@ -4,6 +4,7 @@ import no.nav.pensjonbrevdata.helpers.XsdFileReader;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.function.Function;
 
 public class DoksysVedlegg {
     private String vedleggkode;
@@ -14,16 +15,16 @@ public class DoksysVedlegg {
     private String dokumentmalFelleselement;
 
     public DoksysVedlegg(String vedleggkode, String dekode, String dokumentmalId, String dokumentmalFelleselementId) {
+        this(vedleggkode, dekode, dokumentmalId, dokumentmalFelleselementId, null, null);
+    }
+
+    private DoksysVedlegg(String vedleggkode, String dekode, String dokumentmalId, String dokumentmalFelleselementId, String dokumentmal, String dokumentmalFelleselement) {
         this.vedleggkode = vedleggkode;
         this.dekode = dekode;
         this.dokumentmalId = dokumentmalId;
         this.dokumentmalFelleselementId = dokumentmalFelleselementId;
-    }
-
-    public void generateDokumentmalFromFile() throws IOException {
-        XsdFileReader fileReader = new XsdFileReader();
-        dokumentmal = fileReader.read("xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
-        dokumentmalFelleselement = fileReader.read("xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
+        this.dokumentmal = dokumentmal;
+        this.dokumentmalFelleselement = dokumentmalFelleselement;
     }
 
     public String getDekode() {
@@ -48,5 +49,11 @@ public class DoksysVedlegg {
 
     public String getVedleggkode() {
         return vedleggkode;
+    }
+
+    public DoksysVedlegg medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator) {
+        String dokumentmal = dokumentmalGenerator.apply(dokumentmalId);
+        String dokumentmalFelleselement = fellesmalGenerator.apply(dokumentmalFelleselementId);
+        return new DoksysVedlegg(vedleggkode, dekode, dokumentmalId, dokumentmalFelleselementId, dokumentmal, dokumentmalFelleselement);
     }
 }

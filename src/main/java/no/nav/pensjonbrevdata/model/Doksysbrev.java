@@ -1,10 +1,11 @@
 package no.nav.pensjonbrevdata.model;
 
-import no.nav.pensjonbrevdata.helpers.XsdFileReader;
 import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.io.*;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Doksysbrev extends Brevdata {
     private List<DoksysVedlegg> vedleggListe;
@@ -30,7 +31,7 @@ public class Doksysbrev extends Brevdata {
                       String dokumentmalId,
                       String dokumentmalFelleselementId,
                       List<DoksysVedlegg> vedleggListe) {
-        super(brevkodeInBrevsystem,
+        this(brevkodeInBrevsystem,
                 redigerbart,
                 dekode,
                 brevkategori,
@@ -43,28 +44,26 @@ public class Doksysbrev extends Brevdata {
                 dokumentkategori,
                 synligForVeileder,
                 brevkontekst,
-                BrevsystemCode.DOKSYS,
-                prioritet);
+                prioritet,
+                vedleggListe,
+                dokumentmalId,
+                dokumentmalFelleselementId,
+                null,
+                null);
+    }
 
+    private Doksysbrev(String brevkodeIBrevsystem, boolean redigerbart, String dekode, BrevkategoriCode brevkategori,
+                       DokumenttypeCode dokType,  List<SprakCode> sprak, Boolean visIPselv, BrevUtlandCode utland,
+                       BrevregeltypeCode brevregeltype, BrevkravtypeCode brevkravtype, DokumentkategoriCode dokumentkategori,
+                       Boolean synligForVeileder, BrevkontekstCode brevkontekst, Integer prioritet,
+                       List<DoksysVedlegg> vedleggListe, String dokumentmalId, String dokumentmalFelleselementId,
+                       String dokumentmal, String dokumentmalFelleselement) {
+        super(brevkodeIBrevsystem, redigerbart, dekode, brevkategori, dokType, sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori, synligForVeileder, brevkontekst,  BrevsystemCode.DOKSYS, prioritet);
         this.vedleggListe = vedleggListe;
         this.dokumentmalId = dokumentmalId;
         this.dokumentmalFelleselementId = dokumentmalFelleselementId;
-    }
-
-    public void generateDokumentmalFromFile() throws IOException {
-//        DETTE FUNGERTE IKKE I DOCKER, MEN FUNGERTE UTENFOR DOCKER:
-//        File dokumentmalFile = ResourceUtils.getFile("classpath:xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
-//        dokumentmal = new String(Files.readAllBytes(Paths.get(dokumentmalFile.getPath())));
-//        File dokumentMalFelleselementFile = ResourceUtils.getFile("classpath:xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
-//        dokumentmalFelleselement = new String(Files.readAllBytes(Paths.get(dokumentMalFelleselementFile.getPath())));
-        XsdFileReader fileReader = new XsdFileReader();
-        dokumentmal = fileReader.read("xsd" + File.separator + "dokumentmal" + File.separator + dokumentmalId + ".xsd");
-        dokumentmalFelleselement = fileReader.read("xsd" + File.separator + "felles" + File.separator + dokumentmalFelleselementId + ".xsd");
-        if (vedleggListe != null) {
-            for (DoksysVedlegg vedlegg : vedleggListe) {
-                vedlegg.generateDokumentmalFromFile();
-            }
-        }
+        this.dokumentmal = dokumentmal;
+        this.dokumentmalFelleselement = dokumentmalFelleselement;
     }
 
     public String getDokumentmalId() {
@@ -85,5 +84,16 @@ public class Doksysbrev extends Brevdata {
 
     public String getDokumentmalFelleselementId() {
         return dokumentmalFelleselementId;
+    }
+
+    @Override
+    public Brevdata medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator) {
+        String dokumentmal = dokumentmalGenerator.apply(dokumentmalId);
+        String fellesmal = fellesmalGenerator.apply(dokumentmalFelleselementId);
+        List<DoksysVedlegg> vedleggListeMedXSD = vedleggListe == null ? null : vedleggListe.stream().map((vedlegg)-> vedlegg.medXSD(dokumentmalGenerator, fellesmalGenerator)).collect(Collectors.toList());
+        return new Doksysbrev(getBrevkodeIBrevsystem(), isRedigerbart(), getDekode(), getBrevkategori(), getDokType(),
+                getSprak(), getVisIPselv(), getUtland(), getBrevregeltype(), getBrevkravtype(), getDokumentkategori(),
+                getSynligForVeileder(), getBrevkontekst(), getPrioritet(), vedleggListeMedXSD, dokumentmalId,
+                dokumentmalFelleselementId, dokumentmal, fellesmal);
     }
 }

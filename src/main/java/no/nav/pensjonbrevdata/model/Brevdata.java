@@ -3,6 +3,7 @@ package no.nav.pensjonbrevdata.model;
 import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.util.List;
+import java.util.function.Function;
 
 public abstract class Brevdata {
     private boolean redigerbart;
@@ -112,4 +113,6 @@ public abstract class Brevdata {
     public Integer getPrioritet() {
         return prioritet;
     }
+
+    public abstract Brevdata medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator);
 }
