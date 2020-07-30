@@ -1,6 +1,7 @@
 package no.nav.pensjonbrevdata.mappers;
 
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_AUTO;
+import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_UTL_AUTO;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
 import java.util.ArrayList;
@@ -6323,13 +6324,32 @@ public class BrevdataMapper {
             }
         });
 
-        brevMap.put("AP_AVSL_UTL_AUTO", () ->
-                new GammeltBrev("PE_AP_04_213",
+        brevMap.put("AP_AVSL_UTL_AUTO", () -> {
+            if (toggle(BRUK_AP_AVSL_UTL_AUTO).isEnabled()) {
+                return new Doksysbrev("AP_AVSL_UTL_AUTO",
+                        false,
+                        "Vedtak - avslag på søknad om alderspensjon - utenlandsak (automatisk)",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                        true,
+                        null,
+                        BrevregeltypeCode.OVRIGE,
+                        BrevkravtypeCode.ALLE,
+                        DokumentkategoriCode.VB,
+                        true,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "000177",
+                        "00001",
+                        null);
+            } else {
+                return new GammeltBrev("PE_AP_04_213",
                         false,
                         "Vedtak - avslag på alderspensjon - utenlandssak",
                         null,
                         DokumenttypeCode.U,
-                        null,
+                        Arrays.asList(SprakCode.EN),
                         true,
                         null,
                         BrevregeltypeCode.GN,
@@ -6338,7 +6358,9 @@ public class BrevdataMapper {
                         null,
                         null,
                         null,
-                        "brevgr011"));
+                        "brevgr011");
+            }
+        });
         brevMap.put("AP_ENDR_GRAD_AUTO", () ->
                 new GammeltBrev("PE_AP_04_227",
                         false,

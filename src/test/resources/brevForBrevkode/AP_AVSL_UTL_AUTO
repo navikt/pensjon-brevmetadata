@@ -4,7 +4,9 @@
   "dekode": "Vedtak - avslag på alderspensjon - utenlandssak",
   "brevkategori": null,
   "dokType": "U",
-  "sprak": null,
+  "sprak": [
+    "EN"
+  ],
   "visIPselv": true,
   "utland": null,
   "brevregeltype": "GN",
