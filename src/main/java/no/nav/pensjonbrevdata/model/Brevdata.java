@@ -5,8 +5,6 @@ import no.nav.pensjonbrevdata.model.codes.*;
 import java.util.List;
 
 public abstract class Brevdata {
-    private String brevkodeIBrevsystem;
-    private BrevsystemCode brevsystem;
     private boolean redigerbart;
     private String dekode;
     private BrevkategoriCode brevkategori;
@@ -20,6 +18,8 @@ public abstract class Brevdata {
     private DokumentkategoriCode dokumentkategori;
     private Boolean synligForVeileder;
     private Integer prioritet;
+    private String brevkodeIBrevsystem;
+    private BrevsystemCode brevsystem;
 
     public Brevdata(String brevkodeIBrevsystem,
                     boolean redigerbart,
