@@ -1,11 +1,11 @@
 package no.nav.pensjonbrevdata;
 
-import java.io.IOException;
+import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator;
+import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator;
+
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import no.nav.pensjonbrevdata.helpers.DokumentmalGenerator;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.http.HttpStatus;
@@ -23,8 +23,6 @@ import no.nav.pensjonbrevdata.model.codes.SprakCode;
 @RequestMapping("api/brevdata")
 public class BrevdataEndpoint {
     private BrevdataProvider provider;
-    private Function<String, String> dokumentmalGenerator = new DokumentmalGenerator("dokumentmal");
-    private Function<String, String> fellesmalGenerator = new DokumentmalGenerator("felles");
 
     public BrevdataEndpoint(){
         provider = new BrevdataProvider();
