@@ -7756,7 +7756,9 @@ public class BrevdataMapper {
         List<Brevdata> brevdataList = new ArrayList<>();
 
         for (Supplier<Brevdata> brevdataCallable : brevMap.values()) {
-            brevdataList.add(brevdataCallable.get());
+            try {
+                brevdataList.add(brevdataCallable.get());
+            } catch (IllegalArgumentException ignored) { }
         }
         return brevdataList;
     }
