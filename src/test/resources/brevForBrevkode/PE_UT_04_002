@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Innhenting av opplysninger - EØS",
-  "brevkategori": "INNHENTE_OPPL",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "ALLTID",
-  "dokumentkategori": "B",
-  "synligForVeileder": null,
-  "prioritet": 3,
-  "brevkodeIBrevsystem": "PE_UT_04_002",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INNHENTE_OPPL",
+  "brevkodeIBrevsystem" : "PE_UT_04_002",
+  "brevkontekst" : "ALLTID",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Innhenting av opplysninger - EØS",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : 3,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

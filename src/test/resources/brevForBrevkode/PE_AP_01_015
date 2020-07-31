@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": false,
-  "dekode": "Løpende gjenlevendepensjon",
-  "brevkategori": null,
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "EN"
-  ],
-  "visIPselv": true,
-  "utland": null,
-  "brevregeltype": "GN",
-  "brevkravtype": null,
-  "brevkontekst": null,
-  "dokumentkategori": "IB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AP_01_015",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_AP_01_015",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Løpende gjenlevendepensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "EN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
 }

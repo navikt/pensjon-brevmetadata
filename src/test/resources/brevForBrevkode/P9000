@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr008",
-  "redigerbart": true,
-  "dekode": "P9000 - Svar på anmodning om tilleggsinformasjon",
-  "brevkategori": null,
-  "dokType": "U",
-  "sprak": [
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": null,
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": null,
-  "brevkontekst": null,
-  "dokumentkategori": "SED",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "P9000",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr008",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "P9000",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "P9000 - Svar på anmodning om tilleggsinformasjon",
+  "dokType" : "U",
+  "dokumentkategori" : "SED",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
 }

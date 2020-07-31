@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr010",
-  "redigerbart": false,
-  "dekode": "Vedtak - endring av uføretrygd fordi du fyller 20 år",
-  "brevkategori": null,
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": null,
-  "brevregeltype": "GG",
-  "brevkravtype": null,
-  "brevkontekst": null,
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_BA_04_505",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr010",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_BA_04_505",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - endring av uføretrygd fordi du fyller 20 år",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
 }

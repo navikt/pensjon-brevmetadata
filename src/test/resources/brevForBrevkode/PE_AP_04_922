@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Informasjon om uttakstidspunkt ved mellombehandling av alderspensjon",
-  "brevkategori": "INFORMASJON",
-  "dokType": "U",
-  "sprak": [
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "UTLAND",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "SAK",
-  "dokumentkategori": "IB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AP_04_922",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_AP_04_922",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Informasjon om uttakstidspunkt ved mellombehandling av alderspensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
 }

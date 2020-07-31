@@ -1,22 +1,18 @@
 {
-  "brevgruppe": "brevgr003",
-  "redigerbart": true,
-  "dekode": "Vedtak - opphør av ytelse til gjenlevende",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "EN",
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "GG",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_GP_04_030",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr003",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_GP_04_030",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - opphør av ytelse til gjenlevende",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

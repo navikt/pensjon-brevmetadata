@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Vedtak - klagesak - NAV Klageinstans",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "EN",
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "KLAGE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_IY_04_050",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_IY_04_050",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "KLAGE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - klagesak - NAV Klageinstans",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

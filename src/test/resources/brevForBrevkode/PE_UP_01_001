@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Orientering om utvidelse av perioden med hvilende rett til uførepensjon - med skjema Krav om forlengelse av hvilende rett til uførepensjon i nye fem år/meldng om inntektsøking (NAV 12-06.14)",
-  "brevkategori": "VARSEL",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "GG",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "SAK",
-  "dokumentkategori": "B",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_UP_01_001",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "VARSEL",
+  "brevkodeIBrevsystem" : "PE_UP_01_001",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Orientering om utvidelse av perioden med hvilende rett til uførepensjon - med skjema Krav om forlengelse av hvilende rett til uførepensjon i nye fem år/meldng om inntektsøking (NAV 12-06.14)",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

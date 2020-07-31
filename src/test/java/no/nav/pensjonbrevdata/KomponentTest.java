@@ -1,7 +1,10 @@
 package no.nav.pensjonbrevdata;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.core.util.DefaultIndenter;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import no.finn.unleash.FakeUnleash;
 import no.finn.unleash.Unleash;
@@ -18,6 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -226,13 +230,12 @@ public class KomponentTest {
             UnleashProvider.initialize(new FakeUnleash());
         }
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
-        private static Gson gson = null;
+        private static final ObjectWriter objectMapper = new ObjectMapper()
+                .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+                .writer(new DefaultPrettyPrinter()
+                        .withObjectIndenter(new DefaultIndenter().withLinefeed("\n")));
 
         public static void main(String[] args) throws IOException {
-            GsonBuilder gson = new GsonBuilder();
-            gson.serializeNulls();
-            gson.setPrettyPrinting();
-            ResultBuilder.gson = gson.create();
             brevkoder().stream().peek((UncheckingConsumer) ResultBuilder::fixgetBrevForBrevkode)
                     .forEach((UncheckingConsumer) ResultBuilder::fixgetSprakForBrevkode);
             sakstyper().stream().peek((UncheckingConsumer) ResultBuilder::fixgetBrevdataForSaktype)
@@ -281,8 +284,11 @@ public class KomponentTest {
             return path;
         }
 
-        private static CharSequence toJSON(Object object) {
-            return object==null?"":gson.toJson(object);
+        private static CharSequence toJSON(Object object) throws IOException {
+            if(object == null) return "";
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            objectMapper.writeValue(baos, object);
+            return new String(baos.toByteArray());
         }
     }
 }

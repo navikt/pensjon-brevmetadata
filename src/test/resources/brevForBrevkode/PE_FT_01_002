@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr007",
-  "redigerbart": true,
-  "dekode": "Vedtak - fortsatt rett til ektefelletillegg",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "NASJONALT",
-  "brevregeltype": "GN",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "IB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_FT_01_002",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr007",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_FT_01_002",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - fortsatt rett til ektefelletillegg",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
 }

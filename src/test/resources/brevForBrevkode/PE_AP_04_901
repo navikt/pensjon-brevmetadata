@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr002",
-  "redigerbart": true,
-  "dekode": "Vedtak - innvilgelse av alderspensjon - bodd i ikke-avtaleland",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "EN",
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "UTLAND",
-  "brevregeltype": "GG",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AP_04_901",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_AP_04_901",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - innvilgelse av alderspensjon - bodd i ikke-avtaleland",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
 }

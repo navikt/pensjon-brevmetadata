@@ -1,22 +1,18 @@
 {
-  "brevgruppe": "brevgr007",
-  "redigerbart": true,
-  "dekode": "Vedtak - endring av alderspensjon - utlandssak",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "EN",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "UTLAND",
-  "brevregeltype": "GN",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AP_04_222",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr007",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_AP_04_222",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - endring av alderspensjon - utlandssak",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "EN", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
 }

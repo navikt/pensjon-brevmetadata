@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr011",
-  "redigerbart": true,
-  "dekode": "Vedtak - opphør av alderspensjon og AFP i privat sektor fordi opptjening er endret",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": null,
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AP_04_216",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr011",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_AP_04_216",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : null,
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - opphør av alderspensjon og AFP i privat sektor fordi opptjening er endret",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

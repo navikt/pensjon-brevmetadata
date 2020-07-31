@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Retur av dokumenter",
-  "brevkategori": "OVRIG",
-  "dokType": "U",
-  "sprak": [
-    "EN",
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "NASJONALT",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": null,
-  "brevkontekst": "SAK",
-  "dokumentkategori": "B",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_IY_05_006",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "OVRIG",
+  "brevkodeIBrevsystem" : "PE_IY_05_006",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Retur av dokumenter",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
 }

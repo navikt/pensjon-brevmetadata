@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Informasjon til deg som er bosatt i utlandet og snart fyller 67 år",
-  "brevkategori": "INFORMASJON",
-  "dokType": "U",
-  "sprak": [
-    "EN",
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "NASJONALT",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": null,
-  "brevkontekst": "SAK",
-  "dokumentkategori": "B",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_IY_03_175",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_IY_03_175",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Informasjon til deg som er bosatt i utlandet og snart fyller 67 år",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
 }

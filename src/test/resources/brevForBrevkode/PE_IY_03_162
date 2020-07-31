@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Klage - orientering om saksbehandlingstid ved NAV Klageinstans",
-  "brevkategori": "INFORMASJON",
-  "dokType": "U",
-  "sprak": [
-    "EN",
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "KLAGE",
-  "brevkontekst": "SAK",
-  "dokumentkategori": "B",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_IY_03_162",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_IY_03_162",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : "KLAGE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Klage - orientering om saksbehandlingstid ved NAV Klageinstans",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

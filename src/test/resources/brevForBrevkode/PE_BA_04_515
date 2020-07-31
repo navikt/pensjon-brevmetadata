@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr002",
-  "redigerbart": false,
-  "dekode": "Vedtak - alderspensjon fra folketrygden",
-  "brevkategori": null,
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": null,
-  "brevregeltype": "GG",
-  "brevkravtype": null,
-  "brevkontekst": null,
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_BA_04_515",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_BA_04_515",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - alderspensjon fra folketrygden",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
 }

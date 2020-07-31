@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr002",
-  "redigerbart": false,
-  "dekode": "Vedtak - endring i pensjonsopptjening",
-  "brevkategori": null,
-  "dokType": "U",
-  "sprak": [
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": null,
-  "brevregeltype": "GG",
-  "brevkravtype": null,
-  "brevkontekst": null,
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_BA_04_512",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_BA_04_512",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - endring i pensjonsopptjening",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
 }

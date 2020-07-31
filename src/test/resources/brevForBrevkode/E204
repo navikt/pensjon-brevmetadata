@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr008",
-  "redigerbart": true,
-  "dekode": "E 204 - Behandling av krav om uføretrygd/uførepensjon",
-  "brevkategori": null,
-  "dokType": "U",
-  "sprak": [
-    "NB"
-  ],
-  "visIPselv": null,
-  "utland": null,
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": null,
-  "brevkontekst": null,
-  "dokumentkategori": "E_BLANKETT",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "E204",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr008",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "E204",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "E 204 - Behandling av krav om uføretrygd/uførepensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "E_BLANKETT",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : null
 }

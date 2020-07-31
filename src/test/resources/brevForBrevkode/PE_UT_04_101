@@ -1,22 +1,18 @@
 {
-  "brevgruppe": "brevgr010",
-  "redigerbart": true,
-  "dekode": "Vedtak - innvilgelse av uføretrygd",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN",
-    "EN"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": 2,
-  "brevkodeIBrevsystem": "PE_UT_04_101",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr010",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_UT_04_101",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - innvilgelse av uføretrygd",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : 2,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN", "EN" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

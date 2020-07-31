@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr010",
-  "redigerbart": false,
-  "dekode": "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
-  "brevkategori": "VARSEL",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_UT_23_001",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr010",
+  "brevkategori" : "VARSEL",
+  "brevkodeIBrevsystem" : "PE_UT_23_001",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

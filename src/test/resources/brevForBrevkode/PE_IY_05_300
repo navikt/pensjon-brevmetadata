@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Brev fra NAV",
-  "brevkategori": "NOTAT",
-  "dokType": "U",
-  "sprak": [
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "ALLTID",
-  "dokumentkategori": "B",
-  "synligForVeileder": true,
-  "prioritet": 1,
-  "brevkodeIBrevsystem": "PE_IY_05_300",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "NOTAT",
+  "brevkodeIBrevsystem" : "PE_IY_05_300",
+  "brevkontekst" : "ALLTID",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Brev fra NAV",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : 1,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

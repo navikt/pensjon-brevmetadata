@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr002",
-  "redigerbart": true,
-  "dekode": "Vedtak - innvilgelse av uførepensjon (bosatt utland - ikke avtaleland)",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "EN"
-  ],
-  "visIPselv": true,
-  "utland": "UTLAND",
-  "brevregeltype": "GG",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_UP_04_027",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_UP_04_027",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - innvilgelse av uførepensjon (bosatt utland - ikke avtaleland)",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "EN" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
 }

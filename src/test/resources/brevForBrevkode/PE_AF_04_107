@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr004",
-  "redigerbart": false,
-  "dekode": "Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "NASJONALT",
-  "brevregeltype": "GG",
-  "brevkravtype": "AFP_EO",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AF_04_107",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr004",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_AF_04_107",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "AFP_EO",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
 }

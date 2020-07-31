@@ -1,22 +1,18 @@
 {
-  "brevgruppe": "brevgr003",
-  "redigerbart": true,
-  "dekode": "Vedtak - avslag på ytelse til gjenlevende",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "EN",
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "NASJONALT",
-  "brevregeltype": "GG",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_GP_04_010",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr003",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_GP_04_010",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - avslag på ytelse til gjenlevende",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
 }

@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Brev fra NAV Ny pensjon",
-  "brevkategori": "NOTAT",
-  "dokType": "U",
-  "sprak": [
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "ALLTID",
-  "dokumentkategori": "B",
-  "synligForVeileder": true,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_IY_05_306",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "NOTAT",
+  "brevkodeIBrevsystem" : "PE_IY_05_306",
+  "brevkontekst" : "ALLTID",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Brev fra NAV Ny pensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

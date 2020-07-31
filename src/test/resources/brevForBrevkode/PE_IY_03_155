@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr001",
-  "redigerbart": true,
-  "dekode": "Forvaltningsnotat",
-  "brevkategori": "NOTAT",
-  "dokType": "U",
-  "sprak": [
-    "NB"
-  ],
-  "visIPselv": true,
-  "utland": "ALLTID",
-  "brevregeltype": "OVRIGE",
-  "brevkravtype": "ALLE",
-  "brevkontekst": "ALLTID",
-  "dokumentkategori": "B",
-  "synligForVeileder": true,
-  "prioritet": 1,
-  "brevkodeIBrevsystem": "PE_IY_03_155",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "NOTAT",
+  "brevkodeIBrevsystem" : "PE_IY_03_155",
+  "brevkontekst" : "ALLTID",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Forvaltningsnotat",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : 1,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "visIPselv" : true
 }

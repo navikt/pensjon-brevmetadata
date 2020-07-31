@@ -1,21 +1,18 @@
 {
-  "brevgruppe": "brevgr004",
-  "redigerbart": true,
-  "dekode": "Vedtak - ingen endring (andre avvik) etter mottatt svar - AFP etteroppgjør",
-  "brevkategori": "VEDTAK",
-  "dokType": "U",
-  "sprak": [
-    "NB",
-    "NN"
-  ],
-  "visIPselv": true,
-  "utland": "NASJONALT",
-  "brevregeltype": "GG",
-  "brevkravtype": "AFP_EO",
-  "brevkontekst": "VEDTAK",
-  "dokumentkategori": "B",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AF_04_106",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr004",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_AF_04_106",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "AFP_EO",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - ingen endring (andre avvik) etter mottatt svar - AFP etteroppgjør",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
 }

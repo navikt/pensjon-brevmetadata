@@ -1,20 +1,18 @@
 {
-  "brevgruppe": "brevgr011",
-  "redigerbart": false,
-  "dekode": "Vedtak - avslag på alderspensjon - utenlandssak",
-  "brevkategori": null,
-  "dokType": "U",
-  "sprak": [
-    "EN"
-  ],
-  "visIPselv": true,
-  "utland": null,
-  "brevregeltype": "GN",
-  "brevkravtype": null,
-  "brevkontekst": null,
-  "dokumentkategori": "VB",
-  "synligForVeileder": null,
-  "prioritet": null,
-  "brevkodeIBrevsystem": "PE_AP_04_213",
-  "brevsystem": "GAMMEL"
+  "brevgruppe" : "brevgr011",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_AP_04_213",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - avslag på alderspensjon - utenlandssak",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "EN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
 }
