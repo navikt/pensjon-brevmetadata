@@ -66,19 +66,18 @@ public class BrevdataEndpointTest {
 
     @Test
     public void shouldRespondWithInternalServerErrorWhenGetBrevForBrevkodeAndIOException() throws IOException {
-        when(brevdataProviderMock.getBrevForBrevkode(any())).thenThrow(new IOException());
+        when(brevdataProviderMock.getBrevForBrevkode(any())).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
                 ResponseStatusException.class,
                 () -> endpoint.getBrevForBrevkode("Test"));
 
         assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
-        assertThat(thrown.getReason(), is("Failed when trying to read xsd-file for brev"));
     }
 
     @Test
     public void shouldRespondWithBadRequestWhenGetBrevdataForSaktypeAndUnknownSaktype() throws IOException {
-        when(brevdataProviderMock.getBrevdataForSaktype("Test", false)).thenThrow(new IllegalArgumentException());
+        when(brevdataProviderMock.getBrevdataForSaktype("Test")).thenThrow(new IllegalArgumentException());
 
         ResponseStatusException thrown = assertThrows(
                 ResponseStatusException.class,
@@ -89,19 +88,18 @@ public class BrevdataEndpointTest {
 
     @Test
     public void shouldRespondWithInternalServerErrorWhenGetBrevdataForSaktypeAndIOException() throws IOException {
-        when(brevdataProviderMock.getBrevdataForSaktype("Test", true)).thenThrow(new IOException());
+        when(brevdataProviderMock.getBrevdataForSaktype("Test")).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
                 ResponseStatusException.class,
                 () -> endpoint.getBrevdataForSaktype("Test", true));
 
         assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
-        assertThat(thrown.getReason(), is("Failed when trying to read xsd-file for brev"));
     }
 
     @Test
     public void shouldRespondWithInternalServerErrorWhenGetBrevdataForSaktypeAndRuntimeException() throws IOException {
-        when(brevdataProviderMock.getBrevdataForSaktype("Test", true)).thenThrow(new IOException());
+        when(brevdataProviderMock.getBrevdataForSaktype("Test")).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
                 ResponseStatusException.class,
@@ -112,7 +110,7 @@ public class BrevdataEndpointTest {
 
     @Test
     public void shouldRespondWithInternalServerErrorWhenGetAllBrevAndRuntimeException() throws IOException {
-        when(brevdataProviderMock.getAllBrev(false)).thenThrow(new RuntimeException());
+        when(brevdataProviderMock.getAllBrev()).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
                 ResponseStatusException.class,
@@ -123,14 +121,13 @@ public class BrevdataEndpointTest {
 
     @Test
     public void shouldRespondWithInternalServerErrorWhenGetAllBrevAndIoException() throws IOException {
-        when(brevdataProviderMock.getAllBrev(true)).thenThrow(new IOException());
+        when(brevdataProviderMock.getAllBrev()).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
                 ResponseStatusException.class,
                 () -> endpoint.getAllBrev(true));
 
         assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
-        assertThat(thrown.getReason(), is("Failed when trying to read xsd-file for brev"));
     }
 
     @Test

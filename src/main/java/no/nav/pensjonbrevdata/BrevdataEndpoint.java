@@ -1,7 +1,10 @@
 package no.nav.pensjonbrevdata;
 
-import java.io.IOException;
+import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator;
+import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 import org.springframework.context.annotation.DependsOn;
@@ -40,11 +43,9 @@ public class BrevdataEndpoint {
     @GetMapping(value = "/brevForBrevkode/{brevkode}")
     public Brevdata getBrevForBrevkode(@PathVariable(value = "brevkode") String brevkode) {
         try {
-            return provider.getBrevForBrevkode(brevkode);
+            return provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator);
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        } catch (IOException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed when trying to read xsd-file for brev", e);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
@@ -53,11 +54,11 @@ public class BrevdataEndpoint {
     @GetMapping("/brevdataForSaktype/{saktype}")
     public List<Brevdata> getBrevdataForSaktype(@PathVariable(value = "saktype") String saktype, @RequestParam(value = "includeXsd") boolean includeXsd) {
         try {
-            return provider.getBrevdataForSaktype(saktype, includeXsd);
+            List<Brevdata> brevdata = provider.getBrevdataForSaktype(saktype);
+            return includeXsd ? brevdata.stream().map((brev) -> brev.medXSD(dokumentmalGenerator, fellesmalGenerator)).collect(Collectors.toList()) :
+                    brevdata;
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        } catch (IOException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed when trying to read xsd-file for brev", e);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
@@ -77,9 +78,9 @@ public class BrevdataEndpoint {
     @GetMapping("/allBrev")
     public List<Brevdata> getAllBrev(@RequestParam(value = "includeXsd") boolean includeXsd) {
         try {
-            return provider.getAllBrev(includeXsd);
-        } catch (IOException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed when trying to read xsd-file for brev", e);
+            List<Brevdata> brevdataList = provider.getAllBrev();
+            return includeXsd ? brevdataList.stream().map((brevdata -> brevdata.medXSD(dokumentmalGenerator, fellesmalGenerator))).collect(Collectors.toList()) :
+                    brevdataList;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }

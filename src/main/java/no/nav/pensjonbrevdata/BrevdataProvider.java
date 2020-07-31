@@ -24,21 +24,15 @@ public class BrevdataProvider {
         return brevdata.getSprak();
     }
 
-    public Brevdata getBrevForBrevkode(String brevkode) throws IOException {
+    public Brevdata getBrevForBrevkode(String brevkode) {
         Brevdata brevdata = brevdataMapper.map(brevkode);
-        if (brevdata instanceof Doksysbrev) {
-            ((Doksysbrev) brevdata).generateDokumentmalFromFile();
-        }
         return brevdata;
     }
 
-    public List<Brevdata> getBrevdataForSaktype(String saktype, boolean includeXsd) throws IOException {
+    public List<Brevdata> getBrevdataForSaktype(String saktype){
         List<Brevdata> brevList = new ArrayList<>();
         for (String brevkode : sakBrevMapper.map(saktype)) {
             Brevdata brevdata = brevdataMapper.map(brevkode);
-            if (includeXsd && brevdata instanceof Doksysbrev) {
-                ((Doksysbrev) brevdata).generateDokumentmalFromFile();
-            }
             brevList.add(brevdata);
         }
         return brevList;
@@ -48,15 +42,8 @@ public class BrevdataProvider {
         return sakBrevMapper.map(saktype);
     }
 
-    public List<Brevdata> getAllBrev(boolean includeXsd) throws IOException {
+    public List<Brevdata> getAllBrev() {
         List<Brevdata> brevdataList = brevdataMapper.getAllBrevAsList();
-        if (includeXsd) {
-            for (Brevdata brevdata : brevdataList) {
-                if (brevdata instanceof Doksysbrev) {
-                    ((Doksysbrev) brevdata).generateDokumentmalFromFile();
-                }
-            }
-        }
         return brevdataList;
     }
 
