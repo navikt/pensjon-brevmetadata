@@ -2,7 +2,7 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: pensjon-brevdata
-  namespace: q4
+  namespace: {{ namespace }}
   labels:
     team: pensjonsbrev
 spec:
@@ -16,7 +16,7 @@ spec:
     initialDelay: 35
     timeout: 3
   ingresses:
-    - https://pensjon-brevdata-q4.nais.preprod.local
+    - {{ ingress }}
   readiness:
     path: "/api/internal/isReady"
     initialDelay: 35
@@ -26,4 +26,4 @@ spec:
     path: "/api/internal/prometheus"
   env:
     - name: UNLEASH_ENDPOINT_URL
-      value: https://unleash.nais.adeo.no/api/
+      value: {{ unleashurl }}
