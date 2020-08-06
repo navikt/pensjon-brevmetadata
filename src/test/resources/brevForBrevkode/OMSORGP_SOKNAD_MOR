@@ -11,7 +11,7 @@
   "dokumentkategori" : "IB",
   "prioritet" : null,
   "redigerbart" : false,
-  "sprak" : null,
+  "sprak" : [ "NB", "EN", "NN" ],
   "synligForVeileder" : null,
   "utland" : "NASJONALT",
   "visIPselv" : true

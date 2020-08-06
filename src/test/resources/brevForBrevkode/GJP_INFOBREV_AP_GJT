@@ -14,7 +14,7 @@
   "dokumentmalId" : "000154",
   "prioritet" : null,
   "redigerbart" : false,
-  "sprak" : null,
+  "sprak" : [ "NB" ],
   "synligForVeileder" : null,
   "utland" : "ALLTID",
   "vedleggListe" : null,
