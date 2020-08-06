@@ -56,7 +56,7 @@ def createGammeltBrev(brevkode, brevkodeInBrevsystem, redigerbart, dekode, brevk
      nullCheck("", "\""+dekode+"\"")+",\n\t\t"+
      nullCheck("BrevkategoriCode.", brevkategori)+",\n\t\t"+
      nullCheck("DokumenttypeCode.", dokumenttype)+",\n\t\t"+
-     getSprakForBrev(brevkode)+",\n\t\t"+
+     getSprakForBrev(brevkodeInBrevsystem)+",\n\t\t"+
      booleanConvert(nullCheck("",visIPselv))+",\n\t\t"+
      nullCheck("BrevUtlandCode.", utland)+",\n\t\t"+
      nullCheck("BrevregeltypeCode.", regeltype)+",\n\t\t"+
@@ -74,7 +74,7 @@ def createDoksysBrev(brevkode, brevkodeInBrevsystem, redigerbart, dekode, brevka
      nullCheck("", "\""+dekode+"\"")+",\n\t\t"+
      nullCheck("BrevkategoriCode.", brevkategori)+",\n\t\t"+
      nullCheck("DokumenttypeCode.", dokumenttype)+",\n\t\t"+
-     getSprakForBrev(brevkode)+",\n\t\t"+
+     getSprakForBrev(brevkodeInBrevsystem)+",\n\t\t"+
      booleanConvert(nullCheck("",visIPselv))+",\n\t\t"+
      nullCheck("BrevUtlandCode.", utland)+",\n\t\t"+
      nullCheck("BrevregeltypeCode.", regeltype)+",\n\t\t"+
