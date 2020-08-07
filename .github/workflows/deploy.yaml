@@ -54,6 +54,13 @@ jobs:
           CLUSTER: dev-fss
           RESOURCE: nais/nais-dev.yml
           VAR: namespace=q4,ingress=https://pensjon-brevdata-q4.nais.preprod.local,unleashurl=https://unleash.nais.adeo.no/api/
+      - name: Deploy to dev-fss t4
+          uses: nais/deploy/actions/deploy@v1
+          env:
+            APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+            CLUSTER: dev-fss
+            RESOURCE: nais/nais-dev.yml
+            VAR: namespace=t4,ingress=https://pensjon-brevdata-t4.nais.preprod.local,unleashurl=https://unleash.nais.adeo.no/api/
       - name: Deploy to dev-sbs
         uses: nais/deploy/actions/deploy@v1
         env:
