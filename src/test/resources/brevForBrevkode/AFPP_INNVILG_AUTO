@@ -11,7 +11,7 @@
   "dokumentkategori" : "VB",
   "prioritet" : null,
   "redigerbart" : false,
-  "sprak" : null,
+  "sprak" : [ "NN", "NB" ],
   "synligForVeileder" : null,
   "utland" : null,
   "visIPselv" : true
