@@ -6750,6 +6750,22 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
+        brevMap.put("TILST_UT", () ->
+                new GammeltBrev("PE_UT_04_500",
+                        false,
+                        "Vedtak - endring av uføretrygd fordi ektefelles/partners/samboers ytelse er opphørt (automatisk)",
+                        null,
+                        DokumenttypeCode.U,
+                        null,
+                        true,
+                        null,
+                        BrevregeltypeCode.GG,
+                        null,
+                        DokumentkategoriCode.VB,
+                        null,
+                        null,
+                        null,
+                        "brevgr010"));
         brevMap.put("REV_TIL_AFP_PGA_DOD", () ->
                 new GammeltBrev("PE_BA_04_522",
                         false,
