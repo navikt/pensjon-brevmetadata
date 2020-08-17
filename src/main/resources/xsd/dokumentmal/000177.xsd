@@ -47,7 +47,7 @@
 			<xs:element name="vedtak" type="vedtak:Vedtak"/>
 			<xs:element name="avtaleland" type="land:Land" minOccurs="0"/>
 			<xs:element name="alderspensjon" type="alderspensjon:Alderspensjon"/>
-			<xs:element name="simulertAlderspensjonVedVirk" type="simulertAlderspensjon:SimulertAlderspensjonNyttRegelverk"/>
+			<xs:element name="simulertAlderspensjonVedVirk" type="simulertAlderspensjon:SimulertAlderspensjonNyttRegelverk" minOccurs="0"/>
 			<xs:element name="simulertBeregningKap19VedVirk" type="beregningKap19:BeregningKap19" minOccurs="0"/>
 			<xs:element name="simulertBeregningKap20VedVirk" type="beregningKap20:BeregningKap20" minOccurs="0"/>
 			<xs:element name="trygdetidNorge" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
