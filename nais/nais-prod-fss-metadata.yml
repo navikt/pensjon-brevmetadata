@@ -16,9 +16,7 @@ spec:
     initialDelay: 35
     timeout: 3
   ingresses:
-    - https://pensjon-brevmetadata.nais.adeo.no
-    - https://pensjon-brevmetadata.prod-fss.nais.io
-    - https://pensjon-brevmetadata.adeo.no
+    - https://pensjon-brevmetadata-pensjonsbrev.adeo.no
   readiness:
     path: "/api/internal/isReady"
     initialDelay: 35

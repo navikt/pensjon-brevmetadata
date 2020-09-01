@@ -17,7 +17,6 @@ spec:
     timeout: 3
   ingresses:
     - {{ ingress }}
-    - {{ ingress-additional }}
   readiness:
     path: "/api/internal/isReady"
     initialDelay: 35
