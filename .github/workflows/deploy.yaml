@@ -108,7 +108,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-sbs
           RESOURCE: nais/nais-dev-metadata.yml
-          VAR: namespace=default,ingress=https://pensjon-brevmetadata.nav.adeo.no,unleashurl=https://unleashproxy.nais.oera.no/api/
+          VAR: namespace=pensjonsbrev,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleashproxy.nais.oera.no/api/
       - name: Deploy brevmetadata to prod-fss
         uses: nais/deploy/actions/deploy@v1
         env:
