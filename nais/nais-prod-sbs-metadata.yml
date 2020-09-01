@@ -1,0 +1,30 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: pensjon-brevmetadata
+  namespace: default
+  labels:
+    team: pensjonsbrev
+spec:
+  image: {{ image }}
+  port: 8080
+  replicas:
+    min: 2
+    max: 2
+  liveness:
+    path: "/api/internal/isAlive"
+    initialDelay: 35
+    timeout: 3
+  ingresses:
+    - https://pensjon-brevmetadata.nais.oera.no
+    - https://pensjon-brevmetadata.nav.no
+  readiness:
+    path: "/api/internal/isReady"
+    initialDelay: 35
+    timeout: 3
+  prometheus:
+    enabled: true
+    path: "/api/internal/prometheus"
+  env:
+    - name: UNLEASH_ENDPOINT_URL
+      value: https://unleashproxy.nais.oera.no/api/
