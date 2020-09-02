@@ -1,4 +1,4 @@
-# pensjon-brevdata
+# pensjon-brevmetadata
 Applikasjon for å hente brevdata til pensjon
 
-Systemdokumentasjon på pensjon-brevdata applikasjon: https://pensjon-brevdata.nais.preprod.local/
+Systemdokumentasjon på pensjon-brevmetadata applikasjon: https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no/
