@@ -883,22 +883,6 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_222", () ->
-                new GammeltBrev("PE_AP_04_222",
-                        true,
-                        "Vedtak - endring av alderspensjon - utlandssak",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.UTLAND,
-                        BrevregeltypeCode.GN,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr007"));
         brevMap.put("PE_AP_04_223", () ->
                 new GammeltBrev("PE_AP_04_223",
                         true,
@@ -2483,22 +2467,6 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_155", () ->
-                new GammeltBrev("PE_IY_03_155",
-                        true,
-                        "Forvaltningsnotat",
-                        BrevkategoriCode.NOTAT,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.OVRIGE,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.B,
-                        true,
-                        BrevkontekstCode.ALLTID,
-                        1,
-                        "brevgr001"));
         brevMap.put("PE_IY_03_156", () ->
                 new GammeltBrev("PE_IY_03_156",
                         true,
@@ -3299,22 +3267,6 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_05_241", () ->
-                new GammeltBrev("PE_IY_05_241",
-                        false,
-                        "Varsel om lang saksbehandlingstid",
-                        BrevkategoriCode.INFORMASJON,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.OVRIGE,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.B,
-                        null,
-                        BrevkontekstCode.SAK,
-                        null,
-                        "brevgr007"));
         brevMap.put("PE_IY_05_300", () ->
                 new GammeltBrev("PE_IY_05_300",
                         true,
@@ -3411,22 +3363,6 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr009"));
-        brevMap.put("PE_IY_05_306", () ->
-                new GammeltBrev("PE_IY_05_306",
-                        true,
-                        "Brev fra NAV Ny pensjon",
-                        BrevkategoriCode.NOTAT,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.OVRIGE,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.B,
-                        true,
-                        BrevkontekstCode.ALLTID,
-                        null,
-                        "brevgr001"));
         brevMap.put("PE_IY_05_401", () ->
                 new GammeltBrev("PE_IY_05_401",
                         false,
@@ -7038,22 +6974,6 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("VARS_LANG_SAKS_AUTO", () ->
-                new GammeltBrev("PE_IY_05_241",
-                        false,
-                        "Varsel om lang saksbehandlingstid",
-                        BrevkategoriCode.INFORMASJON,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.OVRIGE,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.B,
-                        null,
-                        BrevkontekstCode.SAK,
-                        null,
-                        "brevgr007"));
         brevMap.put("LEVEATT", () ->
                 new GammeltBrev("PE_IY_05_410",
                         false,
