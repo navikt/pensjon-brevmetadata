@@ -30,7 +30,7 @@ public class NaisRestController {
         return new ResponseEntity<>("Unleash is Disabled", HttpStatus.OK);
     }
 
-    @RequestMapping(path = "prometheus", method = RequestMethod.GET)
+    @RequestMapping(path = "prometheus", method = RequestMethod.GET, produces = TextFormat.CONTENT_TYPE_004)
     public ResponseEntity prometheus() throws IOException {
         Writer writer = new StringWriter();
         try {
@@ -39,7 +39,7 @@ public class NaisRestController {
             writer.close();
         }
 
-        return new ResponseEntity(writer.toString(), HttpStatus.OK);
+        return ResponseEntity.ok().body(writer.toString());
     }
 
     @RequestMapping(path = "isAlive", method = RequestMethod.GET)
