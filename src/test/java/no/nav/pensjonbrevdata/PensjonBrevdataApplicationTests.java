@@ -27,9 +27,6 @@ import org.springframework.http.HttpStatus;
 class PensjonBrevdataApplicationTests {
     static private FakeUnleash unleash = new FakeUnleash();
 
-    @MockBean
-    private Unleash defaultUnleash;
-
     @LocalServerPort
     private int port;
 
@@ -60,8 +57,6 @@ class PensjonBrevdataApplicationTests {
                                 .build(),
                         HttpResponse.BodyHandlers.ofString()
                 );
-
-        assertTrue(response.headers().firstValue("Content-Type").get().startsWith("text/plain"));
 
         assertEquals(HttpStatus.OK.value(), response.statusCode());
         assertEquals(StringUtils.deleteWhitespace(TextFormat.CONTENT_TYPE_004), StringUtils.deleteWhitespace(response.headers().firstValue("Content-Type").get().toLowerCase()));
