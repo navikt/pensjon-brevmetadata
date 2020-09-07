@@ -3888,23 +3888,6 @@
   "utland" : "UTLAND",
   "visIPselv" : true
 }, {
-  "brevgruppe" : "brevgr001",
-  "brevkategori" : "NOTAT",
-  "brevkodeIBrevsystem" : "PE_IY_03_155",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Forvaltningsnotat",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "prioritet" : 1,
-  "redigerbart" : true,
-  "sprak" : [ "NB" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr002",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_UP_04_026",
@@ -5816,23 +5799,6 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
-  "brevgruppe" : "brevgr007",
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "PE_IY_05_241",
-  "brevkontekst" : "SAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Varsel om lang saksbehandlingstid",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "NB", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr010",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_UT_04_300",
@@ -7466,23 +7432,6 @@
   "vedleggListe" : null,
   "visIPselv" : true
 }, {
-  "brevgruppe" : "brevgr007",
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "PE_IY_05_241",
-  "brevkontekst" : "SAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Varsel om lang saksbehandlingstid",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "NB", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr008",
   "brevkategori" : null,
   "brevkodeIBrevsystem" : "E202",
@@ -8110,23 +8059,6 @@
   "vedleggListe" : null,
   "visIPselv" : true
 }, {
-  "brevgruppe" : "brevgr001",
-  "brevkategori" : "NOTAT",
-  "brevkodeIBrevsystem" : "PE_IY_05_306",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Brev fra NAV Ny pensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr003",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_GP_04_010",
@@ -8617,23 +8549,6 @@
   "synligForVeileder" : null,
   "utland" : null,
   "vedleggListe" : null,
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr007",
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "PE_AP_04_222",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Vedtak - endring av alderspensjon - utlandssak",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "EN", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "UTLAND",
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr011",
