@@ -237,23 +237,6 @@
   "utland" : "ALLTID",
   "visIPselv" : true
 }, {
-  "brevgruppe" : "brevgr007",
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "PE_AP_04_222",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Vedtak - endring av alderspensjon - utlandssak",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "EN", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "UTLAND",
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr011",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_AP_04_223",
@@ -761,23 +744,6 @@
   "redigerbart" : true,
   "sprak" : [ "NB" ],
   "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr001",
-  "brevkategori" : "NOTAT",
-  "brevkodeIBrevsystem" : "PE_IY_03_155",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Forvaltningsnotat",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "prioritet" : 1,
-  "redigerbart" : true,
-  "sprak" : [ "NB" ],
-  "synligForVeileder" : true,
   "utland" : "ALLTID",
   "visIPselv" : true
 }, {
@@ -1321,23 +1287,6 @@
   "prioritet" : null,
   "redigerbart" : true,
   "sprak" : [ "EN", "NB" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr007",
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "PE_IY_05_241",
-  "brevkontekst" : "SAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Varsel om lang saksbehandlingstid",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "NB", "NN" ],
   "synligForVeileder" : null,
   "utland" : "ALLTID",
   "visIPselv" : true
