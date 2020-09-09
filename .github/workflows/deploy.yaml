@@ -42,9 +42,9 @@ jobs:
       - name: Push Docker image
         run: "docker push ${IMAGE}"
       - name: Tag latest docker image
-          run: "docker tag ${IMAGE} ${LATEST_IMAGE}"
+        run: "docker tag ${IMAGE} ${LATEST_IMAGE}"
       - name: Push latest docker image
-          run: "docker push ${LATEST_IMAGE}"
+        run: "docker push ${LATEST_IMAGE}"
       - name: Deploy to dev-fss default
         uses: nais/deploy/actions/deploy@v1
         env:
