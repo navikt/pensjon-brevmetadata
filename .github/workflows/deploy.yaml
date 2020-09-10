@@ -7,6 +7,7 @@ on:
 
 env:
   IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevdata:${{ github.sha }}
+  LATEST_IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevdata:latest
 
 jobs:
   deploy-to-dev:
@@ -40,6 +41,10 @@ jobs:
           echo "$DOCKER_PASSWORD" | docker login --username "$GITHUB_REPOSITORY" --password-stdin docker.pkg.github.com
       - name: Push Docker image
         run: "docker push ${IMAGE}"
+      - name: Tag latest docker image
+        run: "docker tag ${IMAGE} ${LATEST_IMAGE}"
+      - name: Push latest docker image
+        run: "docker push ${LATEST_IMAGE}"
       - name: Deploy to dev-fss default
         uses: nais/deploy/actions/deploy@v1
         env:
