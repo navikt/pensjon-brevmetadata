@@ -6325,7 +6325,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "000099",
-                        "",
+                        "00001",
                         doksysVedleggMapper.map("RETTIGH_V1", "RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1"));
             } else {
                 return new GammeltBrev("PE_AP_04_227",
