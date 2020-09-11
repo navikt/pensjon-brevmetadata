@@ -6322,7 +6322,7 @@ public class BrevdataMapper {
                         null,
                         DokumentkategoriCode.VB,
                         null,
-                        null,
+                        BrevkontekstCode.VEDTAK,
                         null,
                         "000099",
                         "00001",
