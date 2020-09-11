@@ -2,6 +2,7 @@ package no.nav.pensjonbrevdata.mappers;
 
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_AUTO;
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_UTL_AUTO;
+import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_ENDR_GRAD_AUTO;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
 import java.util.ArrayList;
@@ -947,8 +948,11 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_227", () ->
-                new GammeltBrev("PE_AP_04_227",
+        brevMap.put("PE_AP_04_227", () -> {
+            if (toggle(BRUK_AP_ENDR_GRAD_AUTO).isEnabled()) {
+                throw new IllegalArgumentException("PE_AP_04_227 is not compactible with BRUK_AP_ENDR_GRAD_AUTO");
+            } else {
+                return new GammeltBrev("PE_AP_04_227",
                         false,
                         "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
                         null,
@@ -962,7 +966,9 @@ public class BrevdataMapper {
                         null,
                         null,
                         null,
-                        "brevgr011"));
+                        "brevgr011");
+            }
+        });
         brevMap.put("PE_AP_04_901", () ->
                 new GammeltBrev("PE_AP_04_901",
                         true,
@@ -6302,8 +6308,27 @@ public class BrevdataMapper {
                         "brevgr011");
             }
         });
-        brevMap.put("AP_ENDR_GRAD_AUTO", () ->
-                new GammeltBrev("PE_AP_04_227",
+        brevMap.put("AP_ENDR_GRAD_AUTO", () -> {
+            if (toggle(BRUK_AP_ENDR_GRAD_AUTO).isEnabled()) {
+                return new Doksysbrev("AP_ENDR_GRAD_AUTO",
+                        false,
+                        "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NN, SprakCode.NB, SprakCode.EN),
+                        true,
+                        null,
+                        BrevregeltypeCode.GN,
+                        null,
+                        DokumentkategoriCode.VB,
+                        null,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "000099",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_V1", "RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1"));
+            } else {
+                return new GammeltBrev("PE_AP_04_227",
                         false,
                         "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
                         null,
@@ -6317,7 +6342,9 @@ public class BrevdataMapper {
                         null,
                         null,
                         null,
-                        "brevgr011"));
+                        "brevgr011");
+            }
+        });
         brevMap.put("DUMMYBREV", () ->
                 new GammeltBrev("PE_AP_05_001",
                         true,
