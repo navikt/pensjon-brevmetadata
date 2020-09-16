@@ -948,11 +948,8 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_227", () -> {
-            if (toggle(BRUK_AP_ENDR_GRAD_AUTO).isEnabled()) {
-                throw new IllegalArgumentException("PE_AP_04_227 is not compactible with BRUK_AP_ENDR_GRAD_AUTO");
-            } else {
-                return new GammeltBrev("PE_AP_04_227",
+        brevMap.put("PE_AP_04_227", () ->
+                new GammeltBrev("PE_AP_04_227",
                         false,
                         "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
                         null,
@@ -966,9 +963,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         null,
-                        "brevgr011");
-            }
-        });
+                        "brevgr011"));
         brevMap.put("PE_AP_04_901", () ->
                 new GammeltBrev("PE_AP_04_901",
                         true,
