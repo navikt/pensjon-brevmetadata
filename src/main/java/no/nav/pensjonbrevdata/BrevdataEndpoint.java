@@ -4,8 +4,10 @@ import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGe
 import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
+import no.nav.pensjonbrevdata.helpers.BrevMetaData;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,6 +108,11 @@ public class BrevdataEndpoint {
             LOGGER.error("Feil ved kall til allBrev: " + e.getMessage() + " for brevkodeIBrevsystem " + brevkodeIBrevsystem, e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
+    }
+
+    @GetMapping("brevTypeCode")
+    public Set<String> getBrevTypeCode() {
+        return BrevMetaData.getBrevTypeCodes();
     }
 
     public void setProvider(BrevdataProvider provider) {
