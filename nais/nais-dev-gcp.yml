@@ -1,0 +1,36 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: pensjon-brevmetadata
+  namespace: pensjonsbrev
+  labels:
+    team: pensjonsbrev
+spec:
+  image: {{ image }}
+  port: 8080
+  replicas:
+    min: 1
+    max: 2
+  liveness:
+    path: "/api/internal/isAlive"
+    initialDelay: 35
+    timeout: 3
+  ingresses:
+    - "https://pensjon-brevmetadata.dev.adeo.no"
+  readiness:
+    path: "/api/internal/isReady"
+    initialDelay: 35
+    timeout: 3
+  prometheus:
+    enabled: true
+    path: "/api/internal/prometheus"
+  accessPolicy:
+    inbound:
+      rules:
+        - application: pensjon-brev-bestilling
+    outbound:
+      external:
+        - host: unleash.prod-gcp.nais.io
+  env:
+    - name: UNLEASH_ENDPOINT_URL
+      value: https://unleash.prod-gcp.nais.io/api
