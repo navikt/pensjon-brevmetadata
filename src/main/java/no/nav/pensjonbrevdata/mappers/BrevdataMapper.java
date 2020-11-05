@@ -7705,7 +7705,7 @@ public class BrevdataMapper {
 	        brevMap.put("PE_AP_04_202_NY_BREV", () ->
             new GammeltBrev("PE_AP_04_202_NY_BREV",
                     true,
-                    "Vedtak - innvilgelse av alderspensjon",
+                    "Ny Brev: Vedtak - innvilgelse av alderspensjon",
                     BrevkategoriCode.VEDTAK,
                     DokumenttypeCode.U,
                     Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
