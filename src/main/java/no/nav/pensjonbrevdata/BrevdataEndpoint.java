@@ -102,30 +102,13 @@ public class BrevdataEndpoint {
         }
     }
 
-    @GetMapping("/brev")
-    public List<Brevdata> getBrev(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
-        List<Brevdata> brevdataList = new ArrayList<>();
-        if (brevKoder.isEmpty()) {
-            return brevdataList;
-        }
-
-        for (String code : brevKoder) {
-            code = code.trim();
-            if (StringUtils.isNotBlank(code)) {
-                try {
-                    Brevdata brev = provider.getBrevForBrevkode(code);
-                    if (includeXsd) {
-                        brev = brev.medXSD(dokumentmalGenerator, fellesmalGenerator);
-                    }
-                    brevdataList.add(brev);
-                } catch (RuntimeException e) {
-                    LOGGER.error("Feil ved brev: " + code + ", message: " + e.getMessage(), e);
-                    //throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
-                }
-            }
-        }
-
-        return brevdataList;
+    @GetMapping("/brevWithOriginalBrevKode")
+    public List<Brevdata> getBrevWithOriginalBrevKode(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
+        return brevKoder.stream()
+                .filter(code -> StringUtils.isNotBlank(code))
+                .map(code -> provider.getBrevForBrevkode(code.trim()))
+                .map(brev -> includeXsd ? brev.medXSD(dokumentmalGenerator, fellesmalGenerator) : brev)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}")
