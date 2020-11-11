@@ -103,13 +103,13 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping("/brev")
-    public List<Brevdata> getBrev(@RequestParam(value = "brevKoder") String brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
+    public List<Brevdata> getBrev(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
         List<Brevdata> brevdataList = new ArrayList<>();
-        if (StringUtils.isBlank(brevKoder)) {
+        if (brevKoder.isEmpty()) {
             return brevdataList;
         }
 
-        for (String code : brevKoder.split(",")) {
+        for (String code : brevKoder) {
             code = code.trim();
             if (StringUtils.isNotBlank(code)) {
                 try {
