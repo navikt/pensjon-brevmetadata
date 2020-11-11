@@ -3,12 +3,14 @@ package no.nav.pensjonbrevdata;
 import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator;
 import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import no.nav.pensjonbrevdata.helpers.BrevMetaData;
 import no.nav.pensjonbrevdata.model.Brevdata;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.DependsOn;
@@ -98,6 +100,32 @@ public class BrevdataEndpoint {
             LOGGER.error("Feil ved kall til allBrev: " + e.getMessage(), e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
+    }
+
+    @GetMapping("/brev")
+    public List<Brevdata> getBrev(@RequestParam(value = "brevKoder") String brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
+        List<Brevdata> brevdataList = new ArrayList<>();
+        if (StringUtils.isBlank(brevKoder)) {
+            return brevdataList;
+        }
+
+        for (String code : brevKoder.split(",")) {
+            code = code.trim();
+            if (StringUtils.isNotBlank(code)) {
+                try {
+                    Brevdata brev = provider.getBrevForBrevkode(code);
+                    if (includeXsd) {
+                        brev = brev.medXSD(dokumentmalGenerator, fellesmalGenerator);
+                    }
+                    brevdataList.add(brev);
+                } catch (RuntimeException e) {
+                    LOGGER.error("Feil ved brev: " + code + ", message: " + e.getMessage(), e);
+                    //throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+                }
+            }
+        }
+
+        return brevdataList;
     }
 
     @GetMapping("/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}")
