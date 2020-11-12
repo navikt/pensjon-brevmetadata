@@ -3,12 +3,15 @@ package no.nav.pensjonbrevdata;
 import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator;
 import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import no.nav.pensjonbrevdata.helpers.BrevMetaData;
 import no.nav.pensjonbrevdata.model.Brevdata;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.DependsOn;
@@ -98,6 +101,29 @@ public class BrevdataEndpoint {
             LOGGER.error("Feil ved kall til allBrev: " + e.getMessage(), e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
+    }
+
+    @GetMapping("/brevForCodes")
+    public List<Brevdata> getBrevForCodes(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
+        return brevKoder.stream()
+                .filter(code -> StringUtils.isNotBlank(code))
+                .map(code -> provider.getBrevForBrevkode(code.trim()))
+                .map(brev -> includeXsd ? brev.medXSD(dokumentmalGenerator, fellesmalGenerator) : brev)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/batchbBrevMapping")
+    public List<Map<String,String>> getBatchBrevMapping(@RequestParam(value = "batchBrevKoder") List<String> brevKoder) {
+        return brevKoder.stream()
+                .filter(code -> StringUtils.isNotBlank(code))
+                .map(code -> {
+                    Brevdata brev = provider.getBrevForBrevkode(code.trim());
+                    Map<String, String> map = new HashMap<>();
+                    map.put("batch", code);
+                    map.put("brev", brev.getBrevkodeIBrevsystem());
+                    return map;
+                })
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}")
