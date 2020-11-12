@@ -3,8 +3,9 @@ package no.nav.pensjonbrevdata;
 import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator;
 import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -102,12 +103,26 @@ public class BrevdataEndpoint {
         }
     }
 
-    @GetMapping("/brevWithOriginalBrevKode")
-    public List<Brevdata> getBrevWithOriginalBrevKode(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
+    @GetMapping("/brevForCodes")
+    public List<Brevdata> getBrevForCodes(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
         return brevKoder.stream()
                 .filter(code -> StringUtils.isNotBlank(code))
                 .map(code -> provider.getBrevForBrevkode(code.trim()))
                 .map(brev -> includeXsd ? brev.medXSD(dokumentmalGenerator, fellesmalGenerator) : brev)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/batchbBrevMapping")
+    public List<Map<String,String>> getBatchBrevMapping(@RequestParam(value = "batchBrevKoder") List<String> brevKoder) {
+        return brevKoder.stream()
+                .filter(code -> StringUtils.isNotBlank(code))
+                .map(code -> {
+                    Brevdata brev = provider.getBrevForBrevkode(code.trim());
+                    Map<String, String> map = new HashMap<>();
+                    map.put("batch", code);
+                    map.put("brev", brev.getBrevkodeIBrevsystem());
+                    return map;
+                })
                 .collect(Collectors.toList());
     }
 
