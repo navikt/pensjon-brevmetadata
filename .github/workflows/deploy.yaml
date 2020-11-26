@@ -1,9 +1,6 @@
 name: NAIS Deploy
 
-on:
-  push:
-    branches:
-      - master
+on: push
 
 env:
   IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevdata:${{ github.sha }}
@@ -48,6 +45,7 @@ jobs:
 
   deploy-to-dev-default:
     name: Deploy to dev default
+    if: github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -106,6 +104,7 @@ jobs:
 
   deploy-to-dev-pensjonsbrev:
     name: Deploy to dev pensjonsbrev
+    if: github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -128,6 +127,7 @@ jobs:
 
   deploy-to-prod:
     name: Deploy to prod
+    if: github.ref == 'refs/heads/master'
     needs: [deploy-to-dev-default, deploy-to-dev-q4, deploy-to-dev-pensjonsbrev]
     runs-on: ubuntu-latest
     steps:
@@ -160,6 +160,7 @@ jobs:
 
   deploy-to-dev-gcp:
     name: Deploy to gcp
+    if: github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
