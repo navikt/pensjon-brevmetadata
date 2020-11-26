@@ -31,7 +31,7 @@ spec:
         - application: pensjon-brev-bestilling
     outbound:
       external:
-        - host: unleash.prod-gcp.nais.io
+        - host: unleash.nais.io
   env:
     - name: UNLEASH_ENDPOINT_URL
-      value: https://unleash.prod-gcp.nais.io/api
+      value: https://unleash.nais.io/api
