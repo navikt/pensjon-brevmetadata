@@ -26,4 +26,4 @@ spec:
     path: "/api/internal/prometheus"
   env:
     - name: UNLEASH_ENDPOINT_URL
-      value: https://unleash.nais.adeo.no/api/
+      value: https://unleash.nais.io/api/

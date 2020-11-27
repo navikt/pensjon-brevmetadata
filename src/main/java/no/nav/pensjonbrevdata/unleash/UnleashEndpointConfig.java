@@ -55,14 +55,7 @@ public class UnleashEndpointConfig {
         return unleash;
     }
 
-    @Bean("cons.brevdata.UnleashConsumerService")
-    public UnleashConsumerService unleashService() {
-        return new UnleashBean();
-    }
+   
 
-    @Bean
-    @Autowired
-    public ToggleFetcher unleashHttpToggleFetcher(UnleashConfig unleashConfig) {
-        return new HttpToggleFetcher(unleashConfig);
-    }
+   
 }
