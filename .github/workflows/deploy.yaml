@@ -3,8 +3,8 @@ name: NAIS Deploy
 on: push
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevdata:${{ github.sha }}
-  LATEST_IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevdata:latest
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevmetadata:${{ github.sha }}
+  LATEST_IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevmetadata:latest
 
 jobs:
   build:
@@ -51,33 +51,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy to dev-fss default
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
-          VAR: namespace=default,ingress=https://pensjon-brevdata.nais.preprod.local,unleashurl=https://unleash.nais.io/api/
-      - name: Deploy to dev-sbs
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-sbs
-          RESOURCE: nais/nais-dev.yml
-          VAR: namespace=default,ingress=https://pensjon-brevdata.nais.oera-q.local,unleashurl=https://unleash.nais.io/api/
       - name: Deploy brevmetadata to dev-fss default
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev-metadata.yml
+          RESOURCE: nais/nais-dev.yml
           VAR: namespace=default,ingress=https://pensjon-brevmetadata.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
       - name: Deploy brevmetadata to dev-sbs
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-sbs
-          RESOURCE: nais/nais-dev-metadata.yml
+          RESOURCE: nais/nais-dev.yml
           VAR: namespace=pensjonsbrev,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleash.nais.io/api/
 
   deploy-to-dev-q4:
@@ -87,19 +73,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy to dev-fss q4
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
-          VAR: namespace=q4,ingress=https://pensjon-brevdata-q4.nais.preprod.local,unleashurl=https://unleash.nais.io/api/
       - name: Deploy brevmetadata to dev-fss q4
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev-metadata.yml
+          RESOURCE: nais/nais-dev.yml
           VAR: namespace=q4,ingress=https://pensjon-brevmetadata-q4.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
 
   deploy-to-dev-pensjonsbrev:
@@ -110,19 +89,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy to dev-fss pensjonsbrev
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
-          VAR: namespace=pensjonsbrev,ingress=https://pensjon-brevdata-pensjonsbrev.nais.preprod.local,unleashurl=https://unleash.nais.io/api/
       - name: Deploy brevmetadata to dev-fss pensjonsbrev
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev-metadata.yml
+          RESOURCE: nais/nais-dev.yml
           VAR: namespace=pensjonsbrev,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
 
   deploy-to-prod:
@@ -133,30 +105,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy to prod-fss
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-fss
-          RESOURCE: nais/nais-prod-fss.yml
-      - name: Deploy to prod-sbs
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-sbs
-          RESOURCE: nais/nais-prod-sbs.yml
       - name: Deploy brevmetadata to prod-fss
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-fss
-          RESOURCE: nais/nais-prod-fss-metadata.yml
+          RESOURCE: nais/nais-prod-fss.yml
       - name: Deploy brevmetadata to prod-sbs
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-sbs
-          RESOURCE: nais/nais-prod-sbs-metadata.yml
+          RESOURCE: nais/nais-prod-sbs.yml
 
   deploy-to-dev-gcp:
     name: Deploy to gcp
