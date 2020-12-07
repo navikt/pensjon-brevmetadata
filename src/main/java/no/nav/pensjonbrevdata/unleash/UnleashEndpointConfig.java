@@ -33,6 +33,8 @@ public class UnleashEndpointConfig {
         String environmentName = null != envName ? envName : "local";
         String instanceId = getProperty("instance.id");
 
+        System.out.println("My instance.id is:" + instanceId);
+        System.out.println("My environment name is : " + envName);
         if (null == instanceId) {
             instanceId = "local";
         }
