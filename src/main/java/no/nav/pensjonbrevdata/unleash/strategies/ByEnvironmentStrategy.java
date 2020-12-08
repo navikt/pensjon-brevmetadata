@@ -30,6 +30,6 @@ public class ByEnvironmentStrategy implements Strategy {
     }
 
     private boolean isCurrentEnvironment(String env) {
-        return StringUtils.equalsIgnoreCase(env, System.getenv(ENVIRONMENT_PROPERTY));
+        return StringUtils.equalsIgnoreCase(env, System.getenv().getOrDefault(ENVIRONMENT_PROPERTY,"local"));
     }
 }
