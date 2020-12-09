@@ -10,8 +10,9 @@ import org.apache.commons.lang3.StringUtils;
 
 public class ByEnvironmentStrategy implements Strategy {
 
-    private static final String ENVIRONMENT_PROPERTY = "environment.name";
-    private static final String NAIS_PROPERTY = "NAIS_NAMESPACE";
+	// dette settes via nais.yml
+    private static final String ENVIRONMENT_NAME = "ENVIRONMENT_NAME";
+    private static final String CLUSTER_NAME = "NAIS_CLUSTER_NAME";
 
     @Override
     public String getName() {
@@ -30,7 +31,9 @@ public class ByEnvironmentStrategy implements Strategy {
     }
 
     private boolean isCurrentEnvironment(String env) {
-        return System.getProperty(ENVIRONMENT_PROPERTY, "local").equals(env) ||
-                StringUtils.equalsIgnoreCase(env, System.getenv(NAIS_PROPERTY));
+        if(StringUtils.equalsIgnoreCase(env, "local")) {
+            return System.getenv(CLUSTER_NAME) == null;
+        }
+        return StringUtils.equalsIgnoreCase(env, System.getenv().get(ENVIRONMENT_NAME));
     }
 }

@@ -4,6 +4,7 @@ import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_AUTO;
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_UTL_AUTO;
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_ENDR_GRAD_AUTO;
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.ENABLE_NY_BREV_METADATA;
+import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_BARNEPENSJON_V2;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
 import java.util.ArrayList;
@@ -4872,26 +4873,70 @@ public class BrevdataMapper {
                         "000102",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
-        brevMap.put("BP_AVSL_MAN", () ->
-                new Doksysbrev("BP_AVSL_MAN",
-                        true,
-                        "Vedtak - avslag på søknad om barnepensjon",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.OVRIGE,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "000106",
-                        "00001",
-                        doksysVedleggMapper.map("RETTIGH_V1")));
-        brevMap.put("BP_OPPH_MAN", () ->
-                new Doksysbrev("BP_OPPH_MAN",
+        brevMap.put("BP_AVSL_MAN", () -> {
+        	if (toggle(BRUK_BARNEPENSJON_V2).isDisabled()) {
+                return new Doksysbrev("BP_AVSL_MAN",
+	                        true,
+	                        "Vedtak - avslag på søknad om barnepensjon",
+	                        BrevkategoriCode.VEDTAK,
+	                        DokumenttypeCode.U,
+	                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+	                        true,
+	                        BrevUtlandCode.ALLTID,
+	                        BrevregeltypeCode.OVRIGE,
+	                        BrevkravtypeCode.ALLE,
+	                        DokumentkategoriCode.VB,
+	                        null,
+	                        BrevkontekstCode.VEDTAK,
+	                        null,
+	                        "000106",
+	                        "00001",
+	                        doksysVedleggMapper.map("RETTIGH_V1"));
+                } 
+        		else {
+                	return new Doksysbrev("BP_AVSL_MAN",
+	                        true,
+	                        "Vedtak - avslag på søknad om barnepensjon",
+	                        BrevkategoriCode.VEDTAK,
+	                        DokumenttypeCode.U,
+	                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+	                        true,
+	                        BrevUtlandCode.ALLTID,
+	                        BrevregeltypeCode.OVRIGE,
+	                        BrevkravtypeCode.ALLE,
+	                        DokumentkategoriCode.VB,
+	                        null,
+	                        BrevkontekstCode.VEDTAK,
+	                        null,
+	                        "v2.000106",
+	                        "00001",
+	                        doksysVedleggMapper.map("RETTIGH_V1"));
+                }
+                
+        });
+        brevMap.put("BP_OPPH_MAN", () -> {
+        	
+        	if (toggle(BRUK_BARNEPENSJON_V2).isDisabled()) {
+               return new Doksysbrev("BP_OPPH_MAN",
+	                        true,
+	                        "Vedtak - stans av barnepensjon",
+	                        BrevkategoriCode.VEDTAK,
+	                        DokumenttypeCode.U,
+	                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+	                        true,
+	                        BrevUtlandCode.ALLTID,
+	                        BrevregeltypeCode.OVRIGE,
+	                        BrevkravtypeCode.ALLE,
+	                        DokumentkategoriCode.VB,
+	                        null,
+	                        BrevkontekstCode.VEDTAK,
+	                        null,
+	                        "000107",
+	                        "00001",
+	                        doksysVedleggMapper.map("RETTIGH_V1"));
+        	}
+        	else {
+        		return new Doksysbrev("BP_OPPH_MAN",
                         true,
                         "Vedtak - stans av barnepensjon",
                         BrevkategoriCode.VEDTAK,
@@ -4905,9 +4950,11 @@ public class BrevdataMapper {
                         null,
                         BrevkontekstCode.VEDTAK,
                         null,
-                        "000107",
+                        "v2.000107",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_V1")));
+                        doksysVedleggMapper.map("RETTIGH_V1"));
+        		}});
+        	
         brevMap.put("INFO_ENDR_UT_INNT", () ->
                 new Doksysbrev("INFO_ENDR_UT_INNT",
                         false,
@@ -4962,7 +5009,7 @@ public class BrevdataMapper {
                         "000118",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
-        brevMap.put("AP_ENDR_FLYTT_MAN", () ->
+        brevMap.put("AP_ENDR_FLYTT_MAN", () -> 
                 new Doksysbrev("AP_ENDR_FLYTT_MAN",
                         true,
                         "Vedtak - endring av alderspensjon ved flytting mellom land",
