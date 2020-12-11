@@ -57,14 +57,14 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
           RESOURCE: nais/nais-dev.yml
-          VAR: application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+          VAR: environmentname=default,application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
       - name: Deploy brevmetadata to dev-sbs
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-sbs
           RESOURCE: nais/nais-dev.yml
-          VAR: application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleash.nais.io/api/
+          VAR: environmentname=default,application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleash.nais.io/api/
 
   deploy-to-dev-t4:
     name: Deploy to dev t4
@@ -79,7 +79,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
           RESOURCE: nais/nais-dev.yml
-          VAR: application=pensjon-brevmetadata-t4,ingress=https://pensjon-brevmetadata-t4-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+          VAR: environmentname=t4,application=pensjon-brevmetadata-t4,ingress=https://pensjon-brevmetadata-t4-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
 
   deploy-to-prod:
     name: Deploy to prod

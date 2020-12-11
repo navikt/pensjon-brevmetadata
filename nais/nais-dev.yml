@@ -27,3 +27,5 @@ spec:
   env:
     - name: UNLEASH_ENDPOINT_URL
       value: {{ unleashurl }}
+    - name: ENVIRONMENT_NAME
+      value: {{ environmentname }}
