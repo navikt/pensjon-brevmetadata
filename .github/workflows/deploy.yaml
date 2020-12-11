@@ -57,45 +57,29 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
           RESOURCE: nais/nais-dev.yml
-          VAR: namespace=default,ingress=https://pensjon-brevmetadata.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+          VAR: application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
       - name: Deploy brevmetadata to dev-sbs
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-sbs
           RESOURCE: nais/nais-dev.yml
-          VAR: namespace=pensjonsbrev,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleash.nais.io/api/
+          VAR: application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleash.nais.io/api/
 
-  deploy-to-dev-q4:
-    name: Deploy to dev q4
+  deploy-to-dev-t4:
+    name: Deploy to dev t4
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy brevmetadata to dev-fss q4
+      - name: Deploy brevmetadata to dev-fss t4
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
           RESOURCE: nais/nais-dev.yml
-          VAR: namespace=q4,ingress=https://pensjon-brevmetadata-q4.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
-
-  deploy-to-dev-pensjonsbrev:
-    name: Deploy to dev pensjonsbrev
-    if: github.ref == 'refs/heads/master'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy brevmetadata to dev-fss pensjonsbrev
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
-          VAR: namespace=pensjonsbrev,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+          VAR: application=pensjon-brevmetadata-t4,ingress=https://pensjon-brevmetadata-t4-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
 
   deploy-to-prod:
     name: Deploy to prod
