@@ -43,7 +43,7 @@ jobs:
       - name: Push latest docker image
         run: "docker push ${LATEST_IMAGE}"
 
-  deploy-to-dev-default:
+  deploy-to-dev-pensjonsbrev:
     name: Deploy to dev default
     if: github.ref == 'refs/heads/master'
     needs: build
@@ -84,7 +84,7 @@ jobs:
   deploy-to-prod:
     name: Deploy to prod
     if: github.ref == 'refs/heads/master'
-    needs: [deploy-to-dev-default, deploy-to-dev-q4, deploy-to-dev-pensjonsbrev]
+    needs: [deploy-to-dev-t4, deploy-to-dev-pensjonsbrev]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
