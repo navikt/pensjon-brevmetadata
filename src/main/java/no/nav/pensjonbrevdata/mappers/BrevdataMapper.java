@@ -1,10 +1,6 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_AUTO;
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_AVSL_UTL_AUTO;
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AP_ENDR_GRAD_AUTO;
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.ENABLE_NY_BREV_METADATA;
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_BARNEPENSJON_V2;
+import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
 import java.util.ArrayList;
@@ -5009,7 +5005,7 @@ public class BrevdataMapper {
                         "000118",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
-        brevMap.put("AP_ENDR_FLYTT_MAN", () -> 
+        brevMap.put("AP_ENDR_FLYTT_MAN", () ->
                 new Doksysbrev("AP_ENDR_FLYTT_MAN",
                         true,
                         "Vedtak - endring av alderspensjon ved flytting mellom land",
@@ -7782,6 +7778,52 @@ public class BrevdataMapper {
                     null,
                     "brevgr002"));
         }
+        brevMap.put("VEDTAK_TILBAKEKREV ", () ->  {
+            if (toggle(BRUK_VEDTAK_TILBAKEKREV).isDisabled()) {
+                throw new IllegalArgumentException("VEDTAK_TILBAKEKREV is not in production");
+            } else {
+                return new Doksysbrev("VEDTAK_TILBAKEKREV",
+                        true,
+                        "Vedtak - tilbakekreving av feilutbetalt beløp",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                        true,
+                        BrevUtlandCode.ALLTID,
+                        BrevregeltypeCode.OVRIGE,
+                        BrevkravtypeCode.ALLE,
+                        DokumentkategoriCode.VB,
+                        true,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "000189",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1"));
+            }
+        });
+        brevMap.put("VEDTAK_TILBAKEKREV_MIDL", () ->  {
+            if (toggle(BRUK_VEDTAK_TILBAKEKREV_MIDL).isDisabled()) {
+                throw new IllegalArgumentException("VEDTAK_TILBAKEKREV_MIDL is not in production");
+            } else {
+                return new Doksysbrev("VEDTAK_TILBAKEKREV_MIDL",
+                        true,
+                        "Vedtak - tilbakekreving av feilutbetalt beløp (tom mal)",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                        true,
+                        BrevUtlandCode.ALLTID,
+                        BrevregeltypeCode.OVRIGE,
+                        BrevkravtypeCode.ALLE,
+                        DokumentkategoriCode.VB,
+                        true,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "000189",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1"));
+            }
+        });
     }
 
     public Brevdata map(String brevkode) {
@@ -7806,9 +7848,11 @@ public class BrevdataMapper {
     public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
         List<String> brevkeys = new ArrayList<>();
         for (String key : brevMap.keySet()) {
-            if (brevMap.get(key).get().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
-                brevkeys.add(key);
-            }
+            try {
+                if (brevMap.get(key).get().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
+                    brevkeys.add(key);
+                }
+            } catch (IllegalArgumentException ignored) {}
         }
         return brevkeys;
     }
