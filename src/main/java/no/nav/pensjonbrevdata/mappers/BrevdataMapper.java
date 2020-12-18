@@ -7778,7 +7778,7 @@ public class BrevdataMapper {
                     null,
                     "brevgr002"));
         }
-        brevMap.put("VEDTAK_TILBAKEKREV ", () ->  {
+        brevMap.put("VEDTAK_TILBAKEKREV", () ->  {
             if (toggle(BRUK_VEDTAK_TILBAKEKREV).isDisabled()) {
                 throw new IllegalArgumentException("VEDTAK_TILBAKEKREV is not in production");
             } else {
