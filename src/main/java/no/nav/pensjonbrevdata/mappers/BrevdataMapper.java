@@ -7819,7 +7819,7 @@ public class BrevdataMapper {
                         true,
                         BrevkontekstCode.VEDTAK,
                         null,
-                        "000189",
+                        "000190",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1"));
             }
