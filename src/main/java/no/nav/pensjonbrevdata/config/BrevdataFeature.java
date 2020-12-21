@@ -11,7 +11,5 @@ public final class BrevdataFeature {
     public static final String BRUK_VEDTAK_TILBAKEKREV_MIDL = "pensjonsbrev.pensjon-brevdata.brukVEDTAK_TILBAKEKREV_MIDL";
     public static final String BRUK_VEDTAK_TILBAKEKREV = "pensjonsbrev.pensjon-brevdata.brukVEDTAK_TILBAKEKREV";
 
-    private BrevdataFeature() {
-        // no instantiation
-    }
+    private BrevdataFeature() { }
 }
