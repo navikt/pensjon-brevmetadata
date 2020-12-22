@@ -1813,7 +1813,7 @@
   "dokumentkategori" : "VB",
   "prioritet" : null,
   "redigerbart" : false,
-  "sprak" : null,
+  "sprak" : [ "NB", "EN", "NN" ],
   "synligForVeileder" : null,
   "utland" : null,
   "visIPselv" : true
@@ -6604,23 +6604,6 @@
   "vedleggListe" : null,
   "visIPselv" : true
 }, {
-  "brevgruppe" : "brevgr011",
-  "brevkategori" : null,
-  "brevkodeIBrevsystem" : "PE_AP_04_227",
-  "brevkontekst" : null,
-  "brevkravtype" : null,
-  "brevregeltype" : "GN",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "NN", "NB" ],
-  "synligForVeileder" : null,
-  "utland" : null,
-  "visIPselv" : true
-}, {
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "AP_ENDR_GJRETT_MAN",
   "brevkontekst" : "VEDTAK",
@@ -6661,6 +6644,23 @@
     "dokumentmalId" : "V00006",
     "vedleggkode" : "AP_AVDOD_OPPL_BER_V1"
   } ],
+  "visIPselv" : true
+}, {
+  "brevgruppe" : "brevgr011",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_AP_04_227",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
   "visIPselv" : true
 }, {
   "brevkategori" : "VEDTAK",
