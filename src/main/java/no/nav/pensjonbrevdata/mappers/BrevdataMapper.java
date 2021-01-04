@@ -7798,7 +7798,7 @@ public class BrevdataMapper {
                         null,
                         "000189",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1"));
+                        doksysVedleggMapper.map("RETTIGH_V1"));
             }
         });
         brevMap.put("VEDTAK_TILBAKEKREV_MIDL", () ->  {
@@ -7821,7 +7821,7 @@ public class BrevdataMapper {
                         null,
                         "000190",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1"));
+                        doksysVedleggMapper.map("RETTIGH_V1"));
             }
         });
     }
