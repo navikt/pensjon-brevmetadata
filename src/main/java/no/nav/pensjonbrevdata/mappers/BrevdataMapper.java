@@ -7772,12 +7772,12 @@ public class BrevdataMapper {
                 BrevregeltypeCode.NN,
                 null,
                 DokumentkategoriCode.VB,
-                false,
+                null,
                 BrevkontekstCode.VEDTAK,
                 null,
                 "000195",
                 "00001",
-                doksysVedleggMapper.map("RETTIGH_V1", "RETTIGH_PLIKT_V1")));
+                doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
     }
 
     public Brevdata map(String brevkode) {
