@@ -7761,6 +7761,23 @@ public class BrevdataMapper {
                         "000190",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_V1")));
+        brevMap.put("AO_AP_GT_OMR", new Doksysbrev("AO_AP_GT_OMR",
+                false,
+                "Vedtak - omregning av alderspensjon pga rett til garantitillegg",
+                BrevkategoriCode.VEDTAK,
+                DokumenttypeCode.U,
+                Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                true,
+                null,
+                BrevregeltypeCode.NN,
+                null,
+                DokumentkategoriCode.VB,
+                false,
+                BrevkontekstCode.VEDTAK,
+                null,
+                "000195",
+                "00001",
+                doksysVedleggMapper.map("RETTIGH_V1", "RETTIGH_PLIKT_V1")));
     }
 
     public Brevdata map(String brevkode) {
