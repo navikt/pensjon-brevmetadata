@@ -118,7 +118,7 @@ public class KomponentTest {
         var expected = loadResult(endpoint,kode, includeXsd);
         var actual = resp.body();
         if(expected.equals("") || actual.equals("")){
-            assertEquals(expected, actual);
+            assertEquals(expected, actual,"Feil i " + kodeDesc + " " + kode);
         } else {
             JSONAssert.assertEquals("Feil i respons til " + kodeDesc + " " + kode + "\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
                     expected, actual, true);

@@ -8,7 +8,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
@@ -24,12 +25,136 @@ import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 public class BrevdataMapper {
 
-    private final Map<String, Supplier<Brevdata>> brevMap;
+    private static final DoksysVedleggMapper doksysVedleggMapper = new DoksysVedleggMapper();
+
+    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataErstattMedGammeltBrev(String togglekey, String toggleBrevkode, Brevdata gammeltBrev) {
+        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleBrevkode) ?  gammeltBrev : entry.getValue()));
+    }
+
+    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataFiltrerBortNyttBrev(String togglekey, String toggleBrevkode) {
+        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals(toggleBrevkode)).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataLeggTilGammeltBrev(String togglekey, String toggleBrevkode, Brevdata gammeltBrev) {
+        return brevMap -> {
+            if (toggle(togglekey).isEnabled()) return brevMap;
+            Map<String, Brevdata> newMap = brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            newMap.put(toggleBrevkode,  gammeltBrev);
+            return newMap;
+        };
+    }
+
+    private static final Brevdata GAMMEL_BREV_AP_AVSL_AUTO =
+            new GammeltBrev("PE_AP_04_210",
+                    false,
+                    "Vedtak - avslag på alderspensjon",
+                    null,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
+                    true,
+                    null,
+                    BrevregeltypeCode.GN,
+                    null,
+                    DokumentkategoriCode.VB,
+                    null,
+                    null,
+                    null,
+                    "brevgr011");
+
+    private static final Brevdata GAMMEL_BREV_AP_AVSL_UTL_AUTO =
+            new GammeltBrev("PE_AP_04_213",
+                    false,
+                    "Vedtak - avslag på alderspensjon - utenlandssak",
+                    null,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.EN),
+                    true,
+                    null,
+                    BrevregeltypeCode.GN,
+                    null,
+                    DokumentkategoriCode.VB,
+                    null,
+                    null,
+                    null,
+                    "brevgr011");
+
+    private static final Brevdata GAMMEL_BREV_BP_AVSL_MAN =
+            new Doksysbrev("BP_AVSL_MAN",
+                    true,
+                    "Vedtak - avslag på søknad om barnepensjon",
+                    BrevkategoriCode.VEDTAK,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                    true,
+                    BrevUtlandCode.ALLTID,
+                    BrevregeltypeCode.OVRIGE,
+                    BrevkravtypeCode.ALLE,
+                    DokumentkategoriCode.VB,
+                    null,
+                    BrevkontekstCode.VEDTAK,
+                    null,
+                    "000106",
+                    "00001",
+                    doksysVedleggMapper.map("RETTIGH_V1"));
+
+    private static final Brevdata GAMMEL_BREV_BP_OPPH_MAN =
+            new Doksysbrev("BP_OPPH_MAN",
+                    true,
+                    "Vedtak - stans av barnepensjon",
+                    BrevkategoriCode.VEDTAK,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                    true,
+                    BrevUtlandCode.ALLTID,
+                    BrevregeltypeCode.OVRIGE,
+                    BrevkravtypeCode.ALLE,
+                    DokumentkategoriCode.VB,
+                    null,
+                    BrevkontekstCode.VEDTAK,
+                    null,
+                    "000107",
+                    "00001",
+                    doksysVedleggMapper.map("RETTIGH_V1"));
+
+    private static final Brevdata GAMMEL_BREV_AP_ENDR_GRAD_AUTO =
+            new GammeltBrev("PE_AP_04_227",
+                    false,
+                    "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
+                    null,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NN, SprakCode.NB),
+                    true,
+                    null,
+                    BrevregeltypeCode.GN,
+                    null,
+                    DokumentkategoriCode.VB,
+                    null,
+                    null,
+                    null,
+                    "brevgr011");
+
+    private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
+            brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
+                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV_MIDL, "VEDTAK_TILBAKEKREV_MIDL"))
+                    .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_IY_05_401_NY_BREV"))
+                    .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_AP_04_202_NY_BREV"))
+                    .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_BA_04_503_NY_BREV"))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_AVSL_AUTO, "AP_AVSLAG_AUTO", GAMMEL_BREV_AP_AVSL_AUTO))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_AVSL_AUTO, "AP_AVSL_AUTO", GAMMEL_BREV_AP_AVSL_AUTO))
+                    .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_AVSL_AUTO, "PE_AP_04_210", GAMMEL_BREV_AP_AVSL_AUTO))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_AVSL_UTL_AUTO, "AP_AVSL_UTL_AUTO", GAMMEL_BREV_AP_AVSL_UTL_AUTO))
+                    .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_AVSL_UTL_AUTO, "PE_AP_04_213", GAMMEL_BREV_AP_AVSL_UTL_AUTO))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_BARNEPENSJON_V2, "BP_AVSL_MAN", GAMMEL_BREV_BP_AVSL_MAN))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_BARNEPENSJON_V2, "BP_OPPH_MAN", GAMMEL_BREV_BP_OPPH_MAN))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
+                    .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
+            ;
+
+    private final Map<String, Brevdata> brevMap;
 
     public BrevdataMapper() {
         brevMap = new HashMap<>();
-        DoksysVedleggMapper doksysVedleggMapper = new DoksysVedleggMapper();
-        brevMap.put("E001", () ->
+        brevMap.put("E001",
                 new GammeltBrev("E001",
                         true,
                         "E 001 - Anmodning om opplysninger",
@@ -45,7 +170,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("E204", () ->
+        brevMap.put("E204",
                 new GammeltBrev("E204",
                         true,
                         "E 204 - Behandling av krav om uføretrygd/uførepensjon",
@@ -61,7 +186,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("E205", () ->
+        brevMap.put("E205",
                 new GammeltBrev("E205",
                         true,
                         "E 205 - Attest om trygdetid i Norge",
@@ -77,7 +202,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("E210", () ->
+        brevMap.put("E210",
                 new GammeltBrev("E210",
                         true,
                         "E 210 - Melding om vedtak i sak som gjelder krav",
@@ -93,7 +218,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("E211", () ->
+        brevMap.put("E211",
                 new GammeltBrev("E211",
                         true,
                         "E 211 - Samlet melding om vedtakene",
@@ -109,7 +234,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("H001", () ->
+        brevMap.put("H001",
                 new GammeltBrev("H001",
                         true,
                         "H001 - Anmodning om informasjon",
@@ -125,7 +250,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("H002", () ->
+        brevMap.put("H002",
                 new GammeltBrev("H002",
                         true,
                         "H002 - Svar på anmodning om informasjon",
@@ -141,7 +266,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("H061", () ->
+        brevMap.put("H061",
                 new GammeltBrev("H061",
                         false,
                         "H061 - Melding/anmodning om personnummer",
@@ -157,7 +282,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H062", () ->
+        brevMap.put("H062",
                 new GammeltBrev("H062",
                         false,
                         "H062 - Bekreftelse/svar på anmodning om personnummer",
@@ -173,7 +298,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H070", () ->
+        brevMap.put("H070",
                 new GammeltBrev("H070",
                         false,
                         "H070 - Melding om dødsfall",
@@ -189,7 +314,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("PE_AF_03_100", () ->
+        brevMap.put("PE_AF_03_100",
                 new GammeltBrev("PE_AF_03_100",
                         false,
                         "Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -205,7 +330,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_03_101", () ->
+        brevMap.put("PE_AF_03_101",
                 new GammeltBrev("PE_AF_03_101",
                         true,
                         "Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -221,7 +346,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_001", () ->
+        brevMap.put("PE_AF_04_001",
                 new GammeltBrev("PE_AF_04_001",
                         true,
                         "Vedtak - innvilgelse av AFP",
@@ -237,7 +362,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AF_04_010", () ->
+        brevMap.put("PE_AF_04_010",
                 new GammeltBrev("PE_AF_04_010",
                         true,
                         "Vedtak - avslag på AFP",
@@ -253,7 +378,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_AF_04_020", () ->
+        brevMap.put("PE_AF_04_020",
                 new GammeltBrev("PE_AF_04_020",
                         true,
                         "Vedtak - endring av AFP",
@@ -269,7 +394,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AF_04_100", () ->
+        brevMap.put("PE_AF_04_100",
                 new GammeltBrev("PE_AF_04_100",
                         false,
                         "Vedtak - ingen endring - AFP etteroppgjør",
@@ -285,7 +410,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_101", () ->
+        brevMap.put("PE_AF_04_101",
                 new GammeltBrev("PE_AF_04_101",
                         false,
                         "Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
@@ -301,7 +426,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_102", () ->
+        brevMap.put("PE_AF_04_102",
                 new GammeltBrev("PE_AF_04_102",
                         false,
                         "Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
@@ -317,7 +442,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_103", () ->
+        brevMap.put("PE_AF_04_103",
                 new GammeltBrev("PE_AF_04_103",
                         true,
                         "Vedtak - ingen endring etter mottatt svar - AFP etteroppgjør",
@@ -333,7 +458,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_104", () ->
+        brevMap.put("PE_AF_04_104",
                 new GammeltBrev("PE_AF_04_104",
                         true,
                         "Vedtak - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -349,7 +474,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_105", () ->
+        brevMap.put("PE_AF_04_105",
                 new GammeltBrev("PE_AF_04_105",
                         true,
                         "Vedtak - etterbetaling av for lite utbetalt pensjon etter mottatt svar - AFP etteroppgjør",
@@ -365,7 +490,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_106", () ->
+        brevMap.put("PE_AF_04_106",
                 new GammeltBrev("PE_AF_04_106",
                         true,
                         "Vedtak - ingen endring (andre avvik) etter mottatt svar - AFP etteroppgjør",
@@ -381,7 +506,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_107", () ->
+        brevMap.put("PE_AF_04_107",
                 new GammeltBrev("PE_AF_04_107",
                         false,
                         "Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
@@ -397,7 +522,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("E202", () ->
+        brevMap.put("E202",
                 new GammeltBrev("E202",
                         true,
                         "E 202 - Behandling av krav om alderspensjon",
@@ -413,7 +538,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("E202_E205", () ->
+        brevMap.put("E202_E205",
                 new GammeltBrev("E202_E205",
                         true,
                         "E 202 og E 205 - Behandling av krav om alderspensjon og Attest om trygdetid i Norge",
@@ -429,7 +554,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("PE_AF_04_108", () ->
+        brevMap.put("PE_AF_04_108",
                 new GammeltBrev("PE_AF_04_108",
                         true,
                         "Vedtak - ingen endring - AFP etteroppgjør",
@@ -445,7 +570,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_109", () ->
+        brevMap.put("PE_AF_04_109",
                 new GammeltBrev("PE_AF_04_109",
                         true,
                         "Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
@@ -461,7 +586,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_110", () ->
+        brevMap.put("PE_AF_04_110",
                 new GammeltBrev("PE_AF_04_110",
                         true,
                         "Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
@@ -477,7 +602,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_AF_04_111", () ->
+        brevMap.put("PE_AF_04_111",
                 new GammeltBrev("PE_AF_04_111",
                         true,
                         "Vedtak - innvilgelse av AFP i privat sektor",
@@ -493,7 +618,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_AF_04_112", () ->
+        brevMap.put("PE_AF_04_112",
                 new GammeltBrev("PE_AF_04_112",
                         true,
                         "Vedtak - avslag på AFP i privat sektor",
@@ -509,7 +634,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_AF_04_113", () ->
+        brevMap.put("PE_AF_04_113",
                 new GammeltBrev("PE_AF_04_113",
                         false,
                         "Vedtak - endring av opptjening - AFP i privat sektor",
@@ -525,7 +650,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_AF_04_114", () ->
+        brevMap.put("PE_AF_04_114",
                 new GammeltBrev("PE_AF_04_114",
                         true,
                         "Vedtak - endring av AFP i privat sektor",
@@ -541,7 +666,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_AF_04_115", () ->
+        brevMap.put("PE_AF_04_115",
                 new GammeltBrev("PE_AF_04_115",
                         false,
                         "Vedtak - innvilgelse av AFP i privat sektor",
@@ -557,7 +682,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_AF_04_116", () ->
+        brevMap.put("PE_AF_04_116",
                 new GammeltBrev("PE_AF_04_116",
                         false,
                         "Vedtak - avslag på AFP i privat sektor",
@@ -573,7 +698,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_AP_01_001", () ->
+        brevMap.put("PE_AP_01_001",
                 new GammeltBrev("PE_AP_01_001",
                         false,
                         "Informasjon til deg som snart fyller 67 år",
@@ -589,7 +714,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_AP_01_006", () ->
+        brevMap.put("PE_AP_01_006",
                 new GammeltBrev("PE_AP_01_006",
                         false,
                         "Brev med skjema Søknad om alderspensjon (NAV 19-01.05)",
@@ -605,7 +730,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_AP_01_007", () ->
+        brevMap.put("PE_AP_01_007",
                 new GammeltBrev("PE_AP_01_007",
                         false,
                         "Brev med skjema Endring av alderspensjon (NAV 19-01.10)",
@@ -621,7 +746,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_AP_01_011", () ->
+        brevMap.put("PE_AP_01_011",
                 new GammeltBrev("PE_AP_01_011",
                         false,
                         "Ikke løpende ytelse",
@@ -637,7 +762,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_AP_01_015", () ->
+        brevMap.put("PE_AP_01_015",
                 new GammeltBrev("PE_AP_01_015",
                         false,
                         "Løpende gjenlevendepensjon",
@@ -653,7 +778,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_AP_01_019", () ->
+        brevMap.put("PE_AP_01_019",
                 new GammeltBrev("PE_AP_01_019",
                         false,
                         "Løpende delvis uførepensjon",
@@ -669,7 +794,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_AP_04_001", () ->
+        brevMap.put("PE_AP_04_001",
                 new GammeltBrev("PE_AP_04_001",
                         true,
                         "Vedtak - innvilgelse av alderspensjon (ev. innvilgelse/avslag forsørgingstillegg)",
@@ -685,7 +810,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_010", () ->
+        brevMap.put("PE_AP_04_010",
                 new GammeltBrev("PE_AP_04_010",
                         true,
                         "Vedtak - avslag på alderspensjon",
@@ -701,7 +826,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_AP_04_020", () ->
+        brevMap.put("PE_AP_04_020",
                 new GammeltBrev("PE_AP_04_020",
                         true,
                         "Vedtak - endring av alderspensjon  (ev. innvilgelse/avslag forsørgingstillegg)",
@@ -717,7 +842,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_202", () ->
+        brevMap.put("PE_AP_04_202",
                 new GammeltBrev("PE_AP_04_202",
                         true,
                         "Vedtak - innvilgelse av alderspensjon",
@@ -733,7 +858,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_203", () ->
+        brevMap.put("PE_AP_04_203",
                 new GammeltBrev("PE_AP_04_203",
                         true,
                         "Vedtak - innvilgelse av alderspensjon - utenlandssak",
@@ -749,7 +874,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_211", () ->
+        brevMap.put("PE_AP_04_211",
                 new GammeltBrev("PE_AP_04_211",
                         true,
                         "Vedtak - avslag på alderspensjon",
@@ -765,7 +890,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_212", () ->
+        brevMap.put("PE_AP_04_212",
                 new GammeltBrev("PE_AP_04_212",
                         true,
                         "Vedtak - avslag på alderspensjon - utenlandssak",
@@ -781,28 +906,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_213", () -> {
-            if (toggle(BRUK_AP_AVSL_UTL_AUTO).isEnabled()) {
-                throw new IllegalArgumentException("PE_AP_04_213 is not compactible with BRUK_AP_AVSL_UTL_AUTO");
-            } else {
-                return new GammeltBrev("PE_AP_04_213",
-                        false,
-                        "Vedtak - avslag på alderspensjon - utenlandssak",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.EN),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011");
-            }
-        });
-        brevMap.put("PE_AP_04_214", () ->
+        brevMap.put("PE_AP_04_214",
                 new GammeltBrev("PE_AP_04_214",
                         true,
                         "Vedtak - endring av alderspensjon fordi opptjening er endret",
@@ -818,7 +922,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_215", () ->
+        brevMap.put("PE_AP_04_215",
                 new GammeltBrev("PE_AP_04_215",
                         true,
                         "Vedtak - opphør av alderspensjon fordi opptjening er endret",
@@ -834,7 +938,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_216", () ->
+        brevMap.put("PE_AP_04_216",
                 new GammeltBrev("PE_AP_04_216",
                         true,
                         "Vedtak - opphør av alderspensjon og AFP i privat sektor fordi opptjening er endret",
@@ -850,7 +954,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_220", () ->
+        brevMap.put("PE_AP_04_220",
                 new GammeltBrev("PE_AP_04_220",
                         true,
                         "Vedtak - endring av alderspensjon",
@@ -866,7 +970,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_221", () ->
+        brevMap.put("PE_AP_04_221",
                 new GammeltBrev("PE_AP_04_221",
                         false,
                         "Vedtak - endring av alderspensjon på grunn av innvilgelse eller opphør av ektefelle/partner/samboers pensjon eller uføretrygd",
@@ -882,7 +986,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_223", () ->
+        brevMap.put("PE_AP_04_223",
                 new GammeltBrev("PE_AP_04_223",
                         true,
                         "Vedtak - innvilgelse eksport av alderspensjon",
@@ -898,7 +1002,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_224", () ->
+        brevMap.put("PE_AP_04_224",
                 new GammeltBrev("PE_AP_04_224",
                         true,
                         "Vedtak - delvis eksport av alderspensjon",
@@ -914,7 +1018,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_225", () ->
+        brevMap.put("PE_AP_04_225",
                 new GammeltBrev("PE_AP_04_225",
                         true,
                         "Vedtak - avslag på eksport av alderspensjon",
@@ -930,7 +1034,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_226", () ->
+        brevMap.put("PE_AP_04_226",
                 new GammeltBrev("PE_AP_04_226",
                         false,
                         "Vedtak - endring av alderspensjon på grunn av endring av ektefelle/partner/samboers pensjon eller uføretrygd",
@@ -946,23 +1050,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_227", () ->
-                new GammeltBrev("PE_AP_04_227",
-                        false,
-                        "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NN, SprakCode.NB),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011"));
-        brevMap.put("PE_AP_04_901", () ->
+        brevMap.put("PE_AP_04_901",
                 new GammeltBrev("PE_AP_04_901",
                         true,
                         "Vedtak - innvilgelse av alderspensjon - bodd i ikke-avtaleland",
@@ -978,7 +1066,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_902", () ->
+        brevMap.put("PE_AP_04_902",
                 new GammeltBrev("PE_AP_04_902",
                         true,
                         "Vedtak - foreløpig innvilgelse av alderspensjon - Norge/avtaleland",
@@ -994,7 +1082,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_903", () ->
+        brevMap.put("PE_AP_04_903",
                 new GammeltBrev("PE_AP_04_903",
                         true,
                         "Vedtak - endelig innvilgelse av alderspensjon - uendret - Norge/avtaleland",
@@ -1010,7 +1098,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_904", () ->
+        brevMap.put("PE_AP_04_904",
                 new GammeltBrev("PE_AP_04_904",
                         true,
                         "Vedtak - endelig innvilgelse av alderspensjon - endret - Norge/avtaleland",
@@ -1026,7 +1114,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_910", () ->
+        brevMap.put("PE_AP_04_910",
                 new GammeltBrev("PE_AP_04_910",
                         true,
                         "Vedtak - avslag på alderspensjon - bosatt i utlandet",
@@ -1042,7 +1130,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_AP_04_911", () ->
+        brevMap.put("PE_AP_04_911",
                 new GammeltBrev("PE_AP_04_911",
                         true,
                         "Vedtak - foreløpig avslag på alderspensjon - Norge/avtaleland",
@@ -1058,7 +1146,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_AP_04_912", () ->
+        brevMap.put("PE_AP_04_912",
                 new GammeltBrev("PE_AP_04_912",
                         true,
                         "Vedtak - endelig avslag på alderspensjon - Norge/avtaleland",
@@ -1074,7 +1162,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_AP_04_913", () ->
+        brevMap.put("PE_AP_04_913",
                 new GammeltBrev("PE_AP_04_913",
                         true,
                         "Vedtak - innvilgelse av alderspensjon - bosatt i avtaleland",
@@ -1090,7 +1178,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_914", () ->
+        brevMap.put("PE_AP_04_914",
                 new GammeltBrev("PE_AP_04_914",
                         true,
                         "Vedtak - innvilgelse av alderspensjon - bosatt i ikke-avtaleland",
@@ -1106,7 +1194,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_920", () ->
+        brevMap.put("PE_AP_04_920",
                 new GammeltBrev("PE_AP_04_920",
                         true,
                         "Vedtak - endring av alderspensjon - utenlandssak",
@@ -1122,7 +1210,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_AP_04_921", () ->
+        brevMap.put("PE_AP_04_921",
                 new GammeltBrev("PE_AP_04_921",
                         false,
                         "Vedtak - endring av opptjening - alderspensjon",
@@ -1138,7 +1226,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr011"));
-        brevMap.put("PE_AP_04_922", () ->
+        brevMap.put("PE_AP_04_922",
                 new GammeltBrev("PE_AP_04_922",
                         true,
                         "Informasjon om uttakstidspunkt ved mellombehandling av alderspensjon",
@@ -1154,7 +1242,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_AP_05_001", () ->
+        brevMap.put("PE_AP_05_001",
                 new GammeltBrev("PE_AP_05_001",
                         true,
                         "Dummybrev AP 2016/2025",
@@ -1170,7 +1258,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_01_100", () ->
+        brevMap.put("PE_BA_01_100",
                 new GammeltBrev("PE_BA_01_100",
                         false,
                         "Informasjon til deg som fyller 67 år",
@@ -1186,7 +1274,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_01_103", () ->
+        brevMap.put("PE_BA_01_103",
                 new GammeltBrev("PE_BA_01_103",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar uføretrygd",
@@ -1202,7 +1290,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_01_104", () ->
+        brevMap.put("PE_BA_01_104",
                 new GammeltBrev("PE_BA_01_104",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar gradert uføretrygd",
@@ -1218,7 +1306,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_01_105", () ->
+        brevMap.put("PE_BA_01_105",
                 new GammeltBrev("PE_BA_01_105",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar uføretrygd og alderspensjon",
@@ -1234,7 +1322,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_01_106", () ->
+        brevMap.put("PE_BA_01_106",
                 new GammeltBrev("PE_BA_01_106",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar AFP",
@@ -1250,7 +1338,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_01_107", () ->
+        brevMap.put("PE_BA_01_107",
                 new GammeltBrev("PE_BA_01_107",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar familiepleierytelse",
@@ -1266,7 +1354,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_01_108", () ->
+        brevMap.put("PE_BA_01_108",
                 new GammeltBrev("PE_BA_01_108",
                         false,
                         "Informasjon om vilkår for rett til ektefelletillegg",
@@ -1282,7 +1370,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BA_04_501", () ->
+        brevMap.put("PE_BA_04_501",
                 new GammeltBrev("PE_BA_04_501",
                         false,
                         "Vedtak - forsørgingstillegg fra folketrygden",
@@ -1298,7 +1386,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_502", () ->
+        brevMap.put("PE_BA_04_502",
                 new GammeltBrev("PE_BA_04_502",
                         false,
                         "Vedtak - forsørgingstillegg fra folketrygden",
@@ -1314,7 +1402,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_503", () ->
+        brevMap.put("PE_BA_04_503",
                 new GammeltBrev("PE_BA_04_503",
                         false,
                         "Vedtak - forsørgingstillegg fra folketrygden",
@@ -1330,7 +1418,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_504", () ->
+        brevMap.put("PE_BA_04_504",
                 new GammeltBrev("PE_BA_04_504",
                         false,
                         "Vedtak - alderspensjon fra folketrygden",
@@ -1346,7 +1434,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_505", () ->
+        brevMap.put("PE_BA_04_505",
                 new GammeltBrev("PE_BA_04_505",
                         false,
                         "Vedtak - endring av uføretrygd fordi du fyller 20 år",
@@ -1362,7 +1450,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr010"));
-        brevMap.put("PE_BA_04_506", () ->
+        brevMap.put("PE_BA_04_506",
                 new GammeltBrev("PE_BA_04_506",
                         false,
                         "Vedtak - endring av alderspensjon fordi du fyller 70 år",
@@ -1378,7 +1466,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_507", () ->
+        brevMap.put("PE_BA_04_507",
                 new GammeltBrev("PE_BA_04_507",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -1394,7 +1482,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_508", () ->
+        brevMap.put("PE_BA_04_508",
                 new GammeltBrev("PE_BA_04_508",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -1410,7 +1498,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_509", () ->
+        brevMap.put("PE_BA_04_509",
                 new GammeltBrev("PE_BA_04_509",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -1426,7 +1514,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_510", () ->
+        brevMap.put("PE_BA_04_510",
                 new GammeltBrev("PE_BA_04_510",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -1442,7 +1530,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_511", () ->
+        brevMap.put("PE_BA_04_511",
                 new GammeltBrev("PE_BA_04_511",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -1458,7 +1546,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_512", () ->
+        brevMap.put("PE_BA_04_512",
                 new GammeltBrev("PE_BA_04_512",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -1474,7 +1562,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_515", () ->
+        brevMap.put("PE_BA_04_515",
                 new GammeltBrev("PE_BA_04_515",
                         false,
                         "Vedtak - alderspensjon fra folketrygden",
@@ -1490,7 +1578,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_516", () ->
+        brevMap.put("PE_BA_04_516",
                 new GammeltBrev("PE_BA_04_516",
                         false,
                         "Vedtak - alderspensjon fra folketrygden",
@@ -1506,7 +1594,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_520", () ->
+        brevMap.put("PE_BA_04_520",
                 new GammeltBrev("PE_BA_04_520",
                         false,
                         "Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -1522,7 +1610,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_521", () ->
+        brevMap.put("PE_BA_04_521",
                 new GammeltBrev("PE_BA_04_521",
                         false,
                         "Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
@@ -1538,7 +1626,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_522", () ->
+        brevMap.put("PE_BA_04_522",
                 new GammeltBrev("PE_BA_04_522",
                         false,
                         "Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -1554,7 +1642,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_523", () ->
+        brevMap.put("PE_BA_04_523",
                 new GammeltBrev("PE_BA_04_523",
                         false,
                         "Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -1570,7 +1658,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BA_04_525", () ->
+        brevMap.put("PE_BA_04_525",
                 new GammeltBrev("PE_BA_04_525",
                         false,
                         "Vedtak - opphør av barnetillegg",
@@ -1586,7 +1674,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_526", () ->
+        brevMap.put("PE_BA_04_526",
                 new GammeltBrev("PE_BA_04_526",
                         false,
                         "Vedtak - opphør barne- og ektefelletillegg",
@@ -1602,7 +1690,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_527", () ->
+        brevMap.put("PE_BA_04_527",
                 new GammeltBrev("PE_BA_04_527",
                         false,
                         "Vedtak - opphør av ektefelletilegg",
@@ -1618,7 +1706,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_528", () ->
+        brevMap.put("PE_BA_04_528",
                 new GammeltBrev("PE_BA_04_528",
                         false,
                         "Vedtak - omregning av uføretrygd til alderspensjon",
@@ -1634,7 +1722,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_530", () ->
+        brevMap.put("PE_BA_04_530",
                 new GammeltBrev("PE_BA_04_530",
                         false,
                         "Vedtak - omregning av AFP til alderspensjon",
@@ -1650,7 +1738,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_531", () ->
+        brevMap.put("PE_BA_04_531",
                 new GammeltBrev("PE_BA_04_531",
                         false,
                         "Vedtak - fra familiepleierytelse til alderspensjon",
@@ -1666,7 +1754,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_532", () ->
+        brevMap.put("PE_BA_04_532",
                 new GammeltBrev("PE_BA_04_532",
                         false,
                         "Vedtak - endring av alderspensjon fordi ektefelle fyller 60 år",
@@ -1682,7 +1770,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_533", () ->
+        brevMap.put("PE_BA_04_533",
                 new GammeltBrev("PE_BA_04_533",
                         false,
                         "Vedtak - endring av alderspensjon fordi du fyller 75 år",
@@ -1698,7 +1786,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BA_04_534", () ->
+        brevMap.put("PE_BA_04_534",
                 new GammeltBrev("PE_BA_04_534",
                         false,
                         "Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
@@ -1714,7 +1802,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_BP_01_001", () ->
+        brevMap.put("PE_BP_01_001",
                 new GammeltBrev("PE_BP_01_001",
                         false,
                         "Informasjon til deg som snart fyller 18 år om forlenget barnepensjon til foreldreløse barn",
@@ -1730,7 +1818,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BP_01_002", () ->
+        brevMap.put("PE_BP_01_002",
                 new GammeltBrev("PE_BP_01_002",
                         false,
                         "Informasjon til deg som snart fyller 18 år om forlenget barnepensjon",
@@ -1746,7 +1834,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_BP_04_001", () ->
+        brevMap.put("PE_BP_04_001",
                 new GammeltBrev("PE_BP_04_001",
                         true,
                         "Vedtak - innvilgelse av barnepensjon",
@@ -1762,7 +1850,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BP_04_002", () ->
+        brevMap.put("PE_BP_04_002",
                 new GammeltBrev("PE_BP_04_002",
                         true,
                         "Vedtak - innvilgelse av barnepensjon - utenlandssak",
@@ -1778,7 +1866,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BP_04_010", () ->
+        brevMap.put("PE_BP_04_010",
                 new GammeltBrev("PE_BP_04_010",
                         true,
                         "Vedtak - avslag på barnepensjon",
@@ -1794,7 +1882,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_BP_04_011", () ->
+        brevMap.put("PE_BP_04_011",
                 new GammeltBrev("PE_BP_04_011",
                         true,
                         "Vedtak - avslag på barnepensjon - utenlandssak",
@@ -1810,7 +1898,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_BP_04_020", () ->
+        brevMap.put("PE_BP_04_020",
                 new GammeltBrev("PE_BP_04_020",
                         true,
                         "Vedtak - endring av barnepensjon",
@@ -1826,7 +1914,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BP_04_021", () ->
+        brevMap.put("PE_BP_04_021",
                 new GammeltBrev("PE_BP_04_021",
                         true,
                         "Vedtak - endring av barnepensjon - utenlandssak",
@@ -1842,7 +1930,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BP_04_022", () ->
+        brevMap.put("PE_BP_04_022",
                 new GammeltBrev("PE_BP_04_022",
                         false,
                         "Vedtak - omregning  av barnepensjon",
@@ -1858,7 +1946,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_BP_04_030", () ->
+        brevMap.put("PE_BP_04_030",
                 new GammeltBrev("PE_BP_04_030",
                         true,
                         "Vedtak - opphør av barnepensjon",
@@ -1874,7 +1962,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_BP_04_031", () ->
+        brevMap.put("PE_BP_04_031",
                 new GammeltBrev("PE_BP_04_031",
                         true,
                         "Vedtak - opphør av barnepensjon - utenlandssak",
@@ -1890,7 +1978,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_FT_01_001", () ->
+        brevMap.put("PE_FT_01_001",
                 new GammeltBrev("PE_FT_01_001",
                         false,
                         "Brev med skjema Søknad om forsørgingstillegg (NAV 03-24.05)",
@@ -1906,7 +1994,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_FT_01_002", () ->
+        brevMap.put("PE_FT_01_002",
                 new GammeltBrev("PE_FT_01_002",
                         true,
                         "Vedtak - fortsatt rett til ektefelletillegg",
@@ -1922,7 +2010,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_FT_01_003", () ->
+        brevMap.put("PE_FT_01_003",
                 new GammeltBrev("PE_FT_01_003",
                         true,
                         "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1938,7 +2026,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_FT_01_004", () ->
+        brevMap.put("PE_FT_01_004",
                 new GammeltBrev("PE_FT_01_004",
                         false,
                         "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1954,7 +2042,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_FT_01_005", () ->
+        brevMap.put("PE_FT_01_005",
                 new GammeltBrev("PE_FT_01_005",
                         false,
                         "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1970,7 +2058,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_FT_01_006", () ->
+        brevMap.put("PE_FT_01_006",
                 new GammeltBrev("PE_FT_01_006",
                         true,
                         "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1986,7 +2074,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_FT_01_007", () ->
+        brevMap.put("PE_FT_01_007",
                 new GammeltBrev("PE_FT_01_007",
                         true,
                         "Vedtak - fortsatt rett til ektefelletillegg",
@@ -2002,7 +2090,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_01_010", () ->
+        brevMap.put("PE_GP_01_010",
                 new GammeltBrev("PE_GP_01_010",
                         false,
                         "Brev med skjema Krav om stønad til gjenlevende ektefelle/partner/samboer og gjenlevende barn (NAV 17-01.05)",
@@ -2018,7 +2106,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_GP_01_011", () ->
+        brevMap.put("PE_GP_01_011",
                 new GammeltBrev("PE_GP_01_011",
                         false,
                         "Brev med skjema Søknad om barnepensjon når en forelder er død (NAV 18-04.01)",
@@ -2034,7 +2122,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_GP_01_012", () ->
+        brevMap.put("PE_GP_01_012",
                 new GammeltBrev("PE_GP_01_012",
                         false,
                         "Brev med skjema Søknad om barnepensjon til foreldreløse barn (NAV 18-01.05)",
@@ -2050,7 +2138,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_GP_04_001", () ->
+        brevMap.put("PE_GP_04_001",
                 new GammeltBrev("PE_GP_04_001",
                         true,
                         "Vedtak - innvilgelse av ytelse til gjenlevende",
@@ -2066,7 +2154,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_010", () ->
+        brevMap.put("PE_GP_04_010",
                 new GammeltBrev("PE_GP_04_010",
                         true,
                         "Vedtak - avslag på ytelse til gjenlevende",
@@ -2082,7 +2170,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_GP_04_020", () ->
+        brevMap.put("PE_GP_04_020",
                 new GammeltBrev("PE_GP_04_020",
                         true,
                         "Vedtak - endring av ytelse til gjenlevende",
@@ -2098,7 +2186,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_022", () ->
+        brevMap.put("PE_GP_04_022",
                 new GammeltBrev("PE_GP_04_022",
                         true,
                         "Vedtak - delvis eksport av ytelse til gjenlevende",
@@ -2114,7 +2202,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_023", () ->
+        brevMap.put("PE_GP_04_023",
                 new GammeltBrev("PE_GP_04_023",
                         true,
                         "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - før utland)",
@@ -2130,7 +2218,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_024", () ->
+        brevMap.put("PE_GP_04_024",
                 new GammeltBrev("PE_GP_04_024",
                         true,
                         "Vedtak - innvilgelse av ytelse til gjenlevende med endring (bosatt Norge - Etter utland)",
@@ -2146,7 +2234,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_025", () ->
+        brevMap.put("PE_GP_04_025",
                 new GammeltBrev("PE_GP_04_025",
                         true,
                         "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - etter utland)",
@@ -2162,7 +2250,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_026", () ->
+        brevMap.put("PE_GP_04_026",
                 new GammeltBrev("PE_GP_04_026",
                         true,
                         "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt avtaleland)",
@@ -2178,7 +2266,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_027", () ->
+        brevMap.put("PE_GP_04_027",
                 new GammeltBrev("PE_GP_04_027",
                         true,
                         "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt ikke avtaleland)",
@@ -2194,7 +2282,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_028", () ->
+        brevMap.put("PE_GP_04_028",
                 new GammeltBrev("PE_GP_04_028",
                         true,
                         "Vedtak - endring av ytelse til gjenlevende (bosatt Norge)",
@@ -2210,7 +2298,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_029", () ->
+        brevMap.put("PE_GP_04_029",
                 new GammeltBrev("PE_GP_04_029",
                         true,
                         "Vedtak - endring av ytelse til gjenlevende (bosatt utland)",
@@ -2226,7 +2314,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_GP_04_030", () ->
+        brevMap.put("PE_GP_04_030",
                 new GammeltBrev("PE_GP_04_030",
                         true,
                         "Vedtak - opphør av ytelse til gjenlevende",
@@ -2242,7 +2330,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_GP_04_031", () ->
+        brevMap.put("PE_GP_04_031",
                 new GammeltBrev("PE_GP_04_031",
                         true,
                         "Vedtak - avslag ytelse til gjenlevende (bosatt Norge - før utland)",
@@ -2258,7 +2346,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_GP_04_032", () ->
+        brevMap.put("PE_GP_04_032",
                 new GammeltBrev("PE_GP_04_032",
                         true,
                         "Vedtak - avslag ytelse til gjenlevende (bosatt Norge - etter utland)",
@@ -2274,7 +2362,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_GP_04_033", () ->
+        brevMap.put("PE_GP_04_033",
                 new GammeltBrev("PE_GP_04_033",
                         true,
                         "Vedtak - avslag ytelse til gjenlevende (bosatt utland)",
@@ -2290,7 +2378,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_GP_04_034", () ->
+        brevMap.put("PE_GP_04_034",
                 new GammeltBrev("PE_GP_04_034",
                         true,
                         "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - mellombehandling)",
@@ -2306,7 +2394,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_IY_02_301", () ->
+        brevMap.put("PE_IY_02_301",
                 new GammeltBrev("PE_IY_02_301",
                         true,
                         "Melding fra Samordningsregisteret",
@@ -2322,7 +2410,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_047", () ->
+        brevMap.put("PE_IY_03_047",
                 new GammeltBrev("PE_IY_03_047",
                         true,
                         "Innhente dokumentasjon",
@@ -2338,7 +2426,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_048", () ->
+        brevMap.put("PE_IY_03_048",
                 new GammeltBrev("PE_IY_03_048",
                         true,
                         "Innhente opplysninger",
@@ -2354,7 +2442,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_049", () ->
+        brevMap.put("PE_IY_03_049",
                 new GammeltBrev("PE_IY_03_049",
                         false,
                         "Innhente bekreftelse på flyktningstatus fra UDI",
@@ -2370,7 +2458,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_051", () ->
+        brevMap.put("PE_IY_03_051",
                 new GammeltBrev("PE_IY_03_051",
                         false,
                         "Varsel om mulig avslag/opphør p.g.a. manglende opplysninger",
@@ -2386,7 +2474,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_150", () ->
+        brevMap.put("PE_IY_03_150",
                 new GammeltBrev("PE_IY_03_150",
                         true,
                         "Klage - oversendelse til NAV Klageinstans",
@@ -2402,7 +2490,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_151", () ->
+        brevMap.put("PE_IY_03_151",
                 new GammeltBrev("PE_IY_03_151",
                         true,
                         "Anke - tilsvar til ankende part",
@@ -2418,7 +2506,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_152", () ->
+        brevMap.put("PE_IY_03_152",
                 new GammeltBrev("PE_IY_03_152",
                         true,
                         "Anke - oversendelse til Trygderetten",
@@ -2434,7 +2522,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_153", () ->
+        brevMap.put("PE_IY_03_153",
                 new GammeltBrev("PE_IY_03_153",
                         true,
                         "Klage - orientering om saksbehandlingstid ved NAV Pensjon",
@@ -2450,7 +2538,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_154", () ->
+        brevMap.put("PE_IY_03_154",
                 new GammeltBrev("PE_IY_03_154",
                         true,
                         "Klage - følgeskriv til oversendelse til NAV Klageinstans",
@@ -2466,7 +2554,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_156", () ->
+        brevMap.put("PE_IY_03_156",
                 new GammeltBrev("PE_IY_03_156",
                         true,
                         "Notat",
@@ -2482,7 +2570,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.ALLTID,
                         1,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_157", () ->
+        brevMap.put("PE_IY_03_157",
                 new GammeltBrev("PE_IY_03_157",
                         true,
                         "Klage - orientering om oversendelse til NAV Klageinstans",
@@ -2498,7 +2586,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_158", () ->
+        brevMap.put("PE_IY_03_158",
                 new GammeltBrev("PE_IY_03_158",
                         true,
                         "Anke - orientering om saksbehandlingstid",
@@ -2514,7 +2602,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_159", () ->
+        brevMap.put("PE_IY_03_159",
                 new GammeltBrev("PE_IY_03_159",
                         true,
                         "Anke - følgeskriv til oversendelse til Trygderetten",
@@ -2530,7 +2618,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_160", () ->
+        brevMap.put("PE_IY_03_160",
                 new GammeltBrev("PE_IY_03_160",
                         true,
                         "Anke - orientering om oversendelse til Trygderetten",
@@ -2546,7 +2634,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_161", () ->
+        brevMap.put("PE_IY_03_161",
                 new GammeltBrev("PE_IY_03_161",
                         true,
                         "Klage - tilsvar til klagende part",
@@ -2562,7 +2650,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_162", () ->
+        brevMap.put("PE_IY_03_162",
                 new GammeltBrev("PE_IY_03_162",
                         true,
                         "Klage - orientering om saksbehandlingstid ved NAV Klageinstans",
@@ -2578,7 +2666,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_163", () ->
+        brevMap.put("PE_IY_03_163",
                 new GammeltBrev("PE_IY_03_163",
                         true,
                         "Orientering om saksbehandlingstid  (bosatt avtaleland)",
@@ -2594,7 +2682,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_164", () ->
+        brevMap.put("PE_IY_03_164",
                 new GammeltBrev("PE_IY_03_164",
                         true,
                         "Orientering om saksbehandlingstid (bosatt i ikke-avtaleland)",
@@ -2610,7 +2698,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_165", () ->
+        brevMap.put("PE_IY_03_165",
                 new GammeltBrev("PE_IY_03_165",
                         true,
                         "Innhente opplysninger i EØS-sak (bruker bosatt i Norge)",
@@ -2626,7 +2714,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_166", () ->
+        brevMap.put("PE_IY_03_166",
                 new GammeltBrev("PE_IY_03_166",
                         true,
                         "Forespørsel om fartstidsoppgave",
@@ -2642,7 +2730,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_167", () ->
+        brevMap.put("PE_IY_03_167",
                 new GammeltBrev("PE_IY_03_167",
                         true,
                         "Forespørsel om dokumentasjon av botid i Norge",
@@ -2658,7 +2746,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.ALLTID,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_168", () ->
+        brevMap.put("PE_IY_03_168",
                 new GammeltBrev("PE_IY_03_168",
                         true,
                         "Oversettelse av dokumenter",
@@ -2674,7 +2762,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_169", () ->
+        brevMap.put("PE_IY_03_169",
                 new GammeltBrev("PE_IY_03_169",
                         true,
                         "Bekreftelse på at bruker mottar uføretrygd (norsk)",
@@ -2690,7 +2778,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_170", () ->
+        brevMap.put("PE_IY_03_170",
                 new GammeltBrev("PE_IY_03_170",
                         true,
                         "Bekreftelse på at bruker mottar uføretrygd (engelsk)",
@@ -2706,7 +2794,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_171", () ->
+        brevMap.put("PE_IY_03_171",
                 new GammeltBrev("PE_IY_03_171",
                         true,
                         "Bekreftelse på at bruker mottar uføretrygd (tysk)",
@@ -2722,7 +2810,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_172", () ->
+        brevMap.put("PE_IY_03_172",
                 new GammeltBrev("PE_IY_03_172",
                         true,
                         "Bekreftelse på at bruker mottar uføretrygd (fransk)",
@@ -2738,7 +2826,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_173", () ->
+        brevMap.put("PE_IY_03_173",
                 new GammeltBrev("PE_IY_03_173",
                         true,
                         "Bekreftelse på at bruker mottar uføretrygd (spansk)",
@@ -2754,7 +2842,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_174", () ->
+        brevMap.put("PE_IY_03_174",
                 new GammeltBrev("PE_IY_03_174",
                         true,
                         "Bekreftelse på at bruker mottar pensjon (engelsk)",
@@ -2770,7 +2858,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_175", () ->
+        brevMap.put("PE_IY_03_175",
                 new GammeltBrev("PE_IY_03_175",
                         true,
                         "Informasjon til deg som er bosatt i utlandet og snart fyller 67 år",
@@ -2786,7 +2874,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_176", () ->
+        brevMap.put("PE_IY_03_176",
                 new GammeltBrev("PE_IY_03_176",
                         true,
                         "Vedtak - stans av pensjon på grunn av manglende leveattest",
@@ -2802,7 +2890,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_177", () ->
+        brevMap.put("PE_IY_03_177",
                 new GammeltBrev("PE_IY_03_177",
                         true,
                         "Varsel - melding om stans eller gjenopptatt utbetaling på grunn av leveattest",
@@ -2818,7 +2906,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_178", () ->
+        brevMap.put("PE_IY_03_178",
                 new GammeltBrev("PE_IY_03_178",
                         true,
                         "Påminnelse generell",
@@ -2834,7 +2922,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_179", () ->
+        brevMap.put("PE_IY_03_179",
                 new GammeltBrev("PE_IY_03_179",
                         true,
                         "Varsel - revurdering av pensjon",
@@ -2850,7 +2938,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_03_180", () ->
+        brevMap.put("PE_IY_03_180",
                 new GammeltBrev("PE_IY_03_180",
                         true,
                         "Orientering om saksbehandlingstid  i EØS-sak (bruker bosatt i Norge)",
@@ -2866,7 +2954,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_04_001", () ->
+        brevMap.put("PE_IY_04_001",
                 new GammeltBrev("PE_IY_04_001",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved pleie og omsorg for eldre syke og funksjonshemmede",
@@ -2882,7 +2970,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_04_010", () ->
+        brevMap.put("PE_IY_04_010",
                 new GammeltBrev("PE_IY_04_010",
                         true,
                         "Vedtak- avslag på omsorgsopptjening",
@@ -2898,7 +2986,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_04_050", () ->
+        brevMap.put("PE_IY_04_050",
                 new GammeltBrev("PE_IY_04_050",
                         true,
                         "Vedtak - klagesak - NAV Klageinstans",
@@ -2914,7 +3002,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_04_051", () ->
+        brevMap.put("PE_IY_04_051",
                 new GammeltBrev("PE_IY_04_051",
                         true,
                         "Vedtak - omgjøring i ankesak - NAV Klageinstans",
@@ -2930,7 +3018,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_04_060", () ->
+        brevMap.put("PE_IY_04_060",
                 new GammeltBrev("PE_IY_04_060",
                         true,
                         "Vedtak om tilbakekreving av feilutbetalt beløp",
@@ -2946,7 +3034,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_04_061", () ->
+        brevMap.put("PE_IY_04_061",
                 new GammeltBrev("PE_IY_04_061",
                         true,
                         "Vedtak om at feilutbetalt beløp ikke vil bli tilbakekrevet",
@@ -2962,7 +3050,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_04_062", () ->
+        brevMap.put("PE_IY_04_062",
                 new GammeltBrev("PE_IY_04_062",
                         false,
                         "Vedtak om tilbakekreving",
@@ -2978,7 +3066,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_04_120", () ->
+        brevMap.put("PE_IY_04_120",
                 new GammeltBrev("PE_IY_04_120",
                         false,
                         "Vedtak - overføring av omsorgsopptjening brev til mottaker",
@@ -2994,7 +3082,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_04_121", () ->
+        brevMap.put("PE_IY_04_121",
                 new GammeltBrev("PE_IY_04_121",
                         false,
                         "Vedtak - overføring av omsorgsopptjening brev til avgiver",
@@ -3010,7 +3098,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_04_125", () ->
+        brevMap.put("PE_IY_04_125",
                 new GammeltBrev("PE_IY_04_125",
                         true,
                         "Vedtak - innvilgelse eksport av alderspensjon",
@@ -3026,7 +3114,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_IY_04_126", () ->
+        brevMap.put("PE_IY_04_126",
                 new GammeltBrev("PE_IY_04_126",
                         true,
                         "Vedtak - avslag på eksport av alderspensjon",
@@ -3042,7 +3130,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_IY_04_127", () ->
+        brevMap.put("PE_IY_04_127",
                 new GammeltBrev("PE_IY_04_127",
                         true,
                         "Vedtak - delvis eksport av alderspensjon",
@@ -3058,7 +3146,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_IY_05_006", () ->
+        brevMap.put("PE_IY_05_006",
                 new GammeltBrev("PE_IY_05_006",
                         true,
                         "Retur av dokumenter",
@@ -3074,7 +3162,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_007", () ->
+        brevMap.put("PE_IY_05_007",
                 new GammeltBrev("PE_IY_05_007",
                         true,
                         "Forespørsel på grunn av uleselig dokument",
@@ -3090,7 +3178,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_008", () ->
+        brevMap.put("PE_IY_05_008",
                 new GammeltBrev("PE_IY_05_008",
                         true,
                         "Innsendt blankett mangler underskrift",
@@ -3106,7 +3194,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_027", () ->
+        brevMap.put("PE_IY_05_027",
                 new GammeltBrev("PE_IY_05_027",
                         true,
                         "Varsel - tilbakekreving av feilutbetalt beløp",
@@ -3122,7 +3210,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_028", () ->
+        brevMap.put("PE_IY_05_028",
                 new GammeltBrev("PE_IY_05_028",
                         false,
                         "Forhåndsvarsel for tilbakekreving",
@@ -3138,7 +3226,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_05_041", () ->
+        brevMap.put("PE_IY_05_041",
                 new GammeltBrev("PE_IY_05_041",
                         true,
                         "Orientering om forlenget saksbehandlingstid",
@@ -3154,7 +3242,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_101", () ->
+        brevMap.put("PE_IY_05_101",
                 new GammeltBrev("PE_IY_05_101",
                         false,
                         "Brev med skjema Overføring av Omsorgsopptjening (NAV 03-16.10)",
@@ -3170,7 +3258,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_102", () ->
+        brevMap.put("PE_IY_05_102",
                 new GammeltBrev("PE_IY_05_102",
                         false,
                         "Brev med skjema Søknad om godskriving av pensjonsopptjening for pleie og omsorg for eldre syke og funksjonshemmede (NAV 03-16.05)",
@@ -3186,7 +3274,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_104", () ->
+        brevMap.put("PE_IY_05_104",
                 new GammeltBrev("PE_IY_05_104",
                         false,
                         "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01)",
@@ -3202,7 +3290,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_105", () ->
+        brevMap.put("PE_IY_05_105",
                 new GammeltBrev("PE_IY_05_105",
                         false,
                         "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02)",
@@ -3218,7 +3306,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_111", () ->
+        brevMap.put("PE_IY_05_111",
                 new GammeltBrev("PE_IY_05_111",
                         false,
                         "Brev med skjema Søknad om ytelser til tidligere familiepleier (NAV 16-01.05)",
@@ -3234,7 +3322,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_200", () ->
+        brevMap.put("PE_IY_05_200",
                 new GammeltBrev("PE_IY_05_200",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
@@ -3250,7 +3338,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_05_201", () ->
+        brevMap.put("PE_IY_05_201",
                 new GammeltBrev("PE_IY_05_201",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn",
@@ -3266,7 +3354,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_05_300", () ->
+        brevMap.put("PE_IY_05_300",
                 new GammeltBrev("PE_IY_05_300",
                         true,
                         "Brev fra NAV",
@@ -3282,7 +3370,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.ALLTID,
                         1,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_301", () ->
+        brevMap.put("PE_IY_05_301",
                 new GammeltBrev("PE_IY_05_301",
                         true,
                         "Melding til samhandlere om stans eller gjenopptatt betaling",
@@ -3298,7 +3386,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_302", () ->
+        brevMap.put("PE_IY_05_302",
                 new GammeltBrev("PE_IY_05_302",
                         false,
                         "Melding til Samordningsregisteret - purring",
@@ -3314,7 +3402,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr009"));
-        brevMap.put("PE_IY_05_303", () ->
+        brevMap.put("PE_IY_05_303",
                 new GammeltBrev("PE_IY_05_303",
                         false,
                         "Melding til Samordningsregisteret",
@@ -3330,7 +3418,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr009"));
-        brevMap.put("PE_IY_05_304", () ->
+        brevMap.put("PE_IY_05_304",
                 new GammeltBrev("PE_IY_05_304",
                         false,
                         "Melding til Samordningsregisteret",
@@ -3346,7 +3434,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr009"));
-        brevMap.put("PE_IY_05_305", () ->
+        brevMap.put("PE_IY_05_305",
                 new GammeltBrev("PE_IY_05_305",
                         false,
                         "Melding til Samordningsregisteret",
@@ -3362,7 +3450,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr009"));
-        brevMap.put("PE_IY_05_401", () ->
+        brevMap.put("PE_IY_05_401",
                 new GammeltBrev("PE_IY_05_401",
                         false,
                         "Brev med skjema Endringsblankett for inntekt (NAV 21-03.15)",
@@ -3378,7 +3466,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_402", () ->
+        brevMap.put("PE_IY_05_402",
                 new GammeltBrev("PE_IY_05_402",
                         false,
                         "Brev med skjema Endringsblankett for samboerskap (NAV 25-04.10)",
@@ -3394,7 +3482,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_410", () ->
+        brevMap.put("PE_IY_05_410",
                 new GammeltBrev("PE_IY_05_410",
                         false,
                         "Brev med skjema Leveattest (NAV 21-03.05)",
@@ -3410,7 +3498,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_411", () ->
+        brevMap.put("PE_IY_05_411",
                 new GammeltBrev("PE_IY_05_411",
                         false,
                         "Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
@@ -3426,7 +3514,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_05_502", () ->
+        brevMap.put("PE_IY_05_502",
                 new GammeltBrev("PE_IY_05_502",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn før 1992",
@@ -3442,7 +3530,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_IY_06_103", () ->
+        brevMap.put("PE_IY_06_103",
                 new GammeltBrev("PE_IY_06_103",
                         true,
                         "Varsel - uttaksgraden kan bli satt ned eller retten til uttak av alderspensjon kan falle bort",
@@ -3458,7 +3546,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_06_510", () ->
+        brevMap.put("PE_IY_06_510",
                 new GammeltBrev("PE_IY_06_510",
                         false,
                         "Brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -3474,7 +3562,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_IY_06_511", () ->
+        brevMap.put("PE_IY_06_511",
                 new GammeltBrev("PE_IY_06_511",
                         false,
                         "Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -3490,7 +3578,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_OK_06_100", () ->
+        brevMap.put("PE_OK_06_100",
                 new GammeltBrev("PE_OK_06_100",
                         true,
                         "Posteringsgrunnlag (virkningstidspunkt før 01.01.09)",
@@ -3506,7 +3594,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_OK_06_101", () ->
+        brevMap.put("PE_OK_06_101",
                 new GammeltBrev("PE_OK_06_101",
                         true,
                         "Posteringsgrunnlag",
@@ -3522,7 +3610,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.ALLTID,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_OK_06_102", () ->
+        brevMap.put("PE_OK_06_102",
                 new GammeltBrev("PE_OK_06_102",
                         true,
                         "Posteringsgrunnlag ved tilbakekrevingssaker",
@@ -3538,7 +3626,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_UP_01_001", () ->
+        brevMap.put("PE_UP_01_001",
                 new GammeltBrev("PE_UP_01_001",
                         true,
                         "Orientering om utvidelse av perioden med hvilende rett til uførepensjon - med skjema Krav om forlengelse av hvilende rett til uførepensjon i nye fem "
@@ -3555,7 +3643,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_UP_04_001", () ->
+        brevMap.put("PE_UP_04_001",
                 new GammeltBrev("PE_UP_04_001",
                         true,
                         "Vedtak - innvilgelse av uførepensjon",
@@ -3571,7 +3659,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_010", () ->
+        brevMap.put("PE_UP_04_010",
                 new GammeltBrev("PE_UP_04_010",
                         true,
                         "Vedtak - opphør av uførepensjon",
@@ -3587,7 +3675,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_UP_04_020", () ->
+        brevMap.put("PE_UP_04_020",
                 new GammeltBrev("PE_UP_04_020",
                         true,
                         "Vedtak - endring av uførepensjon",
@@ -3603,7 +3691,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_021", () ->
+        brevMap.put("PE_UP_04_021",
                 new GammeltBrev("PE_UP_04_021",
                         true,
                         "Vedtak - forlengelse av perioden med hvilende rett til uførepensjon",
@@ -3619,7 +3707,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_UP_04_022", () ->
+        brevMap.put("PE_UP_04_022",
                 new GammeltBrev("PE_UP_04_022",
                         true,
                         "Vedtak - delvis eksport av uførepensjon",
@@ -3635,7 +3723,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_023", () ->
+        brevMap.put("PE_UP_04_023",
                 new GammeltBrev("PE_UP_04_023",
                         true,
                         "Vedtak - innvilgelse av uførepensjon (bosatt Norge - før utland)",
@@ -3651,7 +3739,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_024", () ->
+        brevMap.put("PE_UP_04_024",
                 new GammeltBrev("PE_UP_04_024",
                         true,
                         "Vedtak - innvilgelse av uførepensjon med endring (bosatt Norge - etter utland)",
@@ -3667,7 +3755,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_025", () ->
+        brevMap.put("PE_UP_04_025",
                 new GammeltBrev("PE_UP_04_025",
                         true,
                         "Vedtak - innvilgelse av uførepensjon (bosatt Norge - etter utland)",
@@ -3683,7 +3771,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_026", () ->
+        brevMap.put("PE_UP_04_026",
                 new GammeltBrev("PE_UP_04_026",
                         true,
                         "Vedtak - innvilgelse av uførepensjon (bosatt utland - avtaleland)",
@@ -3699,7 +3787,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_027", () ->
+        brevMap.put("PE_UP_04_027",
                 new GammeltBrev("PE_UP_04_027",
                         true,
                         "Vedtak - innvilgelse av uførepensjon (bosatt utland - ikke avtaleland)",
@@ -3715,7 +3803,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_028", () ->
+        brevMap.put("PE_UP_04_028",
                 new GammeltBrev("PE_UP_04_028",
                         true,
                         "Vedtak - endring av uførepensjon (bosatt Norge)",
@@ -3731,7 +3819,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_029", () ->
+        brevMap.put("PE_UP_04_029",
                 new GammeltBrev("PE_UP_04_029",
                         true,
                         "Vedtak - endring av uførepensjon (bosatt utland)",
@@ -3747,7 +3835,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_04_030", () ->
+        brevMap.put("PE_UP_04_030",
                 new GammeltBrev("PE_UP_04_030",
                         true,
                         "Vedtak - innvilgelse av uførepensjon (bosatt Norge - mellombehandling)",
@@ -3763,7 +3851,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr002"));
-        brevMap.put("PE_UP_07_010", () ->
+        brevMap.put("PE_UP_07_010",
                 new GammeltBrev("PE_UP_07_010",
                         true,
                         "Vedtak - avslag på uførepensjon",
@@ -3779,7 +3867,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr003"));
-        brevMap.put("PE_UP_07_100", () ->
+        brevMap.put("PE_UP_07_100",
                 new GammeltBrev("PE_UP_07_100",
                         true,
                         "Innhente opplysninger (uførepensjon - med førsteside for ettersendelse)",
@@ -3795,7 +3883,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_UP_07_105", () ->
+        brevMap.put("PE_UP_07_105",
                 new GammeltBrev("PE_UP_07_105",
                         true,
                         "Orientering om saksbehandlingstid (uføretrygd)",
@@ -3811,7 +3899,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_UT_01_001", () ->
+        brevMap.put("PE_UT_01_001",
                 new GammeltBrev("PE_UT_01_001",
                         false,
                         "Informasjonsbrev om overgang fra uførepensjon til uføretrygd",
@@ -3827,7 +3915,7 @@ public class BrevdataMapper {
                         null,
                         3,
                         "brevgr001"));
-        brevMap.put("PE_UT_04_001", () ->
+        brevMap.put("PE_UT_04_001",
                 new GammeltBrev("PE_UT_04_001",
                         true,
                         "Forsidebrev - ny omregning av uførepensjon til uføretrygd",
@@ -3843,7 +3931,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         3,
                         "brevgr001"));
-        brevMap.put("PE_UT_04_002", () ->
+        brevMap.put("PE_UT_04_002",
                 new GammeltBrev("PE_UT_04_002",
                         true,
                         "Innhenting av opplysninger - EØS",
@@ -3859,7 +3947,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.ALLTID,
                         3,
                         "brevgr001"));
-        brevMap.put("PE_UT_04_003", () ->
+        brevMap.put("PE_UT_04_003",
                 new GammeltBrev("PE_UT_04_003",
                         true,
                         "Innhenting av opplysninger - Lege",
@@ -3875,7 +3963,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.ALLTID,
                         3,
                         "brevgr001"));
-        brevMap.put("PE_UT_04_004", () ->
+        brevMap.put("PE_UT_04_004",
                 new GammeltBrev("PE_UT_04_004",
                         true,
                         "Brev om forventet saksbehandlingstid (bosatt Norge - før utland)",
@@ -3891,7 +3979,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_UT_04_100", () ->
+        brevMap.put("PE_UT_04_100",
                 new GammeltBrev("PE_UT_04_100",
                         true,
                         "Vedtak - opphør av uføretrygd",
@@ -3907,7 +3995,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_101", () ->
+        brevMap.put("PE_UT_04_101",
                 new GammeltBrev("PE_UT_04_101",
                         true,
                         "Vedtak - innvilgelse av uføretrygd",
@@ -3923,7 +4011,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         2,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_102", () ->
+        brevMap.put("PE_UT_04_102",
                 new GammeltBrev("PE_UT_04_102",
                         true,
                         "Vedtak - endring av uføretrygd",
@@ -3939,7 +4027,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         2,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_103", () ->
+        brevMap.put("PE_UT_04_103",
                 new GammeltBrev("PE_UT_04_103",
                         true,
                         "Vedtak - delvis eksport av uføretrygd",
@@ -3955,7 +4043,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_104", () ->
+        brevMap.put("PE_UT_04_104",
                 new GammeltBrev("PE_UT_04_104",
                         true,
                         "Vedtak - avslag på uføretrygd",
@@ -3971,7 +4059,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         2,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_106", () ->
+        brevMap.put("PE_UT_04_106",
                 new GammeltBrev("PE_UT_04_106",
                         true,
                         "Vedtak - innvilgelse av uføretrygd med endring (bosatt Norge - etter utland)",
@@ -3987,7 +4075,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_107", () ->
+        brevMap.put("PE_UT_04_107",
                 new GammeltBrev("PE_UT_04_107",
                         true,
                         "Vedtak - innvilgelse av uføretrygd (bosatt Norge - etter utland)",
@@ -4003,7 +4091,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_108", () ->
+        brevMap.put("PE_UT_04_108",
                 new GammeltBrev("PE_UT_04_108",
                         false,
                         "Vedtak - Ny beregning av barnetillegget (auto)",
@@ -4019,7 +4107,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_109", () ->
+        brevMap.put("PE_UT_04_109",
                 new GammeltBrev("PE_UT_04_109",
                         true,
                         "Vedtak - Ny beregning av barnetillegget (manuelt)",
@@ -4035,7 +4123,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_114", () ->
+        brevMap.put("PE_UT_04_114",
                 new GammeltBrev("PE_UT_04_114",
                         true,
                         "Vedtak - økning av uføregrad",
@@ -4051,7 +4139,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_115", () ->
+        brevMap.put("PE_UT_04_115",
                 new GammeltBrev("PE_UT_04_115",
                         true,
                         "Vedtak - full eksport av uføretrygd",
@@ -4067,7 +4155,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_117", () ->
+        brevMap.put("PE_UT_04_117",
                 new GammeltBrev("PE_UT_04_117",
                         true,
                         "Vedtak - foreløpig avslag på uføretrygd (bosatt Norge - før utland)",
@@ -4083,7 +4171,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_118", () ->
+        brevMap.put("PE_UT_04_118",
                 new GammeltBrev("PE_UT_04_118",
                         true,
                         "Vedtak avslag uføretrygd medlemskap under ett år (bosatt utland)",
@@ -4099,7 +4187,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_300", () ->
+        brevMap.put("PE_UT_04_300",
                 new GammeltBrev("PE_UT_04_300",
                         true,
                         "Vedtak - omregning av uførepensjon til uføretrygd",
@@ -4115,7 +4203,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_400", () ->
+        brevMap.put("PE_UT_04_400",
                 new GammeltBrev("PE_UT_04_400",
                         true,
                         "Vedtak om etteroppgjør - etterbetaling (manuell)",
@@ -4131,7 +4219,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_401", () ->
+        brevMap.put("PE_UT_04_401",
                 new GammeltBrev("PE_UT_04_401",
                         true,
                         "Vedtak om etteroppgjør - endelig vedtak etter mottatt svar",
@@ -4147,7 +4235,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr010"));
-        brevMap.put("PE_UT_04_402", () ->
+        brevMap.put("PE_UT_04_402",
                 new GammeltBrev("PE_UT_04_402",
                         true,
                         "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (manuell)",
@@ -4163,7 +4251,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_05_100", () ->
+        brevMap.put("PE_UT_05_100",
                 new GammeltBrev("PE_UT_05_100",
                         false,
                         "Vedtak - endring av uføretrygd på grunn av inntekt (automatisk)",
@@ -4179,7 +4267,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_06_100", () ->
+        brevMap.put("PE_UT_06_100",
                 new GammeltBrev("PE_UT_06_100",
                         false,
                         "Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",
@@ -4195,7 +4283,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_06_200", () ->
+        brevMap.put("PE_UT_06_200",
                 new GammeltBrev("PE_UT_06_200",
                         false,
                         "Automatisk varsel om saksbehandlingstid",
@@ -4211,7 +4299,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("PE_UT_07_100", () ->
+        brevMap.put("PE_UT_07_100",
                 new GammeltBrev("PE_UT_07_100",
                         true,
                         "Vedtak - endring av uføretrygd på grunn av inntekt",
@@ -4227,7 +4315,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr010"));
-        brevMap.put("PE_UT_14_300", () ->
+        brevMap.put("PE_UT_14_300",
                 new GammeltBrev("PE_UT_14_300",
                         false,
                         "Vedtak - omregning av uførepensjon til uføretrygd (automatisk)",
@@ -4243,7 +4331,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_23_001", () ->
+        brevMap.put("PE_UT_23_001",
                 new GammeltBrev("PE_UT_23_001",
                         false,
                         "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
@@ -4259,7 +4347,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr010"));
-        brevMap.put("PE_UT_23_101", () ->
+        brevMap.put("PE_UT_23_101",
                 new GammeltBrev("PE_UT_23_101",
                         false,
                         "Vedtak om etteroppgjør - etterbetaling",
@@ -4275,7 +4363,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr010"));
-        brevMap.put("P1000", () ->
+        brevMap.put("P1000",
                 new GammeltBrev("P1000",
                         true,
                         "P1000 - Anmodning om perioder med foreldreansvar",
@@ -4291,7 +4379,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P10000", () ->
+        brevMap.put("P10000",
                 new GammeltBrev("P10000",
                         true,
                         "P10000 - Overføring av utfyllende opplysninger",
@@ -4307,7 +4395,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P11000", () ->
+        brevMap.put("P11000",
                 new GammeltBrev("P11000",
                         true,
                         "P11000 - Anmodning om pensjonsbeløp",
@@ -4323,7 +4411,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P12000", () ->
+        brevMap.put("P12000",
                 new GammeltBrev("P12000",
                         true,
                         "P12000 - Informasjon om pensjonsbeløp",
@@ -4339,7 +4427,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P13000", () ->
+        brevMap.put("P13000",
                 new GammeltBrev("P13000",
                         true,
                         "P13000 - Informasjon om pensjonstillegg",
@@ -4355,7 +4443,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("PE_UT_06_300", () ->
+        brevMap.put("PE_UT_06_300",
                 new GammeltBrev("PE_UT_06_300",
                         false,
                         "Endring av barnetillegg i uføretrygden",
@@ -4371,7 +4459,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("PE_UT_07_200", () ->
+        brevMap.put("PE_UT_07_200",
                 new GammeltBrev("PE_UT_07_200",
                         false,
                         "Vedtak - opphør av barnetillegg (automatisk)",
@@ -4387,7 +4475,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr010"));
-        brevMap.put("P4000", () ->
+        brevMap.put("P4000",
                 new GammeltBrev("P4000",
                         true,
                         "P4000 - Rapport om trygdehistorikk",
@@ -4403,7 +4491,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P6000", () ->
+        brevMap.put("P6000",
                 new GammeltBrev("P6000",
                         true,
                         "P6000 - Vedtak om pensjon",
@@ -4419,7 +4507,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P7000", () ->
+        brevMap.put("P7000",
                 new GammeltBrev("P7000",
                         true,
                         "P7000 - Melding om vedtakssammendrag",
@@ -4435,7 +4523,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P8000", () ->
+        brevMap.put("P8000",
                 new GammeltBrev("P8000",
                         true,
                         "P8000 - Anmodning om tilleggsinformasjon",
@@ -4451,7 +4539,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("P9000", () ->
+        brevMap.put("P9000",
                 new GammeltBrev("P9000",
                         true,
                         "P9000 - Svar på anmodning om tilleggsinformasjon",
@@ -4467,7 +4555,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("R001", () ->
+        brevMap.put("R001",
                 new GammeltBrev("R001",
                         true,
                         "R001 - Anmodning om motregning i etterbetalinger/løpende utbetalinger",
@@ -4483,7 +4571,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("R002", () ->
+        brevMap.put("R002",
                 new GammeltBrev("R002",
                         true,
                         "R002 - Svar på anmodning om motregning i etterbetalinger/løpende utbetalinger",
@@ -4499,7 +4587,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("R003", () ->
+        brevMap.put("R003",
                 new GammeltBrev("R003",
                         true,
                         "R003 - Beslutning om motregning i etterbetalinger/løpende utbetalinger",
@@ -4515,7 +4603,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("R004", () ->
+        brevMap.put("R004",
                 new GammeltBrev("R004",
                         true,
                         "R004 - Melding om utbetaling",
@@ -4531,7 +4619,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("R005", () ->
+        brevMap.put("R005",
                 new GammeltBrev("R005",
                         true,
                         "R005 - Anmodning om motregning i etterbetalinger",
@@ -4547,7 +4635,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("R006", () ->
+        brevMap.put("R006",
                 new GammeltBrev("R006",
                         true,
                         "R006 - Svar på anmodning om informasjon",
@@ -4563,7 +4651,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr008"));
-        brevMap.put("AP_AVSL_ENDR", () ->
+        brevMap.put("AP_AVSL_ENDR",
                 new Doksysbrev("AP_AVSL_ENDR",
                         true,
                         "Vedtak - avslag endring av uttaksgrad",
@@ -4581,7 +4669,7 @@ public class BrevdataMapper {
                         "000065",
                         "00001",
                         null));
-        brevMap.put("AP_AVSL_TIDLUTTAK", () ->
+        brevMap.put("AP_AVSL_TIDLUTTAK",
                 new Doksysbrev("AP_AVSL_TIDLUTTAK",
                         true,
                         "Vedtak - avslag uttak av alderspensjon før 67 år",
@@ -4599,7 +4687,7 @@ public class BrevdataMapper {
                         "000064",
                         "00001",
                         null));
-        brevMap.put("AP_AVSL_UTTAK", () ->
+        brevMap.put("AP_AVSL_UTTAK",
                 new Doksysbrev("AP_AVSL_UTTAK",
                         true,
                         "Vedtak - avslag på alderspensjon",
@@ -4617,7 +4705,7 @@ public class BrevdataMapper {
                         "000066",
                         "00001",
                         null));
-        brevMap.put("DOD_INFO_RETT_MAN", () ->
+        brevMap.put("DOD_INFO_RETT_MAN",
                 new Doksysbrev("DOD_INFO_RETT_MAN",
                         true,
                         "Informasjon om gjenlevenderettigheter",
@@ -4635,7 +4723,7 @@ public class BrevdataMapper {
                         "000069",
                         "00001",
                         null));
-        brevMap.put("DOD_INFO_RETT_AUTO", () ->
+        brevMap.put("DOD_INFO_RETT_AUTO",
                 new Doksysbrev("DOD_INFO_RETT_AUTO",
                         false,
                         "Informasjon om gjenlevenderettigheter (automatisk)",
@@ -4653,7 +4741,7 @@ public class BrevdataMapper {
                         "000068",
                         "00001",
                         null));
-        brevMap.put("AP_DOD_ENSLIG_AUTO", () ->
+        brevMap.put("AP_DOD_ENSLIG_AUTO",
                 new Doksysbrev("AP_DOD_ENSLIG_AUTO",
                         false,
                         "Vedtak - omregning til enslig alderspensjonist (automatisk)",
@@ -4671,7 +4759,7 @@ public class BrevdataMapper {
                         "000070",
                         "00001",
                         null));
-        brevMap.put("UT_DOD_ENSLIG_AUTO", () ->
+        brevMap.put("UT_DOD_ENSLIG_AUTO",
                 new Doksysbrev("UT_DOD_ENSLIG_AUTO",
                         false,
                         "Vedtak - omregning til enslig uføretrygdet (automatisk)",
@@ -4689,7 +4777,7 @@ public class BrevdataMapper {
                         "000073",
                         "00001",
                         null));
-        brevMap.put("AFP_DOD_ENSLIG_AUTO", () ->
+        brevMap.put("AFP_DOD_ENSLIG_AUTO",
                 new Doksysbrev("AFP_DOD_ENSLIG_AUTO",
                         false,
                         "Vedtak - omregning av AFP til enslig pensjonist (automatisk)",
@@ -4707,7 +4795,7 @@ public class BrevdataMapper {
                         "000078",
                         "00001",
                         null));
-        brevMap.put("AP_INNV_AO_UT_AUTO", () ->
+        brevMap.put("AP_INNV_AO_UT_AUTO",
                 new Doksysbrev("AP_INNV_AO_UT_AUTO",
                         false,
                         "Vedtak - omregning av uføretrygd til alderspensjon",
@@ -4725,7 +4813,7 @@ public class BrevdataMapper {
                         "000086",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
-        brevMap.put("INFO_P1", () ->
+        brevMap.put("INFO_P1",
                 new Doksysbrev("INFO_P1",
                         true,
                         "P1 med forsidebrev",
@@ -4743,7 +4831,7 @@ public class BrevdataMapper {
                         "000090",
                         "00001",
                         null));
-        brevMap.put("AP_INNV_MAN", () ->
+        brevMap.put("AP_INNV_MAN",
                 new Doksysbrev("AP_INNV_MAN",
                         true,
                         "Vedtak - innvilgelse av alderspensjon",
@@ -4761,7 +4849,7 @@ public class BrevdataMapper {
                         "000092",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
-        brevMap.put("OMSORG_HJST_AUTO", () ->
+        brevMap.put("OMSORG_HJST_AUTO",
                 new Doksysbrev("OMSORG_HJST_AUTO",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
@@ -4779,7 +4867,7 @@ public class BrevdataMapper {
                         "000094",
                         "00001",
                         null));
-        brevMap.put("AP_INNV_AUTO", () ->
+        brevMap.put("AP_INNV_AUTO",
                 new Doksysbrev("AP_INNV_AUTO",
                         false,
                         "Vedtak - Innvilgelse av alderspensjon (auto)",
@@ -4797,7 +4885,7 @@ public class BrevdataMapper {
                         "000098",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
-        brevMap.put("AP_INNV_AVT_MAN", () ->
+        brevMap.put("AP_INNV_AVT_MAN",
                 new Doksysbrev("AP_INNV_AVT_MAN",
                         true,
                         "Vedtak - innvilgelse av alderspensjon (trygdeavtale)",
@@ -4815,7 +4903,7 @@ public class BrevdataMapper {
                         "000097",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
-        brevMap.put("AP_ENDR_GRAD_MAN", () ->
+        brevMap.put("AP_ENDR_GRAD_MAN",
                 new Doksysbrev("AP_ENDR_GRAD_MAN",
                         true,
                         "Vedtak - endring av uttaksgrad",
@@ -4833,7 +4921,7 @@ public class BrevdataMapper {
                         "000100",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1")));
-        brevMap.put("AP_ENDR_STANS_MAN", () ->
+        brevMap.put("AP_ENDR_STANS_MAN",
                 new Doksysbrev("AP_ENDR_STANS_MAN",
                         true,
                         "Vedtak - endring av uttaksgrad (stans)",
@@ -4851,7 +4939,7 @@ public class BrevdataMapper {
                         "000101",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_V1")));
-        brevMap.put("AP_ENDR_EPS_MAN", () ->
+        brevMap.put("AP_ENDR_EPS_MAN",
                 new Doksysbrev("AP_ENDR_EPS_MAN",
                         true,
                         "Vedtak - endring av alderspensjon (sivilstand)",
@@ -4869,70 +4957,27 @@ public class BrevdataMapper {
                         "000102",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
-        brevMap.put("BP_AVSL_MAN", () -> {
-        	if (toggle(BRUK_BARNEPENSJON_V2).isDisabled()) {
-                return new Doksysbrev("BP_AVSL_MAN",
-	                        true,
-	                        "Vedtak - avslag på søknad om barnepensjon",
-	                        BrevkategoriCode.VEDTAK,
-	                        DokumenttypeCode.U,
-	                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-	                        true,
-	                        BrevUtlandCode.ALLTID,
-	                        BrevregeltypeCode.OVRIGE,
-	                        BrevkravtypeCode.ALLE,
-	                        DokumentkategoriCode.VB,
-	                        null,
-	                        BrevkontekstCode.VEDTAK,
-	                        null,
-	                        "000106",
-	                        "00001",
-	                        doksysVedleggMapper.map("RETTIGH_V1"));
-                } 
-        		else {
-                	return new Doksysbrev("BP_AVSL_MAN",
-	                        true,
-	                        "Vedtak - avslag på søknad om barnepensjon",
-	                        BrevkategoriCode.VEDTAK,
-	                        DokumenttypeCode.U,
-	                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-	                        true,
-	                        BrevUtlandCode.ALLTID,
-	                        BrevregeltypeCode.OVRIGE,
-	                        BrevkravtypeCode.ALLE,
-	                        DokumentkategoriCode.VB,
-	                        null,
-	                        BrevkontekstCode.VEDTAK,
-	                        null,
-	                        "v2.000106",
-	                        "00001",
-	                        doksysVedleggMapper.map("RETTIGH_V1"));
-                }
-                
-        });
-        brevMap.put("BP_OPPH_MAN", () -> {
-        	
-        	if (toggle(BRUK_BARNEPENSJON_V2).isDisabled()) {
-               return new Doksysbrev("BP_OPPH_MAN",
-	                        true,
-	                        "Vedtak - stans av barnepensjon",
-	                        BrevkategoriCode.VEDTAK,
-	                        DokumenttypeCode.U,
-	                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-	                        true,
-	                        BrevUtlandCode.ALLTID,
-	                        BrevregeltypeCode.OVRIGE,
-	                        BrevkravtypeCode.ALLE,
-	                        DokumentkategoriCode.VB,
-	                        null,
-	                        BrevkontekstCode.VEDTAK,
-	                        null,
-	                        "000107",
-	                        "00001",
-	                        doksysVedleggMapper.map("RETTIGH_V1"));
-        	}
-        	else {
-        		return new Doksysbrev("BP_OPPH_MAN",
+        brevMap.put("BP_AVSL_MAN",
+                new Doksysbrev("BP_AVSL_MAN",
+                        true,
+                        "Vedtak - avslag på søknad om barnepensjon",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                        true,
+                        BrevUtlandCode.ALLTID,
+                        BrevregeltypeCode.OVRIGE,
+                        BrevkravtypeCode.ALLE,
+                        DokumentkategoriCode.VB,
+                        null,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "v2.000106",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_V1")));
+
+        brevMap.put("BP_OPPH_MAN",
+                new Doksysbrev("BP_OPPH_MAN",
                         true,
                         "Vedtak - stans av barnepensjon",
                         BrevkategoriCode.VEDTAK,
@@ -4948,10 +4993,10 @@ public class BrevdataMapper {
                         null,
                         "v2.000107",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_V1"));
-        		}});
-        	
-        brevMap.put("INFO_ENDR_UT_INNT", () ->
+                        doksysVedleggMapper.map("RETTIGH_V1")));
+
+
+        brevMap.put("INFO_ENDR_UT_INNT",
                 new Doksysbrev("INFO_ENDR_UT_INNT",
                         false,
                         "Varsel - endring av uføretrygd på grunn av inntekt",
@@ -4969,7 +5014,7 @@ public class BrevdataMapper {
                         "000105",
                         "00001",
                         null));
-        brevMap.put("AP_ENDR_EPS_AUTO", () ->
+        brevMap.put("AP_ENDR_EPS_AUTO",
                 new Doksysbrev("AP_ENDR_EPS_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon - sivilstand (auto)",
@@ -4987,7 +5032,7 @@ public class BrevdataMapper {
                         "000113",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
-        brevMap.put("AP_INNV_AO_75_AUTO", () ->
+        brevMap.put("AP_INNV_AO_75_AUTO",
                 new Doksysbrev("AP_INNV_AO_75_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon fordi du fyller 75 år",
@@ -5005,7 +5050,7 @@ public class BrevdataMapper {
                         "000118",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
-        brevMap.put("AP_ENDR_FLYTT_MAN", () ->
+        brevMap.put("AP_ENDR_FLYTT_MAN",
                 new Doksysbrev("AP_ENDR_FLYTT_MAN",
                         true,
                         "Vedtak - endring av alderspensjon ved flytting mellom land",
@@ -5023,7 +5068,7 @@ public class BrevdataMapper {
                         "000117",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1", "INFO_MEDLEM_HELSE_V1")));
-        brevMap.put("AP_ENDR_GJRETT_MAN", () ->
+        brevMap.put("AP_ENDR_GJRETT_MAN",
                 new Doksysbrev("AP_ENDR_GJRETT_MAN",
                         true,
                         "Vedtak - endring ved gjenlevenderett",
@@ -5041,7 +5086,7 @@ public class BrevdataMapper {
                         "000126",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_AVDOD_OPPL_BER_V1")));
-        brevMap.put("VARSEL_REVURD", () ->
+        brevMap.put("VARSEL_REVURD",
                 new Doksysbrev("VARSEL_REVURD",
                         true,
                         "Varsel - revurdering av pensjon",
@@ -5059,7 +5104,7 @@ public class BrevdataMapper {
                         "000156",
                         "00001",
                         null));
-        brevMap.put("ADHOC_INFO_AUTO", () ->
+        brevMap.put("ADHOC_INFO_AUTO",
                 new Doksysbrev("ADHOC_INFO_AUTO",
                         false,
                         "Automatisk brev engangsbruk",
@@ -5077,7 +5122,7 @@ public class BrevdataMapper {
                         "000169",
                         "00001",
                         null));
-        brevMap.put("AP_OPPH_ENDR_FT_AUTO", () ->
+        brevMap.put("AP_OPPH_ENDR_FT_AUTO",
                 new Doksysbrev("AP_OPPH_ENDR_FT_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon ved aldersovergang",
@@ -5095,7 +5140,7 @@ public class BrevdataMapper {
                         "000162",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
-        brevMap.put("AP_AVSL_FT_MAN", () ->
+        brevMap.put("AP_AVSL_FT_MAN",
                 new Doksysbrev("AP_AVSL_FT_MAN",
                         true,
                         "Vedtak - avslag på forsørgingstillegg i alderspensjon",
@@ -5113,7 +5158,7 @@ public class BrevdataMapper {
                         "000164",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_V1", "AP_MND_UTB_V1")));
-        brevMap.put("AP_RETTING_AUTO", () ->
+        brevMap.put("AP_RETTING_AUTO",
                 new Doksysbrev("AP_RETTING_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon pga rettelser",
@@ -5131,7 +5176,7 @@ public class BrevdataMapper {
                         "000148",
                         "00001",
                         doksysVedleggMapper.map("AP_MND_UTB_V1", "RETTIGH_PLIKT_V1")));
-        brevMap.put("GP_INFO_AP_GT", () ->
+        brevMap.put("GP_INFO_AP_GT",
                 new Doksysbrev("GP_INFO_AP_GT",
                         false,
                         "Informasjon om gjenlevendetillegg i alderspensjonen",
@@ -5149,7 +5194,7 @@ public class BrevdataMapper {
                         "000154",
                         "00001",
                         null));
-        brevMap.put("AFP_ENDR_OPPTJ_AUTO", () ->
+        brevMap.put("AFP_ENDR_OPPTJ_AUTO",
                 new Doksysbrev("AFP_ENDR_OPPTJ_AUTO",
                         false,
                         "Vedtak - endring av AFP fordi opptjening er endret",
@@ -5167,7 +5212,7 @@ public class BrevdataMapper {
                         "000145",
                         "00001",
                         doksysVedleggMapper.map("AFP_PRIV_MND_UTB_V1", "RETTIGH_V1")));
-        brevMap.put("AP_OPPH_FT_MAN", () ->
+        brevMap.put("AP_OPPH_FT_MAN",
                 new Doksysbrev("AP_OPPH_FT_MAN",
                         true,
                         "Vedtak - opphør av forsørgingstillegg",
@@ -5185,7 +5230,7 @@ public class BrevdataMapper {
                         "000147",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
-        brevMap.put("AP_AVSL_GJRETT_MAN", () ->
+        brevMap.put("AP_AVSL_GJRETT_MAN",
                 new Doksysbrev("AP_AVSL_GJRETT_MAN",
                         true,
                         "Vedtak - avslag på alderspensjon med gjenlevenderett",
@@ -5203,7 +5248,7 @@ public class BrevdataMapper {
                         "000152",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_V1", "AP_MND_UTB_V1")));
-        brevMap.put("AP_ENDR_OPPTJ_MAN", () ->
+        brevMap.put("AP_ENDR_OPPTJ_MAN",
                 new Doksysbrev("AP_ENDR_OPPTJ_MAN",
                         true,
                         "Vedtak - endring av alderspensjon fordi opptjening er endret",
@@ -5221,7 +5266,7 @@ public class BrevdataMapper {
                         "000119",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
-        brevMap.put("AP_ENDR_FT_MAN", () ->
+        brevMap.put("AP_ENDR_FT_MAN",
                 new Doksysbrev("AP_ENDR_FT_MAN",
                         true,
                         "Vedtak - behandling av forsørgingstillegg",
@@ -5239,7 +5284,7 @@ public class BrevdataMapper {
                         "000121",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
-        brevMap.put("OMSORG_EGEN_AUTO", () ->
+        brevMap.put("OMSORG_EGEN_AUTO",
                 new Doksysbrev("OMSORG_EGEN_AUTO",
                         false,
                         "Brev med skjema Godskriving av omsorgspoeng - egenerklæring om pleieforhold - batchbrev",
@@ -5257,7 +5302,7 @@ public class BrevdataMapper {
                         "000104",
                         "00001",
                         null));
-        brevMap.put("OMSORG_EGEN_MAN", () ->
+        brevMap.put("OMSORG_EGEN_MAN",
                 new Doksysbrev("OMSORG_EGEN_MAN",
                         true,
                         "Innhenting av egenerklæring om pleie- og omsorgsarbeid (omsorgsopptjening)",
@@ -5275,7 +5320,7 @@ public class BrevdataMapper {
                         "000103",
                         "00001",
                         null));
-        brevMap.put("AP_INNV_AO_FAP_AUTO", () ->
+        brevMap.put("AP_INNV_AO_FAP_AUTO",
                 new Doksysbrev("AP_INNV_AO_FAP_AUTO",
                         false,
                         "Vedtak - Omregning av familiepleier til alderspensjo",
@@ -5293,7 +5338,7 @@ public class BrevdataMapper {
                         "000131",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1")));
-        brevMap.put("AP_STANS_FLYTT_MAN", () ->
+        brevMap.put("AP_STANS_FLYTT_MAN",
                 new Doksysbrev("AP_STANS_FLYTT_MAN",
                         true,
                         "Vedtak - stans av alderspensjon ved flytting mellom land",
@@ -5311,7 +5356,7 @@ public class BrevdataMapper {
                         "000128",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_V1", "INFO_MEDLEM_HELSE_V1")));
-        brevMap.put("VARSEL_TILBAKEBET", () ->
+        brevMap.put("VARSEL_TILBAKEBET",
                 new Doksysbrev("VARSEL_TILBAKEBET",
                         true,
                         "Varsel - tilbakekreving av feilutbetalt beløp",
@@ -5329,7 +5374,7 @@ public class BrevdataMapper {
                         "000150",
                         "00001",
                         null));
-        brevMap.put("AP_INFO_STID_MAN", () ->
+        brevMap.put("AP_INFO_STID_MAN",
                 new Doksysbrev("AP_INFO_STID_MAN",
                         true,
                         "Informasjon om saksbehandlingstid",
@@ -5347,7 +5392,7 @@ public class BrevdataMapper {
                         "000130",
                         "00001",
                         null));
-        brevMap.put("AP_ENDR_INST_MAN", () ->
+        brevMap.put("AP_ENDR_INST_MAN",
                 new Doksysbrev("AP_ENDR_INST_MAN",
                         true,
                         "Vedtak - endring ved institusjonsopphold",
@@ -5365,7 +5410,7 @@ public class BrevdataMapper {
                         "000122",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V4")));
-        brevMap.put("AP_INFO_AO67_AUTO", () ->
+        brevMap.put("AP_INFO_AO67_AUTO",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5383,7 +5428,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("AP_ENDR_OPPTJ_AUTO", () ->
+        brevMap.put("AP_ENDR_OPPTJ_AUTO",
                 new Doksysbrev("AP_ENDR_OPPTJ_AUTO",
                         false,
                         "Vedtak - endring av opptjening",
@@ -5401,7 +5446,7 @@ public class BrevdataMapper {
                         "000120",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
-        brevMap.put("HENT_INFO_MAN", () ->
+        brevMap.put("HENT_INFO_MAN",
                 new Doksysbrev("HENT_INFO_MAN",
                         true,
                         "Innhenting av opplysninger/dokumentasjon",
@@ -5419,7 +5464,7 @@ public class BrevdataMapper {
                         "000133",
                         "00001",
                         null));
-        brevMap.put("AP_INNV_AO_GJP_AUTO", () ->
+        brevMap.put("AP_INNV_AO_GJP_AUTO",
                 new Doksysbrev("AP_INNV_AO_GJP_AUTO",
                         false,
                         "Vedtak - omregning av gjenlevendepensjon til alderspensjon",
@@ -5437,7 +5482,7 @@ public class BrevdataMapper {
                         "000143",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
-        brevMap.put("AUTO_INFOBREV_BP", () ->
+        brevMap.put("AUTO_INFOBREV_BP",
                 new Doksysbrev("DOD_INFO_RETT_AUTO",
                         false,
                         "Informasjon om gjenlevenderettigheter (automatisk)",
@@ -5455,7 +5500,7 @@ public class BrevdataMapper {
                         "000068",
                         "00001",
                         null));
-        brevMap.put("AUTO_INFOBREV_GJENL", () ->
+        brevMap.put("AUTO_INFOBREV_GJENL",
                 new Doksysbrev("DOD_INFO_RETT_AUTO",
                         false,
                         "Informasjon om gjenlevenderettigheter (automatisk)",
@@ -5473,7 +5518,7 @@ public class BrevdataMapper {
                         "000068",
                         "00001",
                         null));
-        brevMap.put("AP_INNVILG_AUTO", () ->
+        brevMap.put("AP_INNVILG_AUTO",
                 new Doksysbrev("AP_INNV_AUTO",
                         false,
                         "Vedtak - Innvilgelse av alderspensjon (auto)",
@@ -5491,7 +5536,7 @@ public class BrevdataMapper {
                         "000098",
                         "00001",
                         null));
-        brevMap.put("AP_INNVILG_UTL_AUTO", () ->
+        brevMap.put("AP_INNVILG_UTL_AUTO",
                 new Doksysbrev("AP_INNV_AUTO",
                         false,
                         "Vedtak - Innvilgelse av alderspensjon (auto)",
@@ -5509,7 +5554,7 @@ public class BrevdataMapper {
                         "000098",
                         "00001",
                         null));
-        brevMap.put("AUTO_VTK_EPS_DOD_AP", () ->
+        brevMap.put("AUTO_VTK_EPS_DOD_AP",
                 new Doksysbrev("AP_DOD_ENSLIG_AUTO",
                         false,
                         "Vedtak - omregning til enslig alderspensjonist (automatisk)",
@@ -5527,7 +5572,7 @@ public class BrevdataMapper {
                         "000070",
                         "00001",
                         null));
-        brevMap.put("TILST_DOD_UT", () ->
+        brevMap.put("TILST_DOD_UT",
                 new Doksysbrev("UT_DOD_ENSLIG_AUTO",
                         false,
                         "Vedtak - omregning til enslig uføretrygdet (automatisk)",
@@ -5545,7 +5590,7 @@ public class BrevdataMapper {
                         "000073",
                         "00001",
                         null));
-        brevMap.put("AUTO_VTK_EPS_DOD_AFP", () ->
+        brevMap.put("AUTO_VTK_EPS_DOD_AFP",
                 new Doksysbrev("AFP_DOD_ENSLIG_AUTO",
                         false,
                         "Vedtak - omregning av AFP til enslig pensjonist (automatisk)",
@@ -5563,7 +5608,7 @@ public class BrevdataMapper {
                         "000078",
                         "00001",
                         null));
-        brevMap.put("AO_AP_UT_67_2016", () ->
+        brevMap.put("AO_AP_UT_67_2016",
                 new Doksysbrev("AP_INNV_AO_UT_AUTO",
                         false,
                         "Vedtak - omregning av uføretrygd til alderspensjon",
@@ -5581,7 +5626,7 @@ public class BrevdataMapper {
                         "000086",
                         "00001",
                         null));
-        brevMap.put("OMSORGP_GODSKRIVING", () ->
+        brevMap.put("OMSORGP_GODSKRIVING",
                 new Doksysbrev("OMSORG_HJST_AUTO",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
@@ -5599,7 +5644,7 @@ public class BrevdataMapper {
                         "000094",
                         "00001",
                         null));
-        brevMap.put("AFP_PR_NYTT_VEDTAK", () ->
+        brevMap.put("AFP_PR_NYTT_VEDTAK",
                 new Doksysbrev("AFP_ENDR_OPPTJ_AUTO",
                         false,
                         "Vedtak - endring av AFP fordi opptjening er endret",
@@ -5617,7 +5662,7 @@ public class BrevdataMapper {
                         "000145",
                         "00001",
                         null));
-        brevMap.put("OMSORGP_EGENMLD", () ->
+        brevMap.put("OMSORGP_EGENMLD",
                 new Doksysbrev("OMSORG_EGEN_AUTO",
                         false,
                         "Brev med skjema Godskriving av omsorgspoeng - egenerklæring om pleieforhold - batchbrev",
@@ -5635,7 +5680,7 @@ public class BrevdataMapper {
                         "000104",
                         "00001",
                         null));
-        brevMap.put("AO_AP_FAP_PL_67_2011", () ->
+        brevMap.put("AO_AP_FAP_PL_67_2011",
                 new Doksysbrev("AP_INNV_AO_FAP_AUTO",
                         false,
                         "Vedtak - Omregning av familiepleier til alderspensjo",
@@ -5653,7 +5698,7 @@ public class BrevdataMapper {
                         "000131",
                         "00001",
                         null));
-        brevMap.put("AO_AP_FAP_PL_67_2016", () ->
+        brevMap.put("AO_AP_FAP_PL_67_2016",
                 new Doksysbrev("AP_INNV_AO_FAP_AUTO",
                         false,
                         "Vedtak - Omregning av familiepleier til alderspensjo",
@@ -5671,7 +5716,7 @@ public class BrevdataMapper {
                         "000131",
                         "00001",
                         null));
-        brevMap.put("GJP_INFOBREV_AP_GJT", () ->
+        brevMap.put("GJP_INFOBREV_AP_GJT",
                 new Doksysbrev("GP_INFO_AP_GT",
                         false,
                         "Informasjon om gjenlevendetillegg i alderspensjonen",
@@ -5689,7 +5734,7 @@ public class BrevdataMapper {
                         "000154",
                         "00001",
                         null));
-        brevMap.put("INFO_INNT_ENDR_UT", () ->
+        brevMap.put("INFO_INNT_ENDR_UT",
                 new Doksysbrev("INFO_ENDR_UT_INNT",
                         false,
                         "Varsel - endring av uføretrygd på grunn av inntekt",
@@ -5707,7 +5752,7 @@ public class BrevdataMapper {
                         "000105",
                         "00001",
                         null));
-        brevMap.put("SAMMENSTOT_AP", () ->
+        brevMap.put("SAMMENSTOT_AP",
                 new Doksysbrev("AP_ENDR_EPS_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon - sivilstand (auto)",
@@ -5725,7 +5770,7 @@ public class BrevdataMapper {
                         "000113",
                         "00001",
                         null));
-        brevMap.put("TILST_OMRG_AP", () ->
+        brevMap.put("TILST_OMRG_AP",
                 new Doksysbrev("AP_ENDR_EPS_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon - sivilstand (auto)",
@@ -5743,7 +5788,7 @@ public class BrevdataMapper {
                         "000113",
                         "00001",
                         null));
-        brevMap.put("AO_AP_GRAD_AP_75", () ->
+        brevMap.put("AO_AP_GRAD_AP_75",
                 new Doksysbrev("AP_INNV_AO_75_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon fordi du fyller 75 år",
@@ -5761,7 +5806,7 @@ public class BrevdataMapper {
                         "000118",
                         "00001",
                         null));
-        brevMap.put("AP_NYTT_VEDTAK", () ->
+        brevMap.put("AP_NYTT_VEDTAK",
                 new Doksysbrev("AP_ENDR_OPPTJ_AUTO",
                         false,
                         "Vedtak - endring av opptjening",
@@ -5779,7 +5824,7 @@ public class BrevdataMapper {
                         "000120",
                         "00001",
                         null));
-        brevMap.put("FAM_PL_3MND_67", () ->
+        brevMap.put("FAM_PL_3MND_67",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5797,7 +5842,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("FYLLER_67_INGEN_YT", () ->
+        brevMap.put("FYLLER_67_INGEN_YT",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5815,7 +5860,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("UP_GRAD_AP_67", () ->
+        brevMap.put("UP_GRAD_AP_67",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5833,7 +5878,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("UP_GRAD_IKKE_AP_67", () ->
+        brevMap.put("UP_GRAD_IKKE_AP_67",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5851,7 +5896,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("UP_HEL_67", () ->
+        brevMap.put("UP_HEL_67",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5869,7 +5914,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("GJP_AVKORT_INFO_67", () ->
+        brevMap.put("GJP_AVKORT_INFO_67",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5887,7 +5932,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("GJP_FULL_INFO_67", () ->
+        brevMap.put("GJP_FULL_INFO_67",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5905,7 +5950,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("FAM_PL_INFO_67", () ->
+        brevMap.put("FAM_PL_INFO_67",
                 new Doksysbrev("AP_INFO_AO67_AUTO",
                         false,
                         "Informasjonsbrev for aldersovergang ved 67 år, for personer uten ytelse, med UT og/eller AP",
@@ -5923,7 +5968,7 @@ public class BrevdataMapper {
                         "000129",
                         "00001",
                         null));
-        brevMap.put("AO_AP_GJP_FULL_67", () ->
+        brevMap.put("AO_AP_GJP_FULL_67",
                 new Doksysbrev("AP_INNV_AO_GJP_AUTO",
                         false,
                         "Vedtak - omregning av gjenlevendepensjon til alderspensjon",
@@ -5941,7 +5986,7 @@ public class BrevdataMapper {
                         "000143",
                         "00001",
                         null));
-        brevMap.put("AUTO_AP_ENDR_RETTING", () ->
+        brevMap.put("AUTO_AP_ENDR_RETTING",
                 new Doksysbrev("AP_RETTING_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon pga rettelser",
@@ -5959,7 +6004,7 @@ public class BrevdataMapper {
                         "000148",
                         "00001",
                         null));
-        brevMap.put("ADHOC_INFOBREV_AUTO", () ->
+        brevMap.put("ADHOC_INFOBREV_AUTO",
                 new Doksysbrev("ADHOC_INFO_AUTO",
                         false,
                         "Automatisk brev engangsbruk",
@@ -5977,7 +6022,7 @@ public class BrevdataMapper {
                         "000169",
                         "00001",
                         null));
-        brevMap.put("AO_AP_BT_18_2011", () ->
+        brevMap.put("AO_AP_BT_18_2011",
                 new Doksysbrev("AP_OPPH_ENDR_FT_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon ved aldersovergang",
@@ -5995,7 +6040,7 @@ public class BrevdataMapper {
                         "000162",
                         "00001",
                         null));
-        brevMap.put("AO_AP_ET_BT_2011", () ->
+        brevMap.put("AO_AP_ET_BT_2011",
                 new Doksysbrev("AP_OPPH_ENDR_FT_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon ved aldersovergang",
@@ -6013,7 +6058,7 @@ public class BrevdataMapper {
                         "000162",
                         "00001",
                         null));
-        brevMap.put("AO_AP_ET_2011", () ->
+        brevMap.put("AO_AP_ET_2011",
                 new Doksysbrev("AP_OPPH_ENDR_FT_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon ved aldersovergang",
@@ -6031,7 +6076,7 @@ public class BrevdataMapper {
                         "000162",
                         "00001",
                         null));
-        brevMap.put("AO_AP_ET_60_2011", () ->
+        brevMap.put("AO_AP_ET_60_2011",
                 new Doksysbrev("AP_OPPH_ENDR_FT_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon ved aldersovergang",
@@ -6049,7 +6094,7 @@ public class BrevdataMapper {
                         "000162",
                         "00001",
                         null));
-        brevMap.put("AO_AP_FT_1967", () ->
+        brevMap.put("AO_AP_FT_1967",
                 new Doksysbrev("AP_OPPH_ENDR_FT_AUTO",
                         false,
                         "Vedtak - endring av alderspensjon ved aldersovergang",
@@ -6067,7 +6112,7 @@ public class BrevdataMapper {
                         "000162",
                         "00001",
                         null));
-        brevMap.put("AFPEO_BREV_B", () ->
+        brevMap.put("AFPEO_BREV_B",
                 new GammeltBrev("PE_AF_03_100",
                         false,
                         "Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -6083,7 +6128,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("AFPEO_BREV_A", () ->
+        brevMap.put("AFPEO_BREV_A",
                 new GammeltBrev("PE_AF_04_100",
                         false,
                         "Vedtak - ingen endring - AFP etteroppgjør",
@@ -6099,7 +6144,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("AFPEO_BREV_C", () ->
+        brevMap.put("AFPEO_BREV_C",
                 new GammeltBrev("PE_AF_04_101",
                         false,
                         "Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
@@ -6115,7 +6160,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("AFPEO_BREV_D", () ->
+        brevMap.put("AFPEO_BREV_D",
                 new GammeltBrev("PE_AF_04_102",
                         false,
                         "Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
@@ -6131,7 +6176,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("AFPEO_TILBAKEKREVING", () ->
+        brevMap.put("AFPEO_TILBAKEKREVING",
                 new GammeltBrev("PE_AF_04_107",
                         false,
                         "Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
@@ -6147,7 +6192,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("AFPP_INNVILG_AUTO", () ->
+        brevMap.put("AFPP_INNVILG_AUTO",
                 new GammeltBrev("PE_AF_04_115",
                         false,
                         "Vedtak - innvilgelse av AFP i privat sektor",
@@ -6163,7 +6208,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("AFPP_AVSL_AUTO", () ->
+        brevMap.put("AFPP_AVSL_AUTO",
                 new GammeltBrev("PE_AF_04_116",
                         false,
                         "Vedtak - avslag på AFP i privat sektor",
@@ -6179,7 +6224,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("FYLLER_67", () ->
+        brevMap.put("FYLLER_67",
                 new GammeltBrev("PE_AP_01_001",
                         false,
                         "Informasjon til deg som snart fyller 67 år",
@@ -6195,7 +6240,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("AP_INNVILG_UTL", () ->
+        brevMap.put("AP_INNVILG_UTL",
                 new GammeltBrev("PE_AP_04_203",
                         true,
                         "Vedtak - innvilgelse av alderspensjon - utenlandssak",
@@ -6212,9 +6257,8 @@ public class BrevdataMapper {
                         null,
                         "brevgr011"));
 
-        brevMap.put("AP_AVSLAG_AUTO", () -> {
-            if (toggle(BRUK_AP_AVSL_AUTO).isEnabled()) {
-                return new Doksysbrev("AP_AVSL_AUTO",
+        brevMap.put("AP_AVSLAG_AUTO",
+                new Doksysbrev("AP_AVSL_AUTO",
                         false,
                         "Vedtak - avslag på søknad om alderspensjon (automatisk)",
                         BrevkategoriCode.VEDTAK,
@@ -6230,29 +6274,10 @@ public class BrevdataMapper {
                         null,
                         "000176",
                         "00001",
-                        null);
-            } else {
-                return new GammeltBrev("PE_AP_04_210",
-                        false,
-                        "Vedtak - avslag på alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        null,
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011");
-            }
-        });
+                        null));
 
-        brevMap.put("AP_AVSL_AUTO", () -> {
-            if (toggle(BRUK_AP_AVSL_AUTO).isEnabled()) {
-                return new Doksysbrev("AP_AVSL_AUTO",
+        brevMap.put("AP_AVSL_AUTO",
+                new Doksysbrev("AP_AVSL_AUTO",
                         false,
                         "Vedtak - avslag på søknad om alderspensjon (automatisk)",
                         BrevkategoriCode.VEDTAK,
@@ -6268,51 +6293,10 @@ public class BrevdataMapper {
                         null,
                         "000176",
                         "00001",
-                        null);
-            } else {
-                return new GammeltBrev("PE_AP_04_210",
-                        false,
-                        "Vedtak - avslag på alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011");
-            }
-        });
+                        null));
 
-        brevMap.put("PE_AP_04_210", () -> {
-            if (toggle(BRUK_AP_AVSL_AUTO).isEnabled()) {
-                throw new IllegalArgumentException("PE_AP_04_210 is not compactible with BRUK_AP_AVSL_AUTO");
-            } else {
-                return new GammeltBrev("PE_AP_04_210",
-                        false,
-                        "Vedtak - avslag på alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011");
-            }
-        });
-
-        brevMap.put("AP_AVSL_UTL_AUTO", () -> {
-            if (toggle(BRUK_AP_AVSL_UTL_AUTO).isEnabled()) {
-                return new Doksysbrev("AP_AVSL_UTL_AUTO",
+        brevMap.put("AP_AVSL_UTL_AUTO",
+                new Doksysbrev("AP_AVSL_UTL_AUTO",
                         false,
                         "Vedtak - avslag på søknad om alderspensjon - utenlandsak (automatisk)",
                         BrevkategoriCode.VEDTAK,
@@ -6328,28 +6312,10 @@ public class BrevdataMapper {
                         null,
                         "000177",
                         "00001",
-                        null);
-            } else {
-                return new GammeltBrev("PE_AP_04_213",
-                        false,
-                        "Vedtak - avslag på alderspensjon - utenlandssak",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.EN),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011");
-            }
-        });
-        brevMap.put("AP_ENDR_GRAD_AUTO", () -> {
-            if (toggle(BRUK_AP_ENDR_GRAD_AUTO).isEnabled()) {
-                return new Doksysbrev("AP_ENDR_GRAD_AUTO",
+                        null));
+
+        brevMap.put("AP_ENDR_GRAD_AUTO",
+                new Doksysbrev("AP_ENDR_GRAD_AUTO",
                         false,
                         "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
                         BrevkategoriCode.VEDTAK,
@@ -6365,26 +6331,9 @@ public class BrevdataMapper {
                         null,
                         "000099",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_V1", "RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1"));
-            } else {
-                return new GammeltBrev("PE_AP_04_227",
-                        false,
-                        "Vedtak - innvilgelse av endret uttaksgrad for alderspensjon",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NN, SprakCode.NB),
-                        true,
-                        null,
-                        BrevregeltypeCode.GN,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr011");
-            }
-        });
-        brevMap.put("DUMMYBREV", () ->
+                        doksysVedleggMapper.map("RETTIGH_V1", "RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1")));
+
+        brevMap.put("DUMMYBREV",
                 new GammeltBrev("PE_AP_05_001",
                         true,
                         "Dummybrev AP 2016/2025",
@@ -6400,7 +6349,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("GJP_FULL_3MND_67", () ->
+        brevMap.put("GJP_FULL_3MND_67",
                 new GammeltBrev("PE_BA_01_101",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon",
@@ -6416,7 +6365,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("GJP_AVKORT_3MND_67", () ->
+        brevMap.put("GJP_AVKORT_3MND_67",
                 new GammeltBrev("PE_BA_01_102",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon",
@@ -6432,7 +6381,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("AFP_3MND_67", () ->
+        brevMap.put("AFP_3MND_67",
                 new GammeltBrev("PE_BA_01_106",
                         false,
                         "Informasjon til deg som fyller 67 år og mottar AFP",
@@ -6448,7 +6397,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr001"));
-        brevMap.put("INFOBREV_VP_ET", () ->
+        brevMap.put("INFOBREV_VP_ET",
                 new GammeltBrev("PE_BA_01_108",
                         false,
                         "Informasjon om vilkår for rett til ektefelletillegg",
@@ -6464,7 +6413,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("FORSORG_BT_OPPH", () ->
+        brevMap.put("FORSORG_BT_OPPH",
                 new GammeltBrev("PE_BA_04_501",
                         false,
                         "Vedtak - forsørgingstillegg fra folketrygden",
@@ -6480,7 +6429,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("FORSORG_ET_BT_OPPH", () ->
+        brevMap.put("FORSORG_ET_BT_OPPH",
                 new GammeltBrev("PE_BA_04_502",
                         false,
                         "Vedtak - forsørgingstillegg fra folketrygden",
@@ -6496,7 +6445,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("FORSORG_ET_OPPH", () ->
+        brevMap.put("FORSORG_ET_OPPH",
                 new GammeltBrev("PE_BA_04_503",
                         false,
                         "Vedtak - forsørgingstillegg fra folketrygden",
@@ -6512,7 +6461,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("KONV_YT_ALDERSOVERG", () ->
+        brevMap.put("KONV_YT_ALDERSOVERG",
                 new GammeltBrev("PE_BA_04_504",
                         false,
                         "Vedtak - alderspensjon fra folketrygden",
@@ -6528,7 +6477,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("UP_FULLTT_BELOPENDR", () ->
+        brevMap.put("UP_FULLTT_BELOPENDR",
                 new GammeltBrev("PE_BA_04_505",
                         false,
                         "Vedtak - endring av uføretrygd fordi du fyller 20 år",
@@ -6544,7 +6493,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr010"));
-        brevMap.put("AP_FULLTT_BELOPENDR", () ->
+        brevMap.put("AP_FULLTT_BELOPENDR",
                 new GammeltBrev("PE_BA_04_506",
                         false,
                         "Vedtak - endring av alderspensjon fordi du fyller 70 år",
@@ -6560,7 +6509,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("P_UTBETALING_OKER", () ->
+        brevMap.put("P_UTBETALING_OKER",
                 new GammeltBrev("PE_BA_04_507",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -6576,7 +6525,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("P_UTBETALING_MINKER", () ->
+        brevMap.put("P_UTBETALING_MINKER",
                 new GammeltBrev("PE_BA_04_508",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -6592,7 +6541,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("GJR_UTBET_OKER", () ->
+        brevMap.put("GJR_UTBET_OKER",
                 new GammeltBrev("PE_BA_04_509",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -6608,7 +6557,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("GJR_UTBET_MINKER", () ->
+        brevMap.put("GJR_UTBET_MINKER",
                 new GammeltBrev("PE_BA_04_510",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -6624,7 +6573,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("BP_UTBET_OKER", () ->
+        brevMap.put("BP_UTBET_OKER",
                 new GammeltBrev("PE_BA_04_511",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -6640,7 +6589,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("BP_UTBET_MINKER", () ->
+        brevMap.put("BP_UTBET_MINKER",
                 new GammeltBrev("PE_BA_04_512",
                         false,
                         "Vedtak - endring i pensjonsopptjening",
@@ -6656,7 +6605,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("ALDER_IVERK", () ->
+        brevMap.put("ALDER_IVERK",
                 new GammeltBrev("PE_BA_04_515",
                         false,
                         "Vedtak - alderspensjon fra folketrygden",
@@ -6672,7 +6621,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("ALDER_SAMM_IVERK", () ->
+        brevMap.put("ALDER_SAMM_IVERK",
                 new GammeltBrev("PE_BA_04_516",
                         false,
                         "Vedtak - alderspensjon fra folketrygden",
@@ -6688,7 +6637,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("REV_TIL_AP_PGA_DOD", () ->
+        brevMap.put("REV_TIL_AP_PGA_DOD",
                 new GammeltBrev("PE_BA_04_520",
                         false,
                         "Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6704,7 +6653,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("TILST_AP", () ->
+        brevMap.put("TILST_AP",
                 new GammeltBrev("PE_BA_04_520",
                         false,
                         "Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6720,7 +6669,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("REV_TIL_UP_PGA_DOD", () ->
+        brevMap.put("REV_TIL_UP_PGA_DOD",
                 new GammeltBrev("PE_BA_04_521",
                         false,
                         "Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
@@ -6736,7 +6685,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("TILST_UP", () ->
+        brevMap.put("TILST_UP",
                 new GammeltBrev("PE_BA_04_521",
                         false,
                         "Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
@@ -6752,7 +6701,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("REV_TIL_AFP_PGA_DOD", () ->
+        brevMap.put("REV_TIL_AFP_PGA_DOD",
                 new GammeltBrev("PE_BA_04_522",
                         false,
                         "Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6768,7 +6717,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("TILST_AFP", () ->
+        brevMap.put("TILST_AFP",
                 new GammeltBrev("PE_BA_04_522",
                         false,
                         "Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6784,7 +6733,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("TILST_GJP", () ->
+        brevMap.put("TILST_GJP",
                 new GammeltBrev("PE_BA_04_523",
                         false,
                         "Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6800,7 +6749,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("AO_AP_UP_67_2011", () ->
+        brevMap.put("AO_AP_UP_67_2011",
                 new GammeltBrev("PE_BA_04_528",
                         false,
                         "Vedtak - omregning av uføretrygd til alderspensjon",
@@ -6816,7 +6765,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("AO_AP_AFP_67_2011", () ->
+        brevMap.put("AO_AP_AFP_67_2011",
                 new GammeltBrev("PE_BA_04_530",
                         false,
                         "Vedtak - omregning av AFP til alderspensjon",
@@ -6832,7 +6781,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("VEDTAK_SKJERMT", () ->
+        brevMap.put("VEDTAK_SKJERMT",
                 new GammeltBrev("PE_BA_04_534",
                         false,
                         "Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
@@ -6848,7 +6797,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
-        brevMap.put("OMR_BP_OPPH", () ->
+        brevMap.put("OMR_BP_OPPH",
                 new GammeltBrev("PE_BP_04_022",
                         false,
                         "Vedtak - omregning  av barnepensjon",
@@ -6864,7 +6813,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("OPPHOR_ET_NN", () ->
+        brevMap.put("OPPHOR_ET_NN",
                 new GammeltBrev("PE_FT_01_004",
                         false,
                         "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -6880,7 +6829,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("OPPHOR_ET_GG", () ->
+        brevMap.put("OPPHOR_ET_GG",
                 new GammeltBrev("PE_FT_01_005",
                         false,
                         "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -6896,7 +6845,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr002"));
-        brevMap.put("OMSORGP_INNVILG", () ->
+        brevMap.put("OMSORGP_INNVILG",
                 new GammeltBrev("PE_IY_04_001",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved pleie og omsorg for eldre syke og funksjonshemmede",
@@ -6912,7 +6861,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("VEDTAK_TILB_KREV", () ->
+        brevMap.put("VEDTAK_TILB_KREV",
                 new GammeltBrev("PE_IY_04_062",
                         false,
                         "Vedtak om tilbakekreving",
@@ -6928,7 +6877,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("OO_MOTTAKER", () ->
+        brevMap.put("OO_MOTTAKER",
                 new GammeltBrev("PE_IY_04_120",
                         false,
                         "Vedtak - overføring av omsorgsopptjening brev til mottaker",
@@ -6944,7 +6893,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("OO_AVGIVER", () ->
+        brevMap.put("OO_AVGIVER",
                 new GammeltBrev("PE_IY_04_121",
                         false,
                         "Vedtak - overføring av omsorgsopptjening brev til avgiver",
@@ -6960,7 +6909,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("VARSEL_TILB_KREV", () ->
+        brevMap.put("VARSEL_TILB_KREV",
                 new GammeltBrev("PE_IY_05_028",
                         false,
                         "Forhåndsvarsel for tilbakekreving",
@@ -6976,7 +6925,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr004"));
-        brevMap.put("OMSORGP_SOKNAD_MOR", () ->
+        brevMap.put("OMSORGP_SOKNAD_MOR",
                 new GammeltBrev("PE_IY_05_104",
                         false,
                         "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01)",
@@ -6992,7 +6941,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("OMSORGP_SOKNAD_FAR", () ->
+        brevMap.put("OMSORGP_SOKNAD_FAR",
                 new GammeltBrev("PE_IY_05_105",
                         false,
                         "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02)",
@@ -7008,7 +6957,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("OMSORGP_ORIENT_GODS", () ->
+        brevMap.put("OMSORGP_ORIENT_GODS",
                 new GammeltBrev("PE_IY_05_200",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
@@ -7024,7 +6973,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("OMSORGP_BARN", () ->
+        brevMap.put("OMSORGP_BARN",
                 new GammeltBrev("PE_IY_05_201",
                         false,
                         "Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn",
@@ -7040,7 +6989,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("LEVEATT", () ->
+        brevMap.put("LEVEATT",
                 new GammeltBrev("PE_IY_05_410",
                         false,
                         "Brev med skjema Leveattest (NAV 21-03.05)",
@@ -7056,7 +7005,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("LEVEATT_PURRING", () ->
+        brevMap.put("LEVEATT_PURRING",
                 new GammeltBrev("PE_IY_05_411",
                         false,
                         "Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
@@ -7072,7 +7021,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("LEVEATT_ALT", () ->
+        brevMap.put("LEVEATT_ALT",
                 new GammeltBrev("PE_IY_06_510",
                         false,
                         "Brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -7088,7 +7037,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("LEVEATT_PURRING_ALT", () ->
+        brevMap.put("LEVEATT_PURRING_ALT",
                 new GammeltBrev("PE_IY_06_511",
                         false,
                         "Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -7104,7 +7053,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.SAK,
                         null,
                         "brevgr001"));
-        brevMap.put("KONV_UP_TIL_UT", () ->
+        brevMap.put("KONV_UP_TIL_UT",
                 new GammeltBrev("PE_UT_01_001",
                         false,
                         "Informasjonsbrev om overgang fra uførepensjon til uføretrygd",
@@ -7120,7 +7069,7 @@ public class BrevdataMapper {
                         null,
                         3,
                         "brevgr001"));
-        brevMap.put("NY_BER_UT_BT", () ->
+        brevMap.put("NY_BER_UT_BT",
                 new GammeltBrev("PE_UT_04_108",
                         false,
                         "Vedtak - Ny beregning av barnetillegget (auto)",
@@ -7136,7 +7085,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("ENDRING_UT", () ->
+        brevMap.put("ENDRING_UT",
                 new GammeltBrev("PE_UT_04_300",
                         true,
                         "Vedtak - omregning av uførepensjon til uføretrygd",
@@ -7152,7 +7101,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("ENDR_UT_PGA_INNT", () ->
+        brevMap.put("ENDR_UT_PGA_INNT",
                 new GammeltBrev("PE_UT_05_100",
                         false,
                         "Vedtak - endring av uføretrygd på grunn av inntekt (automatisk)",
@@ -7168,7 +7117,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("NY_BER_UT_ENDR_OPPTJ", () ->
+        brevMap.put("NY_BER_UT_ENDR_OPPTJ",
                 new GammeltBrev("PE_UT_06_100",
                         false,
                         "Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",
@@ -7184,7 +7133,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("OMREGN_UP_TIL_UT", () ->
+        brevMap.put("OMREGN_UP_TIL_UT",
                 new GammeltBrev("PE_UT_14_300",
                         false,
                         "Vedtak - omregning av uførepensjon til uføretrygd (automatisk)",
@@ -7200,7 +7149,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("UT_EO_VARSEL_FU", () ->
+        brevMap.put("UT_EO_VARSEL_FU",
                 new GammeltBrev("PE_UT_23_001",
                         false,
                         "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
@@ -7216,7 +7165,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr010"));
-        brevMap.put("UT_EO_VEDTAK_EB", () ->
+        brevMap.put("UT_EO_VEDTAK_EB",
                 new GammeltBrev("PE_UT_23_101",
                         false,
                         "Vedtak om etteroppgjør - etterbetaling",
@@ -7232,7 +7181,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr010"));
-        brevMap.put("ENDRING_UT_BT", () ->
+        brevMap.put("ENDRING_UT_BT",
                 new GammeltBrev("PE_UT_06_300",
                         false,
                         "Endring av barnetillegg i uføretrygden",
@@ -7248,7 +7197,7 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         3,
                         "brevgr010"));
-        brevMap.put("OPPHOR_ENDRING_UT_BT", () ->
+        brevMap.put("OPPHOR_ENDRING_UT_BT",
                 new GammeltBrev("PE_UT_07_200",
                         false,
                         "Vedtak - opphør av barnetillegg (automatisk)",
@@ -7264,7 +7213,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr010"));
-        brevMap.put("P1100", () ->
+        brevMap.put("P1100",
                 new GammeltBrev("P1100",
                         false,
                         "P1100 - Svar på anmodning om perioder med foreldreansvar",
@@ -7280,7 +7229,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("P5000", () ->
+        brevMap.put("P5000",
                 new GammeltBrev("P5000",
                         false,
                         "P5000 - Opplysninger om forsikrings- og bosettingsperioder",
@@ -7296,7 +7245,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("P14000", () ->
+        brevMap.put("P14000",
                 new GammeltBrev("P14000",
                         false,
                         "P14000 - Endring i personlige forhold",
@@ -7312,7 +7261,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("P15000", () ->
+        brevMap.put("P15000",
                 new GammeltBrev("P15000",
                         false,
                         "P15000 - Overføring av pensjonssaker til EESSI",
@@ -7328,7 +7277,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H020", () ->
+        brevMap.put("H020",
                 new GammeltBrev("H020",
                         false,
                         "H020 - Krav om refusjon - administrativ kontroll/medisinsk refusjon",
@@ -7344,7 +7293,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H021", () ->
+        brevMap.put("H021",
                 new GammeltBrev("H021",
                         false,
                         "H021 - Svar på krav om refusjon - administrativ kontroll/medisinsk refusjon",
@@ -7360,7 +7309,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H065", () ->
+        brevMap.put("H065",
                 new GammeltBrev("H065",
                         false,
                         "H065 - Overføring av krav/dokument/informasjon",
@@ -7376,7 +7325,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H066", () ->
+        brevMap.put("H066",
                 new GammeltBrev("H066",
                         false,
                         "H066 - Svar på overføring av krav/dokument/informasjon",
@@ -7392,7 +7341,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H120", () ->
+        brevMap.put("H120",
                 new GammeltBrev("H120",
                         false,
                         "H120 - Anmodning om medisinsk informasjon",
@@ -7408,7 +7357,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("H121", () ->
+        brevMap.put("H121",
                 new GammeltBrev("H121",
                         false,
                         "H121 - Svar på anmodning om medisinsk informasjon",
@@ -7424,7 +7373,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X001", () ->
+        brevMap.put("X001",
                 new GammeltBrev("X001",
                         false,
                         "X001 - Anmodning om avslutning",
@@ -7440,7 +7389,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X002", () ->
+        brevMap.put("X002",
                 new GammeltBrev("X002",
                         false,
                         "X002 - Anmodning om gjenåpning av avsluttet sak",
@@ -7456,7 +7405,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X003", () ->
+        brevMap.put("X003",
                 new GammeltBrev("X003",
                         false,
                         "X003 - Svar på anmodning om gjenåpning av avsluttet sak",
@@ -7472,7 +7421,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X004", () ->
+        brevMap.put("X004",
                 new GammeltBrev("X004",
                         false,
                         "X004 - Gjenåpne saken",
@@ -7488,7 +7437,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X005", () ->
+        brevMap.put("X005",
                 new GammeltBrev("X005",
                         false,
                         "X005 - Legg til ny institusjon",
@@ -7504,7 +7453,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X006", () ->
+        brevMap.put("X006",
                 new GammeltBrev("X006",
                         false,
                         "X006 - Fjern institusjon",
@@ -7520,7 +7469,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X007", () ->
+        brevMap.put("X007",
                 new GammeltBrev("X007",
                         false,
                         "X007 - Videresende sak",
@@ -7536,7 +7485,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X008", () ->
+        brevMap.put("X008",
                 new GammeltBrev("X008",
                         false,
                         "X008 - Ugyldiggjøre SED",
@@ -7552,7 +7501,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X009", () ->
+        brevMap.put("X009",
                 new GammeltBrev("X009",
                         false,
                         "X009 - Påminnelse",
@@ -7568,7 +7517,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X010", () ->
+        brevMap.put("X010",
                 new GammeltBrev("X010",
                         false,
                         "X010 - Svar på påminnelse",
@@ -7584,7 +7533,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X011", () ->
+        brevMap.put("X011",
                 new GammeltBrev("X011",
                         false,
                         "X011 - Avvis SED",
@@ -7600,7 +7549,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X012", () ->
+        brevMap.put("X012",
                 new GammeltBrev("X012",
                         false,
                         "X012 - Presiser innhold",
@@ -7616,7 +7565,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X013", () ->
+        brevMap.put("X013",
                 new GammeltBrev("X013",
                         false,
                         "X013 - Svar på anmodning om presisering av innhold",
@@ -7632,7 +7581,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X050", () ->
+        brevMap.put("X050",
                 new GammeltBrev("X050",
                         false,
                         "X050 - Avvikshåndtering",
@@ -7648,7 +7597,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("X100", () ->
+        brevMap.put("X100",
                 new GammeltBrev("X100",
                         false,
                         "X100 - Endring av institusjon",
@@ -7664,7 +7613,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("P2000", () ->
+        brevMap.put("P2000",
                 new GammeltBrev("P2000",
                         false,
                         "P2000 - Krav om alderspensjon",
@@ -7680,7 +7629,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("P2100", () ->
+        brevMap.put("P2100",
                 new GammeltBrev("P2100",
                         false,
                         "P2100 - Krav om ytelser til gjenlevende",
@@ -7696,7 +7645,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("P2200", () ->
+        brevMap.put("P2200",
                 new GammeltBrev("P2200",
                         false,
                         "P2200 - Krav om uføretrygd",
@@ -7712,7 +7661,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("P3000", () ->
+        brevMap.put("P3000",
                 new GammeltBrev("P3000",
                         false,
                         "P3000 - Landspesifikk informasjon",
@@ -7728,61 +7677,56 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        if ( toggle(ENABLE_NY_BREV_METADATA).isEnabled()) {
-	        brevMap.put("PE_IY_05_401_NY_BREV", () ->
-			        new GammeltBrev("PE_IY_05_401_NY_BREV",
-			                false,
-			                "Ny Brev:  Brev med skjema Endringsblankett for inntekt (NAV 21-03.15)",
-			                BrevkategoriCode.BREV_MED_SKJEMA,
-			                DokumenttypeCode.U,
-			                Arrays.asList(SprakCode.EN, SprakCode.NB),
-			                true,
-			                BrevUtlandCode.NASJONALT,
-			                BrevregeltypeCode.GG,
-			                null,
-			                DokumentkategoriCode.B,
-			                true,
-			                BrevkontekstCode.SAK,
-			                null,
-			                "brevgr001"));
-	        brevMap.put("PE_AP_04_202_NY_BREV", () ->
-            new GammeltBrev("PE_AP_04_202_NY_BREV",
-                    true,
-                    "Ny Brev: Vedtak - innvilgelse av alderspensjon",
-                    BrevkategoriCode.VEDTAK,
-                    DokumenttypeCode.U,
-                    Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                    true,
-                    BrevUtlandCode.NASJONALT,
-                    BrevregeltypeCode.GN,
-                    BrevkravtypeCode.ALLE,
-                    DokumentkategoriCode.VB,
-                    null,
-                    BrevkontekstCode.VEDTAK,
-                    null,
-                    "brevgr011"));
-	        brevMap.put("PE_BA_04_503_NY_BREV", () ->
-            new GammeltBrev("PE_BA_04_503_NY_BREV",
-                    false,
-                    "Ny Brev: Vedtak - forsørgingstillegg fra folketrygden",
-                    null,
-                    DokumenttypeCode.U,
-                    Arrays.asList(SprakCode.NB),
-                    true,
-                    null,
-                    BrevregeltypeCode.GG,
-                    null,
-                    DokumentkategoriCode.VB,
-                    null,
-                    null,
-                    null,
-                    "brevgr002"));
-        }
-        brevMap.put("VEDTAK_TILBAKEKREV", () ->  {
-            if (toggle(BRUK_VEDTAK_TILBAKEKREV).isDisabled()) {
-                throw new IllegalArgumentException("VEDTAK_TILBAKEKREV is not in production");
-            } else {
-                return new Doksysbrev("VEDTAK_TILBAKEKREV",
+        brevMap.put("PE_IY_05_401_NY_BREV",
+                new GammeltBrev("PE_IY_05_401_NY_BREV",
+                        false,
+                        "Ny Brev:  Brev med skjema Endringsblankett for inntekt (NAV 21-03.15)",
+                        BrevkategoriCode.BREV_MED_SKJEMA,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.EN, SprakCode.NB),
+                        true,
+                        BrevUtlandCode.NASJONALT,
+                        BrevregeltypeCode.GG,
+                        null,
+                        DokumentkategoriCode.B,
+                        true,
+                        BrevkontekstCode.SAK,
+                        null,
+                        "brevgr001"));
+        brevMap.put("PE_AP_04_202_NY_BREV",
+                new GammeltBrev("PE_AP_04_202_NY_BREV",
+                        true,
+                        "Ny Brev: Vedtak - innvilgelse av alderspensjon",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
+                        true,
+                        BrevUtlandCode.NASJONALT,
+                        BrevregeltypeCode.GN,
+                        BrevkravtypeCode.ALLE,
+                        DokumentkategoriCode.VB,
+                        null,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "brevgr011"));
+        brevMap.put("PE_BA_04_503_NY_BREV",
+                new GammeltBrev("PE_BA_04_503_NY_BREV",
+                        false,
+                        "Ny Brev: Vedtak - forsørgingstillegg fra folketrygden",
+                        null,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB),
+                        true,
+                        null,
+                        BrevregeltypeCode.GG,
+                        null,
+                        DokumentkategoriCode.VB,
+                        null,
+                        null,
+                        null,
+                        "brevgr002"));
+        brevMap.put("VEDTAK_TILBAKEKREV",
+                new Doksysbrev("VEDTAK_TILBAKEKREV",
                         true,
                         "Vedtak - tilbakekreving av feilutbetalt beløp",
                         BrevkategoriCode.VEDTAK,
@@ -7798,14 +7742,9 @@ public class BrevdataMapper {
                         null,
                         "000189",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_V1"));
-            }
-        });
-        brevMap.put("VEDTAK_TILBAKEKREV_MIDL", () ->  {
-            if (toggle(BRUK_VEDTAK_TILBAKEKREV_MIDL).isDisabled()) {
-                throw new IllegalArgumentException("VEDTAK_TILBAKEKREV_MIDL is not in production");
-            } else {
-                return new Doksysbrev("VEDTAK_TILBAKEKREV_MIDL",
+                        doksysVedleggMapper.map("RETTIGH_V1")));
+        brevMap.put("VEDTAK_TILBAKEKREV_MIDL",
+                new Doksysbrev("VEDTAK_TILBAKEKREV_MIDL",
                         true,
                         "Vedtak - tilbakekreving av feilutbetalt beløp (tom mal)",
                         BrevkategoriCode.VEDTAK,
@@ -7821,14 +7760,13 @@ public class BrevdataMapper {
                         null,
                         "000190",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_V1"));
-            }
-        });
+                        doksysVedleggMapper.map("RETTIGH_V1")));
     }
 
     public Brevdata map(String brevkode) {
-        if (brevMap.containsKey(brevkode)) {
-            return brevMap.get(brevkode).get();
+        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap);
+        if (filtrertBrevMap.containsKey(brevkode)) {
+            return filtrertBrevMap.get(brevkode);
         } else {
             throw new IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist");
         }
@@ -7836,20 +7774,24 @@ public class BrevdataMapper {
 
     public List<Brevdata> getAllBrevAsList() {
         List<Brevdata> brevdataList = new ArrayList<>();
+        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap);
 
-        for (Supplier<Brevdata> brevdataCallable : brevMap.values()) {
+        for (Brevdata brevdataCallable : filtrertBrevMap.values()) {
             try {
-                brevdataList.add(brevdataCallable.get());
-            } catch (IllegalArgumentException ignored) { }
+                brevdataList.add(brevdataCallable);
+            } catch (IllegalArgumentException ignored) {
+            }
         }
         return brevdataList;
     }
 
     public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
         List<String> brevkeys = new ArrayList<>();
-        for (String key : brevMap.keySet()) {
+        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap);
+
+        for (String key : filtrertBrevMap.keySet()) {
             try {
-                if (brevMap.get(key).get().getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
+                if (filtrertBrevMap.get(key).getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
                     brevkeys.add(key);
                 }
             } catch (IllegalArgumentException ignored) {}
