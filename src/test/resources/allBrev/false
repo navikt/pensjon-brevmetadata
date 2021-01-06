@@ -5362,6 +5362,41 @@
   "utland" : null,
   "visIPselv" : true
 }, {
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "AP_OMR_GT_AUTO",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "NN",
+  "brevsystem" : "DOKSYS",
+  "dekode" : "Vedtak - omregning av alderspensjon pga rett til garantitillegg",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "dokumentmal" : null,
+  "dokumentmalFelleselement" : null,
+  "dokumentmalFelleselementId" : "00001",
+  "dokumentmalId" : "000195",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN", "EN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "vedleggListe" : [ {
+    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
+    "dokumentmal" : null,
+    "dokumentmalFelleselement" : null,
+    "dokumentmalFelleselementId" : "00001",
+    "dokumentmalId" : "V00002",
+    "vedleggkode" : "RETTIGH_PLIKT_V1"
+  }, {
+    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
+    "dokumentmal" : null,
+    "dokumentmalFelleselement" : null,
+    "dokumentmalFelleselementId" : "00001",
+    "dokumentmalId" : "V00003",
+    "vedleggkode" : "AP_MND_UTB_V1"
+  } ],
+  "visIPselv" : true
+}, {
   "brevgruppe" : "brevgr010",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_UT_06_100",
