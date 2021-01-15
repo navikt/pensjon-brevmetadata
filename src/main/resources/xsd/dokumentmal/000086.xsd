@@ -9,6 +9,7 @@
            xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
            xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod"
            xmlns:land="http://nav.no/dok/pesysbrev/fag/v1/Land"
+           xmlns:barnepensjon="http://nav.no/dok/pesysbrev/fag/v1/Barnepensjon"
            xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"
            xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"
            xmlns:inngangOgEksportVurdering="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"
@@ -22,6 +23,7 @@
     <xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
     <xs:import schemaLocation="fag/v1.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Avdod"/>
     <xs:import schemaLocation="fag/v1.Land.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Land"/>
+    <xs:import schemaLocation="fag/v1.Barnepensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barnepensjon"/>
     <xs:import schemaLocation="fag/v1.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"/>
     <xs:import schemaLocation="fag/v1.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"/>
     <xs:import schemaLocation="fag/v1.InngangOgEksportVurdering.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"/>
@@ -48,6 +50,7 @@
             <xs:element name="alderspensjonVedVirk" type="alderspensjon:Alderspensjon"/>
             <xs:element name="avdod" type="avdod:Avdod" minOccurs="0"/>
             <xs:element name="avtaleland" type="land:Land" minOccurs="0"/>
+            <xs:element name="barnepensjonVedVirk" type = "barnepensjon:Barnepensjon" minOccurs="0"/>
             <xs:element name="beregnetPensjonPerManed" type="beregnetPensjonPerManed:BeregnetPensjonPerManed"/>
             <xs:element name="beregnetPensjonPerManedVedVirk" type="alderspensjonPerManed:AlderspensjonPerManed"/>
             <xs:element name="bruker" type="person:Person"/>
