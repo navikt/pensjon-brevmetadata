@@ -1,24 +1,20 @@
 package no.nav.pensjonbrevdata.model;
 
-import no.nav.pensjonbrevdata.helpers.XsdFileReader;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.function.Function;
 
 public class DoksysVedlegg {
-    private String vedleggkode;
-    private String dekode;
-    private String dokumentmalId;
-    private String dokumentmalFelleselementId;
-    private String dokumentmal;
-    private String dokumentmalFelleselement;
+    protected String vedleggkode;
+    protected String dekode;
+    protected String dokumentmalId;
+    protected String dokumentmalFelleselementId;
+    protected String dokumentmal;
+    protected String dokumentmalFelleselement;
 
     public DoksysVedlegg(String vedleggkode, String dekode, String dokumentmalId, String dokumentmalFelleselementId) {
         this(vedleggkode, dekode, dokumentmalId, dokumentmalFelleselementId, null, null);
     }
 
-    private DoksysVedlegg(String vedleggkode, String dekode, String dokumentmalId, String dokumentmalFelleselementId, String dokumentmal, String dokumentmalFelleselement) {
+    protected DoksysVedlegg(String vedleggkode, String dekode, String dokumentmalId, String dokumentmalFelleselementId, String dokumentmal, String dokumentmalFelleselement) {
         this.vedleggkode = vedleggkode;
         this.dekode = dekode;
         this.dokumentmalId = dokumentmalId;

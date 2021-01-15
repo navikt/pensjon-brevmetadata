@@ -1,6 +1,7 @@
 package no.nav.pensjonbrevdata.mappers;
 
 import no.nav.pensjonbrevdata.model.DoksysVedlegg;
+import no.nav.pensjonbrevdata.model.DoksysVedleggV2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,10 +52,10 @@ public class DoksysVedleggMapper {
                         "V00003",
                         "00001"));
         vedleggMap.put("AP_OPPL_BER_V1",
-                new DoksysVedlegg(
+                new DoksysVedleggV2(
                         "AP_OPPL_BER_V1",
                         "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-                        "v2.V00004",
+                        "V00004",
                         "00001"));
         vedleggMap.put("AP_OPPL_BER_END_V1",
                 new DoksysVedlegg(
