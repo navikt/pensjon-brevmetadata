@@ -1,12 +1,14 @@
 package no.nav.pensjonbrevdata.mappers;
 
 import no.nav.pensjonbrevdata.model.DoksysVedlegg;
+import no.nav.pensjonbrevdata.model.DoksysVedleggV2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
@@ -19,15 +21,15 @@ public class DoksysVedleggMapper {
         return vedleggMap -> toggle(togglekey).isEnabled() ? vedleggMap : vedleggMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleVedleggkode) ? gammeltVedlegg : entry.getValue()));
     }
 
-//    private static final DoksysVedlegg GAMMEL_VEDLEGG_00004 =
-//            new DoksysVedlegg(
-//                    "AP_OPPL_BER_V1",
-//                    "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-//                    "V00004",
-//                    "00001");
-//
-    private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap = m -> m ;
-//            brevdataErstattMedGammeltVedlegg(BRUK_ALDERSOVERGANGKATEGORI_I_V00004, "AP_OPPL_BER_V1", GAMMEL_VEDLEGG_00004);
+    private static final DoksysVedlegg GAMMEL_VEDLEGG_00004 =
+            new DoksysVedlegg(
+                    "AP_OPPL_BER_V1",
+                    "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
+                    "V00004",
+                    "00001");
+
+    private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap =
+        brevdataErstattMedGammeltVedlegg(BRUK_ALDERSOVERGANGKATEGORI_I_V00004, "AP_OPPL_BER_V1", GAMMEL_VEDLEGG_00004);
 
 
     public DoksysVedleggMapper() {
@@ -51,7 +53,7 @@ public class DoksysVedleggMapper {
                         "V00003",
                         "00001"));
         vedleggMap.put("AP_OPPL_BER_V1",
-                new DoksysVedlegg(
+                new DoksysVedleggV2(
                         "AP_OPPL_BER_V1",
                         "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
                         "V00004",
@@ -89,12 +91,14 @@ public class DoksysVedleggMapper {
 
     }
 
-    public List<DoksysVedlegg> map(String... vedleggCodes) {
-        List<DoksysVedlegg> vedleggList = new ArrayList<>();
-        Map<String, DoksysVedlegg> filtrertVedleggMap = filtrerVedleggMap.apply(vedleggMap);
-        for (String vedleggCode : vedleggCodes) {
-            vedleggList.add(filtrertVedleggMap.get(vedleggCode));
-        }
-        return vedleggList;
+    public Supplier<List<DoksysVedlegg>> map(String... vedleggCodes) {
+        return () -> {
+            List<DoksysVedlegg> vedleggList = new ArrayList<>();
+            Map<String, DoksysVedlegg> filtrertVedleggMap = filtrerVedleggMap.apply(vedleggMap);
+            for (String vedleggCode : vedleggCodes) {
+                vedleggList.add(filtrertVedleggMap.get(vedleggCode));
+            }
+            return vedleggList;
+        };
     }
 }

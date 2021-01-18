@@ -1,11 +1,12 @@
 package no.nav.pensjonbrevdata.model;
 
+import no.nav.pensjonbrevdata.dto.BrevdataDTO;
 import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.util.List;
 import java.util.function.Function;
 
-public class GammeltBrev extends Brevdata {
+public class GammeltBrev extends Brevdata implements BrevdataDTO {
 
     private String brevgruppe;
 
@@ -48,6 +49,11 @@ public class GammeltBrev extends Brevdata {
 
     @Override
     public Brevdata medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator) {
+        return this;
+    }
+
+    @Override
+    public BrevdataDTO toDTO() {
         return this;
     }
 }

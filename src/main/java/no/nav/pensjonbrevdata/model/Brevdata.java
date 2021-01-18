@@ -1,5 +1,6 @@
 package no.nav.pensjonbrevdata.model;
 
+import no.nav.pensjonbrevdata.dto.BrevdataDTO;
 import no.nav.pensjonbrevdata.model.codes.*;
 
 import java.util.List;
@@ -115,4 +116,6 @@ public abstract class Brevdata {
     }
 
     public abstract Brevdata medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator);
+
+    public abstract BrevdataDTO toDTO();
 }

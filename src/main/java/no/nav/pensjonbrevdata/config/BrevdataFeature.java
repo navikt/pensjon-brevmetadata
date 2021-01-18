@@ -10,6 +10,7 @@ public final class BrevdataFeature {
     public static final String BRUK_BARNEPENSJON_V2 = "pensjonsbrev.pensjon-brevdata.brukBARNEPENSJON_V2";
     public static final String BRUK_VEDTAK_TILBAKEKREV_MIDL = "pensjonsbrev.pensjon-brevdata.brukVEDTAK_TILBAKEKREV_MIDL";
     public static final String BRUK_VEDTAK_TILBAKEKREV = "pensjonsbrev.pensjon-brevdata.brukVEDTAK_TILBAKEKREV";
+    public static final String BRUK_ALDERSOVERGANGKATEGORI_I_V00004 = "pensjonsbrev.pensjon-brevdata.brukAldersovergangKategoriListePaV00004.PL-505";
 
     private BrevdataFeature() { }
 }

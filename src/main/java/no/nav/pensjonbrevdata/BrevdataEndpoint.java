@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import no.nav.pensjonbrevdata.dto.BrevdataDTO;
 import no.nav.pensjonbrevdata.helpers.BrevMetaData;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import org.apache.commons.lang3.StringUtils;
@@ -51,9 +52,9 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping(value = "/brevForBrevkode/{brevkode}")
-    public Brevdata getBrevForBrevkode(@PathVariable(value = "brevkode") String brevkode) {
+    public BrevdataDTO getBrevForBrevkode(@PathVariable(value = "brevkode") String brevkode) {
         try {
-            return provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator);
+            return provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO();
         } catch (IllegalArgumentException e) {
             LOGGER.warn("Faulty request when calling brevForBrevkode.", e);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
@@ -64,11 +65,11 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping("/brevdataForSaktype/{saktype}")
-    public List<Brevdata> getBrevdataForSaktype(@PathVariable(value = "saktype") String saktype, @RequestParam(value = "includeXsd") boolean includeXsd) {
+    public List<BrevdataDTO> getBrevdataForSaktype(@PathVariable(value = "saktype") String saktype, @RequestParam(value = "includeXsd") boolean includeXsd) {
         try {
             List<Brevdata> brevdata = provider.getBrevdataForSaktype(saktype);
-            return includeXsd ? brevdata.stream().map((brev) -> brev.medXSD(dokumentmalGenerator, fellesmalGenerator)).collect(Collectors.toList()) :
-                    brevdata;
+            return (includeXsd ? brevdata.stream().map((brev) -> brev.medXSD(dokumentmalGenerator, fellesmalGenerator)).collect(Collectors.toUnmodifiableList()) :
+                    brevdata).stream().map(Brevdata::toDTO).collect(Collectors.toUnmodifiableList());
         } catch (IllegalArgumentException e) {
             LOGGER.warn("Faulty request when calling brevdataForSaktype.", e);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
@@ -92,11 +93,11 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping("/allBrev")
-    public List<Brevdata> getAllBrev(@RequestParam(value = "includeXsd") boolean includeXsd) {
+    public List<BrevdataDTO> getAllBrev(@RequestParam(value = "includeXsd") boolean includeXsd) {
         try {
             List<Brevdata> brevdataList = provider.getAllBrev();
-            return includeXsd ? brevdataList.stream().map((brevdata -> brevdata.medXSD(dokumentmalGenerator, fellesmalGenerator))).collect(Collectors.toList()) :
-                    brevdataList;
+            return (includeXsd ? brevdataList.stream().map((brevdata -> brevdata.medXSD(dokumentmalGenerator, fellesmalGenerator))).collect(Collectors.toUnmodifiableList()) :
+                    brevdataList).stream().map(Brevdata::toDTO).collect(Collectors.toUnmodifiableList());
         } catch (RuntimeException e) {
             LOGGER.error("Feil ved kall til allBrev: " + e.getMessage(), e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
@@ -104,12 +105,13 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping("/brevForCodes")
-    public List<Brevdata> getBrevForCodes(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
+    public List<BrevdataDTO> getBrevForCodes(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
         return brevKoder.stream()
-                .filter(code -> StringUtils.isNotBlank(code))
+                .filter(StringUtils::isNotBlank)
                 .map(code -> provider.getBrevForBrevkode(code.trim()))
                 .map(brev -> includeXsd ? brev.medXSD(dokumentmalGenerator, fellesmalGenerator) : brev)
-                .collect(Collectors.toList());
+                .map(Brevdata::toDTO)
+                .collect(Collectors.toUnmodifiableList());
     }
 
     @GetMapping("/batchbBrevMapping")
@@ -123,7 +125,7 @@ public class BrevdataEndpoint {
                     map.put("brev", brev.getBrevkodeIBrevsystem());
                     return map;
                 })
-                .collect(Collectors.toList());
+                .collect(Collectors.toUnmodifiableList());
     }
 
     @GetMapping("/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}")
