@@ -6,10 +6,14 @@
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
            xmlns:barnepensjon="http://nav.no/dok/pesysbrev/fag/v2/Barnepensjon"
+           xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
+           xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
            xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
 
     <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
     <xs:import schemaLocation="fag/v2.Barnepensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Barnepensjon"/>
+    <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
+    <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
     <xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
 
     <xs:element name="brevdata" type="Brevdata"/>
@@ -27,7 +31,9 @@
             <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
         </xs:annotation>
         <xs:all>
-            <xs:element name="barnepensjon" type="barnepensjon:Barnepensjon"/>   
+            <xs:element name="barnepensjonVedVirk" type="barnepensjon:Barnepensjon"/>
+            <xs:element name="bruker" type = "person:Person"/>
+            <xs:element name="krav" type="krav:Krav"/>
         </xs:all>
     </xs:complexType>
 
