@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
+import no.nav.pensjonbrevdata.model.DoksysbrevV2;
 import no.nav.pensjonbrevdata.model.GammeltBrev;
 import no.nav.pensjonbrevdata.model.codes.BrevUtlandCode;
 import no.nav.pensjonbrevdata.model.codes.BrevkategoriCode;
@@ -4938,7 +4939,7 @@ public class BrevdataMapper {
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
         brevMap.put("BP_AVSL_MAN",
-                new Doksysbrev("BP_AVSL_MAN",
+                new DoksysbrevV2("BP_AVSL_MAN",
                         true,
                         "Vedtak - avslag på søknad om barnepensjon",
                         BrevkategoriCode.VEDTAK,
@@ -4952,7 +4953,7 @@ public class BrevdataMapper {
                         null,
                         BrevkontekstCode.VEDTAK,
                         null,
-                        "v2.000106",
+                        "000106",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_V1")));
 
