@@ -11,11 +11,11 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Doksysbrev extends Brevdata {
-    private Supplier<List<DoksysVedlegg>> vedleggListe;
-    private String dokumentmalId;
-    private String dokumentmalFelleselementId;
-    private String dokumentmal;
-    private String dokumentmalFelleselement;
+    protected Supplier<List<DoksysVedlegg>> vedleggListe;
+    protected String dokumentmalId;
+    protected String dokumentmalFelleselementId;
+    protected String dokumentmal;
+    protected String dokumentmalFelleselement;
 
     public Doksysbrev(String brevkodeInBrevsystem,
                       boolean redigerbart,
@@ -55,7 +55,7 @@ public class Doksysbrev extends Brevdata {
                 null);
     }
 
-    private Doksysbrev(String brevkodeIBrevsystem, boolean redigerbart, String dekode, BrevkategoriCode brevkategori,
+    protected Doksysbrev(String brevkodeIBrevsystem, boolean redigerbart, String dekode, BrevkategoriCode brevkategori,
                        DokumenttypeCode dokType,  List<SprakCode> sprak, Boolean visIPselv, BrevUtlandCode utland,
                        BrevregeltypeCode brevregeltype, BrevkravtypeCode brevkravtype, DokumentkategoriCode dokumentkategori,
                        Boolean synligForVeileder, BrevkontekstCode brevkontekst, Integer prioritet,
