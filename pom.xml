@@ -22,7 +22,7 @@
 
         <unleash-client-java.version>3.3.3</unleash-client-java.version>
         <prometheus.version>0.9.0</prometheus.version>
-        <springdoc.version>1.5.2</springdoc.version>
+        <springdoc.version>1.5.3</springdoc.version>
     </properties>
 
     <dependencies>
