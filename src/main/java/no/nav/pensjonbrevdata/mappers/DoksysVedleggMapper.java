@@ -21,16 +21,7 @@ public class DoksysVedleggMapper {
         return vedleggMap -> toggle(togglekey).isEnabled() ? vedleggMap : vedleggMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleVedleggkode) ? gammeltVedlegg : entry.getValue()));
     }
 
-    private static final DoksysVedlegg GAMMEL_VEDLEGG_00004 =
-            new DoksysVedlegg(
-                    "AP_OPPL_BER_V1",
-                    "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-                    "V00004",
-                    "00001");
-
-    private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap =
-        brevdataErstattMedGammeltVedlegg(BRUK_ALDERSOVERGANGKATEGORI_I_V00004, "AP_OPPL_BER_V1", GAMMEL_VEDLEGG_00004);
-
+    private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap = map -> map;
 
     public DoksysVedleggMapper() {
         vedleggMap = new HashMap<>();
