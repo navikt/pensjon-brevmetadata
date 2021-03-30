@@ -1,7 +1,6 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import no.nav.pensjonbrevdata.model.Doksysbrev;
-import no.nav.pensjonbrevdata.model.GammeltBrev;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,24 +10,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import no.finn.unleash.FakeUnleash;
-
-import no.nav.pensjonbrevdata.config.BrevdataFeature;
 import no.nav.pensjonbrevdata.model.Brevdata;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataMapperTest {
     private BrevdataMapper mapper;
-
-    private static FakeUnleash fakeUnleash = new FakeUnleash();
-
-    @BeforeAll
-    static public void setupForAll() {
-        UnleashProvider.initialize(fakeUnleash);
-    }
 
     @BeforeEach
     public void setup() {
@@ -43,10 +30,9 @@ public class BrevdataMapperTest {
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSLAG_AUTOAndToggleOn() {
+    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSLAG_AUTO() {
         String testBrev = "AP_AVSLAG_AUTO";
 
-        fakeUnleash.enable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
         mapper = new BrevdataMapper();
 
         Brevdata brev = mapper.map(testBrev);
@@ -56,10 +42,9 @@ public class BrevdataMapperTest {
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTOAndToggleOn() {
+    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTO() {
         String testBrev = "AP_AVSL_AUTO";
 
-        fakeUnleash.enable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
         mapper = new BrevdataMapper();
 
         Brevdata brev = mapper.map(testBrev);
@@ -69,68 +54,11 @@ public class BrevdataMapperTest {
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyPE_AP_04_210AndToggleOn() {
+    public void test_TestShowAPAvslAutoWhenUsingKeyPE_AP_04_210() {
         String testBrev = "PE_AP_04_210";
 
-        fakeUnleash.enable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
         mapper = new BrevdataMapper();
 
         assertThrows(IllegalArgumentException.class, () -> mapper.map(testBrev));
-    }
-
-    @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTOAndToggleOff() {
-        String testBrev = "AP_AVSLAG_AUTO";
-
-        fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
-        mapper = new BrevdataMapper();
-
-        Brevdata brev = mapper.map(testBrev);
-
-        assertNotNull(brev);
-        assertEquals("PE_AP_04_210", brev.getBrevkodeIBrevsystem());
-    }
-
-    @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyPE_AP_04_210AndToggleOff() {
-        String testBrev = "PE_AP_04_210";
-
-        fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
-        mapper = new BrevdataMapper();
-
-        Brevdata brev = mapper.map(testBrev);
-
-        assertNotNull(brev);
-        assertEquals("PE_AP_04_210", brev.getBrevkodeIBrevsystem());
-    }
-
-    @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSLAG_AUTOAndToggleOff() {
-        String testBrev = "AP_AVSL_AUTO";
-
-        fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
-        mapper = new BrevdataMapper();
-
-        assertNotNull(mapper.map(testBrev));
-        //assertThrows(IllegalArgumentException.class, () -> mapper.map(testBrev)); // noen fra pesys kaller dette med ny kode og forventer gammel brev
-    }
-
-    @Test
-    public void test_runtimeFeatureToggle() {
-        String testBrev = "AP_AVSLAG_AUTO";
-
-        mapper = new BrevdataMapper();
-
-        fakeUnleash.disable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
-
-        Brevdata brev1 = mapper.map(testBrev);
-
-        assertTrue(brev1 instanceof GammeltBrev);
-
-        fakeUnleash.enable(BrevdataFeature.BRUK_AP_AVSL_AUTO);
-
-        Brevdata brev3 = mapper.map(testBrev);
-
-        assertTrue(brev3 instanceof Doksysbrev);
     }
 }

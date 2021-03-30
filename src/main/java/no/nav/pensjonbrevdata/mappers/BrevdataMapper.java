@@ -45,23 +45,6 @@ public class BrevdataMapper {
         };
     }
 
-    private static final Brevdata GAMMEL_BREV_AP_AVSL_AUTO =
-            new GammeltBrev("PE_AP_04_210",
-                    false,
-                    "Vedtak - avslag på alderspensjon",
-                    null,
-                    DokumenttypeCode.U,
-                    Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                    true,
-                    null,
-                    BrevregeltypeCode.GN,
-                    null,
-                    DokumentkategoriCode.VB,
-                    null,
-                    null,
-                    null,
-                    "brevgr011");
-
     private static final Brevdata GAMMEL_BREV_AP_AVSL_UTL_AUTO =
             new GammeltBrev("PE_AP_04_213",
                     false,
@@ -102,9 +85,6 @@ public class BrevdataMapper {
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_IY_05_401_NY_BREV"))
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_AP_04_202_NY_BREV"))
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_BA_04_503_NY_BREV"))
-                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_AVSL_AUTO, "AP_AVSLAG_AUTO", GAMMEL_BREV_AP_AVSL_AUTO))
-                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_AVSL_AUTO, "AP_AVSL_AUTO", GAMMEL_BREV_AP_AVSL_AUTO))
-                    .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_AVSL_AUTO, "PE_AP_04_210", GAMMEL_BREV_AP_AVSL_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_AVSL_UTL_AUTO, "AP_AVSL_UTL_AUTO", GAMMEL_BREV_AP_AVSL_UTL_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_AVSL_UTL_AUTO, "PE_AP_04_213", GAMMEL_BREV_AP_AVSL_UTL_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
