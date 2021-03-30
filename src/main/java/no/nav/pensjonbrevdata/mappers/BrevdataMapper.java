@@ -79,25 +79,6 @@ public class BrevdataMapper {
                     null,
                     "brevgr011");
 
-    private static final Brevdata GAMMEL_BREV_BP_AVSL_MAN =
-            new Doksysbrev("BP_AVSL_MAN",
-                    true,
-                    "Vedtak - avslag på søknad om barnepensjon",
-                    BrevkategoriCode.VEDTAK,
-                    DokumenttypeCode.U,
-                    Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-                    true,
-                    BrevUtlandCode.ALLTID,
-                    BrevregeltypeCode.OVRIGE,
-                    BrevkravtypeCode.ALLE,
-                    DokumentkategoriCode.VB,
-                    null,
-                    BrevkontekstCode.VEDTAK,
-                    null,
-                    "000106",
-                    "00001",
-                    doksysVedleggMapper.map("RETTIGH_V1"));
-
     private static final Brevdata GAMMEL_BREV_AP_ENDR_GRAD_AUTO =
             new GammeltBrev("PE_AP_04_227",
                     false,
@@ -126,7 +107,6 @@ public class BrevdataMapper {
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_AVSL_AUTO, "PE_AP_04_210", GAMMEL_BREV_AP_AVSL_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_AVSL_UTL_AUTO, "AP_AVSL_UTL_AUTO", GAMMEL_BREV_AP_AVSL_UTL_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_AVSL_UTL_AUTO, "PE_AP_04_213", GAMMEL_BREV_AP_AVSL_UTL_AUTO))
-                    .andThen(brevdataErstattMedGammeltBrev(BRUK_BARNEPENSJON_V2, "BP_AVSL_MAN", GAMMEL_BREV_BP_AVSL_MAN))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
             ;
