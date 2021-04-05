@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.mappers;
 
 
+import no.finn.unleash.FakeUnleash;
+import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,13 @@ import no.nav.pensjonbrevdata.model.Brevdata;
 @ExtendWith(MockitoExtension.class)
 public class BrevdataMapperTest {
     private BrevdataMapper mapper;
+
+    private static FakeUnleash fakeUnleash = new FakeUnleash();
+
+    @BeforeAll
+    static public void setupForAll() {
+        UnleashProvider.initialize(fakeUnleash);
+    }
 
     @BeforeEach
     public void setup() {
