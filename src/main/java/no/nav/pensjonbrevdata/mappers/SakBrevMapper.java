@@ -15,8 +15,7 @@ public class SakBrevMapper {
 
     private static final Function<List<String>, List<String>> filtrerBrevkoder = brevkodeFilter(ENABLE_NY_BREV_METADATA, "PE_IY_05_401_NY_BREV")
             .andThen(brevkodeFilter(ENABLE_NY_BREV_METADATA,"PE_AP_04_202_NY_BREV"))
-            .andThen(brevkodeFilter(BRUK_VEDTAK_TILBAKEKREV,"VEDTAK_TILBAKEKREV"))
-            .andThen(brevkodeFilter(BRUK_VEDTAK_TILBAKEKREV_MIDL,"VEDTAK_TILBAKEKREV_MIDL"));
+            .andThen(brevkodeFilter(BRUK_VEDTAK_TILBAKEKREV,"VEDTAK_TILBAKEKREV"));
 
     public SakBrevMapper() {
         sakToBrevMap = new HashMap<>();
