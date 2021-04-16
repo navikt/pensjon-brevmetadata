@@ -64,7 +64,6 @@ public class BrevdataMapper {
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
-                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV_MIDL, "VEDTAK_TILBAKEKREV_MIDL"))
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_IY_05_401_NY_BREV"))
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_AP_04_202_NY_BREV"))
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_BA_04_503_NY_BREV"))

@@ -8085,6 +8085,34 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "VEDTAK_TILBAKEKREV_MIDL",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "DOKSYS",
+  "dekode" : "Vedtak - tilbakekreving av feilutbetalt beløp (tom mal)",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "dokumentmal" : null,
+  "dokumentmalFelleselement" : null,
+  "dokumentmalFelleselementId" : "00001",
+  "dokumentmalId" : "000190",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN", "EN" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "vedleggListe" : [ {
+    "dekode" : "VEDLEGG: Rettigheter. Versjon 1",
+    "dokumentmal" : null,
+    "dokumentmalFelleselement" : null,
+    "dokumentmalFelleselementId" : "00001",
+    "dokumentmalId" : "V00001",
+    "vedleggkode" : "RETTIGH_V1"
+  } ],
+  "visIPselv" : true
+}, {
   "brevkategori" : "INFORMASJON",
   "brevkodeIBrevsystem" : "ADHOC_INFO_AUTO",
   "brevkontekst" : "SAK",
