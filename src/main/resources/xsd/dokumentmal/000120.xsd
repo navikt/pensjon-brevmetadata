@@ -9,7 +9,6 @@
 
            xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
            xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/AlderspensjonPerManed"
-           xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod"
            xmlns:barnetillegg="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"
            xmlns:behandlingKontekst="http://nav.no/dok/pesysbrev/fag/v1/BehandlingKontekst"
            xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/BeregnetPensjonPerManed"
@@ -33,7 +32,9 @@
     <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
     <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
     <xs:import schemaLocation="fag/v1.Vedtak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"/>
-    <xs:import schemaLocation="fag/v1.YtelseskomponentInformasjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/YtelseskomponentInformasjon"/><xs:element name="brevdata" type="Brevdata"/>
+    <xs:import schemaLocation="fag/v1.YtelseskomponentInformasjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/YtelseskomponentInformasjon"/>
+
+    <xs:element name="brevdata" type="Brevdata"/>
 
     <xs:complexType name="Brevdata">
         <xs:all>
@@ -52,6 +53,7 @@
             <xs:element name="barnetilleggVedVirk" type="barnetillegg:Barnetillegg" minOccurs="0"/>
             <xs:element name="behandlingKontekst" type="behandlingKontekst:BehandlingKontekst"/>
             <xs:element name="beregnetPensjonPerManed" type="beregnetPensjonPerManed:BeregnetPensjonPerManed"/>
+            <xs:element name="beregnetPensjonPerManedGjeldende" type="alderspensjonPerManed:AlderspensjonPerManed"/>
             <xs:element name="beregnetPensjonPerManedVedVirk" type="alderspensjonPerManed:AlderspensjonPerManed"/>
             <xs:element name="bruker" type="person:Person" minOccurs="0"/>
             <xs:element name="endretOpptjening" type="endretOpptjening:EndretOpptjening"/>
@@ -59,7 +61,7 @@
             <xs:element name="krav" type="krav:Krav"/>
             <xs:element name="vedtak" type="vedtak:Vedtak"/>
             <xs:element name="ytelseskomponentInformasjon" type="ytelseskomponentInformasjon:YtelseskomponentInformasjon"/>
-          </xs:all>
+        </xs:all>
     </xs:complexType>
 
 </xs:schema>
