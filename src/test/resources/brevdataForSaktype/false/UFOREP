@@ -1281,7 +1281,7 @@
   "brevkravtype" : "ALLE",
   "brevregeltype" : "OVRIGE",
   "brevsystem" : "GAMMEL",
-  "dekode" : "Innhente opplysninger (uførepensjon - med førsteside for ettersendelse)",
+  "dekode" : "Innhente opplysninger (uføretrygd - med førsteside for ettersendelse)",
   "dokType" : "U",
   "dokumentkategori" : "B",
   "prioritet" : null,

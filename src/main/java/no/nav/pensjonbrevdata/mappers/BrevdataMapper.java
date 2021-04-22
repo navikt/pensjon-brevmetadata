@@ -3791,7 +3791,7 @@ public class BrevdataMapper {
         brevMap.put("PE_UP_07_100",
                 new GammeltBrev("PE_UP_07_100",
                         true,
-                        "Innhente opplysninger (uførepensjon - med førsteside for ettersendelse)",
+                        "Innhente opplysninger (uføretrygd - med førsteside for ettersendelse)",
                         BrevkategoriCode.INNHENTE_OPPL,
                         DokumenttypeCode.U,
                         Arrays.asList(SprakCode.NB, SprakCode.NN),
