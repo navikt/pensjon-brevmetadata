@@ -29,7 +29,7 @@ public class BrevdataMapper {
     private static final DoksysVedleggMapper doksysVedleggMapper = new DoksysVedleggMapper();
 
     private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataErstattMedGammeltBrev(String togglekey, String toggleBrevkode, Brevdata gammeltBrev) {
-        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleBrevkode) ?  gammeltBrev : entry.getValue()));
+        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleBrevkode) ? gammeltBrev : entry.getValue()));
     }
 
     private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataFiltrerBortNyttBrev(String togglekey, String toggleBrevkode) {
@@ -40,7 +40,7 @@ public class BrevdataMapper {
         return brevMap -> {
             if (toggle(togglekey).isEnabled()) return brevMap;
             Map<String, Brevdata> newMap = brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-            newMap.put(toggleBrevkode,  gammeltBrev);
+            newMap.put(toggleBrevkode, gammeltBrev);
             return newMap;
         };
     }
@@ -69,7 +69,7 @@ public class BrevdataMapper {
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_BA_04_503_NY_BREV"))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
-            ;
+                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"));
 
     private final Map<String, Brevdata> brevMap;
 
@@ -7699,6 +7699,25 @@ public class BrevdataMapper {
                 "000195",
                 "00001",
                 doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
+        brevMap.put("AFP_INNV_MAN", new Doksysbrev(
+                "AFP_INNV_MAN",
+                true,
+                "Vedtak - innvilgelse av AFP i privat sektor",
+                BrevkategoriCode.VEDTAK,
+                DokumenttypeCode.U,
+                Arrays.asList(SprakCode.NN, SprakCode.NB, SprakCode.EN),
+                true,
+                BrevUtlandCode.ALLTID,
+                BrevregeltypeCode.OVRIGE,
+                BrevkravtypeCode.ALLE,
+                DokumentkategoriCode.VB,
+                true,
+                BrevkontekstCode.VEDTAK,
+                null,
+                "000208",
+                "00001",
+                doksysVedleggMapper.map("AFP_PRIV_MND_UTB_V1", "RETTIGH_V1")
+        ));
     }
 
     public Brevdata map(String brevkode) {
@@ -7732,7 +7751,8 @@ public class BrevdataMapper {
                 if (filtrertBrevMap.get(key).getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
                     brevkeys.add(key);
                 }
-            } catch (IllegalArgumentException ignored) {}
+            } catch (IllegalArgumentException ignored) {
+            }
         }
         return brevkeys;
     }
