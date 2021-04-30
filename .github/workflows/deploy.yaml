@@ -81,6 +81,22 @@ jobs:
           RESOURCE: nais/nais-dev.yml
           VAR: environmentname=t4,application=pensjon-brevmetadata-t4,ingress=https://pensjon-brevmetadata-t4-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
 
+  deploy-to-dev-prodlik:
+    name: Deploy to dev prodlik
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy brevmetadata to dev-fss prodlik
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-fss
+          RESOURCE: nais/nais-dev.yml
+          VAR: environmentname=prodlik,application=pensjon-brevmetadata-prodlik,ingress=https://pensjon-brevmetadata-prodlik-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+
   deploy-to-prod:
     name: Deploy to prod
     if: github.ref == 'refs/heads/master'
