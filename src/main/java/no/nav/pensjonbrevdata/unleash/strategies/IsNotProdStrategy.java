@@ -13,6 +13,7 @@ public class IsNotProdStrategy implements Strategy {
 
     @Override
     public boolean isEnabled(Map<String, String> map) {
-        return !StringUtils.startsWithIgnoreCase(System.getenv("NAIS_CLUSTER_NAME"), "prod-");
+        return !( StringUtils.startsWithIgnoreCase(System.getenv("NAIS_CLUSTER_NAME"), "prod-") ||
+                new Environment().isCurrentEnvironment("prodlik") );
     }
 }
