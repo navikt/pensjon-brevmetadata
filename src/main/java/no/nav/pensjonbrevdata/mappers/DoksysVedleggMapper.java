@@ -21,7 +21,14 @@ public class DoksysVedleggMapper {
         return vedleggMap -> toggle(togglekey).isEnabled() ? vedleggMap : vedleggMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleVedleggkode) ? gammeltVedlegg : entry.getValue()));
     }
 
-    private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap = map -> map;
+    private static final DoksysVedlegg gamleVedlegg8 = new DoksysVedlegg(
+            "AFP_PRIV_MND_UTB_V1",
+            "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1",
+            "V00008",
+            "00001");
+
+
+    private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap = brevdataErstattMedGammeltVedlegg(ERSTATT_AFP_PRIV_MND_UTB_V1, "AFP_PRIV_MND_UTB_V1", gamleVedlegg8);
 
     public DoksysVedleggMapper() {
         vedleggMap = new HashMap<>();
@@ -68,7 +75,7 @@ public class DoksysVedleggMapper {
                         "V00007",
                         "00001"));
         vedleggMap.put("AFP_PRIV_MND_UTB_V1",
-                new DoksysVedlegg(
+                new DoksysVedleggV2(
                         "AFP_PRIV_MND_UTB_V1",
                         "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1",
                         "V00008",
