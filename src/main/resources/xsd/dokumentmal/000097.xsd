@@ -6,6 +6,7 @@
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
            xmlns:afpPrivat="http://nav.no/dok/pesysbrev/fag/v1/AfpPrivat"
+           xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/AlderspensjonPerManed"
            xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
            xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"
            xmlns:inngangOgEksportVurdering="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"
@@ -17,6 +18,7 @@
            xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
 
     <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+    <xs:import schemaLocation="fag/v2.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/AlderspensjonPerManed"/>
     <xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
     <xs:import schemaLocation="fag/v1.AfpPrivat.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AfpPrivat"/>
     <xs:import schemaLocation="fag/v1.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"/>
@@ -44,15 +46,16 @@
         </xs:annotation>
         <xs:all>
             <xs:element name="afpPrivat" type="afpPrivat:AfpPrivat" minOccurs="0"/>
-            <xs:element name="alderspensjonVedVirk" type="alderspensjon:Alderspensjon" minOccurs="0"/>
+            <xs:element name="alderspensjonVedVirk" type="alderspensjon:Alderspensjon"/>
             <xs:element name="avtaleland" type="land:Land" minOccurs="0"/>
-            <xs:element name="beregnetPensjonPerManed" type="beregnetPensjonPerManed:BeregnetPensjonPerManed" minOccurs="0"/>
-            <xs:element name="bruker" type="person:Person" minOccurs="0"/>
+            <xs:element name="beregnetPensjonPerManed" type="beregnetPensjonPerManed:BeregnetPensjonPerManed"/>
+            <xs:element name="beregnetPensjonPerManedVedVirk" type="alderspensjonPerManed:AlderspensjonPerManed"/>
+            <xs:element name="bruker" type="person:Person"/>
             <xs:element name="inngangOgEksportVurdering" type="inngangOgEksportVurdering:InngangOgEksportVurdering" minOccurs="0"/>
-            <xs:element name="krav" type="krav:Krav" minOccurs="0"/>
-            <xs:element name="vedtak" type="vedtak:Vedtak" minOccurs="0"/>
+            <xs:element name="krav" type="krav:Krav"/>
+            <xs:element name="vedtak" type="vedtak:Vedtak"/>
             <xs:element name="vedtaksresultatUtland" type="vedtaksresultatUtland:VedtaksresultatUtland" minOccurs="0"/>
-          </xs:all>
+        </xs:all>
     </xs:complexType>
 
 </xs:schema>

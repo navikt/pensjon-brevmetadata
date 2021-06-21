@@ -62,6 +62,44 @@ public class BrevdataMapper {
                     null,
                     "brevgr011");
 
+    private static final Brevdata GAMMEL_BREV_AP_INNV_AVT_MAN =
+            new DoksysbrevV2("AP_INNV_AVT_MAN",
+                    true,
+                    "Vedtak - innvilgelse av alderspensjon (trygdeavtale)",
+                    BrevkategoriCode.VEDTAK,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.EN, SprakCode.NN, SprakCode.NB),
+                    null,
+                    BrevUtlandCode.UTLAND,
+                    BrevregeltypeCode.GN,
+                    BrevkravtypeCode.ALLE,
+                    DokumentkategoriCode.VB,
+                    null,
+                    BrevkontekstCode.VEDTAK,
+                    1,
+                    "000097",
+                    "00001",
+                    doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1"));
+
+    private static final Brevdata GAMMEL_BREV_AP_INNV_AUTO =
+            new DoksysbrevV2("AP_INNV_AUTO",
+                    false,
+                    "Vedtak - Innvilgelse av alderspensjon (auto)",
+                    null,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                    true,
+                    null,
+                    null,
+                    null,
+                    DokumentkategoriCode.VB,
+                    null,
+                    null,
+                    null,
+                    "000098",
+                    "00001",
+                    null);
+
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_IY_05_401_NY_BREV"))
@@ -69,7 +107,9 @@ public class BrevdataMapper {
                     .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_BA_04_503_NY_BREV"))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
-                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"));
+                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_PER_MAANED_VEDVIRK_XSD, "AP_INNV_AVT_MAN", GAMMEL_BREV_AP_INNV_AVT_MAN))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_PER_MAANED_VEDVIRK_XSD, "AP_INNV_AUTO", GAMMEL_BREV_AP_INNV_AUTO));
 
     private final Map<String, Brevdata> brevMap;
 

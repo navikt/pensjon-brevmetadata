@@ -8169,28 +8169,7 @@
   "sprak" : [ "NB", "NN", "EN" ],
   "synligForVeileder" : null,
   "utland" : null,
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00004",
-    "vedleggkode" : "AP_OPPL_BER_V1"
-  } ],
+  "vedleggListe" : null,
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr009",
