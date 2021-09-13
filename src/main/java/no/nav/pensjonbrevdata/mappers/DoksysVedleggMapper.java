@@ -51,7 +51,7 @@ public class DoksysVedleggMapper {
                         "V00003",
                         "00001"));
         vedleggMap.put("AP_OPPL_BER_V1",
-                new DoksysVedleggV2(
+                new DoksysVedlegg(
                         "AP_OPPL_BER_V1",
                         "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
                         "V00004",
