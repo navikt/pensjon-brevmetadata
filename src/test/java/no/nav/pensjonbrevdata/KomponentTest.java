@@ -197,7 +197,7 @@ public class KomponentTest {
                 "PE_AP_04_224","PE_IY_05_300","PE_IY_05_301","PE_UT_05_100","VEDTAK_TILB_KREV",
                 "P1100", "P5000", "P14000", "P15000", "H020", "H021", "H065", "H066", "H120", "H121",
                 "X001", "X002", "X003", "X004", "X005", "X006", "X007", "X008", "X009", "X010", "X011", "X012", "X013", "X050", "X100",
-                "P2000", "P2100", "P2200", "P3000", "AP_OMR_GT_AUTO","VEDTAK_TILBAKEKREV_MIDL"
+                "P2000", "P2100", "P2200", "P3000", "AP_OMR_GT_AUTO","VEDTAK_TILBAKEKREV_MIDL", "VSS_INFO_EPS60_AUTO"
                 );
     }
 

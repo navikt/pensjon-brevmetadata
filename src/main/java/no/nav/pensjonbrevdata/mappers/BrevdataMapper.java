@@ -7758,6 +7758,25 @@ public class BrevdataMapper {
                 "00001",
                 doksysVedleggMapper.map("AFP_PRIV_MND_UTB_V1", "RETTIGH_V1")
         ));
+        brevMap.put("VSS_INFO_EPS60_AUTO", new Doksysbrev(
+                "VSS_INFO_EPS60_AUTO",
+                false,
+                "Informasjon om vurdering av særskilt sats når ektefelle fyller 60 år",
+                null,
+                DokumenttypeCode.U,
+                List.of(SprakCode.NB),
+                true,
+                BrevUtlandCode.ALLTID,
+                null,
+                null,
+                DokumentkategoriCode.VB,
+                true,
+                null,
+                null,
+                "000238",
+                "00001",
+                doksysVedleggMapper.map()
+        ));
     }
 
     public Brevdata map(String brevkode) {
