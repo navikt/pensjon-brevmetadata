@@ -194,7 +194,7 @@ public class KomponentTest {
                 "P8000","PE_IY_06_103","PE_AP_04_211","PE_BP_04_030","PE_AP_04_212","PE_BP_04_031",
                 "TILST_DOD_UT","AP_FULLTT_BELOPENDR","PE_GP_04_020","PE_GP_04_001","PE_AP_04_214","PE_AP_04_215","PE_AP_04_216",
                 "PE_UT_04_300","E001","PE_AP_04_220","PE_AP_04_221","AUTO_VTK_EPS_DOD_AFP","PE_AP_04_223",
-                "PE_AP_04_224","PE_IY_05_300","PE_IY_05_301","PE_UT_05_100","VEDTAK_TILB_KREV",
+                "PE_AP_04_224","PE_IY_05_300","VSS_INFO_AO67_AUTO","PE_IY_05_301","PE_UT_05_100","VEDTAK_TILB_KREV",
                 "P1100", "P5000", "P14000", "P15000", "H020", "H021", "H065", "H066", "H120", "H121",
                 "X001", "X002", "X003", "X004", "X005", "X006", "X007", "X008", "X009", "X010", "X011", "X012", "X013", "X050", "X100",
                 "P2000", "P2100", "P2200", "P3000", "AP_OMR_GT_AUTO","VEDTAK_TILBAKEKREV_MIDL"
