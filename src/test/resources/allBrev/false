@@ -6149,6 +6149,27 @@
   "utland" : null,
   "visIPselv" : null
 }, {
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "VSS_INFO_EPS67_AUTO",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : null,
+  "brevsystem" : "DOKSYS",
+  "dekode" : "Informasjon om vurdering særskilt sats når EPS fyller 67 år",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "dokumentmal" : null,
+  "dokumentmalFelleselement" : null,
+  "dokumentmalFelleselementId" : "00001",
+  "dokumentmalId" : "000241",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "vedleggListe" : [ ],
+  "visIPselv" : true
+}, {
   "brevgruppe" : "INGEN_BREVGRUPPE",
   "brevkategori" : null,
   "brevkodeIBrevsystem" : "X010",
