@@ -5111,6 +5111,27 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "VSS_INFO_EPS60_AUTO",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : null,
+  "brevsystem" : "DOKSYS",
+  "dekode" : "Informasjon om vurdering av særskilt sats når ektefelle fyller 60 år",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "dokumentmal" : null,
+  "dokumentmalFelleselement" : null,
+  "dokumentmalFelleselementId" : "00001",
+  "dokumentmalId" : "000238",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "vedleggListe" : [ ],
+  "visIPselv" : true
+}, {
   "brevgruppe" : "brevgr010",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_UT_04_101",
