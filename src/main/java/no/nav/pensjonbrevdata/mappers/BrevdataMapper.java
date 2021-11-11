@@ -5356,7 +5356,7 @@ public class BrevdataMapper {
         brevMap.put("VSS_INFO_EPS62_AUTO",
                 new Doksysbrev("VSS_INFO_EPS62_AUTO",
                         false,
-                        "Informasjon om EPS fyller 62 år",
+                        "Informasjon om vurdering særskilt sats når EPS fyller 62 år",
                         null,
                         DokumenttypeCode.U,
                         List.of(SprakCode.NB),
