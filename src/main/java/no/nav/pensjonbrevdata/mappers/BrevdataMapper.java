@@ -7769,7 +7769,7 @@ public class BrevdataMapper {
                 BrevUtlandCode.ALLTID,
                 null,
                 null,
-                DokumentkategoriCode.VB,
+                DokumentkategoriCode.IB,
                 true,
                 null,
                 null,
