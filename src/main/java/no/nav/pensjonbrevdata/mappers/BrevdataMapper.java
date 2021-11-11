@@ -5469,16 +5469,17 @@ public class BrevdataMapper {
                         DokumenttypeCode.U,
                         List.of(SprakCode.NB),
                         true,
-                        null,
+                        BrevUtlandCode.ALLTID,
                         null,
                         null,
                         DokumentkategoriCode.IB,
-                        null,
+                        true,
                         null,
                         null,
                         "000239",
                         "00001",
-                        null));
+                        doksysVedleggMapper.map()
+                ));
         brevMap.put("AUTO_INFOBREV_GJENL",
                 new Doksysbrev("DOD_INFO_RETT_AUTO",
                         false,
