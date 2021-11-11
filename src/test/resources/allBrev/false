@@ -1481,9 +1481,9 @@
   "prioritet" : null,
   "redigerbart" : false,
   "sprak" : [ "NB" ],
-  "synligForVeileder" : null,
-  "utland" : null,
-  "vedleggListe" : null,
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "vedleggListe" : [ ],
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr002",

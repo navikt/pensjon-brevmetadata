@@ -5361,16 +5361,17 @@ public class BrevdataMapper {
                         DokumenttypeCode.U,
                         List.of(SprakCode.NB),
                         true,
-                        null,
+                        BrevUtlandCode.ALLTID,
                         null,
                         null,
                         DokumentkategoriCode.IB,
-                        null,
+                        true,
                         null,
                         null,
                         "000240",
                         "00001",
-                        null));
+                        doksysVedleggMapper.map()
+                ));
         brevMap.put("AP_ENDR_INST_MAN",
                 new Doksysbrev("AP_ENDR_INST_MAN",
                         true,
