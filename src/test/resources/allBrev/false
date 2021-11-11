@@ -5816,6 +5816,27 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "VSS_INFO_AO67_AUTO",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : null,
+  "brevsystem" : "DOKSYS",
+  "dekode" : "Informasjon om vurdering av særskilt sats når bruker fyller 67 år",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "dokumentmal" : null,
+  "dokumentmalFelleselement" : null,
+  "dokumentmalFelleselementId" : "00001",
+  "dokumentmalId" : "000239",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "vedleggListe" : [ ],
+  "visIPselv" : true
+}, {
   "brevgruppe" : "INGEN_BREVGRUPPE",
   "brevkategori" : null,
   "brevkodeIBrevsystem" : "P5000",
