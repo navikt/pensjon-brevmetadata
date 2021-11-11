@@ -1465,6 +1465,27 @@
   "utland" : null,
   "visIPselv" : true
 }, {
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "VSS_INFO_EPS62_AUTO",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : null,
+  "brevsystem" : "DOKSYS",
+  "dekode" : "Informasjon om vurdering særskilt sats når EPS fyller 62 år",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "dokumentmal" : null,
+  "dokumentmalFelleselement" : null,
+  "dokumentmalFelleselementId" : "00001",
+  "dokumentmalId" : "000240",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "ALLTID",
+  "vedleggListe" : [ ],
+  "visIPselv" : true
+}, {
   "brevgruppe" : "brevgr002",
   "brevkategori" : null,
   "brevkodeIBrevsystem" : "PE_BA_04_508",
