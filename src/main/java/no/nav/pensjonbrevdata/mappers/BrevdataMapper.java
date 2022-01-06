@@ -121,9 +121,6 @@ public class BrevdataMapper {
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
-                    .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_IY_05_401_NY_BREV"))
-                    .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_AP_04_202_NY_BREV"))
-                    .andThen(brevdataFiltrerBortNyttBrev(ENABLE_NY_BREV_METADATA, "PE_BA_04_503_NY_BREV"))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
@@ -7715,54 +7712,6 @@ public class BrevdataMapper {
                         null,
                         null,
                         "INGEN_BREVGRUPPE"));
-        brevMap.put("PE_IY_05_401_NY_BREV",
-                new GammeltBrev("PE_IY_05_401_NY_BREV",
-                        false,
-                        "Ny Brev:  Brev med skjema Endringsblankett for inntekt (NAV 21-03.15)",
-                        BrevkategoriCode.BREV_MED_SKJEMA,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.EN, SprakCode.NB),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        null,
-                        DokumentkategoriCode.B,
-                        true,
-                        BrevkontekstCode.SAK,
-                        null,
-                        "brevgr001"));
-        brevMap.put("PE_AP_04_202_NY_BREV",
-                new GammeltBrev("PE_AP_04_202_NY_BREV",
-                        true,
-                        "Ny Brev: Vedtak - innvilgelse av alderspensjon",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GN,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr011"));
-        brevMap.put("PE_BA_04_503_NY_BREV",
-                new GammeltBrev("PE_BA_04_503_NY_BREV",
-                        false,
-                        "Ny Brev: Vedtak - forsørgingstillegg fra folketrygden",
-                        null,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB),
-                        true,
-                        null,
-                        BrevregeltypeCode.GG,
-                        null,
-                        DokumentkategoriCode.VB,
-                        null,
-                        null,
-                        null,
-                        "brevgr002"));
         brevMap.put("VEDTAK_TILBAKEKREV",
                 new Doksysbrev("VEDTAK_TILBAKEKREV",
                         true,
