@@ -100,24 +100,43 @@ public class BrevdataMapper {
                     "00001",
                     null);
 
+    private static final Brevdata GAMMEL_BREV_AP_AVSL_GJRETT_MAN =
+            new Doksysbrev("AP_AVSL_GJRETT_MAN",
+                    true,
+                    "Vedtak - avslag på alderspensjon med gjenlevenderett",
+                    BrevkategoriCode.VEDTAK,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                    null,
+                    BrevUtlandCode.ALLTID,
+                    BrevregeltypeCode.OVRIGE,
+                    BrevkravtypeCode.ALLE,
+                    DokumentkategoriCode.VB,
+                    true,
+                    BrevkontekstCode.VEDTAK,
+                    null,
+                    "000152",
+                    "00001",
+                    doksysVedleggMapper.map("RETTIGH_V1", "AP_MND_UTB_V1"));
+
     private static final Brevdata GAMMEL_BREV_AP_ENDR_EPS_MAN =
             new DoksysbrevV2("AP_ENDR_EPS_MAN",
-                            true,
-                            "Vedtak - endring av alderspensjon (sivilstand)",
-                            BrevkategoriCode.VEDTAK,
-                            DokumenttypeCode.U,
-                            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-                            true,
-                            BrevUtlandCode.ALLTID,
-                            BrevregeltypeCode.OVRIGE,
-                            BrevkravtypeCode.ALLE,
-                            DokumentkategoriCode.VB,
-                            null,
-                            BrevkontekstCode.VEDTAK,
-                            null,
-                            "000102",
-                            "00001",
-                            doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1"));
+                    true,
+                    "Vedtak - endring av alderspensjon (sivilstand)",
+                    BrevkategoriCode.VEDTAK,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                    true,
+                    BrevUtlandCode.ALLTID,
+                    BrevregeltypeCode.OVRIGE,
+                    BrevkravtypeCode.ALLE,
+                    DokumentkategoriCode.VB,
+                    null,
+                    BrevkontekstCode.VEDTAK,
+                    null,
+                    "000102",
+                    "00001",
+                    doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1"));
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
@@ -126,7 +145,8 @@ public class BrevdataMapper {
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_PER_MAANED_VEDVIRK_XSD, "AP_INNV_AVT_MAN", GAMMEL_BREV_AP_INNV_AVT_MAN))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_PER_MAANED_VEDVIRK_XSD, "AP_INNV_AUTO", GAMMEL_BREV_AP_INNV_AUTO))
-                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_EPS_MAN_SAERSKILT_SATS_XSD, "AP_ENDR_EPS_MAN", GAMMEL_BREV_AP_ENDR_EPS_MAN));
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_EPS_MAN_SAERSKILT_SATS_XSD, "AP_ENDR_EPS_MAN", GAMMEL_BREV_AP_ENDR_EPS_MAN))
+                    .andThen(brevdataErstattMedGammeltBrev(BRUK_NYTT_NAVN_AP_AVSL_GJRETT_MAN, "AP_AVSL_GJRETT_MAN", GAMMEL_BREV_AP_AVSL_GJRETT_MAN));
 
     private final Map<String, Brevdata> brevMap;
 
@@ -5211,7 +5231,7 @@ public class BrevdataMapper {
         brevMap.put("AP_AVSL_GJRETT_MAN",
                 new Doksysbrev("AP_AVSL_GJRETT_MAN",
                         true,
-                        "Vedtak - avslag på alderspensjon med gjenlevenderett",
+                        "Vedtak - avslag på gjenlevenderett i alderspensjon",
                         BrevkategoriCode.VEDTAK,
                         DokumenttypeCode.U,
                         Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
