@@ -1,3 +1,4 @@
+# TODO: Slett når de nye gcp deploymentene fungerer for pesys
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:

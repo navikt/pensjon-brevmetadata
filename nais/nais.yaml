@@ -1,4 +1,4 @@
-# TODO: Slett når de nye gcp deploymentene fungerer for pesys
+
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
@@ -10,8 +10,8 @@ spec:
   image: {{ image }}
   port: 8080
   replicas:
-    min: 1
-    max: 2
+    min: {{ replicas.min }}
+    max: {{ replicas.max }}
   liveness:
     path: "/api/internal/isAlive"
     initialDelay: 35
@@ -27,6 +27,17 @@ spec:
     path: "/api/internal/prometheus"
   env:
     - name: UNLEASH_ENDPOINT_URL
-      value: {{ unleashurl }}
+      value: https://unleash.nais.io/api/
     - name: ENVIRONMENT_NAME
       value: {{ environmentname }}
+  accessPolicy:
+    inbound:
+      rules:
+        {{#each inboundRules as |app|}}
+            - application: {{app.name }}
+              namespace: {{app.namespace}}
+              cluster: {{app.cluster}}
+        {{/each}}
+    outbound:
+      external:
+        - host: unleash.nais.io
