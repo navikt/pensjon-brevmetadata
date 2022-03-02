@@ -88,7 +88,7 @@ jobs:
           VAR: image=${{ env.IMAGE }}
           VARS: prod.yaml
 
-# TODO: Lar disse ligge frem til vi er sikker på at det fungerer for pesys.
+# TODO: PL-5232 - Lar disse ligge frem til vi er sikker på at det fungerer for pesys.
 #  deploy-to-dev-pensjonsbrev:
 #    name: Deploy to dev default
 #    if: github.ref == 'refs/heads/master'
