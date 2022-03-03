@@ -74,7 +74,7 @@ jobs:
           VARS: dev-prodlik.yaml
 
   deploy-to-prod:
-    name: Deploy to dev - prodlik
+    name: Deploy to prod
     if: github.ref == 'refs/heads/master'
     needs: deploy-to-dev-default
     runs-on: ubuntu-latest
@@ -83,7 +83,7 @@ jobs:
       - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_KEY }}
-          CLUSTER: dev-gcp
+          CLUSTER: prod-gcp
           RESOURCE: nais.yaml
           VAR: image=${{ env.IMAGE }}
           VARS: prod.yaml
