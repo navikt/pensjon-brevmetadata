@@ -1,8 +1,8 @@
-# TODO: PL-5232 - Slett når de nye gcp deploymentene fungerer for pesys
+
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: pensjon-brevmetadata
+  name: {{ application }}
   namespace: pensjonsbrev
   labels:
     team: pensjonsbrev
@@ -10,15 +10,14 @@ spec:
   image: {{ image }}
   port: 8080
   replicas:
-    min: 1
-    max: 1
+    min: {{ replicas.min }}
+    max: {{ replicas.max }}
   liveness:
     path: "/api/internal/isAlive"
     initialDelay: 35
     timeout: 3
   ingresses:
-    - "https://pensjon-brevmetadata-gcp.dev.adeo.no"
-    - "https://pensjon-brevmetadata-gcp.dev-gcp.nais.io"
+    - {{ ingress }}
   readiness:
     path: "/api/internal/isReady"
     initialDelay: 35
@@ -26,13 +25,19 @@ spec:
   prometheus:
     enabled: true
     path: "/api/internal/prometheus"
+  env:
+    - name: UNLEASH_ENDPOINT_URL
+      value: https://unleash.nais.io/api/
+    - name: ENVIRONMENT_NAME
+      value: {{ environmentname }}
   accessPolicy:
     inbound:
       rules:
-        - application: pensjon-brev-bestilling
+        {{#each inboundRules as |app|}}
+            - application: {{app.name }}
+              namespace: {{app.namespace}}
+              cluster: {{app.cluster}}
+        {{/each}}
     outbound:
       external:
         - host: unleash.nais.io
-  env:
-    - name: UNLEASH_ENDPOINT_URL
-      value: https://unleash.nais.io/api

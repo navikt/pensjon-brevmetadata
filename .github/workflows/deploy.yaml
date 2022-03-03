@@ -43,92 +43,138 @@ jobs:
       - name: Push latest docker image
         run: "docker push ${LATEST_IMAGE}"
 
-  deploy-to-dev-pensjonsbrev:
-    name: Deploy to dev default
+  deploy-to-dev-default:
+    name: Deploy to dev - default
     if: github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy brevmetadata to dev-fss default
-        uses: nais/deploy/actions/deploy@v1
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
-          VAR: environmentname=default,application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
-      - name: Deploy brevmetadata to dev-sbs
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-sbs
-          RESOURCE: nais/nais-dev.yml
-          VAR: environmentname=default,application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleash.nais.io/api/
-
-  deploy-to-dev-t4:
-    name: Deploy to dev t4
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy brevmetadata to dev-fss t4
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
-          VAR: environmentname=t4,application=pensjon-brevmetadata-t4,ingress=https://pensjon-brevmetadata-t4-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+          APIKEY: ${{ secrets.NAIS_DEPLOY_KEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: nais.yaml
+          VAR: image=${{ env.IMAGE }}
+          VARS: dev-default.yaml
 
   deploy-to-dev-prodlik:
-    name: Deploy to dev prodlik
+    name: Deploy to dev - prodlik
     if: github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy brevmetadata to dev-fss prodlik
-        uses: nais/deploy/actions/deploy@v1
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: nais/nais-dev.yml
-          VAR: environmentname=prodlik,application=pensjon-brevmetadata-prodlik,ingress=https://pensjon-brevmetadata-prodlik-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+          APIKEY: ${{ secrets.NAIS_DEPLOY_KEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: nais.yaml
+          VAR: image=${{ env.IMAGE }}
+          VARS: dev-prodlik.yaml
 
   deploy-to-prod:
     name: Deploy to prod
     if: github.ref == 'refs/heads/master'
-    needs: [deploy-to-dev-t4, deploy-to-dev-pensjonsbrev]
+    needs: deploy-to-dev-default
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy brevmetadata to prod-fss
-        uses: nais/deploy/actions/deploy@v1
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-fss
-          RESOURCE: nais/nais-prod-fss.yml
-      - name: Deploy brevmetadata to prod-sbs
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-sbs
-          RESOURCE: nais/nais-prod-sbs.yml
+          APIKEY: ${{ secrets.NAIS_DEPLOY_KEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: nais.yaml
+          VAR: image=${{ env.IMAGE }}
+          VARS: prod.yaml
 
-  deploy-to-dev-gcp:
-    name: Deploy to gcp
-    if: github.ref == 'refs/heads/master'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy to dev-gcp
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-gcp
-          RESOURCE: nais/nais-dev-gcp.yml
+# TODO: PL-5232 - Lar disse ligge frem til vi er sikker på at det fungerer for pesys.
+#  deploy-to-dev-pensjonsbrev:
+#    name: Deploy to dev default
+#    if: github.ref == 'refs/heads/master'
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Deploy brevmetadata to dev-fss default
+#        uses: nais/deploy/actions/deploy@v1
+#        env:
+#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          CLUSTER: dev-fss
+#          RESOURCE: nais/nais-dev.yml
+#          VAR: environmentname=default,application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+#      - name: Deploy brevmetadata to dev-sbs
+#        uses: nais/deploy/actions/deploy@v1
+#        env:
+#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          CLUSTER: dev-sbs
+#          RESOURCE: nais/nais-dev.yml
+#          VAR: environmentname=default,application=pensjon-brevmetadata,ingress=https://pensjon-brevmetadata-pensjonsbrev.dev.nav.no,unleashurl=https://unleash.nais.io/api/
+#
+#  deploy-to-dev-t4:
+#    name: Deploy to dev t4
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Deploy brevmetadata to dev-fss t4
+#        uses: nais/deploy/actions/deploy@v1
+#        env:
+#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          CLUSTER: dev-fss
+#          RESOURCE: nais/nais-dev.yml
+#          VAR: environmentname=t4,application=pensjon-brevmetadata-t4,ingress=https://pensjon-brevmetadata-t4-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+#
+#  deploy-to-dev-prodlik:
+#    name: Deploy to dev prodlik
+#    if: github.ref == 'refs/heads/master'
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Deploy brevmetadata to dev-fss prodlik
+#        uses: nais/deploy/actions/deploy@v1
+#        env:
+#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          CLUSTER: dev-fss
+#          RESOURCE: nais/nais-dev.yml
+#          VAR: environmentname=prodlik,application=pensjon-brevmetadata-prodlik,ingress=https://pensjon-brevmetadata-prodlik-pensjonsbrev.dev.adeo.no,unleashurl=https://unleash.nais.io/api/
+#
+#  deploy-to-prod:
+#    name: Deploy to prod
+#    if: github.ref == 'refs/heads/master'
+#    needs: [deploy-to-dev-t4, deploy-to-dev-pensjonsbrev]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Deploy brevmetadata to prod-fss
+#        uses: nais/deploy/actions/deploy@v1
+#        env:
+#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          CLUSTER: prod-fss
+#          RESOURCE: nais/nais-prod-fss.yml
+#      - name: Deploy brevmetadata to prod-sbs
+#        uses: nais/deploy/actions/deploy@v1
+#        env:
+#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          CLUSTER: prod-sbs
+#          RESOURCE: nais/nais-prod-sbs.yml
+#
+#  deploy-to-dev-gcp:
+#    name: Deploy to gcp
+#    if: github.ref == 'refs/heads/master'
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Deploy to dev-gcp
+#        uses: nais/deploy/actions/deploy@v1
+#        env:
+#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          CLUSTER: dev-gcp
+#          RESOURCE: nais/nais-dev-gcp.yml

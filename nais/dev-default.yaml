@@ -1,0 +1,67 @@
+application: "pensjon-brevmetadata-default"
+ingress: "https://pensjon-brevmetadata.dev.intern.nav.no"
+environmentname: "default"
+replicas:
+  min: 1
+  max: 2
+inboundRules:
+  - name: pensjon-pen-q1
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pen-q2
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pen-q4
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pen-q5
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-psak-q1
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-psak-q2
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-psak-q4
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-psak-q5
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-q1
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-q2
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-q4
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-q5
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-q1
+    namespace: teampensjon
+    cluster: dev-sbs
+  - name: pensjon-pselv-q2
+    namespace: teampensjon
+    cluster: dev-sbs
+  - name: pensjon-pselv-q4
+    namespace: teampensjon
+    cluster: dev-sbs
+  - name: pensjon-pselv-q5
+    namespace: teampensjon
+    cluster: dev-sbs
+  - name: pensjon-testdata-server
+    namespace: q1
+    cluster: dev-fss
+  - name: pensjon-testdata-server
+    namespace: q2
+    cluster: dev-fss
+  - name: pensjon-testdata-server
+    namespace: q4
+    cluster: dev-fss
+  - name: pensjon-testdata-server
+    namespace: pensjontestdata
+    cluster: dev-fss

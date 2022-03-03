@@ -1,0 +1,19 @@
+application: "pensjon-brevmetadata"
+ingress: "https://pensjon-brevmetadata.intern.nav.no"
+environmentname: "prod"
+replicas:
+  min: 2
+  max: 2
+inboundRules:
+  - name: pensjon-pen
+    namespace: pensjondeployer
+    cluster: prod-fss
+  - name: pensjon-psak
+    namespace: pensjondeployer
+    cluster: prod-fss
+  - name: pensjon-pselv
+    namespace: pensjondeployer
+    cluster: prod-fss
+  - name: pensjon-pselv
+    namespace: pensjondeployer
+    cluster: prod-sbs
