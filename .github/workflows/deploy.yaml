@@ -47,7 +47,7 @@ jobs:
 
   deploy-to-dev-default:
     name: Deploy to dev - default
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -63,7 +63,7 @@ jobs:
 
   deploy-to-dev-prodlik:
     name: Deploy to dev - prodlik
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -79,7 +79,7 @@ jobs:
 
   deploy-to-prod:
     name: Deploy to prod
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: deploy-to-dev-default
     runs-on: ubuntu-latest
     steps:
