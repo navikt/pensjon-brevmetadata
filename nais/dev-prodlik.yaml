@@ -26,3 +26,6 @@ inboundRules:
   - name: pensjon-pselv-q0
     namespace: teampensjon
     cluster: dev-sbs
+  - name: pensjon-pselv-q0
+    namespace: teampensjon
+    cluster: dev-gcp
