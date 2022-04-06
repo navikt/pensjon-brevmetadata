@@ -133,7 +133,7 @@ RETTIGH_PLIKT_V1;VEDLEGG: Orientering om rettigheter og plikter. Versjon 1;V0000
         </xs:all>
     </xs:complexType>
 </xs:schema>";pesysbrev.v1;2018-09-23 09.12.44,444654000;PK-53917;2020-03-31 04.05.07,955383000;PL-1334;2
-AP_MND_UTB_V1;"VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1	";V00003;1899-12-31;;1;2018-06-15 14.00.00,000000000;PK-53917;2018-09-23 09.13.15,306969000;PK-53917;V00003;"<?xml version=""1.0"" encoding=""UTF-8""?>
+AP_MND_UTB_V1;"VEDLEGG: Dette er din mÃ¥nedlige pensjon fÃ¸r skatt. Versjon 1	";V00003;1899-12-31;;1;2018-06-15 14.00.00,000000000;PK-53917;2018-09-23 09.13.15,306969000;PK-53917;V00003;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
            targetNamespace=""http://nav.no/dok/pesysbrev/v1/V00003""
@@ -625,7 +625,7 @@ AP_OPPL_BER_END_V1;VEDLEGG: Opplysninger brukt i beregningen endret uttaksgrad. 
         <xs:all>
             <xs:element name=""spraakkode"" type=""st:Spraakkode"">
                 <xs:annotation>
-                    <xs:documentation>Kode som angir hvilket språk dokumentet skal produserer på. Mulige verdier: NB, NN, EN</xs:documentation>
+                    <xs:documentation>Kode som angir hvilket sprï¿½k dokumentet skal produserer pï¿½. Mulige verdier: NB, NN, EN</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""fagsaksnummer"" type=""st:NonEmptyString"">
@@ -635,12 +635,12 @@ AP_OPPL_BER_END_V1;VEDLEGG: Opplysninger brukt i beregningen endret uttaksgrad. 
             </xs:element>
             <xs:element name=""navnAvsenderEnhet"" type=""st:NonEmptyString"">
                 <xs:annotation>
-                    <xs:documentation>Navn på kontor som behandler saken</xs:documentation>
+                    <xs:documentation>Navn pï¿½ kontor som behandler saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""automatiskBehandlet"" type=""xs:boolean"">
                 <xs:annotation>
-                    <xs:documentation>Spesifiserer om en saksbehandler har vært involvert i saken eller ikke</xs:documentation>
+                    <xs:documentation>Spesifiserer om en saksbehandler har vï¿½rt involvert i saken eller ikke</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""dokumentDato"" type=""st:FormatertDato"">
@@ -656,7 +656,7 @@ AP_OPPL_BER_END_V1;VEDLEGG: Opplysninger brukt i beregningen endret uttaksgrad. 
             <xs:element name=""mottaker"" type=""mottaker:Mottaker"">
                 <xs:annotation>
                     <xs:documentation>Mottaker viser til personen/organisasjonen som vedtaket skal sendes til.
-                    Trenger ikke å være lik sakspart. Eks. advokat, verge.</xs:documentation>
+                    Trenger ikke ï¿½ vï¿½re lik sakspart. Eks. advokat, verge.</xs:documentation>
                 </xs:annotation>
             </xs:element><xs:element name=""signerendeSaksbehandler"" type=""saksbehandler:Saksbehandler"" minOccurs=""0"">
                 <xs:annotation>
@@ -670,18 +670,18 @@ AP_OPPL_BER_END_V1;VEDLEGG: Opplysninger brukt i beregningen endret uttaksgrad. 
             </xs:element>
             <xs:element name=""kontaktinformasjon"" type=""kontaktinformasjon:Kontaktinformasjon"">
                 <xs:annotation>
-                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV før å følge opp saken</xs:documentation>
+                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV fï¿½r ï¿½ fï¿½lge opp saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""returadresse"" type=""navEnhet:NavEnhet"">
                 <xs:annotation>
-                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter må sendes i retur per post</xs:documentation>
+                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter mï¿½ sendes i retur per post</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:all>
     </xs:complexType>
 </xs:schema>";pesysbrev.v1;2018-12-01 10.07.49,062066000;PK-54901;2018-12-01 10.07.49,062066000;PK-54901;1
-AFP_PRIV_MND_UTB_V1;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1;V00008;1899-12-31;;1;2019-09-12 16.00.00,000000000;PL-80;2019-11-11 21.21.21,369536000;PL-80;V00008;"<?xml version=""1.0"" encoding=""UTF-8""?>
+AFP_PRIV_MND_UTB_V1;VEDLEGG: Dette er din mï¿½nedlige pensjon fï¿½r skatt. Versjon 1;V00008;1899-12-31;;1;2019-09-12 16.00.00,000000000;PL-80;2019-11-11 21.21.21,369536000;PL-80;V00008;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
            targetNamespace=""http://nav.no/dok/pesysbrev/v1/V00008""
@@ -754,7 +754,7 @@ AFP_PRIV_MND_UTB_V1;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1
         <xs:all>
             <xs:element name=""spraakkode"" type=""st:Spraakkode"">
                 <xs:annotation>
-                    <xs:documentation>Kode som angir hvilket språk dokumentet skal produserer på. Mulige verdier: NB, NN, EN</xs:documentation>
+                    <xs:documentation>Kode som angir hvilket sprÃ¥k dokumentet skal produserer pÃ¥. Mulige verdier: NB, NN, EN</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""fagsaksnummer"" type=""st:NonEmptyString"">
@@ -764,12 +764,12 @@ AFP_PRIV_MND_UTB_V1;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1
             </xs:element>
             <xs:element name=""navnAvsenderEnhet"" type=""st:NonEmptyString"">
                 <xs:annotation>
-                    <xs:documentation>Navn på kontor som behandler saken</xs:documentation>
+                    <xs:documentation>Navn pÃ¥ kontor som behandler saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""automatiskBehandlet"" type=""xs:boolean"">
                 <xs:annotation>
-                    <xs:documentation>Spesifiserer om en saksbehandler har vært involvert i saken eller ikke</xs:documentation>
+                    <xs:documentation>Spesifiserer om en saksbehandler har vÃ¦rt involvert i saken eller ikke</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""dokumentDato"" type=""st:FormatertDato"">
@@ -785,7 +785,7 @@ AFP_PRIV_MND_UTB_V1;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1
             <xs:element name=""mottaker"" type=""mottaker:Mottaker"">
                 <xs:annotation>
                     <xs:documentation>Mottaker viser til personen/organisasjonen som vedtaket skal sendes til.
-                    Trenger ikke å være lik sakspart. Eks. advokat, verge.</xs:documentation>
+                    Trenger ikke Ã¥ vÃ¦re lik sakspart. Eks. advokat, verge.</xs:documentation>
                 </xs:annotation>
             </xs:element><xs:element name=""signerendeSaksbehandler"" type=""saksbehandler:Saksbehandler"" minOccurs=""0"">
                 <xs:annotation>
@@ -799,18 +799,18 @@ AFP_PRIV_MND_UTB_V1;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1
             </xs:element>
             <xs:element name=""kontaktinformasjon"" type=""kontaktinformasjon:Kontaktinformasjon"">
                 <xs:annotation>
-                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV før å følge opp saken</xs:documentation>
+                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV fÃ¸r Ã¥ fÃ¸lge opp saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""returadresse"" type=""navEnhet:NavEnhet"">
                 <xs:annotation>
-                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter må sendes i retur per post</xs:documentation>
+                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter mÃ¥ sendes i retur per post</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:all>
     </xs:complexType>
 </xs:schema>";pesysbrev.v1;2019-11-11 21.21.08,408634000;PL-80;2019-11-11 21.21.08,408634000;PL-80;1
-AP_AVDOD_OPPL_BER_V1;VEDLEGG: Opplysninger om avdøde brukt i beregningen.;V00006;1899-12-31;;1;2019-01-24 12.00.00,000000000;PK-56217;2019-04-06 10.14.46,030984000;PK-56217;V00006;"<?xml version=""1.0"" encoding=""UTF-8""?>
+AP_AVDOD_OPPL_BER_V1;VEDLEGG: Opplysninger om avdÃ¸de brukt i beregningen.;V00006;1899-12-31;;1;2019-01-24 12.00.00,000000000;PK-56217;2019-04-06 10.14.46,030984000;PK-56217;V00006;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
            targetNamespace=""http://nav.no/dok/pesysbrev/v1/V00006""
@@ -905,7 +905,7 @@ AP_AVDOD_OPPL_BER_V1;VEDLEGG: Opplysninger om avdøde brukt i beregningen.;V00006
         <xs:all>
             <xs:element name=""spraakkode"" type=""st:Spraakkode"">
                 <xs:annotation>
-                    <xs:documentation>Kode som angir hvilket språk dokumentet skal produserer på. Mulige verdier: NB, NN, EN</xs:documentation>
+                    <xs:documentation>Kode som angir hvilket sprÃ¥k dokumentet skal produserer pÃ¥. Mulige verdier: NB, NN, EN</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""fagsaksnummer"" type=""st:NonEmptyString"">
@@ -915,12 +915,12 @@ AP_AVDOD_OPPL_BER_V1;VEDLEGG: Opplysninger om avdøde brukt i beregningen.;V00006
             </xs:element>
             <xs:element name=""navnAvsenderEnhet"" type=""st:NonEmptyString"">
                 <xs:annotation>
-                    <xs:documentation>Navn på kontor som behandler saken</xs:documentation>
+                    <xs:documentation>Navn pÃ¥ kontor som behandler saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""automatiskBehandlet"" type=""xs:boolean"">
                 <xs:annotation>
-                    <xs:documentation>Spesifiserer om en saksbehandler har vært involvert i saken eller ikke</xs:documentation>
+                    <xs:documentation>Spesifiserer om en saksbehandler har vÃ¦rt involvert i saken eller ikke</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""dokumentDato"" type=""st:FormatertDato"">
@@ -936,7 +936,7 @@ AP_AVDOD_OPPL_BER_V1;VEDLEGG: Opplysninger om avdøde brukt i beregningen.;V00006
             <xs:element name=""mottaker"" type=""mottaker:Mottaker"">
                 <xs:annotation>
                     <xs:documentation>Mottaker viser til personen/organisasjonen som vedtaket skal sendes til.
-                    Trenger ikke å være lik sakspart. Eks. advokat, verge.</xs:documentation>
+                    Trenger ikke Ã¥ vÃ¦re lik sakspart. Eks. advokat, verge.</xs:documentation>
                 </xs:annotation>
             </xs:element><xs:element name=""signerendeSaksbehandler"" type=""saksbehandler:Saksbehandler"" minOccurs=""0"">
                 <xs:annotation>
@@ -950,18 +950,18 @@ AP_AVDOD_OPPL_BER_V1;VEDLEGG: Opplysninger om avdøde brukt i beregningen.;V00006
             </xs:element>
             <xs:element name=""kontaktinformasjon"" type=""kontaktinformasjon:Kontaktinformasjon"">
                 <xs:annotation>
-                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV før å følge opp saken</xs:documentation>
+                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV fÃ¸r Ã¥ fÃ¸lge opp saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""returadresse"" type=""navEnhet:NavEnhet"">
                 <xs:annotation>
-                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter må sendes i retur per post</xs:documentation>
+                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter mÃ¥ sendes i retur per post</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:all>
     </xs:complexType>
 </xs:schema>";pesysbrev.v1;2019-04-06 10.14.30,856999000;PK-56217;2019-09-22 19.02.18,992362000;PK-57161;2
-AP_MND_UTB_V4;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4;V00007;1899-12-31;;1;2019-02-20 16.00.00,000000000;PK-56209;2019-09-22 18.54.25,661579000;PK-56209;V00007;"<?xml version=""1.0"" encoding=""UTF-8""?>
+AP_MND_UTB_V4;VEDLEGG: Dette er din mÃ¥nedlige pensjon fÃ¸r skatt. Versjon 4;V00007;1899-12-31;;1;2019-02-20 16.00.00,000000000;PK-56209;2019-09-22 18.54.25,661579000;PK-56209;V00007;"<?xml version=""1.0"" encoding=""UTF-8""?>
 <xs:schema attributeFormDefault=""unqualified""
            elementFormDefault=""qualified""
            targetNamespace=""http://nav.no/dok/pesysbrev/v1/V00007""
@@ -1042,7 +1042,7 @@ AP_MND_UTB_V4;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4;V0000
         <xs:all>
             <xs:element name=""spraakkode"" type=""st:Spraakkode"">
                 <xs:annotation>
-                    <xs:documentation>Kode som angir hvilket språk dokumentet skal produserer på. Mulige verdier: NB, NN, EN</xs:documentation>
+                    <xs:documentation>Kode som angir hvilket sprÃ¥k dokumentet skal produserer pÃ¥. Mulige verdier: NB, NN, EN</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""fagsaksnummer"" type=""st:NonEmptyString"">
@@ -1052,12 +1052,12 @@ AP_MND_UTB_V4;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4;V0000
             </xs:element>
             <xs:element name=""navnAvsenderEnhet"" type=""st:NonEmptyString"">
                 <xs:annotation>
-                    <xs:documentation>Navn på kontor som behandler saken</xs:documentation>
+                    <xs:documentation>Navn pÃ¥ kontor som behandler saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""automatiskBehandlet"" type=""xs:boolean"">
                 <xs:annotation>
-                    <xs:documentation>Spesifiserer om en saksbehandler har vært involvert i saken eller ikke</xs:documentation>
+                    <xs:documentation>Spesifiserer om en saksbehandler har vÃ¦rt involvert i saken eller ikke</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""dokumentDato"" type=""st:FormatertDato"">
@@ -1072,7 +1072,7 @@ AP_MND_UTB_V4;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4;V0000
             </xs:element>
             <xs:element name=""mottaker"" type=""mottaker:Mottaker"">
                 <xs:annotation>
-                    <xs:documentation>Mottaker viser til personen/organisasjonen som vedtaket skal sendes til. Trenger ikke å være lik sakspart. Eks. advokat, verge.</xs:documentation>
+                    <xs:documentation>Mottaker viser til personen/organisasjonen som vedtaket skal sendes til. Trenger ikke Ã¥ vÃ¦re lik sakspart. Eks. advokat, verge.</xs:documentation>
                 </xs:annotation>
             </xs:element><xs:element name=""signerendeSaksbehandler"" type=""saksbehandler:Saksbehandler"" minOccurs=""0"">
                 <xs:annotation>
@@ -1086,12 +1086,12 @@ AP_MND_UTB_V4;VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4;V0000
             </xs:element>
             <xs:element name=""kontaktinformasjon"" type=""kontaktinformasjon:Kontaktinformasjon"">
                 <xs:annotation>
-                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV før å følge opp saken</xs:documentation>
+                    <xs:documentation>Informasjon om hvordan bruker kan kontakte NAV fÃ¸r Ã¥ fÃ¸lge opp saken</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name=""returadresse"" type=""navEnhet:NavEnhet"">
                 <xs:annotation>
-                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter må sendes i retur per post</xs:documentation>
+                    <xs:documentation>Adressen skal benyttes ved tilfeller der dokumenter mÃ¥ sendes i retur per post</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:all>

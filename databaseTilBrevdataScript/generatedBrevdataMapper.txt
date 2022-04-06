@@ -1886,22 +1886,6 @@ brevMap.put("PE_BP_04_031", () ->
 		BrevkontekstCode.VEDTAK,
 		null,
 		"brevgr003"));
-brevMap.put("PE_FT_01_001", () ->
-	new GammeltBrev("PE_FT_01_001",
-		false,
-		"Brev med skjema S�knad om fors�rgingstillegg (NAV 03-24.05)",
-		BrevkategoriCode.BREV_MED_SKJEMA,
-		DokumenttypeCode.U,
-		Arrays.asList(SprakCode.EN, SprakCode.NB, SprakCode.FR, SprakCode.NN),
-		true,
-		BrevUtlandCode.NASJONALT,
-		BrevregeltypeCode.GG,
-		null,
-		DokumentkategoriCode.IB,
-		null,
-		BrevkontekstCode.SAK,
-		null,
-		"brevgr001"));
 brevMap.put("PE_FT_01_002", () ->
 	new GammeltBrev("PE_FT_01_002",
 		true,
