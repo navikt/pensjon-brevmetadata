@@ -21,7 +21,7 @@ public class UnleashProvider {
 
     public static class Toggle {
 
-        private final String toggle;
+        public final String toggle;
 
         Toggle(String toggle) {
             this.toggle = toggle;
