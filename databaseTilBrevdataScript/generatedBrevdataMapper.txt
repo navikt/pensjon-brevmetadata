@@ -1678,22 +1678,6 @@ brevMap.put("PE_BA_04_533", () ->
 		null,
 		null,
 		"brevgr007"));
-brevMap.put("PE_BA_04_534", () ->
-	new GammeltBrev("PE_BA_04_534",
-		false,
-		"Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
-		BrevkategoriCode.VEDTAK,
-		DokumenttypeCode.U,
-		Arrays.asList(SprakCode.NB),
-		true,
-		BrevUtlandCode.ALLTID,
-		BrevregeltypeCode.GN,
-		BrevkravtypeCode.ALLE,
-		DokumentkategoriCode.VB,
-		null,
-		BrevkontekstCode.VEDTAK,
-		null,
-		"brevgr007"));
 brevMap.put("PE_BP_01_001", () ->
 	new GammeltBrev("PE_BP_01_001",
 		false,
@@ -6638,22 +6622,6 @@ brevMap.put("AO_AP_AFP_67_2011", () ->
 		DokumentkategoriCode.VB,
 		null,
 		null,
-		null,
-		"brevgr007"));
-brevMap.put("VEDTAK_SKJERMT", () ->
-	new GammeltBrev("PE_BA_04_534",
-		false,
-		"Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
-		BrevkategoriCode.VEDTAK,
-		DokumenttypeCode.U,
-		Arrays.asList(SprakCode.NB),
-		true,
-		BrevUtlandCode.ALLTID,
-		BrevregeltypeCode.GN,
-		BrevkravtypeCode.ALLE,
-		DokumentkategoriCode.VB,
-		null,
-		BrevkontekstCode.VEDTAK,
 		null,
 		"brevgr007"));
 brevMap.put("OMR_BP_OPPH", () ->

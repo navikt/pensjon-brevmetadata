@@ -169,6 +169,23 @@ public class BrevdataMapper {
                     null,
                     "brevgr001");
 
+    private static final Brevdata GAMMELT_BREV_PE_BA_04_534 =
+            new GammeltBrev("PE_BA_04_534",
+                    false,
+                    "Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
+                    BrevkategoriCode.VEDTAK,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB),
+                    true,
+                    BrevUtlandCode.ALLTID,
+                    BrevregeltypeCode.GN,
+                    BrevkravtypeCode.ALLE,
+                    DokumentkategoriCode.VB,
+                    null,
+                    BrevkontekstCode.VEDTAK,
+                    null,
+                    "brevgr007");
+
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
@@ -180,6 +197,7 @@ public class BrevdataMapper {
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_UP_01_001", GAMMELT_BREV_PE_UP_01_001))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_IY_05_402", GAMMELT_BREV_PE_IY_05_402))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_AP_01_007", GAMMELT_BREV_PE_AP_01_007))
+                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_BA_04_534", GAMMELT_BREV_PE_BA_04_534))
             ;
 
     private final Map<String, Brevdata> brevMap;
@@ -1800,22 +1818,6 @@ public class BrevdataMapper {
                         DokumentkategoriCode.VB,
                         null,
                         null,
-                        null,
-                        "brevgr007"));
-        brevMap.put("PE_BA_04_534",
-                new GammeltBrev("PE_BA_04_534",
-                        false,
-                        "Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.GN,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr007"));
         brevMap.put("PE_BP_01_001",

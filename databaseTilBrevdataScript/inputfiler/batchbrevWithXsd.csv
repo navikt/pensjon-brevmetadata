@@ -4500,7 +4500,6 @@ TILST_AFP;PE_BA_04_522;0;U;VB;brevgr002;Vedtak - endring av AFP fordi ektefelle/
 TILST_GJP;PE_BA_04_523;0;U;VB;brevgr002;Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uf�retrygd er endret;GG;;;;;;1;;;;;1;
 AO_AP_UP_67_2011;PE_BA_04_528;0;U;VB;brevgr007;Vedtak - omregning av uf�retrygd til alderspensjon;GN;;;;;;1;;;;;1;
 AO_AP_AFP_67_2011;PE_BA_04_530;0;U;VB;brevgr007;Vedtak - omregning av AFP til alderspensjon;GN;;;;;;1;;;;;1;
-VEDTAK_SKJERMT;PE_BA_04_534;0;U;VB;brevgr007;Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg;GN;VEDTAK;ALLTID;VEDTAK;;ALLE;1;;;;;1;
 OMR_BP_OPPH;PE_BP_04_022;0;U;VB;brevgr002;Vedtak - omregning  av barnepensjon;GG;;;;;;1;;;;;1;
 OPPHOR_ET_NN;PE_FT_01_004;0;U;VB;brevgr007;Vedtak - opph�r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon;NN;;;;;;1;;;;;1;
 OPPHOR_ET_GG;PE_FT_01_005;0;U;VB;brevgr002;Vedtak - opph�r av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon;GG;;;;;;1;;;;;1;
