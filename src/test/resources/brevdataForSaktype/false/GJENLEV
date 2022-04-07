@@ -16,6 +16,23 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_AP_01_001",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Informasjon til deg som snart fyller 67 år",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}, {
   "brevgruppe" : "brevgr002",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_GP_04_034",
@@ -1118,23 +1135,6 @@
   "prioritet" : null,
   "redigerbart" : true,
   "sprak" : [ "EN", "NB", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "NASJONALT",
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr001",
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "PE_AP_01_001",
-  "brevkontekst" : "SAK",
-  "brevkravtype" : null,
-  "brevregeltype" : "GG",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Informasjon til deg som snart fyller 67 år",
-  "dokType" : "U",
-  "dokumentkategori" : "IB",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "EN", "NB" ],
   "synligForVeileder" : null,
   "utland" : "NASJONALT",
   "visIPselv" : true

@@ -50,6 +50,23 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_AP_01_001",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Informasjon til deg som snart fyller 67 år",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}, {
   "brevgruppe" : "brevgr007",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_BA_04_534",
@@ -1024,23 +1041,6 @@
     "dokumentmalId" : "V00001",
     "vedleggkode" : "RETTIGH_V1"
   } ],
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr001",
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "PE_AP_01_001",
-  "brevkontekst" : "SAK",
-  "brevkravtype" : null,
-  "brevregeltype" : "GG",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Informasjon til deg som snart fyller 67 år",
-  "dokType" : "U",
-  "dokumentkategori" : "IB",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "EN", "NB" ],
-  "synligForVeileder" : null,
-  "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
   "brevkategori" : "VEDTAK",

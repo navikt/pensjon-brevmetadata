@@ -17,6 +17,23 @@
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_AP_01_001",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Informasjon til deg som snart fyller 67 år",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}, {
+  "brevgruppe" : "brevgr001",
   "brevkategori" : "BREV_MED_SKJEMA",
   "brevkodeIBrevsystem" : "PE_IY_05_401",
   "brevkontekst" : "SAK",
@@ -821,23 +838,6 @@
   "prioritet" : null,
   "redigerbart" : true,
   "sprak" : [ "NB", "EN", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "NASJONALT",
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr001",
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "PE_AP_01_001",
-  "brevkontekst" : "SAK",
-  "brevkravtype" : null,
-  "brevregeltype" : "GG",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Informasjon til deg som snart fyller 67 år",
-  "dokType" : "U",
-  "dokumentkategori" : "IB",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "EN", "NB" ],
   "synligForVeileder" : null,
   "utland" : "NASJONALT",
   "visIPselv" : true
