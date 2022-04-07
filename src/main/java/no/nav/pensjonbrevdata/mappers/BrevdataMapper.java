@@ -179,7 +179,7 @@ public class BrevdataMapper {
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_FT_01_001", GAMMELT_BREV_PE_FT_01_001))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_UP_01_001", GAMMELT_BREV_PE_UP_01_001))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_IY_05_402", GAMMELT_BREV_PE_IY_05_402))
-                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_AP_01_007", GAMMELT_BREV_PE_IY_05_402))
+                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_AP_01_007", GAMMELT_BREV_PE_AP_01_007))
             ;
 
     private final Map<String, Brevdata> brevMap;

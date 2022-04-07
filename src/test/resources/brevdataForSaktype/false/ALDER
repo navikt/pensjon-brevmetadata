@@ -1,6 +1,23 @@
 [ {
   "brevgruppe" : "brevgr001",
   "brevkategori" : "BREV_MED_SKJEMA",
+  "brevkodeIBrevsystem" : "PE_AP_01_007",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Brev med skjema Endring av alderspensjon (NAV 19-01.10)",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "EN", "FR", "SE", "NN" ],
+  "synligForVeileder" : true,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}, {
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "BREV_MED_SKJEMA",
   "brevkodeIBrevsystem" : "PE_FT_01_001",
   "brevkontekst" : "SAK",
   "brevkravtype" : null,
@@ -1007,23 +1024,6 @@
     "dokumentmalId" : "V00001",
     "vedleggkode" : "RETTIGH_V1"
   } ],
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr001",
-  "brevkategori" : "BREV_MED_SKJEMA",
-  "brevkodeIBrevsystem" : "PE_AP_01_007",
-  "brevkontekst" : "SAK",
-  "brevkravtype" : null,
-  "brevregeltype" : "GN",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Brev med skjema Endring av alderspensjon (NAV 19-01.10)",
-  "dokType" : "U",
-  "dokumentkategori" : "IB",
-  "prioritet" : null,
-  "redigerbart" : false,
-  "sprak" : [ "NB", "EN", "FR", "SE", "NN" ],
-  "synligForVeileder" : true,
-  "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr001",
