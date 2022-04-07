@@ -574,22 +574,6 @@ brevMap.put("PE_AP_01_006", () ->
 		BrevkontekstCode.SAK,
 		null,
 		"brevgr001"));
-brevMap.put("PE_AP_01_007", () ->
-	new GammeltBrev("PE_AP_01_007",
-		false,
-		"Brev med skjema Endring av alderspensjon (NAV 19-01.10)",
-		BrevkategoriCode.BREV_MED_SKJEMA,
-		DokumenttypeCode.U,
-		Arrays.asList(SprakCode.NB, SprakCode.EN, SprakCode.FR, SprakCode.SE, SprakCode.NN),
-		true,
-		BrevUtlandCode.NASJONALT,
-		BrevregeltypeCode.GN,
-		null,
-		DokumentkategoriCode.IB,
-		true,
-		BrevkontekstCode.SAK,
-		null,
-		"brevgr001"));
 brevMap.put("PE_AP_01_011", () ->
 	new GammeltBrev("PE_AP_01_011",
 		false,
