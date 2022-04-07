@@ -4462,7 +4462,6 @@ AFPEO_BREV_D;PE_AF_04_102;0;U;VB;brevgr004;Vedtak - ingen endring (andre avvik) 
 AFPEO_TILBAKEKREVING;PE_AF_04_107;0;U;VB;brevgr004;Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgj�r;GG;VEDTAK;NASJONALT;VEDTAK;;AFP_EO;1;;;;;1;
 AFPP_INNVILG_AUTO;PE_AF_04_115;0;U;VB;brevgr007;Vedtak - innvilgelse av AFP i privat sektor;;;;;;;1;;;;;1;
 AFPP_AVSL_AUTO;PE_AF_04_116;0;U;VB;brevgr007;Vedtak - avslag p� AFP i privat sektor;;;;;;;1;;;;;1;
-FYLLER_67;PE_AP_01_001;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 �r;GG;INFORMASJON;NASJONALT;SAK;;;1;;;;;1;
 HAR_AFP_FYLLER_67;PE_AP_01_002;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 �r som har hatt gradert AFP;GG;;;;;;1;;;;;0;
 HAR_FP_FYLLER_67;PE_AP_01_003;0;U;IB;brevgr001;Informasjon til deg som snart fyller 67 �r som har mottatt redusert pensjon til familiepleier;GG;;;;;;1;;;;;0;
 FYLLER_70;PE_AP_01_004;0;U;IB;brevgr001;Informasjon til deg som snart fyller 70 �r som ikke har hatt ytelser fra folketrygden;GG;INFORMASJON;NASJONALT;SAK;;;1;;;;;0;

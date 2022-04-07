@@ -542,22 +542,6 @@ brevMap.put("PE_AF_04_116", () ->
 		null,
 		null,
 		"brevgr007"));
-brevMap.put("PE_AP_01_001", () ->
-	new GammeltBrev("PE_AP_01_001",
-		false,
-		"Informasjon til deg som snart fyller 67 �r",
-		BrevkategoriCode.INFORMASJON,
-		DokumenttypeCode.U,
-		Arrays.asList(SprakCode.EN, SprakCode.NB),
-		true,
-		BrevUtlandCode.NASJONALT,
-		BrevregeltypeCode.GG,
-		null,
-		DokumentkategoriCode.IB,
-		null,
-		BrevkontekstCode.SAK,
-		null,
-		"brevgr001"));
 brevMap.put("PE_AP_01_006", () ->
 	new GammeltBrev("PE_AP_01_006",
 		false,
@@ -6096,22 +6080,6 @@ brevMap.put("AFPP_AVSL_AUTO", () ->
 		null,
 		null,
 		"brevgr007"));
-brevMap.put("FYLLER_67", () ->
-	new GammeltBrev("PE_AP_01_001",
-		false,
-		"Informasjon til deg som snart fyller 67 �r",
-		BrevkategoriCode.INFORMASJON,
-		DokumenttypeCode.U,
-		Arrays.asList(SprakCode.EN, SprakCode.NB),
-		true,
-		BrevUtlandCode.NASJONALT,
-		BrevregeltypeCode.GG,
-		null,
-		DokumentkategoriCode.IB,
-		null,
-		BrevkontekstCode.SAK,
-		null,
-		"brevgr001"));
 brevMap.put("AP_INNVILG_UTL", () ->
 	new GammeltBrev("PE_AP_04_203",
 		true,

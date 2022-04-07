@@ -186,6 +186,23 @@ public class BrevdataMapper {
                     null,
                     "brevgr007");
 
+    private static final Brevdata GAMMELT_BREV_PE_AP_01_001 =
+            new GammeltBrev("PE_AP_01_001",
+                    false,
+                    "Informasjon til deg som snart fyller 67 år",
+                    BrevkategoriCode.INFORMASJON,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.EN, SprakCode.NB),
+                    true,
+                    BrevUtlandCode.NASJONALT,
+                    BrevregeltypeCode.GG,
+                    null,
+                    DokumentkategoriCode.IB,
+                    null,
+                    BrevkontekstCode.SAK,
+                    null,
+                    "brevgr001");
+
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
@@ -198,6 +215,8 @@ public class BrevdataMapper {
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_IY_05_402", GAMMELT_BREV_PE_IY_05_402))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_AP_01_007", GAMMELT_BREV_PE_AP_01_007))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_BA_04_534", GAMMELT_BREV_PE_BA_04_534))
+                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_AP_01_001", GAMMELT_BREV_PE_AP_01_001))
+                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "FYLLER_67", GAMMELT_BREV_PE_AP_01_001))
             ;
 
     private final Map<String, Brevdata> brevMap;
@@ -748,22 +767,6 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("PE_AP_01_001",
-                new GammeltBrev("PE_AP_01_001",
-                        false,
-                        "Informasjon til deg som snart fyller 67 år",
-                        BrevkategoriCode.INFORMASJON,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.EN, SprakCode.NB),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        null,
-                        DokumentkategoriCode.IB,
-                        null,
-                        BrevkontekstCode.SAK,
-                        null,
-                        "brevgr001"));
         brevMap.put("PE_AP_01_006",
                 new GammeltBrev("PE_AP_01_006",
                         false,
@@ -6250,22 +6253,7 @@ public class BrevdataMapper {
                         null,
                         null,
                         "brevgr007"));
-        brevMap.put("FYLLER_67",
-                new GammeltBrev("PE_AP_01_001",
-                        false,
-                        "Informasjon til deg som snart fyller 67 år",
-                        BrevkategoriCode.INFORMASJON,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.EN, SprakCode.NB),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        null,
-                        DokumentkategoriCode.IB,
-                        null,
-                        BrevkontekstCode.SAK,
-                        null,
-                        "brevgr001"));
+
         brevMap.put("AP_INNVILG_UTL",
                 new GammeltBrev("PE_AP_04_203",
                         true,
