@@ -3566,22 +3566,6 @@ brevMap.put("PE_OK_06_102", () ->
 		BrevkontekstCode.VEDTAK,
 		null,
 		"brevgr004"));
-brevMap.put("PE_UP_01_001", () ->
-	new GammeltBrev("PE_UP_01_001",
-		true,
-		"Orientering om utvidelse av perioden med hvilende rett til uf�repensjon - med skjema Krav om forlengelse av hvilende rett til uf�repensjon i nye fem �r/meldng om inntekts�king (NAV 12-06.14)",
-		BrevkategoriCode.VARSEL,
-		DokumenttypeCode.U,
-		Arrays.asList(SprakCode.NB, SprakCode.NB),
-		true,
-		BrevUtlandCode.ALLTID,
-		BrevregeltypeCode.GG,
-		BrevkravtypeCode.ALLE,
-		DokumentkategoriCode.B,
-		null,
-		BrevkontekstCode.SAK,
-		null,
-		"brevgr001"));
 brevMap.put("PE_UP_04_001", () ->
 	new GammeltBrev("PE_UP_04_001",
 		true,

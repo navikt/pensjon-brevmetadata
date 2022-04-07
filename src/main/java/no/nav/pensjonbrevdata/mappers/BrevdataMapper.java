@@ -117,6 +117,24 @@ public class BrevdataMapper {
                     null,
                     "brevgr001");
 
+    private static Brevdata GAMMELT_BREV_PE_UP_01_001 =
+            new GammeltBrev("PE_UP_01_001",
+                    true,
+                    "Orientering om utvidelse av perioden med hvilende rett til uførepensjon - med skjema Krav om forlengelse av hvilende rett til uførepensjon i nye fem "
+                            + "år/meldng om inntektsøking (NAV 12-06.14)",
+                    BrevkategoriCode.VARSEL,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.NB, SprakCode.NB),
+                    true,
+                    BrevUtlandCode.ALLTID,
+                    BrevregeltypeCode.GG,
+                    BrevkravtypeCode.ALLE,
+                    DokumentkategoriCode.B,
+                    null,
+                    BrevkontekstCode.SAK,
+                    null,
+                    "brevgr001");
+
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
@@ -124,7 +142,8 @@ public class BrevdataMapper {
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_EPS_MAN_SAERSKILT_SATS_XSD, "AP_ENDR_EPS_MAN", GAMMEL_BREV_AP_ENDR_EPS_MAN))
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_NYTT_NAVN_AP_AVSL_GJRETT_MAN, "AP_AVSL_GJRETT_MAN", GAMMEL_BREV_AP_AVSL_GJRETT_MAN))
-                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_FT_01_001", GAMMELT_BREV_PE_FT_01_001));
+                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_FT_01_001", GAMMELT_BREV_PE_FT_01_001))
+                    .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_UP_01_001", GAMMELT_BREV_PE_UP_01_001));
 
     private final Map<String, Brevdata> brevMap;
 
@@ -3586,23 +3605,6 @@ public class BrevdataMapper {
                         BrevkontekstCode.VEDTAK,
                         null,
                         "brevgr004"));
-        brevMap.put("PE_UP_01_001",
-                new GammeltBrev("PE_UP_01_001",
-                        true,
-                        "Orientering om utvidelse av perioden med hvilende rett til uførepensjon - med skjema Krav om forlengelse av hvilende rett til uførepensjon i nye fem "
-                                + "år/meldng om inntektsøking (NAV 12-06.14)",
-                        BrevkategoriCode.VARSEL,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NB),
-                        true,
-                        BrevUtlandCode.ALLTID,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.B,
-                        null,
-                        BrevkontekstCode.SAK,
-                        null,
-                        "brevgr001"));
         brevMap.put("PE_UP_04_001",
                 new GammeltBrev("PE_UP_04_001",
                         true,
