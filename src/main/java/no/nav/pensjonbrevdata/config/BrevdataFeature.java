@@ -10,6 +10,7 @@ public final class BrevdataFeature {
     public static final String BRUK_AP_ENDR_EPS_MAN_SAERSKILT_SATS_XSD = "pensjonsbrev.pensjon-brevdata.brukAP_ENDR_EPS_MAN_SAERSKILT_SATS_XSD";
     public static final String BRUK_NYTT_NAVN_AP_AVSL_GJRETT_MAN = "pensjonsbrev.pensjon-brevdata.bruknyttnavnAP_AVSL_GJRETT_MAN";
     public static final String FJERNE_BREV_PL_4961 = "pensjonsbrev.pensjon-brevdata.fjern_brev_PL_4961";
+    public static final String NY_TITTEL_PL_5220 = "pensjonsbrev.pensjon-brevdata.ny_tittel_PL_5220";
 
     private BrevdataFeature() { }
 }

@@ -203,6 +203,23 @@ public class BrevdataMapper {
                     null,
                     "brevgr001");
 
+    private static final Brevdata GAMMELT_BREV_PE_IY_03_153 =
+            new GammeltBrev("PE_IY_03_153",
+                    true,
+                    "Klage - orientering om saksbehandlingstid ved NAV Pensjon",
+                    BrevkategoriCode.OVRIG,
+                    DokumenttypeCode.U,
+                    Arrays.asList(SprakCode.EN, SprakCode.NB),
+                    true,
+                    BrevUtlandCode.ALLTID,
+                    BrevregeltypeCode.OVRIGE,
+                    BrevkravtypeCode.KLAGE,
+                    DokumentkategoriCode.B,
+                    null,
+                    BrevkontekstCode.SAK,
+                    null,
+                    "brevgr001");
+
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
@@ -217,6 +234,7 @@ public class BrevdataMapper {
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_BA_04_534", GAMMELT_BREV_PE_BA_04_534))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "PE_AP_01_001", GAMMELT_BREV_PE_AP_01_001))
                     .andThen(brevdataLeggTilGammeltBrev(FJERNE_BREV_PL_4961, "FYLLER_67", GAMMELT_BREV_PE_AP_01_001))
+                    .andThen(brevdataErstattMedGammeltBrev(NY_TITTEL_PL_5220, "PE_IY_03_153", GAMMELT_BREV_PE_IY_03_153))
             ;
 
     private final Map<String, Brevdata> brevMap;
@@ -2530,7 +2548,7 @@ public class BrevdataMapper {
         brevMap.put("PE_IY_03_153",
                 new GammeltBrev("PE_IY_03_153",
                         true,
-                        "Klage - orientering om saksbehandlingstid ved NAV Pensjon",
+                        "Klage - orientering om saksbehandlingstid",
                         BrevkategoriCode.OVRIG,
                         DokumenttypeCode.U,
                         Arrays.asList(SprakCode.EN, SprakCode.NB),
