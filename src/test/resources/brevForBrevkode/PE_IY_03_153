@@ -6,7 +6,7 @@
   "brevkravtype" : "KLAGE",
   "brevregeltype" : "OVRIGE",
   "brevsystem" : "GAMMEL",
-  "dekode" : "Klage - orientering om saksbehandlingstid ved NAV Pensjon",
+  "dekode" : "Klage - orientering om saksbehandlingstid",
   "dokType" : "U",
   "dokumentkategori" : "B",
   "prioritet" : null,

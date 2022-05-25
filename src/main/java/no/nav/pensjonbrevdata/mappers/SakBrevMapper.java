@@ -26,14 +26,7 @@ public class SakBrevMapper {
 
     // Brevkoder som skal fjernes, men kun når feature er aktivert. På denne måten kan en kode fjernes i dev og testes,
     // og deretter fjernes i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
-    public static final List<BrevkodeToRemove> removedBrevkoder = asList(
-            new BrevkodeToRemove("PE_FT_01_001", toggle(FJERNE_BREV_PL_4961), of("AFP", "UFOREP", "GENRL", "ALDER")),
-            new BrevkodeToRemove("PE_UP_01_001", toggle(FJERNE_BREV_PL_4961), of("UFOREP")),
-            new BrevkodeToRemove("PE_IY_05_402", toggle(FJERNE_BREV_PL_4961), of("FAM_PL", "GAM_YRK", "OMSORG", "AFP", "BARNEP", "UFOREP", "GJENLEV", "ALDER", "GRBL", "GENRL", "KRIGSP", "AFP_PRIVAT")),
-            new BrevkodeToRemove("PE_AP_01_007", toggle(FJERNE_BREV_PL_4961), of("ALDER")),
-            new BrevkodeToRemove("PE_BA_04_534", toggle(FJERNE_BREV_PL_4961), of("ALDER")),
-            new BrevkodeToRemove("PE_AP_01_001", toggle(FJERNE_BREV_PL_4961), of("FAM_PL", "GAM_YRK", "OMSORG", "AFP", "BARNEP", "UFOREP", "GJENLEV", "ALDER", "GRBL", "GENRL", "KRIGSP", "AFP_PRIVAT"))
-    );
+    public static final List<BrevkodeToRemove> removedBrevkoder = of();
 
     public SakBrevMapper() {
         sakToBrevMap = new HashMap<>();
