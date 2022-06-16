@@ -8,7 +8,7 @@
   "brevsystem" : "GAMMEL",
   "dekode" : "Vedtak - ingen endring etter mottatt svar - AFP etteroppgjør",
   "dokType" : "U",
-  "dokumentkategori" : "B",
+  "dokumentkategori" : "VB",
   "prioritet" : null,
   "redigerbart" : true,
   "sprak" : [ "NB", "NN" ],
