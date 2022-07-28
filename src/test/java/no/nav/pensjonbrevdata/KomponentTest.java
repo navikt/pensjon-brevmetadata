@@ -3,9 +3,9 @@ package no.nav.pensjonbrevdata;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import no.finn.unleash.FakeUnleash;
 import no.finn.unleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -41,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class KomponentTest {
-    static private FakeUnleash unleash = new FakeUnleash();
+    static private final FakeUnleash unleash = new FakeUnleash();
 
     @MockBean
     private Unleash defaultUnleash;
@@ -230,8 +230,9 @@ public class KomponentTest {
             UnleashProvider.initialize(new FakeUnleash());
         }
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
-        private static final ObjectWriter objectMapper = new ObjectMapper()
+        private static final ObjectWriter objectMapper = JsonMapper.builder()
                 .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+                .build()
                 .writer(new DefaultPrettyPrinter()
                         .withObjectIndenter(new DefaultIndenter().withLinefeed("\n")));
 
@@ -288,7 +289,7 @@ public class KomponentTest {
             if(object == null) return "";
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             objectMapper.writeValue(baos, object);
-            return new String(baos.toByteArray());
+            return baos.toString();
         }
     }
 }

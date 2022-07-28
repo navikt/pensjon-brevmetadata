@@ -19,7 +19,7 @@ import no.nav.pensjonbrevdata.model.Brevdata;
 public class BrevdataMapperTest {
     private BrevdataMapper mapper;
 
-    private static FakeUnleash fakeUnleash = new FakeUnleash();
+    private static final FakeUnleash fakeUnleash = new FakeUnleash();
 
     @BeforeAll
     static public void setupForAll() {

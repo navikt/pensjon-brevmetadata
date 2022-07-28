@@ -117,7 +117,7 @@ public class BrevdataEndpoint {
     @GetMapping("/batchbBrevMapping")
     public List<Map<String,String>> getBatchBrevMapping(@RequestParam(value = "batchBrevKoder") List<String> brevKoder) {
         return brevKoder.stream()
-                .filter(code -> StringUtils.isNotBlank(code))
+                .filter(StringUtils::isNotBlank)
                 .map(code -> {
                     Brevdata brev = provider.getBrevForBrevkode(code.trim());
                     Map<String, String> map = new HashMap<>();

@@ -1,9 +1,7 @@
 package no.nav.pensjonbrevdata.unleash;
 
 import static java.lang.Long.parseLong;
-import static java.lang.System.getProperty;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

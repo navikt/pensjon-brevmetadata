@@ -6,7 +6,7 @@ import no.finn.unleash.strategy.Strategy;
 
 public class IsTest implements Strategy {
 	
-	private static boolean isTest= System.getenv().getOrDefault("NAIS_CLUSTER_NAME", "local").startsWith("dev-");
+	private static final boolean isTest= System.getenv().getOrDefault("NAIS_CLUSTER_NAME", "local").startsWith("dev-");
 
 	@Override
 	public String getName() {

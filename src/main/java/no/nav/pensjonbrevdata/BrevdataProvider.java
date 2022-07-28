@@ -3,10 +3,8 @@ package no.nav.pensjonbrevdata;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
-import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +23,7 @@ public class BrevdataProvider {
     }
 
     public Brevdata getBrevForBrevkode(String brevkode) {
-        Brevdata brevdata = brevdataMapper.map(brevkode);
-        return brevdata;
+        return brevdataMapper.map(brevkode);
     }
 
     public List<Brevdata> getBrevdataForSaktype(String saktype){
@@ -43,8 +40,7 @@ public class BrevdataProvider {
     }
 
     public List<Brevdata> getAllBrev() {
-        List<Brevdata> brevdataList = brevdataMapper.getAllBrevAsList();
-        return brevdataList;
+        return brevdataMapper.getAllBrevAsList();
     }
 
     public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {

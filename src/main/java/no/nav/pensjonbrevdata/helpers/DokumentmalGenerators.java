@@ -6,8 +6,8 @@ import java.util.function.Function;
 
 public class DokumentmalGenerators {
 
-    public static Function<String, String> dokumentmalGenerator = dokumentmalBuilder("dokumentmal");
-    public static Function<String, String> fellesmalGenerator = dokumentmalBuilder("felles");
+    public static final Function<String, String> dokumentmalGenerator = dokumentmalBuilder("dokumentmal");
+    public static final Function<String, String> fellesmalGenerator = dokumentmalBuilder("felles");
 
     private DokumentmalGenerators() { }
 

@@ -4,18 +4,17 @@ import no.nav.pensjonbrevdata.dto.BrevdataDTO;
 import no.nav.pensjonbrevdata.dto.DoksysbrevDTO;
 import no.nav.pensjonbrevdata.model.codes.*;
 
-import java.io.*;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Doksysbrev extends Brevdata {
-    protected Supplier<List<DoksysVedlegg>> vedleggListe;
-    protected String dokumentmalId;
-    protected String dokumentmalFelleselementId;
-    protected String dokumentmal;
-    protected String dokumentmalFelleselement;
+    protected final Supplier<List<DoksysVedlegg>> vedleggListe;
+    protected final String dokumentmalId;
+    protected final String dokumentmalFelleselementId;
+    protected final String dokumentmal;
+    protected final String dokumentmalFelleselement;
 
     public Doksysbrev(String brevkodeInBrevsystem,
                       boolean redigerbart,
