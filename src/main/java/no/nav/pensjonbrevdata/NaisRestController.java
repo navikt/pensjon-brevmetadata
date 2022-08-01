@@ -33,10 +33,8 @@ public class NaisRestController {
     @RequestMapping(path = "prometheus", method = RequestMethod.GET, produces = TextFormat.CONTENT_TYPE_004)
     public ResponseEntity prometheus() throws IOException {
         Writer writer = new StringWriter();
-        try {
+        try (writer) {
             TextFormat.write004(writer, CollectorRegistry.defaultRegistry.metricFamilySamples());
-        } finally {
-            writer.close();
         }
 
         return ResponseEntity.ok().body(writer.toString());

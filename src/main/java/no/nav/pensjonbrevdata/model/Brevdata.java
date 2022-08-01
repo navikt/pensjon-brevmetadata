@@ -7,21 +7,21 @@ import java.util.List;
 import java.util.function.Function;
 
 public abstract class Brevdata {
-    private boolean redigerbart;
-    private String dekode;
-    private BrevkategoriCode brevkategori;
-    private DokumenttypeCode dokType;
-    private List<SprakCode> sprak;
-    private Boolean visIPselv;
-    private BrevUtlandCode utland;
-    private BrevregeltypeCode brevregeltype;
-    private BrevkravtypeCode brevkravtype;
-    private BrevkontekstCode brevkontekst;
-    private DokumentkategoriCode dokumentkategori;
-    private Boolean synligForVeileder;
-    private Integer prioritet;
-    private String brevkodeIBrevsystem;
-    private BrevsystemCode brevsystem;
+    private final boolean redigerbart;
+    private final String dekode;
+    private final BrevkategoriCode brevkategori;
+    private final DokumenttypeCode dokType;
+    private final List<SprakCode> sprak;
+    private final Boolean visIPselv;
+    private final BrevUtlandCode utland;
+    private final BrevregeltypeCode brevregeltype;
+    private final BrevkravtypeCode brevkravtype;
+    private final BrevkontekstCode brevkontekst;
+    private final DokumentkategoriCode dokumentkategori;
+    private final Boolean synligForVeileder;
+    private final Integer prioritet;
+    private final String brevkodeIBrevsystem;
+    private final BrevsystemCode brevsystem;
 
     public Brevdata(String brevkodeIBrevsystem,
                     boolean redigerbart,

@@ -11,7 +11,6 @@ import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SakBrevMapper {
     private final Map<String, List<String>> sakToBrevMap;

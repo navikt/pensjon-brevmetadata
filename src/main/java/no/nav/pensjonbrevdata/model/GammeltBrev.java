@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 public class GammeltBrev extends Brevdata implements BrevdataDTO {
 
-    private String brevgruppe;
+    private final String brevgruppe;
 
     public GammeltBrev(String brevkodeInBrevsystem,
                        boolean redigerbart,

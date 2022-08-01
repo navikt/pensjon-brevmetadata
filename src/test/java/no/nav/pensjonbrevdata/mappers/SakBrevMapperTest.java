@@ -40,7 +40,7 @@ public class SakBrevMapperTest {
     }
 
     @Test
-    public void brevkodeSomSkalLeggesTil_SkalIkkeVære_SynligNaarToggleErDeaktivert() {
+    public void brevkodeSomSkalLeggesTil_SkalIkkeVaere_SynligNaarToggleErDeaktivert() {
         Set<String> brevkoderSomSkalLeggesTil = SakBrevMapper.addedBrevkoder.keySet();
         fakeUnleash.disable(SakBrevMapper.addedBrevkoder.values().stream().map(t -> t.toggle).toArray(String[]::new));
 
@@ -50,7 +50,7 @@ public class SakBrevMapperTest {
     }
 
     @Test
-    public void brevkodeSomSkalLeggesTil_SkalVære_SynligNaarToggleErAktivert() {
+    public void brevkodeSomSkalLeggesTil_SkalVaere_SynligNaarToggleErAktivert() {
         Set<String> brevkoderSomSkalLeggesTil = SakBrevMapper.addedBrevkoder.keySet();
         fakeUnleash.enable(SakBrevMapper.addedBrevkoder.values().stream().map(t -> t.toggle).toArray(String[]::new));
 
@@ -64,7 +64,7 @@ public class SakBrevMapperTest {
     }
 
     @Test
-    public void brevkodeSomSkalFjernes_SkalVære_SynligNaarToggleErDeaktivert() {
+    public void brevkodeSomSkalFjernes_SkalVaere_SynligNaarToggleErDeaktivert() {
         for (SakBrevMapper.BrevkodeToRemove brevkode: SakBrevMapper.removedBrevkoder) {
             fakeUnleash.disable(brevkode.toggle.toggle);
 
@@ -75,7 +75,7 @@ public class SakBrevMapperTest {
     }
 
     @Test
-    public void brevkodeSomSkalFjernes_SkalIkkeVære_SynligNaarToggleErAktivert() {
+    public void brevkodeSomSkalFjernes_SkalIkkeVaere_SynligNaarToggleErAktivert() {
         SakBrevMapper.removedBrevkoder.forEach(brevkodeToRemove -> fakeUnleash.enable(brevkodeToRemove.toggle.toggle));
 
         List<String> removedBrevkoder = SakBrevMapper.removedBrevkoder.stream().map(brevkode -> brevkode.brevkode).collect(toList());

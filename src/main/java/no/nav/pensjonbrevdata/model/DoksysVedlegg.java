@@ -3,12 +3,12 @@ package no.nav.pensjonbrevdata.model;
 import java.util.function.Function;
 
 public class DoksysVedlegg {
-    protected String vedleggkode;
-    protected String dekode;
-    protected String dokumentmalId;
-    protected String dokumentmalFelleselementId;
-    protected String dokumentmal;
-    protected String dokumentmalFelleselement;
+    protected final String vedleggkode;
+    protected final String dekode;
+    protected final String dokumentmalId;
+    protected final String dokumentmalFelleselementId;
+    protected final String dokumentmal;
+    protected final String dokumentmalFelleselement;
 
     public DoksysVedlegg(String vedleggkode, String dekode, String dokumentmalId, String dokumentmalFelleselementId) {
         this(vedleggkode, dekode, dokumentmalId, dokumentmalFelleselementId, null, null);

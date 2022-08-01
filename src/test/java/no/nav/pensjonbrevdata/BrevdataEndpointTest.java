@@ -24,7 +24,7 @@ import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 @ExtendWith(MockitoExtension.class)
 public class BrevdataEndpointTest {
 
-    static private FakeUnleash unleash = new FakeUnleash();
+    static private final FakeUnleash unleash = new FakeUnleash();
 
     @Mock
     private BrevdataProvider brevdataProviderMock;
@@ -43,7 +43,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithBadRequestWhenGetBrevForBrevkodeAndUnknownBrevkode() throws IOException {
+    public void shouldRespondWithBadRequestWhenGetBrevForBrevkodeAndUnknownBrevkode() {
         when(brevdataProviderMock.getBrevForBrevkode(any())).thenThrow(new IllegalArgumentException());
 
         ResponseStatusException thrown = assertThrows(
@@ -54,7 +54,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithInternalServerErrorWhenGetBrevForBrevkodeAndRuntimeException() throws IOException {
+    public void shouldRespondWithInternalServerErrorWhenGetBrevForBrevkodeAndRuntimeException() {
         when(brevdataProviderMock.getBrevForBrevkode(any())).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
@@ -65,7 +65,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithInternalServerErrorWhenGetBrevForBrevkodeAndIOException() throws IOException {
+    public void shouldRespondWithInternalServerErrorWhenGetBrevForBrevkodeAndIOException() {
         when(brevdataProviderMock.getBrevForBrevkode(any())).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
@@ -76,7 +76,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithBadRequestWhenGetBrevdataForSaktypeAndUnknownSaktype() throws IOException {
+    public void shouldRespondWithBadRequestWhenGetBrevdataForSaktypeAndUnknownSaktype() {
         when(brevdataProviderMock.getBrevdataForSaktype("Test")).thenThrow(new IllegalArgumentException());
 
         ResponseStatusException thrown = assertThrows(
@@ -87,7 +87,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithInternalServerErrorWhenGetBrevdataForSaktypeAndIOException() throws IOException {
+    public void shouldRespondWithInternalServerErrorWhenGetBrevdataForSaktypeAndIOException() {
         when(brevdataProviderMock.getBrevdataForSaktype("Test")).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
@@ -98,7 +98,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithInternalServerErrorWhenGetBrevdataForSaktypeAndRuntimeException() throws IOException {
+    public void shouldRespondWithInternalServerErrorWhenGetBrevdataForSaktypeAndRuntimeException() {
         when(brevdataProviderMock.getBrevdataForSaktype("Test")).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
@@ -109,7 +109,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithInternalServerErrorWhenGetAllBrevAndRuntimeException() throws IOException {
+    public void shouldRespondWithInternalServerErrorWhenGetAllBrevAndRuntimeException() {
         when(brevdataProviderMock.getAllBrev()).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(
@@ -120,7 +120,7 @@ public class BrevdataEndpointTest {
     }
 
     @Test
-    public void shouldRespondWithInternalServerErrorWhenGetAllBrevAndIoException() throws IOException {
+    public void shouldRespondWithInternalServerErrorWhenGetAllBrevAndIoException() {
         when(brevdataProviderMock.getAllBrev()).thenThrow(new RuntimeException());
 
         ResponseStatusException thrown = assertThrows(

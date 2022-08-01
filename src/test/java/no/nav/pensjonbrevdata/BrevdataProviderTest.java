@@ -22,21 +22,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.Callable;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import no.finn.unleash.FakeUnleash;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataProviderTest {
-    static private FakeUnleash unleash = new FakeUnleash();
+    static private final FakeUnleash unleash = new FakeUnleash();
 
     @Mock
     private BrevdataMapper brevdataMapperMock;
