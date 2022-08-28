@@ -77,3 +77,15 @@ inboundRules:
   - name: pensjon-testdata-server
     namespace: pensjontestdata
     cluster: dev-fss
+  - name: pensjon-testdata-server-q1
+    namespace: pensjontestdata
+    cluster: dev-fss
+  - name: pensjon-testdata-server-q2
+    namespace: pensjontestdata
+    cluster: dev-fss
+  - name: pensjon-testdata-server-q4
+    namespace: pensjontestdata
+    cluster: dev-fss
+  - name: pensjon-testdata-server-q5
+    namespace: pensjontestdata
+    cluster: dev-fss
