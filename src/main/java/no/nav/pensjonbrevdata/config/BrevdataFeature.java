@@ -7,6 +7,7 @@ public final class BrevdataFeature {
     public static final String BRUK_VEDTAK_TILBAKEKREV = "pensjonsbrev.pensjon-brevdata.brukVEDTAK_TILBAKEKREV";
     public static final String BRUK_AFP_INNV_MAN = "pensjonsbrev.pensjon-brevdata.brukAFP_INNV_MAN";
     public static final String ERSTATT_AFP_PRIV_MND_UTB_V1 = "pensjonsbrev.pensjon-brevdata.erstatt.AFP_PRIV_MND_UTB_V1";
+    public static final String OPPDATER_AP_MND_UTB_V1_MED_ETBT_GJELDENDE = "pensjonsbrev.pensjon-brevdata.oppdater.AP_MND_UTB_V1.ETBT.gjeldende";
     public static final String BRUK_NYTT_NAVN_AP_AVSL_GJRETT_MAN = "pensjonsbrev.pensjon-brevdata.bruknyttnavnAP_AVSL_GJRETT_MAN";
 
     private BrevdataFeature() { }
