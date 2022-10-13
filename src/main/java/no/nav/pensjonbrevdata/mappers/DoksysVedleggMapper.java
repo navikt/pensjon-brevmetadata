@@ -33,9 +33,16 @@ public class DoksysVedleggMapper {
             "V00003",
             "00001");
 
+    private static final DoksysVedlegg gamleVedlegg2 = new DoksysVedleggV2(
+            "RETTIGH_PLIKT_V1",
+            "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
+            "V00002",
+            "00001");
+
     private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap =
             brevdataErstattMedGammeltVedlegg(ERSTATT_AFP_PRIV_MND_UTB_V1, "AFP_PRIV_MND_UTB_V1", gamleVedlegg8)
-                    .andThen(brevdataErstattMedGammeltVedlegg(OPPDATER_AP_MND_UTB_V1_MED_ETBT_GJELDENDE, "AP_MND_UTB_V1", gamleVedlegg3));
+                    .andThen(brevdataErstattMedGammeltVedlegg(OPPDATER_AP_MND_UTB_V1_MED_ETBT_GJELDENDE, "AP_MND_UTB_V1", gamleVedlegg3))
+                    .andThen(brevdataErstattMedGammeltVedlegg(OPPDATER_AP_MND_UTB_V1_MED_ETBT_GJELDENDE, "RETTIGH_PLIKT_V1", gamleVedlegg2));
 
     public DoksysVedleggMapper() {
         vedleggMap = new HashMap<>();
