@@ -45,11 +45,11 @@
         </xs:annotation>
         <xs:all>
             <xs:element name="alderspensjonGjeldende" type="alderspensjon:Alderspensjon"/>
-            <xs:element name="barnetilleggGjeldende" type="barnetillegg:Barnetillegg" minOccurs="0"/>
+            <xs:element name="barnetilleggVedVirk" type="barnetillegg:Barnetillegg" minOccurs="0"/>
             <xs:element name="beregnetPensjonPerManedGjeldende" type="alderspensjonPerManed:AlderspensjonPerManed"/>
             <xs:element name="beregnetPensjonPerManed" type="beregnetPensjonPerManed:BeregnetPensjonPerManed"/>
             <xs:element name="bruker" type="person:Person"/>
-            <xs:element name="ektefelletilleggGjeldende" type="ektefelletillegg:Ektefelletillegg" minOccurs="0"/>
+            <xs:element name="ektefelletilleggVedVirk" type="ektefelletillegg:Ektefelletillegg" minOccurs="0"/>
             <xs:element name="epsGjeldende" type="EPS:EPS" minOccurs="0"/>
             <xs:element name="institusjonsoppholdGjeldende" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
             <xs:element name="krav" type="krav:Krav"/>
