@@ -23,7 +23,6 @@
     <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
     <xs:import schemaLocation="fag/v1.Sak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Sak"/>
     <xs:import schemaLocation="fag/v1.UforetrygdPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/UforetrygdPerManed"/>
-    <xs:import schemaLocation="fag/v2.Institusjonsopphold.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"/>
 
     <xs:element name="brevdata" type="Brevdata"/>
 
@@ -40,9 +39,9 @@
         </xs:annotation>
         <xs:all>
             <xs:element name="alderspensjonGjeldende" type="alderspensjon:Alderspensjon"/>
-            <xs:element name="barnetilleggVedVirk" type="barnetillegg:Barnetillegg" minOccurs="0"/>
+            <xs:element name="barnetilleggGjeldende" type="barnetillegg:Barnetillegg" minOccurs="0"/>
             <xs:element name="epsGjeldende" type="EPS:EPS" minOccurs="0"/>
-            <xs:element name="ektefelletilleggVedVirk" type="ektefelletillegg:Ektefelletillegg" minOccurs="0"/>
+            <xs:element name="ektefelletilleggGjeldende" type="ektefelletillegg:Ektefelletillegg" minOccurs="0"/>
             <xs:element name="institusjonsoppholdGjeldende" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
             <xs:element name="bruker" type="person:Person"/>
             <xs:element name="sak" type="sak:Sak"/>
