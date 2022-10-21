@@ -1,6 +1,5 @@
 application: "pensjon-brevmetadata-prodlik"
-ingresses:
-  - "https://pensjon-brevmetadata-prodlik.dev.intern.nav.no"
+ingress: "https://pensjon-brevmetadata-prodlik.dev.intern.nav.no"
 environmentname: "prodlik"
 replicas:
   min: 1
