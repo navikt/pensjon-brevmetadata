@@ -1,0 +1,23 @@
+application: "pensjon-brevmetadata-q5"
+ingresses:
+  - "https://pensjon-brevmetadata-q5.dev.intern.nav.no"
+environmentname: "q5"
+replicas:
+  min: 1
+  max: 2
+inboundRules:
+  - name: pensjon-pen-q5
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-psak-q5
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-q5
+    namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-q5
+    namespace: teampensjon
+    cluster: dev-gcp
+  - name: pensjon-testdata-server-q5
+    namespace: pensjontestdata
+    cluster: dev-fss

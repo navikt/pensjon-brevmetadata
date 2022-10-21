@@ -16,7 +16,4 @@ inboundRules:
     cluster: prod-fss
   - name: pensjon-pselv
     namespace: pensjondeployer
-    cluster: prod-sbs
-  - name: pensjon-pselv
-    namespace: pensjondeployer
     cluster: prod-gcp
