@@ -17,9 +17,6 @@ inboundRules:
     cluster: dev-fss
   - name: pensjon-pselv-q5
     namespace: teampensjon
-    cluster: dev-sbs
-  - name: pensjon-pselv-q5
-    namespace: teampensjon
     cluster: dev-gcp
   - name: pensjon-testdata-server-q5
     namespace: pensjontestdata

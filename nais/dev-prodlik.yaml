@@ -1,7 +1,6 @@
 application: "pensjon-brevmetadata-prodlik"
 ingresses:
   - "https://pensjon-brevmetadata-prodlik.dev.intern.nav.no"
-  - "https://pensjon-brevmetadata.dev.intern.nav.no"
 environmentname: "prodlik"
 replicas:
   min: 1
@@ -18,9 +17,6 @@ inboundRules:
     cluster: dev-fss
   - name: pensjon-pselv-q0
     namespace: teampensjon
-    cluster: dev-sbs
-  - name: pensjon-pselv-q0
-    namespace: teampensjon
     cluster: dev-gcp
   - name: pensjon-pen-q1
     namespace: teampensjon
@@ -31,9 +27,6 @@ inboundRules:
   - name: pensjon-pselv-q1
     namespace: teampensjon
     cluster: dev-fss
-  - name: pensjon-pselv-q1
-    namespace: teampensjon
-    cluster: dev-sbs
   - name: pensjon-pselv-q1
     namespace: teampensjon
     cluster: dev-gcp
