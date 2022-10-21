@@ -66,7 +66,7 @@ jobs:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml
           VAR: image=${{ env.IMAGE }}
-          VARS: nais/dev-default.yaml
+          VARS: nais/dev-q2.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q2
 
   deploy-to-dev-q4:
@@ -82,7 +82,7 @@ jobs:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml
           VAR: image=${{ env.IMAGE }}
-          VARS: nais/dev-default.yaml
+          VARS: nais/dev-q4.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q4
 
   deploy-to-dev-q5:
@@ -98,7 +98,7 @@ jobs:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml
           VAR: image=${{ env.IMAGE }}
-          VARS: nais/dev-default.yaml
+          VARS: nais/dev-q5.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q5
 
   deploy-to-dev-prodlik:
@@ -120,7 +120,7 @@ jobs:
   deploy-to-prod:
     name: Deploy to prod
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs: deploy-to-dev-default
+    needs: deploy-to-dev-prodlik
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
