@@ -7,7 +7,7 @@
            xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
            xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
            xmlns:barnetillegg="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"
-           xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/AlderspensjonPerManed"
+           xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v3/AlderspensjonPerManed"
            xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/BeregnetPensjonPerManed"
            xmlns:ektefelletillegg="http://nav.no/dok/pesysbrev/fag/v1/Ektefelletillegg"
            xmlns:EPS="http://nav.no/dok/pesysbrev/fag/v1/EPS"
@@ -19,7 +19,7 @@
 
     <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
     <xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
-    <xs:import schemaLocation="fag/v2.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/AlderspensjonPerManed"/>
+    <xs:import schemaLocation="fag/v3.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/AlderspensjonPerManed"/>
     <xs:import schemaLocation="fag/v1.Barnetillegg.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"/>
     <xs:import schemaLocation="fag/v2.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregnetPensjonPerManed"/>
     <xs:import schemaLocation="fag/v1.EPS.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/EPS"/>
