@@ -7,6 +7,7 @@ on:
         type: choice
         description: Deploy to environment
         options:
+          - q1
           - q2
           - q4
           - q5
@@ -52,6 +53,22 @@ jobs:
         run: "docker tag ${IMAGE} ${LATEST_IMAGE}"
       - name: Push latest docker image
         run: "docker push ${LATEST_IMAGE}"
+
+  deploy-to-dev-q1:
+    name: Deploy to dev - q1
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'q1')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: nais/nais.yaml
+          VAR: image=${{ env.IMAGE }}
+          VARS: nais/dev-q1.yaml
+          ENVIRONMENT: dev-gcp:pensjonsbrev:q1
 
   deploy-to-dev-q2:
     name: Deploy to dev - q2
