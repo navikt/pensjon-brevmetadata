@@ -16,7 +16,9 @@ spec:
     initialDelay: 35
     timeout: 3
   ingresses:
-    - {{ ingress }}
+    {{#each ingresses as |url|}}
+       - {{url}}
+      {{/each}}
   readiness:
     path: "/api/internal/isReady"
     initialDelay: 35

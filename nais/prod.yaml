@@ -1,5 +1,6 @@
 application: "pensjon-brevmetadata"
-ingress: "https://pensjon-brevmetadata.intern.nav.no"
+ingresses:
+  - "https://pensjon-brevmetadata.intern.nav.no"
 environmentname: "prod"
 replicas:
   min: 2

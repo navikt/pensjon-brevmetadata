@@ -1,5 +1,7 @@
 application: "pensjon-brevmetadata-q5"
-ingress: "https://pensjon-brevmetadata-q5.dev.intern.nav.no"
+ingresses:
+  - "https://pensjon-brevmetadata-q5.dev.intern.nav.no"
+  - "https://pensjon-brevmetadata-q5.intern.dev.nav.no"
 environmentname: "q5"
 replicas:
   min: 1
