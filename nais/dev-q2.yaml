@@ -1,6 +1,5 @@
 application: "pensjon-brevmetadata-q2"
 ingresses:
-  - "https://pensjon-brevmetadata-q2.dev.intern.nav.no"
   - "https://pensjon-brevmetadata-q2.intern.dev.nav.no"
 environmentname: "q2"
 replicas:
