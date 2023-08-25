@@ -62,31 +62,11 @@ public class BrevdataMapper {
                     null,
                     "brevgr011");
 
-    private static final Brevdata GAMMEL_BREV_AP_AVSL_GJRETT_MAN =
-            new Doksysbrev("AP_AVSL_GJRETT_MAN",
-                    true,
-                    "Vedtak - avslag på alderspensjon med gjenlevenderett",
-                    BrevkategoriCode.VEDTAK,
-                    DokumenttypeCode.U,
-                    Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
-                    null,
-                    BrevUtlandCode.ALLTID,
-                    BrevregeltypeCode.OVRIGE,
-                    BrevkravtypeCode.ALLE,
-                    DokumentkategoriCode.VB,
-                    true,
-                    BrevkontekstCode.VEDTAK,
-                    null,
-                    "000152",
-                    "00001",
-                    doksysVedleggMapper.map("RETTIGH_V1", "AP_MND_UTB_V1"));
-
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
                     .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
-                    .andThen(brevdataErstattMedGammeltBrev(BRUK_NYTT_NAVN_AP_AVSL_GJRETT_MAN, "AP_AVSL_GJRETT_MAN", GAMMEL_BREV_AP_AVSL_GJRETT_MAN))
             ;
 
     private final Map<String, Brevdata> brevMap;
