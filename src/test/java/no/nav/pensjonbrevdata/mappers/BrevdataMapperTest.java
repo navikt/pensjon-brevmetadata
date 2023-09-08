@@ -15,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @ExtendWith(MockitoExtension.class)
 public class BrevdataMapperTest {
     private BrevdataMapper mapper;

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified"
-           elementFormDefault="qualified"
-           targetNamespace="http://nav.no/dok/pesysbrev/v1/000092"
-           xmlns="http://nav.no/dok/pesysbrev/v1/000092"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
-           xmlns:afpPrivat="http://nav.no/dok/pesysbrev/fag/v1/AfpPrivat"
-           xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v5/Alderspensjon"
-           xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v4/AlderspensjonPerManed"
-           xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod"
-           xmlns:barnetillegg="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"
-           xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/BeregnetPensjonPerManed"
-           xmlns:ektefelletillegg="http://nav.no/dok/pesysbrev/fag/v1/Ektefelletillegg"
-           xmlns:inngangOgEksportVurdering="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"
-           xmlns:inngangOgEksportVurderingAvdod="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurderingAvdod"
-           xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
-           xmlns:land="http://nav.no/dok/pesysbrev/fag/v1/Land"
-           xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
-           xmlns:vedtak="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"
-           xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
+elementFormDefault="qualified"
+targetNamespace="http://nav.no/dok/pesysbrev/v1/000092"
+xmlns="http://nav.no/dok/pesysbrev/v1/000092"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
+xmlns:afpPrivat="http://nav.no/dok/pesysbrev/fag/v1/AfpPrivat"
+xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
+xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/AlderspensjonPerManed"
+xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod"
+xmlns:barnetillegg="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"
+xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/BeregnetPensjonPerManed"
+xmlns:ektefelletillegg="http://nav.no/dok/pesysbrev/fag/v1/Ektefelletillegg"
+xmlns:inngangOgEksportVurdering="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"
+xmlns:inngangOgEksportVurderingAvdod="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurderingAvdod"
+xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
+xmlns:land="http://nav.no/dok/pesysbrev/fag/v1/Land"
+xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
+xmlns:vedtak="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"
+xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
 
     <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
     <xs:import schemaLocation="fag/v1.AfpPrivat.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AfpPrivat"/>
-    <xs:import schemaLocation="fag/v5.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v5/Alderspensjon"/>
-    <xs:import schemaLocation="fag/v4.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/AlderspensjonPerManed"/>
+    <xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
+    <xs:import schemaLocation="fag/v2.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/AlderspensjonPerManed"/>
     <xs:import schemaLocation="fag/v1.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Avdod"/>
     <xs:import schemaLocation="fag/v1.Land.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Land"/>
     <xs:import schemaLocation="fag/v1.Barnetillegg.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"/>
@@ -35,6 +35,7 @@
     <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
     <xs:import schemaLocation="fag/v1.Vedtak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"/>
     <xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
+
 
     <xs:element name="brevdata" type="Brevdata"/>
 
@@ -61,10 +62,9 @@
             <xs:element name="bruker" type="person:Person"/>
             <xs:element name="ektefelletilleggVedVirk" type="ektefelletillegg:Ektefelletillegg" minOccurs="0"/>
             <xs:element name="inngangOgEksportVurdering" type="inngangOgEksportVurdering:InngangOgEksportVurdering" minOccurs="0"/>
-            <xs:element name="inngangOgEksportVurderingAvdod" type="inngangOgEksportVurderingAvdod:InngangOgEksportVurderingAvdod" minOccurs="0"/>
+<xs:element name="inngangOgEksportVurderingAvdod" type="inngangOgEksportVurderingAvdod:InngangOgEksportVurderingAvdod" minOccurs="0"/>
             <xs:element name="krav" type="krav:Krav"/>
             <xs:element name="vedtak" type="vedtak:Vedtak"/>
           </xs:all>
     </xs:complexType>
-
 </xs:schema>
