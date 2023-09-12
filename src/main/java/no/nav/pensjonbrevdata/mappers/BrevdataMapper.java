@@ -100,6 +100,24 @@ public class BrevdataMapper {
                     "00001",
                     doksysVedleggMapper.map("RETTIGH_V1", "RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1"));
 
+    public static final Brevdata GAMMEL_AP_ENDR_GJRETT_MAN = new DoksysbrevV2("AP_ENDR_GJRETT_MAN",
+            true,
+            "Vedtak - endring ved gjenlevenderett",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+            true,
+            BrevUtlandCode.ALLTID,
+            null,
+            BrevkravtypeCode.ALLE,
+            DokumentkategoriCode.VB,
+            null,
+            BrevkontekstCode.VEDTAK,
+            null,
+            "000126",
+            "00001",
+            doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_AVDOD_OPPL_BER_V1"));
+
     private static final Brevdata GAMMEL_AP_ENDR_GRAD_MAN = new DoksysbrevV2("AP_ENDR_GRAD_MAN",
             true,
             "Vedtak - endring av uttaksgrad",
@@ -124,6 +142,7 @@ public class BrevdataMapper {
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_INNV_MAN", GAMMEL_AP_INNV_MAN))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_AUTO", GAMMEL_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_MAN", GAMMEL_AP_ENDR_GRAD_MAN))
+                    .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GJRETT_MAN", GAMMEL_AP_ENDR_GJRETT_MAN))
                     .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
             ;
