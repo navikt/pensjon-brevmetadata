@@ -119,9 +119,8 @@ public class BrevdataMapper {
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
-                    .andThen(brevdataErstattMedGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
-                    .andThen(brevdataLeggTilGammeltBrev(BRUK_AP_ENDR_GRAD_AUTO, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
+                    .andThen(brevdataLeggTilGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
 
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_INNV_MAN", GAMMEL_AP_INNV_MAN))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_MAN", GAMMEL_AP_ENDR_GRAD_MAN))
