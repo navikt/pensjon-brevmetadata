@@ -15,6 +15,12 @@ inboundRules:
   - name: pensjon-pselv
     namespace: pensjondeployer
     cluster: prod-fss
+  - name: pensjon-pselv-veileder
+    namespace: pensjondeployer
+    cluster: prod-gcp
   - name: pensjon-pselv
+    namespace: pensjondeployer
+    cluster: prod-gcp
+  - name: pensjon-pselv-borger
     namespace: pensjondeployer
     cluster: prod-gcp

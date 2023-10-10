@@ -9,14 +9,26 @@ inboundRules:
   - name: pensjon-pen-q2
     namespace: teampensjon
     cluster: dev-fss
+  - name: pensjon-pen-q2
+    namespace: pensjon-q2
+    cluster: dev-fss
   - name: pensjon-psak-q2
     namespace: teampensjon
     cluster: dev-fss
-  - name: pensjon-pselv-q2
-    namespace: teampensjon
+  - name: pensjon-psak-q2
+    namespace: pensjon-q2
     cluster: dev-fss
   - name: pensjon-pselv-q2
     namespace: teampensjon
+    cluster: dev-fss
+  - name: pensjon-pselv-veileder-q2
+    namespace: pensjon-q2
+    cluster: dev-gcp
+  - name: pensjon-pselv-q2
+    namespace: teampensjon
+    cluster: dev-gcp
+  - name: pensjon-pselv-borger-q2
+    namespace: pensjon-q2
     cluster: dev-gcp
   - name: pensjon-testdata-server-q2
     namespace: pensjontestdata
