@@ -6,18 +6,6 @@ replicas:
   min: 1
   max: 2
 inboundRules:
-  - name: pensjon-pen-q4
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-psak-q4
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pselv-q4
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pselv-q4
-    namespace: teampensjon
-    cluster: dev-gcp
   - name: pensjon-testdata-server-q4
     namespace: pensjontestdata
     cluster: dev-fss
