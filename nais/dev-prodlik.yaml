@@ -2,6 +2,7 @@ application: "pensjon-brevmetadata-prodlik"
 ingresses:
   - "https://pensjon-brevmetadata-prodlik.intern.dev.nav.no"
 environmentname: "prodlik"
+unleashEnvironment: "production"
 replicas:
   min: 1
   max: 2

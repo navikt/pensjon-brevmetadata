@@ -2,6 +2,7 @@ application: "pensjon-brevmetadata-q2"
 ingresses:
   - "https://pensjon-brevmetadata-q2.intern.dev.nav.no"
 environmentname: "q2"
+unleashEnvironment: "development"
 replicas:
   min: 1
   max: 2

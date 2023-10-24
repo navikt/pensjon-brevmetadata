@@ -2,6 +2,7 @@ application: "pensjon-brevmetadata"
 ingresses:
   - "https://pensjon-brevmetadata.intern.nav.no"
 environmentname: "prod"
+unleashEnvironment: "production"
 replicas:
   min: 2
   max: 2
