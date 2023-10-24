@@ -66,7 +66,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,unleash-api-token.yaml
+          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
           VARS: nais/dev-q1.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q1
@@ -82,7 +82,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,unleash-api-token.yaml
+          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
           VARS: nais/dev-q2.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q2
@@ -98,7 +98,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,unleash-api-token.yaml
+          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
           VARS: nais/dev-q5.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q5
@@ -114,7 +114,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,unleash-api-token.yaml
+          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
           VARS: nais/dev-prodlik.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:prodlik
@@ -130,6 +130,6 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: nais/nais.yaml,unleash-api-token.yaml
+          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
           VARS: nais/prod.yaml
