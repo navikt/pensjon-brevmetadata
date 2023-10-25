@@ -43,4 +43,4 @@ spec:
         {{/each}}
     outbound:
       external:
-        - host: unleash.nais.io
+        - host: teampensjon-unleash-api.nav.cloud.nais.io
