@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.unleash;
 
+import io.getunleash.DefaultUnleash;
 import io.getunleash.Unleash;
+import io.getunleash.util.UnleashConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +19,8 @@ public class UnleashEndpointConfig {
             @Value("${NAIS_APP_NAME}") String appName,
             @Value("${ENVIRONMENT_NAME}") String environmentName
     ) {
-        return new io.getunleash.DefaultUnleash(
-                io.getunleash.util.UnleashConfig.builder()
+        DefaultUnleash unleash = new DefaultUnleash(
+                UnleashConfig.builder()
                         .appName(appName)
                         .environment(environmentName)
                         .fetchTogglesInterval(togglesInterval)
@@ -26,6 +28,8 @@ public class UnleashEndpointConfig {
                         .apiKey(token)
                         .build()
         );
+        UnleashProvider.initialize(unleash);
+        return unleash;
     }
    
 }
