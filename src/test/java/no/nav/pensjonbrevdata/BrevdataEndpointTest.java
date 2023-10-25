@@ -1,5 +1,7 @@
 package no.nav.pensjonbrevdata;
 
+import io.getunleash.FakeUnleash;
+import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,17 +11,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.io.IOException;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-
-import no.finn.unleash.FakeUnleash;
-
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataEndpointTest {

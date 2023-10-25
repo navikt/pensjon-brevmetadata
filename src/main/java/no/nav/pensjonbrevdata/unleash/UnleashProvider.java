@@ -1,8 +1,6 @@
 package no.nav.pensjonbrevdata.unleash;
 
-import java.util.function.Supplier;
-
-import no.finn.unleash.Unleash;
+import io.getunleash.Unleash;
 
 public class UnleashProvider {
     private static Unleash unleash;
@@ -25,12 +23,6 @@ public class UnleashProvider {
 
         Toggle(String toggle) {
             this.toggle = toggle;
-        }
-
-        public <E extends Throwable> void throwIfDisabled(Supplier<E> supplier) throws E {
-            if(!unleash.isEnabled(toggle)) {
-                throw supplier.get();
-            }
         }
 
         public boolean isDisabled() {

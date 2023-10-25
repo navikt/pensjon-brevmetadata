@@ -1,20 +1,13 @@
 package no.nav.pensjonbrevdata;
 
+import io.getunleash.FakeUnleash;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.GammeltBrev;
-import no.nav.pensjonbrevdata.model.codes.BrevUtlandCode;
-import no.nav.pensjonbrevdata.model.codes.BrevkategoriCode;
-import no.nav.pensjonbrevdata.model.codes.BrevkontekstCode;
-import no.nav.pensjonbrevdata.model.codes.BrevkravtypeCode;
-import no.nav.pensjonbrevdata.model.codes.BrevregeltypeCode;
-import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
-import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
-import no.nav.pensjonbrevdata.model.codes.SprakCode;
+import no.nav.pensjonbrevdata.model.codes.*;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,13 +15,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.when;
-
-import no.finn.unleash.FakeUnleash;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataProviderTest {
