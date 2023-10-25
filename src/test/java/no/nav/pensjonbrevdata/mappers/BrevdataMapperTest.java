@@ -1,7 +1,7 @@
 package no.nav.pensjonbrevdata.mappers;
 
 
-import no.finn.unleash.FakeUnleash;
+import io.getunleash.FakeUnleash;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

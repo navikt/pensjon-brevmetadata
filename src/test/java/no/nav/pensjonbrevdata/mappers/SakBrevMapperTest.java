@@ -1,6 +1,6 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import no.finn.unleash.FakeUnleash;
+import io.getunleash.FakeUnleash;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.hamcrest.core.IsIterableContaining;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +15,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 public class SakBrevMapperTest {

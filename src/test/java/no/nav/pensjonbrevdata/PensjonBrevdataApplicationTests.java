@@ -1,7 +1,7 @@
 package no.nav.pensjonbrevdata;
 
+import io.getunleash.FakeUnleash;
 import io.prometheus.client.exporter.common.TextFormat;
-import no.finn.unleash.FakeUnleash;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;

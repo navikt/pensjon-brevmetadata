@@ -1,8 +1,7 @@
 application: "pensjon-brevmetadata-prodlik"
 ingresses:
   - "https://pensjon-brevmetadata-prodlik.intern.dev.nav.no"
-environmentname: "prodlik"
-unleashEnvironment: "production"
+environmentname: "q0"
 replicas:
   min: 1
   max: 2
@@ -31,3 +30,6 @@ inboundRules:
   - name: pensjon-pselv-borger-q0
     namespace: pensjon-q0
     cluster: dev-gcp
+
+# used for unleash-api-token.yaml
+unleashEnvironment: "production"

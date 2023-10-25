@@ -2,7 +2,6 @@ application: "pensjon-brevmetadata-q1"
 ingresses:
   - "https://pensjon-brevmetadata-q1.intern.dev.nav.no"
 environmentname: "q1"
-unleashEnvironment: "development"
 replicas:
   min: 1
   max: 2
@@ -34,3 +33,6 @@ inboundRules:
   - name: pensjon-testdata-server-q1
     namespace: pensjontestdata
     cluster: dev-fss
+
+# used for unleash-api-token.yaml
+unleashEnvironment: "development"
