@@ -7,13 +7,7 @@ replicas:
   max: 2
 inboundRules:
   - name: pensjon-pen-q2
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pen-q2
     namespace: pensjon-q2
-    cluster: dev-fss
-  - name: pensjon-psak-q2
-    namespace: teampensjon
     cluster: dev-fss
   - name: pensjon-psak-q2
     namespace: pensjon-q2
