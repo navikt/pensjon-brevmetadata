@@ -10,6 +10,7 @@
            xmlns:barnetillegg="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"
            xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v2/BeregnetPensjonPerManed"
            xmlns:ektefelletillegg="http://nav.no/dok/pesysbrev/fag/v1/Ektefelletillegg"
+           xmlns:gjtKap19="http://nav.no/dok/pesysbrev/fag/v1/GJTkap19"
            xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
            xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
            xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"
@@ -21,6 +22,7 @@
     <xs:import schemaLocation="fag/v1.Barnetillegg.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barnetillegg"/>
     <xs:import schemaLocation="fag/v2.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregnetPensjonPerManed"/>
     <xs:import schemaLocation="fag/v1.Ektefelletillegg.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Ektefelletillegg"/>
+    <xs:import schemaLocation="fag/v1.GJTkap19.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/GJTkap19"/>
     <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
     <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
     <xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
@@ -47,6 +49,7 @@
             <xs:element name="beregnetPensjonPerManedVedVirk" type="alderspensjonPerManed:AlderspensjonPerManed"/>
             <xs:element name="bruker" type="person:Person"/>
             <xs:element name="ektefelletilleggVedVirk" type="ektefelletillegg:Ektefelletillegg" minOccurs="0"/>
+            <xs:element name="gjenlevendetilleggKapittel19VedVirk" type="gjtKap19:GJTkap19" minOccurs="0"/>
             <xs:element name="krav" type="krav:Krav"/>
             <xs:element name="ytelseskomponentInformasjon" type="ytelseskomponentInformasjon:YtelseskomponentInformasjon" minOccurs="0"/>
         </xs:all>
