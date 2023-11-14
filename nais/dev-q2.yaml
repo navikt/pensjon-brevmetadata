@@ -27,6 +27,12 @@ inboundRules:
   - name: pensjon-testdata-server-q2
     namespace: pensjontestdata
     cluster: dev-fss
+  - name: skribenten-backend
+    namespace: pensjonsbrev
+    cluster: dev-gcp
+  - name: skribenten-backend-lokal
+    namespace: pensjonsbrev
+    cluster: dev-gcp
 
 # used for unleash-api-token.yaml
 unleashEnvironment: "development"
