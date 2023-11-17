@@ -151,7 +151,7 @@ public class BrevdataMapper {
             null,
             "000086",
             "00001",
-            doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
+            doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1"));
 
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
