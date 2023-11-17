@@ -117,28 +117,46 @@ public class BrevdataMapper {
             "00001",
             doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_END_V1"));
 
-    private static final Brevdata GAMMEL_AP_RETTING_AUTO =
-            new DoksysbrevV2("AP_RETTING_AUTO",
-                    false,
-                    "Vedtak - endring av alderspensjon pga rettelser",
-                    BrevkategoriCode.VEDTAK,
-                    DokumenttypeCode.U,
-                    Arrays.asList(SprakCode.NB, SprakCode.NN),
-                    true,
-                    BrevUtlandCode.ALLTID,
-                    null,
-                    BrevkravtypeCode.ALLE,
-                    DokumentkategoriCode.VB,
-                    true,
-                    BrevkontekstCode.VEDTAK,
-                    null,
-                    "000148",
-                    "00001",
-                    doksysVedleggMapper.map("AP_MND_UTB_V1", "RETTIGH_PLIKT_V1"));
+    private static final Brevdata GAMMEL_AP_RETTING_AUTO = new DoksysbrevV2("AP_RETTING_AUTO",
+            false,
+            "Vedtak - endring av alderspensjon pga rettelser",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN),
+            true,
+            BrevUtlandCode.ALLTID,
+            null,
+            BrevkravtypeCode.ALLE,
+            DokumentkategoriCode.VB,
+            true,
+            BrevkontekstCode.VEDTAK,
+            null,
+            "000148",
+            "00001",
+            doksysVedleggMapper.map("AP_MND_UTB_V1", "RETTIGH_PLIKT_V1"));
+
+    private static final Brevdata GAMMEL_AP_INNV_AO_UT_AUTO = new DoksysbrevV2("AP_INNV_AO_UT_AUTO",
+            false,
+            "Vedtak - omregning av uføretrygd til alderspensjon",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+            true,
+            null,
+            null,
+            null,
+            DokumentkategoriCode.VB,
+            null,
+            null,
+            null,
+            "000086",
+            "00001",
+            doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1"));
 
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
+                    .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_INNV_AO_UT_AUTO", GAMMEL_AP_INNV_AO_UT_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_INNV_MAN", GAMMEL_AP_INNV_MAN))
