@@ -153,9 +153,29 @@ public class BrevdataMapper {
             "00001",
             doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1"));
 
+    // PL-6972
+    private static final Brevdata GAMMEL_DOD_INFO_RETT_AUTO = new DoksysbrevV2("DOD_INFO_RETT_AUTO",
+            false,
+            "Informasjon om gjenlevenderettigheter (automatisk)",
+            BrevkategoriCode.INFORMASJON,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+            true,
+            null,
+            null,
+            null,
+            DokumentkategoriCode.IB,
+            null,
+            null,
+            null,
+            "000068",
+            "00001",
+            null);
+
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
+                    .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "DOD_INFO_RETT_AUTO", GAMMEL_DOD_INFO_RETT_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_INNV_AO_UT_AUTO", GAMMEL_AP_INNV_AO_UT_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
