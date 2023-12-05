@@ -175,7 +175,7 @@ public class BrevdataMapper {
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
-                    .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "DOD_INFO_RETT_AUTO", GAMMEL_DOD_INFO_RETT_AUTO))
+                    .andThen(brevdataErstattMedGammeltBrev(PL_6972_ERSTATT_MED_GAMLE_BREV, "DOD_INFO_RETT_AUTO", GAMMEL_DOD_INFO_RETT_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_INNV_AO_UT_AUTO", GAMMEL_AP_INNV_AO_UT_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
                     .andThen(brevdataLeggTilGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "PE_AP_04_227", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
@@ -185,9 +185,6 @@ public class BrevdataMapper {
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GJRETT_MAN", GAMMEL_AP_ENDR_GJRETT_MAN))
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"));
 
-    private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
-            brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
-                    .andThen(brevdataErstattMedGammeltBrev(PL_6972_ERSTATT_MED_GAMLE_BREV, "DOD_INFO_RETT_AUTO", GAMMEL_DOD_INFO_RETT_AUTO));
 
     private final Map<String, Brevdata> brevMap;
 
