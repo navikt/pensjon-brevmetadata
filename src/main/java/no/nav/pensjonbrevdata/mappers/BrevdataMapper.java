@@ -172,9 +172,29 @@ public class BrevdataMapper {
             "00001",
             null);
 
+    // P-000078-GJT
+    private static final Brevdata GAMMEL_AFP_DOD_ENSLIG_AUTO = new DoksysbrevV2("AFP_DOD_ENSLIG_AUTO",
+            false,
+            "Vedtak - omregning av AFP til enslig pensjonist (automatisk)",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN),
+            true,
+            null,
+            null,
+            null,
+            DokumentkategoriCode.VB,
+            null,
+            null,
+            null,
+            "000078",
+            "00001",
+            null);
+
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataFiltrerBortNyttBrev(BRUK_VEDTAK_TILBAKEKREV, "VEDTAK_TILBAKEKREV")
+                    .andThen(brevdataErstattMedGammeltBrev(P_000078_GJT_ERSTATT_MED_GAMMELT_BREV, "AFP_DOD_ENSLIG_AUTO", GAMMEL_AFP_DOD_ENSLIG_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6972_ERSTATT_MED_GAMLE_BREV, "DOD_INFO_RETT_AUTO", GAMMEL_DOD_INFO_RETT_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_INNV_AO_UT_AUTO", GAMMEL_AP_INNV_AO_UT_AUTO))
                     .andThen(brevdataErstattMedGammeltBrev(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_ENDR_GRAD_AUTO", GAMMEL_BREV_AP_ENDR_GRAD_AUTO))
