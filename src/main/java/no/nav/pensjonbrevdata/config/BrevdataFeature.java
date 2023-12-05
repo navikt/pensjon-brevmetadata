@@ -9,5 +9,7 @@ public final class BrevdataFeature {
 
     public static final String PL_6972_ERSTATT_MED_GAMLE_BREV = "pensjonsbrev.brevmetadata.pl-6972";
 
+    public static final String P_000078_GJT_ERSTATT_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadat.p-000078-GJT";
+
     private BrevdataFeature() { }
 }
