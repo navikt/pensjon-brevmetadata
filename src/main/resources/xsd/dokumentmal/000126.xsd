@@ -12,6 +12,7 @@
            xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v3/Avdod"
            xmlns:beregningKap19="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"
            xmlns:beregningKap20="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap20"
+           xmlns:gjtKap19="http://nav.no/dok/pesysbrev/fag/v1/GJTkap19"
            xmlns:inngangOgEksportVurdering="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"
            xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
            xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
@@ -27,6 +28,7 @@
     <xs:import schemaLocation="fag/v3.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Avdod"/>
     <xs:import schemaLocation="fag/v2.BeregningKap19.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"/>
     <xs:import schemaLocation="fag/v2.BeregningKap20.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap20"/>
+    <xs:import schemaLocation="fag/v1.GJTkap19.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/GJTkap19"/>
     <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
     <xs:import schemaLocation="fag/v1.InngangOgEksportVurdering.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"/>
     <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
@@ -58,6 +60,7 @@
             <xs:element name="beregningKap19VedVirk" type="beregningKap19:BeregningKap19" minOccurs="0"/>
             <xs:element name="beregningKap20VedVirk" type="beregningKap20:BeregningKap20" minOccurs="0"/>
             <xs:element name="bruker" type="person:Person"/>
+            <xs:element name="gjenlevendetilleggKapittel19VedVirk" type="gjtKap19:GJTkap19" minOccurs="0"/>
             <xs:element name="inngangOgEksportVurdering" type="inngangOgEksportVurdering:InngangOgEksportVurdering" minOccurs="0"/>
             <xs:element name="krav" type="krav:Krav"/>
             <xs:element name="vedtak" type="vedtak:Vedtak"/>
