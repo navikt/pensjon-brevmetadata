@@ -6,7 +6,7 @@
 			  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			  xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
               xmlns:afpStat="http://nav.no/dok/pesysbrev/fag/v1/AFPStat"
-              xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v3/Avdod"
+              xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod"
 			  xmlns:barn="http://nav.no/dok/pesysbrev/fag/v1/Barn"
 			  xmlns:beregnetAFPPerManed="http://nav.no/dok/pesysbrev/fag/v1/BeregnetAFPPerManed"
               xmlns:afpStatPerManed="http://nav.no/dok/pesysbrev/fag/v1/AFPStatPerManed"
@@ -18,7 +18,7 @@
 
 	<xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
     <xs:import schemaLocation="fag/v1.AFPStat.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AFPStat"/>
-    <xs:import schemaLocation="fag/v3.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Avdod"/>
+    <xs:import schemaLocation="fag/v1.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Avdod"/>
 	<xs:import schemaLocation="fag/v1.Barn.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barn"/>
     <xs:import schemaLocation="fag/v1.BeregnetAFPPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetAFPPerManed"/>
     <xs:import schemaLocation="fag/v1.AFPStatPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AFPStatPerManed"/>
