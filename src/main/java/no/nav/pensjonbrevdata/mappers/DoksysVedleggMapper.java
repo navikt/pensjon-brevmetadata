@@ -41,7 +41,7 @@ public class DoksysVedleggMapper {
 
     private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap =
             brevdataErstattMedGammeltVedlegg(ERSTATT_AFP_PRIV_MND_UTB_V1, "AFP_PRIV_MND_UTB_V1", gamleVedlegg8)
-                    .andThen(brevdataErstattMedGammeltVedlegg(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_MND_UTB_V1", gamleVedlegg3))
+                    .andThen(brevdataErstattMedGammeltVedlegg(PL_6567_VEDLEGG3_GJT, "AP_MND_UTB_V1", gamleVedlegg3))
                     .andThen(brevdataErstattMedGammeltVedlegg(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_MND_UTB_V4", gamleVedlegg7));
 
     public DoksysVedleggMapper() {
