@@ -211,7 +211,7 @@ public class BrevdataMapper {
             "00001",
             doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_AVDOD_OPPL_BER_V1"));
 
-    // P-000069-v3Avdo
+    // P-000069-v3Avdod
     private static final Brevdata GAMMEL_AP_DOD_INFO_RETT_MAN = new DoksysbrevV2("DOD_INFO_RETT_MAN",
             true,
             "Informasjon om gjenlevenderettigheter",
