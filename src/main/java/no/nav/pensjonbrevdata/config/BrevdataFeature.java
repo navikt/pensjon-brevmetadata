@@ -2,6 +2,7 @@ package no.nav.pensjonbrevdata.config;
 
 public final class BrevdataFeature {
 
+    public static final String P_000069_v3AVDOD_ERSTATT_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadata.p-000069-v3Avdod;";
     public static final String P_000126_v3AVDOD_ERSTATT_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadata.p-000126-v3Avdod";
     public static final String P_000070_V3AVDOD_ERSTATT_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadata.p-000070-v3Avdod";
     public static final String P_000078_GJT_ERSTATT_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadat.p-000078-GJT";
