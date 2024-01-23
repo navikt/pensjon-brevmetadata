@@ -5,13 +5,13 @@
 			  xmlns="http://nav.no/dok/pesysbrev/v1/000069"
 			  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			  xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
-			  xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v1/Avdod"
+			  xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v3/Avdod"
 			  xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
 			  xmlns:sak="http://nav.no/dok/pesysbrev/fag/v1/Sak">
 
 	<xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
 	<xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
-	<xs:import schemaLocation="fag/v1.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Avdod"/>
+	<xs:import schemaLocation="fag/v3.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Avdod"/>
 	<xs:import schemaLocation="fag/v1.Sak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Sak"/>
 
 	<xs:element name="brevdata" type="Brevdata"/>
