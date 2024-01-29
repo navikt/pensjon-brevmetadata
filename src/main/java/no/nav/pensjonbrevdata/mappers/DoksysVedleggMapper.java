@@ -46,6 +46,12 @@ public class DoksysVedleggMapper {
 
     public DoksysVedleggMapper() {
         vedleggMap = new HashMap<>();
+        vedleggMap.put("AP2025_MND_UTB_V1",
+                new DoksysVedlegg(
+                        "AP2025_MND_UTB_V1",
+                        "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1",
+                        "V00010",
+                        "00001"));
         vedleggMap.put("RETTIGH_V1",
                 new DoksysVedlegg(
                         "RETTIGH_V1",
