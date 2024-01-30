@@ -27,22 +27,9 @@ public class DoksysVedleggMapper {
             "V00008",
             "00001");
 
-    private static final DoksysVedleggV2 gamleVedlegg3 = new DoksysVedleggV2(
-            "AP_MND_UTB_V1",
-            "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1	",
-            "V00003",
-            "00001");
-
-    public static final DoksysVedleggV2 gamleVedlegg7 = new DoksysVedleggV2(
-            "AP_MND_UTB_V4",
-            "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4",
-            "V00007",
-            "00001");
 
     private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap =
-            brevdataErstattMedGammeltVedlegg(ERSTATT_AFP_PRIV_MND_UTB_V1, "AFP_PRIV_MND_UTB_V1", gamleVedlegg8)
-                    .andThen(brevdataErstattMedGammeltVedlegg(PL_6567_VEDLEGG3_GJT, "AP_MND_UTB_V1", gamleVedlegg3))
-                    .andThen(brevdataErstattMedGammeltVedlegg(PL_6567_ERSTATT_MED_GAMLE_BREV_OG_VEDLEGG, "AP_MND_UTB_V4", gamleVedlegg7));
+            brevdataErstattMedGammeltVedlegg(ERSTATT_AFP_PRIV_MND_UTB_V1, "AFP_PRIV_MND_UTB_V1", gamleVedlegg8);
 
     public DoksysVedleggMapper() {
         vedleggMap = new HashMap<>();
