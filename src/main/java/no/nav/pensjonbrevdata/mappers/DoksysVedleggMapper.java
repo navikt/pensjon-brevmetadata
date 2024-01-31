@@ -51,6 +51,12 @@ public class DoksysVedleggMapper {
                         "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1	",
                         "V00003",
                         "00001"));
+        vedleggMap.put("AP_MND_UTB_AP2025",
+                new DoksysVedlegg(
+                        "AP_MND_UTB_AP2025",
+                        "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1	",
+                        "V00010",
+                        "00001"));
         vedleggMap.put("AP_OPPL_BER_V1",
                 new DoksysVedlegg(
                         "AP_OPPL_BER_V1",

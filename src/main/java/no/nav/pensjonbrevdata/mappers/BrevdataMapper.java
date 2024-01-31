@@ -68,7 +68,8 @@ public class BrevdataMapper {
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevdataErstattMedGammeltBrev(P_000069_v3AVDOD_ERSTATT_MED_GAMMELT_BREV, "DOD_INFO_RETT_MAN", GAMMEL_AP_DOD_INFO_RETT_MAN)
-                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"));
+                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
+                    .andThen(brevdataFiltrerBortNyttBrev(BRUK_AP_INNV_MAN_AP2025,"AP_INNV_MAN_AP2025"));
 
 
     private final Map<String, Brevdata> brevMap;
@@ -4657,6 +4658,24 @@ public class BrevdataMapper {
                         "000092",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
+        brevMap.put("AP_INNV_MAN_AP2025",
+                new Doksysbrev("AP_INNV_MAN_AP2025",
+                        true,
+                        "Vedtak - innvilgelse av alderspensjon - AP2025",
+                        BrevkategoriCode.VEDTAK,
+                        DokumenttypeCode.U,
+                        Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+                        true,
+                        BrevUtlandCode.ALLTID,
+                        BrevregeltypeCode.GN,
+                        BrevkravtypeCode.ALLE,
+                        DokumentkategoriCode.VB,
+                        null,
+                        BrevkontekstCode.VEDTAK,
+                        null,
+                        "000092",
+                        "00001",
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_AP2025", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
         brevMap.put("OMSORG_HJST_AUTO",
                 new Doksysbrev("OMSORG_HJST_AUTO",
                         false,
