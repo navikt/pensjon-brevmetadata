@@ -4675,7 +4675,7 @@ public class BrevdataMapper {
                         null,
                         "000092",
                         "00001",
-                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_AP2025", "AP_OPPL_BER_V1", "AP_AVDOD_OPPL_BER_V1")));
         brevMap.put("OMSORG_HJST_AUTO",
                 new Doksysbrev("OMSORG_HJST_AUTO",
                         false,
