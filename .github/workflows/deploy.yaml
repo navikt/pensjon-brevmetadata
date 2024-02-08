@@ -57,14 +57,16 @@ jobs:
 
   deploy-to-dev-q1:
     name: Deploy to dev - q1
+    permissions:
+      contents: read
+      id-token: write
     if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'q1')
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
@@ -73,14 +75,16 @@ jobs:
 
   deploy-to-dev-q2:
     name: Deploy to dev - q2
+    permissions:
+      contents: read
+      id-token: write
     if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'q2')
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
@@ -89,14 +93,16 @@ jobs:
 
   deploy-to-dev-q5:
     name: Deploy to dev - q5
+    permissions:
+      contents: read
+      id-token: write
     if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'q5')
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
@@ -105,14 +111,16 @@ jobs:
 
   deploy-to-dev-prodlik:
     name: Deploy to dev - prodlik
+    permissions:
+      contents: read
+      id-token: write
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
@@ -121,14 +129,16 @@ jobs:
 
   deploy-to-prod:
     name: Deploy to prod
+    permissions:
+      contents: read
+      id-token: write
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: deploy-to-dev-prodlik
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ env.IMAGE }}
