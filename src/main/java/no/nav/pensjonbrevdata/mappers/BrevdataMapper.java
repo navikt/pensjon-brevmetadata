@@ -7567,7 +7567,7 @@ public class BrevdataMapper {
         brevMap.put("VEDTAK_TILBAKEKREV_MIDL",
                 new Doksysbrev("VEDTAK_TILBAKEKREV_MIDL",
                         true,
-                        "Vedtak - tilbakekreving av feilutbetalt beløp (tom mal)",
+                        "Vedtak - tilbakekreving av feilutbetalt beløp",
                         BrevkategoriCode.VEDTAK,
                         DokumenttypeCode.U,
                         Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
