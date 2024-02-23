@@ -5,11 +5,13 @@
            xmlns="http://nav.no/dok/pesysbrev/v1/V00010"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
-           xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v4/AlderspensjonPerManed">
+           xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManedAP2025"
+           xmlns:beregnetPensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManedAP2025">
 
     <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
-    <xs:import schemaLocation="fag/v4.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/AlderspensjonPerManed"/>
-
+    <xs:import schemaLocation="fag/v1.AlderspensjonPerManedAP2025.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManedAP2025"/>
+    <xs:import schemaLocation="fag/v1.AlderspensjonPerManedListeAP2025.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManedAPListe2025"/>
+    <xs:import schemaLocation="fag/v1.BeregnetPensjonPerManedAP2025.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManedAP2025"/>
 
     <xs:element name="brevdata" type="Brevdata"/>
 
@@ -25,6 +27,7 @@
             <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
         </xs:annotation>
         <xs:all>
+            <xs:element name="beregnetPensjonPerManed" type="beregnetPensjonPerManed:BeregnetPensjonPerManed"/>
             <xs:element name="beregnetPensjonPerManedGjeldende" type="alderspensjonPerManed:AlderspensjonPerManed"/>
         </xs:all>
     </xs:complexType>
