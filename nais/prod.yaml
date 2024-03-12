@@ -25,3 +25,6 @@ inboundRules:
   - name: pensjon-pselv-borger
     namespace: pensjondeployer
     cluster: prod-gcp
+  - name: skribenten-backend
+    namespace: pensjonsbrev
+    cluster: prod-gcp
