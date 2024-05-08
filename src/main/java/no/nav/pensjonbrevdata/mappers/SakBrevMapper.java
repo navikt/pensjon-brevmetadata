@@ -19,9 +19,10 @@ public class SakBrevMapper {
     // og deretter legges til i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
     // Nøkkel skal være brevkode og verdi skal være feature-toggle.
     public static final Map<String, UnleashProvider.Toggle> addedBrevkoder = ImmutableMap.of(
+            "AP_AVSL_TIDLUTTAK", toggle(UTVIDET_000064_MED_AP2025),
             "AFP_INNV_MAN", toggle(BRUK_AFP_INNV_MAN),
             "AP_INNV_MAN_AP2025", toggle(BRUK_AP_INNV_MAN_AP2025)
-    );
+            );
 
     // Brevkoder som skal fjernes, men kun når feature er aktivert. På denne måten kan en kode fjernes i dev og testes,
     // og deretter fjernes i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
