@@ -83,6 +83,25 @@ public class BrevdataMapper {
             "00001",
             null);
 
+    // P_000065_MED_AP2025_ERSTATTET_MED_GAMMELT_BREV
+    public static final Brevdata GAMMEL_AP_AVSL_ENDR = new DoksysbrevV2("AP_AVSL_ENDR",
+            true,
+            "Vedtak - avslag endring av uttaksgrad",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+            true,
+            BrevUtlandCode.ALLTID,
+            BrevregeltypeCode.GN,
+            BrevkravtypeCode.ALLE,
+            DokumentkategoriCode.VB,
+            null,
+            BrevkontekstCode.VEDTAK,
+            null,
+            "000065",
+            "00001",
+            null);
+
 
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =

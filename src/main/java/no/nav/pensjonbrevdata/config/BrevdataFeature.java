@@ -1,7 +1,7 @@
 package no.nav.pensjonbrevdata.config;
 
 public final class BrevdataFeature {
-
+    public static final String P_000065_MED_AP2025_ERSTATTET_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadata.p-000065-med-ap2025";
     public static final String P_000064_MED_AP2025_ERSTATT_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadata.p-000064-med-ap2025";
     public static final String BRUK_AP_INNV_MAN_AP2025 = "pensjonsbrev.brevmetadata.bruk_ap_innv_man_ap2025";
     public static final String P_000069_v3AVDOD_ERSTATT_MED_GAMMELT_BREV = "pensjonsbrev.brevmetadata.p-000069-v3Avdod;";
