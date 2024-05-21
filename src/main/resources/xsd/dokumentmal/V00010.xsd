@@ -10,7 +10,6 @@
 
     <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
     <xs:import schemaLocation="fag/v1.AlderspensjonPerManedKap20.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManedKap20"/>
-    <xs:import schemaLocation="fag/v1.AlderspensjonPerManedListeKap20.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManedKap20"/>
     <xs:import schemaLocation="fag/v1.BeregnetPensjonPerManedKap20.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManedKap20"/>
 
 
