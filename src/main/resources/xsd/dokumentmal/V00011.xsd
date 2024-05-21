@@ -11,7 +11,6 @@
            xmlns:EPS="http://nav.no/dok/pesysbrev/fag/v1/EPS"
            xmlns:Garantipensjon="http://nav.no/dok/pesysbrev/fag/v1/Garantipensjon"
            xmlns:institusjonsopphold="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"
-           xmlns:poengrekke="http://nav.no/dok/pesysbrev/fag/v1/Poengrekke"
            xmlns:trygdetidsdetaljer="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"
            xmlns:trygdetidsListe="http://nav.no/dok/pesysbrev/fag/v1/TrygdetidsListe">
 
@@ -22,7 +21,6 @@
     <xs:import schemaLocation="fag/v1.EPS.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/EPS"/>
     <xs:import schemaLocation="fag/v1.Garantipensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Garantipensjon"/>
     <xs:import schemaLocation="fag/v2.Institusjonsopphold.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"/>
-    <xs:import schemaLocation="fag/v1.Poengrekke.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Poengrekke"/>
     <xs:import schemaLocation="fag/v1.Trygdetid.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Trygdetid"/>
     <xs:import schemaLocation="fag/v1.Trygdetidsdetaljer.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"/>
     <xs:import schemaLocation="fag/v1.TrygdetidsListe.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/TrygdetidsListe"/>
@@ -47,7 +45,6 @@
             <xs:element name="epsVedVirk" type="EPS:EPS" minOccurs="0"/>
             <xs:element name="garantipensjonVedVirk" type="Garantipensjon:Garantipensjon" minOccurs="0"/>
             <xs:element name="institusjonsoppholdVedVirk" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
-            <xs:element name="poengrekkeVedVirk" type="poengrekke:Poengrekke" minOccurs="0"/>
             <xs:element name="trygdetidAvtalelandKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
             <xs:element name="trygdetidEOSKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
             <xs:element name="trygdetidNorgeKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
