@@ -83,10 +83,30 @@ public class BrevdataMapper {
             "00001",
             null);
 
+    // P_000065_MED_AP2025_ERSTATTET_MED_GAMMELT_BREV
+    public static final Brevdata GAMMEL_AP_AVSL_ENDR = new DoksysbrevV2("AP_AVSL_ENDR",
+            true,
+            "Vedtak - avslag endring av uttaksgrad",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+            true,
+            BrevUtlandCode.ALLTID,
+            BrevregeltypeCode.GN,
+            BrevkravtypeCode.ALLE,
+            DokumentkategoriCode.VB,
+            null,
+            BrevkontekstCode.VEDTAK,
+            null,
+            "000065",
+            "00001",
+            null);
+
 
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
-            brevdataErstattMedGammeltBrev(P_000064_MED_AP2025_ERSTATT_MED_GAMMELT_BREV, "AP_AVSL_TIDLUTTAK", GAMMEL_AP_AVSL_TIDLUTTAK)
+            brevdataErstattMedGammeltBrev(P_000065_MED_AP2025_ERSTATTET_MED_GAMMELT_BREV, "AP_AVSL_ENDR", GAMMEL_AP_AVSL_ENDR)
+                    .andThen(brevdataErstattMedGammeltBrev(P_000064_MED_AP2025_ERSTATT_MED_GAMMELT_BREV, "AP_AVSL_TIDLUTTAK", GAMMEL_AP_AVSL_TIDLUTTAK))
                     .andThen(brevdataErstattMedGammeltBrev(P_000069_v3AVDOD_ERSTATT_MED_GAMMELT_BREV, "DOD_INFO_RETT_MAN", GAMMEL_AP_DOD_INFO_RETT_MAN))
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AP_INNV_MAN_AP2025, "AP_INNV_MAN_AP2025"));
