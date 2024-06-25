@@ -45,6 +45,26 @@ public class BrevdataMapper {
         };
     }
 
+    // P-000070_MED_EKSTERN_VEDLEGG_ERSTATT_MED_GAMMELT_BREV
+    private static final Brevdata GAMMEL_AP_DOD_ENSLIG_AUTO = new DoksysbrevV2("AP_DOD_ENSLIG_AUTO",
+            false,
+            "Vedtak - omregning til enslig alderspensjonist (automatisk)",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
+            true,
+            null,
+            null,
+            null,
+            DokumentkategoriCode.VB,
+            null,
+            null,
+            null,
+            "000070",
+            "00001",
+            null);
+
+
     // P-000069-v3Avdod
     private static final Brevdata GAMMEL_AP_DOD_INFO_RETT_MAN = new DoksysbrevV2("DOD_INFO_RETT_MAN",
             true,
@@ -65,7 +85,7 @@ public class BrevdataMapper {
             null);
 
     // P_000064_MED_AP2025_ERSTATT_MED_GAMMELT_BREV
-    public static final  Brevdata GAMMEL_AP_AVSL_TIDLUTTAK = new DoksysbrevV2("AP_AVSL_TIDLUTTAK",
+    public static final Brevdata GAMMEL_AP_AVSL_TIDLUTTAK = new DoksysbrevV2("AP_AVSL_TIDLUTTAK",
             true,
             "Vedtak - avslag uttak av alderspensjon før 67 år",
             BrevkategoriCode.VEDTAK,
@@ -103,9 +123,9 @@ public class BrevdataMapper {
             null);
 
 
-
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
-            brevdataErstattMedGammeltBrev(P_000065_MED_AP2025_ERSTATTET_MED_GAMMELT_BREV, "AP_AVSL_ENDR", GAMMEL_AP_AVSL_ENDR)
+            brevdataErstattMedGammeltBrev(P_000070_MED_EKSTERN_VEDLEGG_ERSTATT_MED_GAMMELT_BREV, "AP_DOD_ENSLIG_AUTO", GAMMEL_AP_DOD_ENSLIG_AUTO)
+                    .andThen(brevdataErstattMedGammeltBrev(P_000065_MED_AP2025_ERSTATTET_MED_GAMMELT_BREV, "AP_AVSL_ENDR", GAMMEL_AP_AVSL_ENDR))
                     .andThen(brevdataErstattMedGammeltBrev(P_000064_MED_AP2025_ERSTATT_MED_GAMMELT_BREV, "AP_AVSL_TIDLUTTAK", GAMMEL_AP_AVSL_TIDLUTTAK))
                     .andThen(brevdataErstattMedGammeltBrev(P_000069_v3AVDOD_ERSTATT_MED_GAMMELT_BREV, "DOD_INFO_RETT_MAN", GAMMEL_AP_DOD_INFO_RETT_MAN))
                     .andThen(brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN"))
@@ -4607,7 +4627,7 @@ public class BrevdataMapper {
                         null,
                         "000070",
                         "00001",
-                        null));
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
         brevMap.put("UT_DOD_ENSLIG_AUTO",
                 new Doksysbrev("UT_DOD_ENSLIG_AUTO",
                         false,
