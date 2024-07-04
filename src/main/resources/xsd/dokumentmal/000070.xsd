@@ -15,9 +15,10 @@
               xmlns:institusjonsopphold="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"
               xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
               xmlns:sak="http://nav.no/dok/pesysbrev/fag/v1/Sak"
-			  xmlns:tilleggspensjon="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon">
+			  xmlns:tilleggspensjon="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"
+			  xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
 
-	<xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+<xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
 	<xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
 	<xs:import schemaLocation="fag/v3.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Avdod"/>
 	<xs:import schemaLocation="fag/v1.Barn.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barn"/>
@@ -29,6 +30,8 @@
 	<xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
     <xs:import schemaLocation="fag/v1.Sak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Sak"/>
 	<xs:import schemaLocation="fag/v1.Tilleggspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"/>
+	<xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
+
 
 	<xs:element name="brevdata" type="Brevdata"/>
 
@@ -36,6 +39,7 @@
 		<xs:all>
 			<xs:element name="felles" type="felles:Felles"/>
 			<xs:element name="fag" type="Fag"/>
+			<xs:element name="vedleggsListe" type="vedleggsListe:VedleggsListe" minOccurs="0"/>
 		</xs:all>
 	</xs:complexType>
 

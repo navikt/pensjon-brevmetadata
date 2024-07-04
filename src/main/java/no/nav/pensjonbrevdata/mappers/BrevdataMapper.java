@@ -4587,7 +4587,7 @@ public class BrevdataMapper {
                         null,
                         "000070",
                         "00001",
-                        null));
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
         brevMap.put("UT_DOD_ENSLIG_AUTO",
                 new Doksysbrev("UT_DOD_ENSLIG_AUTO",
                         false,
@@ -5475,7 +5475,7 @@ public class BrevdataMapper {
                         null,
                         "000070",
                         "00001",
-                        null));
+                        doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1")));
         brevMap.put("TILST_DOD_UT",
                 new Doksysbrev("UT_DOD_ENSLIG_AUTO",
                         false,
