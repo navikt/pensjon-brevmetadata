@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema	attributeFormDefault="unqualified"
-			  elementFormDefault="qualified"
-			  targetNamespace="http://nav.no/dok/pesysbrev/v1/000070"
-			  xmlns="http://nav.no/dok/pesysbrev/v1/000070"
-			  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			  xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
-			  xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
-			  xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v3/Avdod"
+              elementFormDefault="qualified"
+              targetNamespace="http://nav.no/dok/pesysbrev/v1/000070"
+              xmlns="http://nav.no/dok/pesysbrev/v1/000070"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              xmlns:felles="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"
+              xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
+              xmlns:avdod="http://nav.no/dok/pesysbrev/fag/v3/Avdod"
               xmlns:barn="http://nav.no/dok/pesysbrev/fag/v1/Barn"
               xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
               xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"
@@ -15,50 +15,51 @@
               xmlns:institusjonsopphold="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"
               xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
               xmlns:sak="http://nav.no/dok/pesysbrev/fag/v1/Sak"
-			  xmlns:tilleggspensjon="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"
-			  xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
+              xmlns:tilleggspensjon="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"
+              xmlns:vedleggsListe="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe">
 
-<xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
-	<xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
-	<xs:import schemaLocation="fag/v3.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Avdod"/>
-	<xs:import schemaLocation="fag/v1.Barn.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barn"/>
-	<xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
-	<xs:import schemaLocation="fag/v1.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"/>
-	<xs:import schemaLocation="fag/v1.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"/>
-	<xs:import schemaLocation="fag/v1.Vedtak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"/>
-	<xs:import schemaLocation="fag/v2.Institusjonsopphold.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"/>
-	<xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
+    <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
+    <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
+    <xs:import schemaLocation="fag/v3.Avdod.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Avdod"/>
+    <xs:import schemaLocation="fag/v1.Barn.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Barn"/>
+    <xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
+    <xs:import schemaLocation="fag/v1.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"/>
+    <xs:import schemaLocation="fag/v1.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"/>
+    <xs:import schemaLocation="fag/v1.Vedtak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Vedtak"/>
+    <xs:import schemaLocation="fag/v2.Institusjonsopphold.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Institusjonsopphold"/>
+    <xs:import schemaLocation="fag/v3.Krav.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Krav"/>
     <xs:import schemaLocation="fag/v1.Sak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Sak"/>
-	<xs:import schemaLocation="fag/v1.Tilleggspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"/>
-	<xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
+    <xs:import schemaLocation="fag/v1.Tilleggspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Tilleggspensjon"/>
+    <xs:import schemaLocation="felles/v1.VedleggsListe.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/VedleggsListe"/>
 
-	<xs:element name="brevdata" type="Brevdata"/>
 
-	<xs:complexType name="Brevdata">
-		<xs:all>
-			<xs:element name="felles" type="felles:Felles"/>
-			<xs:element name="fag" type="Fag"/>
-			<xs:element name="vedleggsListe" type="vedleggsListe:VedleggsListe" minOccurs="0"/>
-		</xs:all>
-	</xs:complexType>
+    <xs:element name="brevdata" type="Brevdata"/>
 
-	<xs:complexType name="Fag">
-		<xs:annotation>
-			<xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
-		</xs:annotation>
-		<xs:all>
-			<xs:element name="bruker" type="person:Person" minOccurs="0"/>
+    <xs:complexType name="Brevdata">
+        <xs:all>
+            <xs:element name="felles" type="felles:Felles"/>
+            <xs:element name="fag" type="Fag"/>
+            <xs:element name="vedleggsListe" type="vedleggsListe:VedleggsListe" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="Fag">
+        <xs:annotation>
+            <xs:documentation>Gyldig versjon av felles informasjonsmodell</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="bruker" type="person:Person" minOccurs="0"/>
             <xs:element name="avdod" type="avdod:Avdod"/>
             <xs:element name="barn" type="barn:Barn" minOccurs="0"/>
             <xs:element name="alderspensjonVedVirk" type="alderspensjon:Alderspensjon"/>
             <xs:element name="gjeldendeBeregnetPensjonPerManed" type="alderspensjonPerManed:AlderspensjonPerManed"/>
             <xs:element name="beregnetPensjonPerManed" type="beregnetPensjonPerManed:BeregnetPensjonPerManed"/>
             <xs:element name="vedtak" type="vedtak:Vedtak"/>
-			<xs:element name="institusjonsoppholdGjeldende" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
-			<xs:element name="institusjonsoppholdVedVirk" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
+            <xs:element name="institusjonsoppholdGjeldende" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
+            <xs:element name="institusjonsoppholdVedVirk" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
             <xs:element name="krav" type="krav:Krav"/>
             <xs:element name="sak" type="sak:Sak"/>
-			<xs:element name="tilleggspensjonGjeldende" type="tilleggspensjon:Tilleggspensjon" minOccurs="0"/>
+            <xs:element name="tilleggspensjonGjeldende" type="tilleggspensjon:Tilleggspensjon" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
 </xs:schema>
