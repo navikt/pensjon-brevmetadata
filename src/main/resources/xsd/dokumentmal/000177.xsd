@@ -53,6 +53,7 @@
 			<xs:element name="simulertBeregningKap19VedVirk" type="beregningKap19:BeregningKap19" minOccurs="0"/>
 			<xs:element name="simulertBeregningKap20VedVirk" type="beregningKap20:BeregningKap20" minOccurs="0"/>
 			<xs:element name="trygdetidNorge" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
+			<xs:element name="trygdetidNorgeKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
 			<xs:element name="trygdetidUtlandAvtale" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
 			<xs:element name="sak" type="sak:Sak"/>
 			<xs:element name="vilkarsVedtak" type="vilkarsVedtak:VilkarsVedtak" minOccurs="0"/>
