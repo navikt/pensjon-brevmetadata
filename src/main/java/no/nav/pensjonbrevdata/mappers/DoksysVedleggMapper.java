@@ -33,6 +33,12 @@ public class DoksysVedleggMapper {
 
     public DoksysVedleggMapper() {
         vedleggMap = new HashMap<>();
+        vedleggMap.put("AP2025_OPPL_BER_V1",
+                new DoksysVedlegg(
+                        "AP2025_OPPL_BER_V1",
+                        "VEDLEGG: Opplysninger brukt i beregningen. AP2025",
+                        "V00011",
+                        "00001"));
         vedleggMap.put("RETTIGH_V1",
                 new DoksysVedlegg(
                         "RETTIGH_V1",
