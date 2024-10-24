@@ -9,6 +9,7 @@
            xmlns:beregningKap19="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"
            xmlns:beregningKap20="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap20"
            xmlns:endretUttaksgrad="http://nav.no/dok/pesysbrev/fag/v1/EndretUttaksgrad"
+           xmlns:garantipensjon="http://nav.no/dok/pesysbrev/fag/v1/Garantipensjon"
            xmlns:krav="http://nav.no/dok/pesysbrev/fag/v3/Krav"
            xmlns:oppfrisketOpptjening="http://nav.no/dok/pesysbrev/fag/v1/OppfrisketOpptjening"
            xmlns:person="http://nav.no/dok/pesysbrev/fag/v3/Person"
@@ -20,6 +21,7 @@
     <xs:import schemaLocation="fag/v2.BeregningKap19.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"/>
     <xs:import schemaLocation="fag/v2.BeregningKap20.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap20"/>
     <xs:import schemaLocation="fag/v1.EndretUttaksgrad.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/EndretUttaksgrad"/>
+    <xs:import schemaLocation="fag/v1.Garantipensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Garantipensjon"/>
     <xs:import schemaLocation="fag/v1.OppfrisketOpptjening.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/OppfrisketOpptjening"/>
     <xs:import schemaLocation="fag/v3.Person.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v3/Person"/>
     <xs:import schemaLocation="fag/v1.Trygdetidsdetaljer.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"/>
@@ -42,6 +44,7 @@
             <xs:element name="beregningKap20VedVirk" type="beregningKap20:BeregningKap20" minOccurs="0"/>
             <xs:element name="bruker" type="person:Person" minOccurs="0"/>
             <xs:element name="endretUttaksgradVedVirk" type="endretUttaksgrad:EndretUttaksgrad" minOccurs="0"/>
+            <xs:element name="garantipensjonVedVirk" type="garantipensjon:Garantipensjon" minOccurs="0"/>
             <xs:element name="krav" type="krav:Krav" minOccurs="0"/>
             <xs:element name="oppfrisketOpptjeningVedVirk" type="oppfrisketOpptjening:OppfrisketOpptjening" minOccurs="0"/>
             <xs:element name="tilleggspensjonVedVirk" type="tilleggspensjon:Tilleggspensjon" minOccurs="0"/>
