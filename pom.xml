@@ -19,7 +19,7 @@
         <asciidoctor-maven-plugin.version>1.5.8</asciidoctor-maven-plugin.version>
         <asciidoctorj-diagram.version>1.5.18</asciidoctorj-diagram.version>
         <graphviz-java.version>0.14.1</graphviz-java.version>
-        <unleash-next.version>8.4.0</unleash-next.version>
+        <unleash-next.version>9.2.4</unleash-next.version>
         <prometheus.version>0.16.0</prometheus.version>
         <springdoc.version>1.7.0</springdoc.version>
     </properties>
