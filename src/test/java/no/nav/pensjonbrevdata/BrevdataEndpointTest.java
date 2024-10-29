@@ -46,7 +46,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevForBrevkode("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.BAD_REQUEST));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.BAD_REQUEST));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevForBrevkode("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevForBrevkode("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -79,7 +79,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevdataForSaktype("Test", false));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.BAD_REQUEST));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.BAD_REQUEST));
     }
 
     @Test
@@ -90,7 +90,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevdataForSaktype("Test", true));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevdataForSaktype("Test", true));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -112,7 +112,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getAllBrev(false));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -123,7 +123,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getAllBrev(true));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -134,7 +134,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevKeyForBrevkodeIBrevsystem("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -145,7 +145,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevkoderForSaktype("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Test
@@ -156,7 +156,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getBrevkoderForSaktype("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.BAD_REQUEST));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.BAD_REQUEST));
     }
 
     @Test
@@ -167,7 +167,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getSprakForBrevkode("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.BAD_REQUEST));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.BAD_REQUEST));
     }
 
     @Test
@@ -178,7 +178,7 @@ public class BrevdataEndpointTest {
                 ResponseStatusException.class,
                 () -> endpoint.getSprakForBrevkode("Test"));
 
-        assertThat(thrown.getStatus(), is(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertThat(thrown.getStatusCode(), is(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
 
