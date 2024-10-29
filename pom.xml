@@ -12,7 +12,7 @@
     <artifactId>pensjon-brevdata</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pensjon-brevdata</name>
-    <description>Applikasjon for å hente bevdata til pensjon</description>
+    <description>Applikasjon for å hente brevdata til pensjon</description>
 
     <properties>
         <java.version>11</java.version>
