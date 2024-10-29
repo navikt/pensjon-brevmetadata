@@ -1,2 +1,2 @@
-FROM navikt/java:11
+FROM navikt/java:17
 COPY target/pensjon-brevdata.jar /app/app.jar
