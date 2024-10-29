@@ -12,16 +12,15 @@ on:
           - q5
   push:
 
-env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevmetadata:${{ github.sha }}
-  LATEST_IMAGE: docker.pkg.github.com/${{ github.repository }}/pensjon-brevmetadata:latest
-
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     permissions:
-      packages: write
+      contents: read
+      id-token: write
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -36,24 +35,21 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Build
+      - name: Package
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: mvn -B package --file pom.xml
-      - name: Build Docker image
-        run: |
-          docker build -t ${IMAGE} .
-      - name: Login to Github Package Registry
+      - name: "Build and publish container image"
+        uses: nais/docker-build-push@v0
         env:
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "$DOCKER_PASSWORD" | docker login --username "$GITHUB_REPOSITORY" --password-stdin docker.pkg.github.com
-      - name: Push Docker image
-        run: "docker push ${IMAGE}"
-      - name: Tag latest docker image
-        run: "docker tag ${IMAGE} ${LATEST_IMAGE}"
-      - name: Push latest docker image
-        run: "docker push ${LATEST_IMAGE}"
+          TRIVY_JAVA_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-java-db:1"
+        id: docker-build-push
+        with:
+          team: pensjonsbrev
+          image_suffix: pensjon-brevmetadata
+          push_image: true
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
 
   deploy-to-dev-q1:
     name: Deploy to dev - q1
@@ -69,7 +65,7 @@ jobs:
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ env.IMAGE }}
+          VAR: image=${{ needs.build.outputs.image }}
           VARS: nais/dev-q1.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q1
 
@@ -87,7 +83,7 @@ jobs:
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ env.IMAGE }}
+          VAR: image=${{ needs.build.outputs.image }}
           VARS: nais/dev-q2.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q2
 
@@ -105,7 +101,7 @@ jobs:
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ env.IMAGE }}
+          VAR: image=${{ needs.build.outputs.image }}
           VARS: nais/dev-q5.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:q5
 
@@ -123,7 +119,7 @@ jobs:
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ env.IMAGE }}
+          VAR: image=${{ needs.build.outputs.image }}
           VARS: nais/dev-prodlik.yaml
           ENVIRONMENT: dev-gcp:pensjonsbrev:prodlik
 
@@ -133,7 +129,7 @@ jobs:
       contents: read
       id-token: write
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs: deploy-to-dev-prodlik
+    needs: [deploy-to-dev-prodlik, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -141,5 +137,5 @@ jobs:
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ env.IMAGE }}
+          VAR: image=${{ needs.build.outputs.image }}
           VARS: nais/prod.yaml

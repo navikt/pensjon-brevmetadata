@@ -30,9 +30,6 @@ inboundRules:
   - name: skribenten-backend
     namespace: pensjonsbrev
     cluster: dev-gcp
-  - name: skribenten-backend-lokal
-    namespace: pensjonsbrev
-    cluster: dev-gcp
   - name: pensjon-psak-q2
     namespace: pensjon-q2
     cluster: dev-gcp
