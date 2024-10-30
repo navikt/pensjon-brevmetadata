@@ -4740,7 +4740,7 @@ public class BrevdataMapper {
                         null,
                         BrevkontekstCode.VEDTAK,
                         null,
-                        "000102",
+                        toggle("ny000102").isEnabled() ? "000102-ny" : "000102",
                         "00001",
                         doksysVedleggMapper.map("RETTIGH_PLIKT_V1", "AP_MND_UTB_V1", "AP_MND_UTB_AP2025")));
         brevMap.put("BP_AVSL_MAN",
