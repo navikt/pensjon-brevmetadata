@@ -11,7 +11,9 @@ import org.skyscreamer.jsonassert.JSONParser;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
+import javax.print.attribute.standard.Media;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -79,6 +81,20 @@ class PensjonBrevdataApplicationTests {
 
         assertEquals(HttpStatus.OK.value(), response.statusCode());
         assertEquals(StringUtils.deleteWhitespace(TextFormat.CONTENT_TYPE_004), StringUtils.deleteWhitespace(response.headers().firstValue("Content-Type").get().toLowerCase()));
+    }
+
+    @Test
+    public void shouldMatchTrailingSlash() throws IOException, InterruptedException {
+        HttpResponse response = HttpClient.newHttpClient()
+                .send(
+                        HttpRequest.newBuilder()
+                                .uri(URI.create("http://localhost:"+port+"/api/brevdata/allBrev/"))
+                                .build(),
+                        HttpResponse.BodyHandlers.ofString()
+                );
+
+        assertEquals(HttpStatus.OK.value(), response.statusCode());
+        assertEquals(MediaType.APPLICATION_JSON_VALUE, StringUtils.deleteWhitespace(response.headers().firstValue("Content-Type").get().toLowerCase()));
     }
 
     private HttpResponse<String> getBrevdataForSaktypeResponse(String brevkode, boolean includeXsd) throws IOException, InterruptedException {
