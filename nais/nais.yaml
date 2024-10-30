@@ -29,8 +29,6 @@ spec:
   envFrom:
     - secret: {{ application }}-unleash-api-token
   env:
-    - name: UNLEASH_ENDPOINT_URL
-      value: https://unleash.nais.io/api/
     - name: ENVIRONMENT_NAME
       value: {{ environmentname }}
   accessPolicy:
