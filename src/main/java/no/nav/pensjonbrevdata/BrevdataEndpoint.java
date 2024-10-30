@@ -93,7 +93,7 @@ public class BrevdataEndpoint {
     }
 
     @GetMapping("/allBrev")
-    public List<BrevdataDTO> getAllBrev(@RequestParam(value = "includeXsd") boolean includeXsd) {
+    public List<BrevdataDTO> getAllBrev(@RequestParam(value = "includeXsd", required = false) boolean includeXsd) {
         try {
             List<Brevdata> brevdataList = provider.getAllBrev();
             return (includeXsd ? brevdataList.stream().map((brevdata -> brevdata.medXSD(dokumentmalGenerator, fellesmalGenerator))).collect(Collectors.toUnmodifiableList()) :
