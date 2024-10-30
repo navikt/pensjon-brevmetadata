@@ -26,6 +26,14 @@ spec:
   prometheus:
     enabled: true
     path: "/api/internal/prometheus"
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: java
+    logging:
+      destinations:
+        - id: elastic
+        - id: loki
   envFrom:
     - secret: {{ application }}-unleash-api-token
   env:
