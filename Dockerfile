@@ -1,2 +1,6 @@
-FROM navikt/java:11
-COPY target/pensjon-brevdata.jar /app/app.jar
+FROM gcr.io/distroless/java21
+WORKDIR /app
+COPY target/pensjon-brevdata.jar ./
+EXPOSE 8080
+USER nonroot
+CMD ["pensjon-brevdata.jar"]
