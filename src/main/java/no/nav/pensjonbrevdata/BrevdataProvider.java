@@ -3,6 +3,7 @@ package no.nav.pensjonbrevdata;
 import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 import java.util.ArrayList;
@@ -45,6 +46,12 @@ public class BrevdataProvider {
 
     public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
         return brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem);
+    }
+
+    public List<Brevdata> getEblanketter() {
+        return brevdataMapper.getAllBrevAsList().stream()
+                .filter(brev -> brev.getDokumentkategori() == DokumentkategoriCode.E_BLANKETT)
+                .toList();
     }
 
     public void setBrevdataMapper(BrevdataMapper brevdataMapper) {
