@@ -19,7 +19,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -88,5 +91,14 @@ public class BrevdataProviderTest {
         List<SprakCode> actualListOfSprakCodes = provider.getSprakForBrevkode(brevkode);
 
         assertThat(actualListOfSprakCodes, is(brev.getSprak()));
+    }
+
+    @Test
+    public void onlyEblanketterIsReturned() {
+        provider.setBrevdataMapper(new BrevdataMapper());
+
+        List<Brevdata> eblanketter = provider.getEblanketter();
+        assertThat(eblanketter, not(empty()));
+        assertTrue(eblanketter.stream().allMatch(b -> b.getDokumentkategori().equals(DokumentkategoriCode.E_BLANKETT)));
     }
 }

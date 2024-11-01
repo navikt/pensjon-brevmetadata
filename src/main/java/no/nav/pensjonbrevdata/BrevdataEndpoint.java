@@ -138,6 +138,11 @@ public class BrevdataEndpoint {
         }
     }
 
+    @GetMapping("/eblanketter")
+    public List<BrevdataDTO> getEblanketter() {
+        return provider.getEblanketter().stream().map(Brevdata::toDTO).toList();
+    }
+
     @GetMapping("brevTypeCode")
     public Set<String> getBrevTypeCode() {
         return BrevMetaData.getBrevTypeCodes();
