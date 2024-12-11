@@ -14,8 +14,7 @@
            xmlns:pensjonsopptjeningKap20="http://nav.no/dok/pesysbrev/fag/v1/PensjonsopptjeningKap20"
            xmlns:trygdetidsdetaljer="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"
            xmlns:trygdetidsListe="http://nav.no/dok/pesysbrev/fag/v1/TrygdetidsListe"
-           xmlns:vedtak="http://nav.no/dok/pesysbrev/fag/v2/Vedtak"
-           xmlns:vilkarsVedtak="http://nav.no/dok/pesysbrev/fag/v1/VilkarsVedtak">
+           xmlns:vedtak="http://nav.no/dok/pesysbrev/fag/v2/Vedtak">
 
     <xs:import schemaLocation="felles/v1.PesysFelles.xsd" namespace="http://nav.no/dok/pesysbrev/felles/v1/PesysFelles"/>
     <xs:import schemaLocation="fag/v1.AlderspensjonKap20.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonKap20"/>
@@ -29,7 +28,6 @@
     <xs:import schemaLocation="fag/v1.Trygdetidsdetaljer.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/Trygdetidsdetaljer"/>
     <xs:import schemaLocation="fag/v1.TrygdetidsListe.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/TrygdetidsListe"/>
     <xs:import schemaLocation="fag/v2.Vedtak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/Vedtak"/>
-    <xs:import schemaLocation="fag/v1.VilkarsVedtak.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/VilkarsVedtak"/>
 
     <xs:element name="brevdata" type="Brevdata"/>
 
@@ -57,7 +55,6 @@
             <xs:element name="trygdetidNorgeKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
             <xs:element name="trygdetidsdetaljerKap20VedVirk" type="trygdetidsdetaljer:Trygdetidsdetaljer" minOccurs="0"/>
             <xs:element name="vedtak" type="vedtak:Vedtak"/>
-            <xs:element name="vilkarsVedtak" type="vilkarsVedtak:VilkarsVedtak" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
 
