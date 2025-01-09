@@ -1,0 +1,40 @@
+version: 2
+
+updates:
+  # ==============
+  # BACKEND
+  # ==============
+  - package-ecosystem: "maven"
+    directories:
+      - "/"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+    open-pull-requests-limit: 10
+    groups:
+      backend:
+        patterns:
+          - "*"
+
+  # ==============
+  # GITHUB ACTIONS
+  # ==============
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+
+  # ==============
+  # Docker
+  # ==============
+  - package-ecosystem: "docker"
+    directories:
+      - "/"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+    groups:
+      docker-frontend:
+        patterns:
+          - "*"
