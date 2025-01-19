@@ -52,8 +52,6 @@
             <xs:element name="garantipensjonVedVirk" type="Garantipensjon:Garantipensjon" minOccurs="0"/>
             <xs:element name="institusjonsoppholdVedVirk" type="institusjonsopphold:Institusjonsopphold" minOccurs="0"/>
             <xs:element name="pensjonsopptjeningKap20VedVirk" type="pensjonsopptjeningKap20:PensjonsopptjeningKap20"/>
-            <xs:element name="trygdetidAvtalelandKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
-            <xs:element name="trygdetidEOSKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
             <xs:element name="trygdetidNorgeKap20" type="trygdetidsListe:TrygdetidsListe" minOccurs="0"/>
             <xs:element name="trygdetidsdetaljerKap20VedVirk" type="trygdetidsdetaljer:Trygdetidsdetaljer" minOccurs="0"/>
             <xs:element name="vedtak" type="vedtak:Vedtak"/>
