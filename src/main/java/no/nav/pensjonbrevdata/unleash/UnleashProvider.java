@@ -17,6 +17,10 @@ public class UnleashProvider {
         return new Toggle(toggle);
     }
 
+    static void shutdown() {
+        unleash.shutdown();
+    }
+
     public static class Toggle {
 
         public final String toggle;
