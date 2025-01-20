@@ -4961,7 +4961,7 @@ public class BrevdataMapper {
                         null,
                         "000148",
                         "00001",
-                        doksysVedleggMapper.map("AP_MND_UTB_V1", "AP_MND_UTB_AP2025", "RETTIGH_PLIKT_V1")));
+                        doksysVedleggMapper.map("AP_MND_UTB_V1","AP_OPPL_BER_V1", "RETTIGH_PLIKT_V1")));
         brevMap.put("GP_INFO_AP_GT",
                 new Doksysbrev("GP_INFO_AP_GT",
                         false,
