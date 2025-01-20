@@ -4947,7 +4947,7 @@ public class BrevdataMapper {
         brevMap.put("AP_RETTING_AUTO",
                 new Doksysbrev("AP_RETTING_AUTO",
                         false,
-                        "Vedtak - endring av alderspensjon pga rettelser",
+                        "Vedtak - innvilgelse av skjermingstillegg",
                         BrevkategoriCode.VEDTAK,
                         DokumenttypeCode.U,
                         Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
@@ -4961,7 +4961,7 @@ public class BrevdataMapper {
                         null,
                         "000148",
                         "00001",
-                        doksysVedleggMapper.map("AP_MND_UTB_V1", "AP_MND_UTB_AP2025", "RETTIGH_PLIKT_V1")));
+                        doksysVedleggMapper.map("AP_MND_UTB_V1","AP_OPPL_BER_V1", "RETTIGH_PLIKT_V1")));
         brevMap.put("GP_INFO_AP_GT",
                 new Doksysbrev("GP_INFO_AP_GT",
                         false,
@@ -5832,7 +5832,7 @@ public class BrevdataMapper {
         brevMap.put("AUTO_AP_ENDR_RETTING",
                 new Doksysbrev("AP_RETTING_AUTO",
                         false,
-                        "Vedtak - endring av alderspensjon pga rettelser",
+                        "Vedtak - innvilgelse av skjermingstillegg",
                         BrevkategoriCode.VEDTAK,
                         DokumenttypeCode.U,
                         Arrays.asList(SprakCode.NB, SprakCode.NN, SprakCode.EN),
