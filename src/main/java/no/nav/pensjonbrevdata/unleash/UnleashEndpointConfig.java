@@ -3,6 +3,7 @@ package no.nav.pensjonbrevdata.unleash;
 import io.getunleash.DefaultUnleash;
 import io.getunleash.Unleash;
 import io.getunleash.util.UnleashConfig;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class UnleashEndpointConfig {
+
+    @PreDestroy
+    public void onDestroy() {
+        UnleashProvider.shutdown();
+    }
 
     @Bean
     public Unleash defaultUnleash(
