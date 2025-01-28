@@ -49,8 +49,6 @@ jobs:
           team: pensjonsbrev
           image_suffix: pensjon-brevmetadata
           push_image: true
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
 
   deploy-to-dev-q1:
     name: Deploy to dev - q1
