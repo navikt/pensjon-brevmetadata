@@ -8,7 +8,7 @@
            xmlns:aldersovergangKategoriListe="http://nav.no/dok/pesysbrev/fag/v1/AldersovergangKategoriListe"
            xmlns:alderspensjon="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"
            xmlns:alderspensjonPerManed="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"
-           xmlns:beregningKap19="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"
+           xmlns:beregningKap19="http://nav.no/dok/pesysbrev/fag/v4/BeregningKap19"
            xmlns:beregningKap20="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap20"
            xmlns:EPS="http://nav.no/dok/pesysbrev/fag/v1/EPS"
            xmlns:inngangOgEksportVurdering="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"
@@ -27,7 +27,7 @@
     <xs:import schemaLocation="fag/v4.Alderspensjon.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/Alderspensjon"/>
     <xs:import schemaLocation="fag/v1.AlderspensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/AlderspensjonPerManed"/>
     <xs:import schemaLocation="fag/v1.BeregnetPensjonPerManed.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/BeregnetPensjonPerManed"/>
-    <xs:import schemaLocation="fag/v2.BeregningKap19.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap19"/>
+    <xs:import schemaLocation="fag/v4.BeregningKap19.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v4/BeregningKap19"/>
     <xs:import schemaLocation="fag/v2.BeregningKap20.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v2/BeregningKap20"/>
     <xs:import schemaLocation="fag/v1.EPS.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/EPS"/>
     <xs:import schemaLocation="fag/v1.InngangOgEksportVurdering.xsd" namespace="http://nav.no/dok/pesysbrev/fag/v1/InngangOgEksportVurdering"/>
