@@ -3,7 +3,7 @@ ingresses:
   - "https://pensjon-brevmetadata-q2.intern.dev.nav.no"
 environmentname: "q2"
 replicas:
-  min: 1
+  min: 2
   max: 2
 inboundRules:
   - name: pensjon-pen-q2
