@@ -2720,7 +2720,7 @@ public class BrevdataMapper {
                         BrevUtlandCode.UTLAND,
                         BrevregeltypeCode.OVRIGE,
                         BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.B,
+                        DokumentkategoriCode.VB,
                         null,
                         BrevkontekstCode.SAK,
                         null,
