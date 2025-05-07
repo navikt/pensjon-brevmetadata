@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.4</version>
+        <version>3.4.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>no.nav</groupId>
@@ -17,7 +17,7 @@
     <properties>
         <java.version>21</java.version>
         <asciidoctor-maven-plugin.version>3.2.0</asciidoctor-maven-plugin.version>
-        <asciidoctorj-diagram.version>2.3.1</asciidoctorj-diagram.version>
+        <asciidoctorj-diagram.version>2.3.2</asciidoctorj-diagram.version>
         <graphviz-java.version>0.18.1</graphviz-java.version>
         <unleash-next.version>10.2.2</unleash-next.version>
         <springdoc.version>1.8.0</springdoc.version>
@@ -61,13 +61,13 @@
         <dependency>
 		  <groupId>com.google.guava</groupId>
 		  <artifactId>guava</artifactId>
-		  <version>33.4.6-jre</version>
+		  <version>33.4.8-jre</version>
 		</dependency>
 
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
-            <version>8.0</version>
+            <version>8.1</version>
         </dependency>
 
         <!-- SpringDoc/swagger -->
