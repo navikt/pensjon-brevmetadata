@@ -34,4 +34,6 @@
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
     </root>
+    <logger name="no.nav.pensjonbrevdata.BrevdataEndpoint" level="INFO" />
+    <logger name="no.nav.pensjonbrevdata.config.PrometheusFilter" level="INFO" />
 </configuration>
