@@ -88,15 +88,6 @@ public class SakBrevMapper {
         return new ArrayList<>(Sets.union(reAddBrevkoder, new HashSet<>(brevkoder)));
     }
 
-    public static class BrevkodeToRemove {
-        public final String brevkode;
-        public final UnleashProvider.Toggle toggle;
-        public final List<String> saktyper;
-
-        public BrevkodeToRemove(String brevkode, UnleashProvider.Toggle toggle, List<String> saktyper) {
-            this.brevkode = brevkode;
-            this.toggle = toggle;
-            this.saktyper = saktyper;
-        }
+    public record BrevkodeToRemove(String brevkode, UnleashProvider.Toggle toggle, List<String> saktyper) {
     }
 }

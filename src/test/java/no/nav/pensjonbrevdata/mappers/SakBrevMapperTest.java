@@ -66,19 +66,19 @@ public class SakBrevMapperTest {
     @Test
     public void brevkodeSomSkalFjernes_SkalVaere_SynligNaarToggleErDeaktivert() {
         for (SakBrevMapper.BrevkodeToRemove brevkode: SakBrevMapper.removedBrevkoder) {
-            fakeUnleash.disable(brevkode.toggle.toggle);
+            fakeUnleash.disable(brevkode.toggle().toggle);
 
-            for (String sakType: brevkode.saktyper) {
-                assertThat(mapper.map(sakType), IsIterableContaining.hasItem(brevkode.brevkode));
+            for (String sakType: brevkode.saktyper()) {
+                assertThat(mapper.map(sakType), IsIterableContaining.hasItem(brevkode.brevkode()));
             }
         }
     }
 
     @Test
     public void brevkodeSomSkalFjernes_SkalIkkeVaere_SynligNaarToggleErAktivert() {
-        SakBrevMapper.removedBrevkoder.forEach(brevkodeToRemove -> fakeUnleash.enable(brevkodeToRemove.toggle.toggle));
+        SakBrevMapper.removedBrevkoder.forEach(brevkodeToRemove -> fakeUnleash.enable(brevkodeToRemove.toggle().toggle));
 
-        List<String> removedBrevkoder = SakBrevMapper.removedBrevkoder.stream().map(brevkode -> brevkode.brevkode).collect(toList());
+        List<String> removedBrevkoder = SakBrevMapper.removedBrevkoder.stream().map(brevkode -> brevkode.brevkode()).collect(toList());
         for (String sakType: mapper.getSakTyper()) {
             assertThat(mapper.map(sakType), everyItem(not(is(in(removedBrevkoder)))));
         }
