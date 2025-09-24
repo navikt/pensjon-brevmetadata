@@ -1,6 +1,7 @@
 package no.nav.pensjonbrevdata.mappers;
 
 import io.getunleash.FakeUnleash;
+import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.hamcrest.core.IsIterableContaining;
 import org.junit.jupiter.api.BeforeAll;

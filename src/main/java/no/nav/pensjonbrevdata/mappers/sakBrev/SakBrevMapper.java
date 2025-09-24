@@ -1,4 +1,4 @@
-package no.nav.pensjonbrevdata.mappers;
+package no.nav.pensjonbrevdata.mappers.sakBrev;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
