@@ -28,21 +28,8 @@ public class BrevdataMapper {
 
     private static final DoksysVedleggMapper doksysVedleggMapper = new DoksysVedleggMapper();
 
-    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataErstattMedGammeltBrev(String togglekey, String toggleBrevkode, Brevdata gammeltBrev) {
-        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleBrevkode) ? gammeltBrev : entry.getValue()));
-    }
-
     private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataFiltrerBortNyttBrev(String togglekey, String toggleBrevkode) {
         return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals(toggleBrevkode)).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
-
-    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataLeggTilGammeltBrev(String togglekey, String toggleBrevkode, Brevdata gammeltBrev) {
-        return brevMap -> {
-            if (toggle(togglekey).isEnabled()) return brevMap;
-            Map<String, Brevdata> newMap = brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-            newMap.put(toggleBrevkode, gammeltBrev);
-            return newMap;
-        };
     }
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
