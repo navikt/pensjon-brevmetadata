@@ -1,4 +1,4 @@
-package no.nav.pensjonbrevdata.mappers;
+package no.nav.pensjonbrevdata.mappers.brevdata;
 
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import no.nav.pensjonbrevdata.mappers.DoksysVedleggMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.DoksysbrevV2;

@@ -1,7 +1,7 @@
 package no.nav.pensjonbrevdata;
 
 import io.getunleash.FakeUnleash;
-import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;

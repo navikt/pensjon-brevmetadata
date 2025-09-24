@@ -1,6 +1,6 @@
 package no.nav.pensjonbrevdata.helpers;
 
-import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 
 import java.util.Set;
