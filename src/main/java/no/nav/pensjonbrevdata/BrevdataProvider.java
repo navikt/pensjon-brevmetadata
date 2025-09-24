@@ -54,11 +54,11 @@ public class BrevdataProvider {
                 .toList();
     }
 
-    public void setBrevdataMapper(BrevdataMapper brevdataMapper) {
+    void setBrevdataMapper(BrevdataMapper brevdataMapper) {
         this.brevdataMapper = brevdataMapper;
     }
 
-    public void setSakBrevMapper(SakBrevMapper sakBrevMapper) {
+    void setSakBrevMapper(SakBrevMapper sakBrevMapper) {
         this.sakBrevMapper = sakBrevMapper;
     }
 }
