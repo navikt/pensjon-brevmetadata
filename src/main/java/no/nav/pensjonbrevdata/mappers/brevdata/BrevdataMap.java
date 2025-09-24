@@ -15,17 +15,31 @@ import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 class BrevdataMap {
     private static final DoksysVedleggMapper doksysVedleggMapper = new DoksysVedleggMapper();
 
     private final Map<String, Brevdata> brevMap;
 
-    Map<String, Brevdata> get() {
-        return brevMap;
+    boolean containsKey(String brevkode) {
+        return brevMap.containsKey(brevkode);
+    }
+
+    Set<String> keySet() {
+        return brevMap.keySet();
+    }
+
+    Collection<Brevdata> values() {
+        return brevMap.values();
+    }
+
+    Brevdata get(String brevkode) {
+        return brevMap.get(brevkode);
     }
 
     BrevdataMap() {
@@ -7526,5 +7540,4 @@ class BrevdataMap {
                 doksysVedleggMapper.map()
         ));
     }
-
 }
