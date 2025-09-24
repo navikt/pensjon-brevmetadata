@@ -9,10 +9,6 @@ public class UnleashProvider {
         UnleashProvider.unleash = unleash;
     }
 
-    public static Unleash get() {
-        return unleash;
-    }
-
     public static Toggle toggle(String toggle) {
         return new Toggle(toggle);
     }
