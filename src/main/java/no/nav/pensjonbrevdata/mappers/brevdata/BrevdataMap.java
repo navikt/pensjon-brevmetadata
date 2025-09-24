@@ -1,6 +1,6 @@
 package no.nav.pensjonbrevdata.mappers.brevdata;
 
-import no.nav.pensjonbrevdata.mappers.DoksysVedleggMapper;
+import no.nav.pensjonbrevdata.mappers.doksysVedlegg.DoksysVedleggMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.DoksysbrevV2;

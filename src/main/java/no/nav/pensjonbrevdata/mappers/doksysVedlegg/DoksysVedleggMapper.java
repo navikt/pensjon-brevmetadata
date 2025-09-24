@@ -1,4 +1,4 @@
-package no.nav.pensjonbrevdata.mappers;
+package no.nav.pensjonbrevdata.mappers.doksysVedlegg;
 
 import no.nav.pensjonbrevdata.model.DoksysVedlegg;
 import no.nav.pensjonbrevdata.model.DoksysVedleggV2;
