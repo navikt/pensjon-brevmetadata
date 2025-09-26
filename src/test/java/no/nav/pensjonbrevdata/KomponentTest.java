@@ -15,6 +15,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -51,30 +53,35 @@ public class KomponentTest {
         UnleashProvider.initialize(unleash);
     }
 
-    @Test
-    public void testGetSprakForBrevkode() {
-        brevkoder().forEach(brevkode -> testEndpoint("sprakForBrevkode", brevkode, "brevkode"));
+    @ParameterizedTest(name = "{0}")
+    @MethodSource("brevkoder")
+    public void testGetSprakForBrevkode(String brevkode) {
+        testEndpoint("sprakForBrevkode", brevkode, "brevkode");
     }
 
-    @Test
-    public void testGetBrevForBrevkode() {
-        brevkoder().forEach(brevkode -> testEndpoint("brevForBrevkode", brevkode, "brevkode"));
+    @ParameterizedTest(name = "{0}")
+    @MethodSource("brevkoder")
+    public void testGetBrevForBrevkode(String brevkode) {
+        testEndpoint("brevForBrevkode", brevkode, "brevkode");
     }
 
-    @Test
-    public void testGetBrevdataForSaktype() {
-        sakstyper().stream().peek(sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype", false))
-                .forEach(sakstype -> testEndpoint("brevdataForSaktype", sakstype, "sakstype", true));
+    @ParameterizedTest(name = "{0}")
+    @MethodSource("sakstyper")
+    public void testGetBrevdataForSaktype(String sakstype) {
+        testEndpoint("brevdataForSaktype", sakstype, "sakstype", false);
+        testEndpoint("brevdataForSaktype", sakstype, "sakstype", true);
     }
 
-    @Test
-    public void testGetBrevkoderForSaktype() {
-        sakstyper().forEach(sakstype -> testEndpoint("brevkoderForSaktype", sakstype, "sakstype"));
+    @ParameterizedTest(name = "{0}")
+    @MethodSource("sakstyper")
+    public void testGetBrevkoderForSaktype(String sakstype) {
+        testEndpoint("brevkoderForSaktype", sakstype, "sakstype");
     }
 
-    @Test
-    public void testGetBrevKeyForBrevkodeIBrevsystem() {
-        brevkoderIBrevSystem().forEach(brevkodeIBrevsystem -> testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem"));
+    @ParameterizedTest(name = "{0}")
+    @MethodSource("brevkoderIBrevSystem")
+    public void testGetBrevKeyForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
+        testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem");
     }
 
     @Test
