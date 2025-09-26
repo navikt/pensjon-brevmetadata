@@ -3,6 +3,7 @@ package no.nav.pensjonbrevdata.mappers.sakBrev;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static java.util.Arrays.asList;
 
@@ -16,6 +17,10 @@ class SakBrevMap {
 
     List<String> get(String saktype) {
         return sakToBrevMap.get(saktype);
+    }
+
+    Set<String> keySet() {
+        return sakToBrevMap.keySet();
     }
 
     SakBrevMap() {
