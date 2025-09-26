@@ -9,10 +9,6 @@ public class UnleashProvider {
         UnleashProvider.unleash = unleash;
     }
 
-    public static Unleash get() {
-        return unleash;
-    }
-
     public static Toggle toggle(String toggle) {
         return new Toggle(toggle);
     }
@@ -21,13 +17,7 @@ public class UnleashProvider {
         unleash.shutdown();
     }
 
-    public static class Toggle {
-
-        public final String toggle;
-
-        Toggle(String toggle) {
-            this.toggle = toggle;
-        }
+    public record Toggle(String toggle) {
 
         public boolean isDisabled() {
             return !unleash.isEnabled(toggle);

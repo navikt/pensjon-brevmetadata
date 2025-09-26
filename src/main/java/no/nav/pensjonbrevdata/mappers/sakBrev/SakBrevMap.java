@@ -1,32 +1,29 @@
-package no.nav.pensjonbrevdata.mappers;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Sets;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
+package no.nav.pensjonbrevdata.mappers.sakBrev;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static java.util.Arrays.asList;
-import static java.util.List.of;
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
-import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
-import java.util.*;
-
-public class SakBrevMapper {
+class SakBrevMap {
     private final Map<String, List<String>> sakToBrevMap;
 
-    // Brevkoder som skal legges til, men kun når feature er aktivert. På denne måten kan en kode legges til i dev og testes,
-    // og deretter legges til i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
-    // Nøkkel skal være brevkode og verdi skal være feature-toggle.
-    public static final Map<String, UnleashProvider.Toggle> addedBrevkoder = ImmutableMap.of(
-            "AFP_INNV_MAN", toggle(BRUK_AFP_INNV_MAN)
-            );
+    boolean containsKey(String sakType) {
+        return sakToBrevMap.containsKey(sakType);
+    }
 
-    // Brevkoder som skal fjernes, men kun når feature er aktivert. På denne måten kan en kode fjernes i dev og testes,
-    // og deretter fjernes i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
-    public static final List<BrevkodeToRemove> removedBrevkoder = of();
 
-    public SakBrevMapper() {
+    List<String> get(String saktype) {
+        return sakToBrevMap.get(saktype);
+    }
+
+    Set<String> keySet() {
+        return sakToBrevMap.keySet();
+    }
+
+    SakBrevMap() {
         sakToBrevMap = new HashMap<>();
 
         sakToBrevMap.put("FAM_PL", asList("PE_GP_01_010", "PE_IY_03_047", "PE_IY_03_048", "PE_IY_03_049", "PE_IY_03_051", "PE_IY_03_150", "PE_IY_03_151", "PE_IY_03_152", "PE_IY_03_153", "PE_IY_03_154",  "PE_IY_03_156", "PE_IY_03_157", "PE_IY_03_158", "PE_IY_03_159", "PE_IY_03_160", "PE_IY_03_161", "PE_IY_03_162", "PE_IY_03_163", "PE_IY_03_164", "PE_IY_03_168", "PE_IY_03_174", "PE_IY_03_175", "PE_IY_03_176", "PE_IY_03_177", "PE_IY_03_178", "PE_IY_03_179", "PE_IY_03_180", "PE_IY_04_050", "PE_IY_04_051", "PE_IY_04_060", "PE_IY_04_061", "PE_IY_05_006", "PE_IY_05_007", "PE_IY_05_008", "PE_IY_05_027", "PE_IY_05_041", "PE_IY_05_300", "PE_IY_05_301", "PE_IY_05_410", "PE_IY_05_411", "PE_IY_06_510", "PE_IY_06_511", "PE_OK_06_100", "PE_OK_06_101", "PE_OK_06_102", "PE_UT_04_002", "PE_IY_03_167", "VARSEL_REVURD", "AP_INFO_STID_MAN", "HENT_INFO_MAN", "VARSEL_TILBAKEBET", "VEDTAK_TILBAKEKREV_MIDL"));
@@ -41,62 +38,5 @@ public class SakBrevMapper {
         sakToBrevMap.put("GENRL", asList("PE_AP_01_006", "PE_GP_01_010", "PE_GP_01_011", "PE_GP_01_012", "PE_IY_03_047", "PE_IY_03_048", "PE_IY_03_049", "PE_IY_03_051", "PE_IY_03_150", "PE_IY_03_151", "PE_IY_03_152", "PE_IY_03_153", "PE_IY_03_154",  "PE_IY_03_156", "PE_IY_03_157", "PE_IY_03_158", "PE_IY_03_159", "PE_IY_03_160", "PE_IY_03_161", "PE_IY_03_162", "PE_IY_03_163", "PE_IY_03_164", "PE_IY_03_168", "PE_IY_03_174", "PE_IY_03_175", "PE_IY_03_176", "PE_IY_03_177", "PE_IY_03_178", "PE_IY_03_179", "PE_IY_03_180", "PE_IY_04_050", "PE_IY_04_051", "PE_IY_04_060", "PE_IY_04_061", "PE_IY_05_006", "PE_IY_05_007", "PE_IY_05_008", "PE_IY_05_027", "PE_IY_05_041", "PE_IY_05_102", "PE_IY_05_104", "PE_IY_05_105", "PE_IY_05_111", "PE_IY_05_300", "PE_IY_05_301", "PE_IY_05_410", "PE_IY_05_411", "PE_IY_06_510", "PE_IY_06_511", "PE_OK_06_100", "PE_OK_06_101", "PE_OK_06_102", "PE_UT_04_002", "PE_IY_03_167", "AP_INFO_STID_MAN", "HENT_INFO_MAN", "VARSEL_TILBAKEBET"));
         sakToBrevMap.put("KRIGSP", asList("PE_GP_01_010", "PE_IY_03_047", "PE_IY_03_048", "PE_IY_03_049", "PE_IY_03_051", "PE_IY_03_150", "PE_IY_03_151", "PE_IY_03_152", "PE_IY_03_153", "PE_IY_03_154",  "PE_IY_03_156", "PE_IY_03_157", "PE_IY_03_158", "PE_IY_03_159", "PE_IY_03_160", "PE_IY_03_161", "PE_IY_03_162", "PE_IY_03_163", "PE_IY_03_164", "PE_IY_03_168", "PE_IY_03_174", "PE_IY_03_175", "PE_IY_03_176", "PE_IY_03_177", "PE_IY_03_178", "PE_IY_03_179", "PE_IY_03_180", "PE_IY_04_050", "PE_IY_04_051", "PE_IY_04_060", "PE_IY_04_061", "PE_IY_05_006", "PE_IY_05_007", "PE_IY_05_008", "PE_IY_05_027", "PE_IY_05_041", "PE_IY_05_300", "PE_IY_05_301", "PE_IY_05_410", "PE_IY_05_411", "PE_IY_06_510", "PE_IY_06_511", "PE_OK_06_100", "PE_OK_06_101", "PE_OK_06_102", "PE_UT_04_002", "PE_IY_03_167", "AP_INFO_STID_MAN", "HENT_INFO_MAN"));
         sakToBrevMap.put("AFP_PRIVAT", asList("PE_AF_04_111", "PE_AF_04_112", "PE_AF_04_114", "PE_AP_04_216", "PE_GP_01_010", "PE_IY_03_047", "PE_IY_03_048", "PE_IY_03_049", "PE_IY_03_051", "PE_IY_03_150", "PE_IY_03_151", "PE_IY_03_152", "PE_IY_03_153", "PE_IY_03_154",  "PE_IY_03_156", "PE_IY_03_157", "PE_IY_03_158", "PE_IY_03_159", "PE_IY_03_160", "PE_IY_03_161", "PE_IY_03_162", "PE_IY_03_163", "PE_IY_03_164", "PE_IY_03_168", "PE_IY_03_174", "PE_IY_03_175", "PE_IY_03_176", "PE_IY_03_177", "PE_IY_03_178", "PE_IY_03_179", "PE_IY_03_180", "PE_IY_04_050", "PE_IY_04_051", "PE_IY_04_060", "PE_IY_04_061", "PE_IY_05_006", "PE_IY_05_007", "PE_IY_05_008", "PE_IY_05_027", "PE_IY_05_041", "PE_IY_05_300", "PE_IY_05_301", "PE_IY_05_410", "PE_IY_05_411", "PE_IY_06_103", "PE_IY_06_510", "PE_IY_06_511", "PE_OK_06_100", "PE_OK_06_101", "PE_OK_06_102", "PE_UT_04_002", "PE_IY_03_167", "VARSEL_REVURD", "AP_INFO_STID_MAN", "HENT_INFO_MAN", "VARSEL_TILBAKEBET",  "VEDTAK_TILBAKEKREV_MIDL", "AFP_INNV_MAN"));
-    }
-
-    public List<String> map(String saktype) {
-        return applyTogglesForRemovedBrevkoder(
-                saktype,
-                applyTogglesForAddedBrevkoder(mapIgnoreFeatureToggle(saktype))
-        );
-    }
-
-    public List<String> mapIgnoreFeatureToggle(String saktype) {
-        if (sakToBrevMap.containsKey(saktype)) {
-            return sakToBrevMap.get(saktype);
-        } else {
-            throw new IllegalArgumentException("Saktype \"" + saktype + "\" does not exist");
-        }
-    }
-
-    public Set<String> getSakTyper() {
-        return new HashSet<>(sakToBrevMap.keySet());
-    }
-
-    /**
-     * Filtrerer bort "nye" brevkoder basert på feature toggles, altså brevkoder som skal legges til, men ikke nødvendigvis skal være synlige i alle miljø enda.
-     *
-     * @param brevkoder Liste som brevkoder i deaktiverte features skal fjernes fra.
-     * @return Liste uten brevkoder i deaktiverte features.
-     */
-    private List<String> applyTogglesForAddedBrevkoder(List<String> brevkoder) {
-        return brevkoder.stream().filter(brevKode -> Optional.ofNullable(addedBrevkoder.get(brevKode)).map(UnleashProvider.Toggle::isEnabled).orElse(true)).collect(toList());
-    }
-
-    /**
-     * Legger til sanerte brevkoder igjen basert på feature toggles, altså brevkoder som skal fjernes, men ikke nødvendigvis i alle miljø enda.
-     *
-     * @param saktype Saktypen brevkoden må være med i.
-     * @param brevkoder Liste ov brevkoder (hvor sanerte brevkoder allerede er fjernet)
-     * @return Liste som inkluderer alle sanerte brevkoder hvor feature toggle er deaktivert.
-     */
-    private List<String> applyTogglesForRemovedBrevkoder(String saktype, List<String> brevkoder) {
-        Set<String> reAddBrevkoder = removedBrevkoder.stream().filter(brevkode -> brevkode.saktyper.contains(saktype))
-                .filter(brevkode -> brevkode.toggle.isDisabled())
-                .map(brevkode -> brevkode.brevkode)
-                .collect(toSet());
-
-        return new ArrayList<>(Sets.union(reAddBrevkoder, new HashSet<>(brevkoder)));
-    }
-
-    public static class BrevkodeToRemove {
-        public final String brevkode;
-        public final UnleashProvider.Toggle toggle;
-        public final List<String> saktyper;
-
-        public BrevkodeToRemove(String brevkode, UnleashProvider.Toggle toggle, List<String> saktyper) {
-            this.brevkode = brevkode;
-            this.toggle = toggle;
-            this.saktyper = saktyper;
-        }
     }
 }

@@ -1,7 +1,7 @@
 package no.nav.pensjonbrevdata;
 
-import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
-import no.nav.pensjonbrevdata.mappers.SakBrevMapper;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
+import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
@@ -54,11 +54,11 @@ public class BrevdataProvider {
                 .toList();
     }
 
-    public void setBrevdataMapper(BrevdataMapper brevdataMapper) {
+    void setBrevdataMapper(BrevdataMapper brevdataMapper) {
         this.brevdataMapper = brevdataMapper;
     }
 
-    public void setSakBrevMapper(SakBrevMapper sakBrevMapper) {
+    void setSakBrevMapper(SakBrevMapper sakBrevMapper) {
         this.sakBrevMapper = sakBrevMapper;
     }
 }

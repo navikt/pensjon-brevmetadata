@@ -1,16 +1,6 @@
-package no.nav.pensjonbrevdata.mappers;
+package no.nav.pensjonbrevdata.mappers.brevdata;
 
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
-import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
+import no.nav.pensjonbrevdata.mappers.doksysVedlegg.DoksysVedleggMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.DoksysbrevV2;
@@ -24,34 +14,21 @@ import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.DokumenttypeCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
-public class BrevdataMapper {
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+class BrevdataMap {
     private static final DoksysVedleggMapper doksysVedleggMapper = new DoksysVedleggMapper();
-
-    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataErstattMedGammeltBrev(String togglekey, String toggleBrevkode, Brevdata gammeltBrev) {
-        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleBrevkode) ? gammeltBrev : entry.getValue()));
-    }
-
-    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataFiltrerBortNyttBrev(String togglekey, String toggleBrevkode) {
-        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals(toggleBrevkode)).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
-
-    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataLeggTilGammeltBrev(String togglekey, String toggleBrevkode, Brevdata gammeltBrev) {
-        return brevMap -> {
-            if (toggle(togglekey).isEnabled()) return brevMap;
-            Map<String, Brevdata> newMap = brevMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-            newMap.put(toggleBrevkode, gammeltBrev);
-            return newMap;
-        };
-    }
-
-    private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
-            brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN");
-
 
     private final Map<String, Brevdata> brevMap;
 
-    public BrevdataMapper() {
+    Map<String, Brevdata> get() {
+        return brevMap;
+    }
+
+    BrevdataMap() {
         brevMap = new HashMap<>();
         brevMap.put("E001",
                 new GammeltBrev("E001",
@@ -7550,40 +7527,4 @@ public class BrevdataMapper {
         ));
     }
 
-    public Brevdata map(String brevkode) {
-        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap);
-        if (filtrertBrevMap.containsKey(brevkode)) {
-            return filtrertBrevMap.get(brevkode);
-        } else {
-            throw new IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist");
-        }
-    }
-
-    public List<Brevdata> getAllBrevAsList() {
-        List<Brevdata> brevdataList = new ArrayList<>();
-        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap);
-
-        for (Brevdata brevdataCallable : filtrertBrevMap.values()) {
-            try {
-                brevdataList.add(brevdataCallable);
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
-        return brevdataList;
-    }
-
-    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
-        List<String> brevkeys = new ArrayList<>();
-        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap);
-
-        for (String key : filtrertBrevMap.keySet()) {
-            try {
-                if (filtrertBrevMap.get(key).getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
-                    brevkeys.add(key);
-                }
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
-        return brevkeys;
-    }
 }

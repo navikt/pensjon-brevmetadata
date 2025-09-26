@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import io.getunleash.FakeUnleash;
 import io.getunleash.Unleash;
-import no.nav.pensjonbrevdata.mappers.BrevdataMapper;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.json.JSONArray;
