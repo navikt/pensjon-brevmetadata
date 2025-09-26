@@ -1,5 +1,6 @@
 package no.nav.pensjonbrevdata;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -19,7 +20,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -29,7 +29,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -86,7 +85,7 @@ public class KomponentTest {
 
     @Test
     public void alleBrevkoderErRepresentertITest() throws IOException, InterruptedException, JSONException {
-        try(HttpClient client = HttpClient.newHttpClient()) {
+        try (HttpClient client = HttpClient.newHttpClient()) {
             assertEquals(brevkoder().size(), new JSONArray(client.send(HttpRequest.newBuilder()
                             .uri(URI.create("http://localhost:" + port + "/api/brevdata/allBrev?includeXsd=false"))
                             .build(), HttpResponse.BodyHandlers.ofString()).body()).length(),
@@ -94,8 +93,8 @@ public class KomponentTest {
         }
     }
 
-    private void testGetAllBrev(boolean includeXsd) throws IOException,InterruptedException,URISyntaxException,JSONException {
-        try(HttpClient client = HttpClient.newHttpClient()) {
+    private void testGetAllBrev(boolean includeXsd) throws IOException, InterruptedException, URISyntaxException, JSONException {
+        try (HttpClient client = HttpClient.newHttpClient()) {
             HttpResponse<String> resp = client.send(HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:" + port + "/api/brevdata/allBrev?includeXsd=" + includeXsd))
                     .build(), HttpResponse.BodyHandlers.ofString());
@@ -196,10 +195,6 @@ public class KomponentTest {
      * Bygger en base-line av responser som applikasjonen gjør akkurat nå, og som benyttes av KomponentTest
      */
     private static class ResultBuilder {
-        static {
-            UnleashProvider.initialize(new FakeUnleash());
-        }
-
         private static final BrevdataEndpoint be = new BrevdataEndpoint();
         private static final ObjectWriter objectMapper = JsonMapper.builder()
                 .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
@@ -207,73 +202,34 @@ public class KomponentTest {
                 .writer(new DefaultPrettyPrinter()
                         .withObjectIndenter(new DefaultIndenter().withLinefeed("\n")));
 
-        public static void main(String[] args) {
-            brevkoder().stream().peek(ResultBuilder::fixgetBrevForBrevkode)
-                    .forEach(ResultBuilder::fixgetSprakForBrevkode);
-            sakstyper().stream().peek(ResultBuilder::fixgetBrevdataForSaktype)
-                    .forEach(ResultBuilder::fixgetBrevkoderForSaktype);
-            brevkoderIBrevSystem().forEach(ResultBuilder::fixgetBrevKeyForBrevkodeIBrevsystem);
-            fixGetAllBrev();
-        }
-
-        private static void fixgetBrevKeyForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
-            writeString(brevkodeIBrevsystem, "brevKeyForBrevkodeIBrevsystem", be.getBrevKeyForBrevkodeIBrevsystem(brevkodeIBrevsystem));
-        }
-
-        private static void fixgetSprakForBrevkode(String brevkode) {
-            writeString(brevkode, "sprakForBrevkode", be.getSprakForBrevkode(brevkode));
-        }
-
-        private static void writeString(String brevkode, String dir, Object toJSON) {
-            try {
-                Files.writeString(dir(dir).resolve(brevkode), toJSON(toJSON));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        public static void main(String[] args) throws IOException {
+            UnleashProvider.initialize(new FakeUnleash());
+            for (String brevkode : brevkoder()) {
+                writeString(brevkode, "brevForBrevkode", be.getBrevForBrevkode(brevkode));
+                writeString(brevkode, "sprakForBrevkode", be.getSprakForBrevkode(brevkode));
             }
+            for (String sakstype : sakstyper()) {
+                writeString(sakstype, "brevdataForSaktype/" + true, be.getBrevdataForSaktype(sakstype, true));
+                writeString(sakstype, "brevdataForSaktype/" + false, be.getBrevdataForSaktype(sakstype, false));
+                writeString(sakstype, "brevkoderForSaktype", be.getBrevkoderForSaktype(sakstype));
+            }
+            for (String brevkodeIBrevsystem : brevkoderIBrevSystem()) {
+                writeString(brevkodeIBrevsystem, "brevKeyForBrevkodeIBrevsystem", be.getBrevKeyForBrevkodeIBrevsystem(brevkodeIBrevsystem));
+            }
+
+            writeString("false", "allBrev", be.getAllBrev(false));
+            writeString("true", "allBrev", be.getAllBrev(true));
         }
 
-        private static void fixgetBrevForBrevkode(String brevkode) {
-            writeString(brevkode, "brevForBrevkode", be.getBrevForBrevkode(brevkode));
+        private static void writeString(String brevkode, String dir, Object toJSON) throws IOException {
+            Path path = Path.of("src", "test", "resources", dir);
+            Files.createDirectories(path);
+            Files.writeString(path.resolve(brevkode), toJSON(toJSON));
         }
 
-        private static void fixgetBrevdataForSaktype(String sakstype) {
-            fixgetBrevdataForSaktype(sakstype, true);
-            fixgetBrevdataForSaktype(sakstype, false);
-        }
-
-        private static void fixgetBrevdataForSaktype(String sakstype, boolean includeXsd) {
-            writeString(sakstype, "brevdataForSaktype/" + includeXsd, be.getBrevdataForSaktype(sakstype, includeXsd));
-        }
-
-        private static void fixgetBrevkoderForSaktype(String sakstype) {
-            writeString(sakstype, "brevkoderForSaktype",  be.getBrevkoderForSaktype(sakstype));
-        }
-
-        private static void fixGetAllBrev() {
-            fixGetAllBrev(false);
-            fixGetAllBrev(true);
-        }
-
-        private static void fixGetAllBrev(boolean includeXsd) {
-            writeString("" + includeXsd, "allBrev", be.getAllBrev(includeXsd));
-        }
-
-        private static Path dir(String stringPath) throws IOException {
-            Path path = Path.of("src", "test", "resources", stringPath);
-            if (!Files.exists(path))
-                Files.createDirectories(path);
-            return path;
-        }
-
-        private static CharSequence toJSON(Object object) {
+        private static CharSequence toJSON(Object object) throws JsonProcessingException {
             if (object == null) return "";
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            try {
-                objectMapper.writeValue(baos, object);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            return baos.toString();
+            return objectMapper.writeValueAsString(object);
         }
     }
 }
