@@ -1,12 +1,10 @@
 package no.nav.pensjonbrevdata.mappers.sakBrev;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Sets;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.springframework.stereotype.Service;
 
 import static java.util.List.of;
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
@@ -64,12 +62,7 @@ public class SakBrevMapper {
      * @return Liste som inkluderer alle sanerte brevkoder hvor feature toggle er deaktivert.
      */
     private List<String> applyTogglesForRemovedBrevkoder(String saktype, List<String> brevkoder) {
-        Set<String> reAddBrevkoder = removedBrevkoder.stream().filter(brevkode -> brevkode.saktyper.contains(saktype))
-                .filter(brevkode -> brevkode.toggle.isDisabled())
-                .map(brevkode -> brevkode.brevkode)
-                .collect(toSet());
-
-        return new ArrayList<>(Sets.union(reAddBrevkoder, new HashSet<>(brevkoder)));
+        return new ArrayList<>(new HashSet<>(brevkoder));
     }
 
     public record BrevkodeToRemove(String brevkode, UnleashProvider.Toggle toggle, List<String> saktyper) {
