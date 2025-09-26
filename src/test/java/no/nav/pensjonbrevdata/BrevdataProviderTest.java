@@ -50,9 +50,7 @@ public class BrevdataProviderTest {
 
     @BeforeEach
     public void setup() {
-        provider = new BrevdataProvider();
-        provider.setBrevdataMapper(brevdataMapperMock);
-        provider.setSakBrevMapper(sakBrevMapperMock);
+        provider = new BrevdataProvider(brevdataMapperMock, sakBrevMapperMock);
     }
 
     @Test
@@ -95,9 +93,7 @@ public class BrevdataProviderTest {
 
     @Test
     public void onlyEblanketterIsReturned() {
-        provider.setBrevdataMapper(new BrevdataMapper());
-
-        List<Brevdata> eblanketter = provider.getEblanketter();
+        List<Brevdata> eblanketter = new BrevdataProvider(new BrevdataMapper(), sakBrevMapperMock).getEblanketter();
         assertThat(eblanketter, not(empty()));
         assertTrue(eblanketter.stream().allMatch(b -> b.getDokumentkategori().equals(DokumentkategoriCode.E_BLANKETT)));
     }

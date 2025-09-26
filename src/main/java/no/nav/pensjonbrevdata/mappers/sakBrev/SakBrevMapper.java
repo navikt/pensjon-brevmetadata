@@ -2,6 +2,7 @@ package no.nav.pensjonbrevdata.mappers.sakBrev;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
+import org.springframework.stereotype.Service;
 
 import static java.util.List.of;
 import static java.util.stream.Collectors.toList;
@@ -11,6 +12,7 @@ import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
 import java.util.*;
 
+@Service
 public class SakBrevMapper {
     private final SakBrevMap sakToBrevMap = new SakBrevMap();
 

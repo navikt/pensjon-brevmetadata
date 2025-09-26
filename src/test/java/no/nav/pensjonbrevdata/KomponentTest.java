@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import io.getunleash.FakeUnleash;
 import io.getunleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
+import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.json.JSONArray;
@@ -202,7 +203,7 @@ public class KomponentTest {
      * Bygger en base-line av responser som applikasjonen gjør akkurat nå, og som benyttes av KomponentTest
      */
     private static class ResultBuilder {
-        private static final BrevdataEndpoint be = new BrevdataEndpoint();
+        private static final BrevdataEndpoint be = new BrevdataEndpoint(new BrevdataProvider(new BrevdataMapper(), new SakBrevMapper()));
         private static final ObjectWriter objectMapper = JsonMapper.builder()
                 .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
                 .build()
