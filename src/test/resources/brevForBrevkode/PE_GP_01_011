@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "BREV_MED_SKJEMA",
+  "brevkodeIBrevsystem" : "PE_GP_01_011",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Brev med skjema Søknad om barnepensjon når en forelder er død (NAV 18-04.01)",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

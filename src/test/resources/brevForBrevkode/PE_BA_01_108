@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_BA_01_108",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : null,
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Informasjon om vilkår for rett til ektefelletillegg",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr008",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "P1000",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "P1000 - Anmodning om perioder med foreldreansvar",
+  "dokType" : "U",
+  "dokumentkategori" : "SED",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

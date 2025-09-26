@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr004",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_IY_04_061",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak om at feilutbetalt beløp ikke vil bli tilbakekrevet",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
+}

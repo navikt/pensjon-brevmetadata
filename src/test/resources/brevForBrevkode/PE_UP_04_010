@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr003",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_UP_04_010",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - opphør av uførepensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

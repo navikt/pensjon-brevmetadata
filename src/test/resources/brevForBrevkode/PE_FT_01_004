@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr007",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_FT_01_004",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "NN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

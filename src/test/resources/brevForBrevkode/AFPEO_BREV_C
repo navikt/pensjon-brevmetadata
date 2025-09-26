@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr004",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_AF_04_101",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

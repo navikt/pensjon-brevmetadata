@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr010",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_UT_23_101",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak om etteroppgjør - etterbetaling",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
+}
