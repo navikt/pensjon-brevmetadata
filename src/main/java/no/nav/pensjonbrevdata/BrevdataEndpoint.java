@@ -15,6 +15,7 @@ import no.nav.pensjonbrevdata.model.Brevdata;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +35,9 @@ public class BrevdataEndpoint {
 
     private BrevdataProvider provider;
 
-    public BrevdataEndpoint(){
-        provider = new BrevdataProvider();
+    @Autowired
+    public BrevdataEndpoint(BrevdataProvider provider) {
+        this.provider = provider;
     }
 
     @GetMapping("/sprakForBrevkode/{brevkode}")

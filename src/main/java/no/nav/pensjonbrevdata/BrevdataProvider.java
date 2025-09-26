@@ -5,17 +5,21 @@ import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class BrevdataProvider {
-    private BrevdataMapper brevdataMapper;
-    private SakBrevMapper sakBrevMapper;
+    private final BrevdataMapper brevdataMapper;
+    private final SakBrevMapper sakBrevMapper;
 
-    public BrevdataProvider() {
-        brevdataMapper = new BrevdataMapper();
-        sakBrevMapper = new SakBrevMapper();
+    @Autowired
+    public BrevdataProvider(BrevdataMapper brevdataMapper, SakBrevMapper sakBrevMapper) {
+        this.brevdataMapper = brevdataMapper;
+        this.sakBrevMapper = sakBrevMapper;
     }
 
     public List<SprakCode> getSprakForBrevkode(String brevkode) {
@@ -52,13 +56,5 @@ public class BrevdataProvider {
         return brevdataMapper.getAllBrevAsList().stream()
                 .filter(brev -> brev.getDokumentkategori() == DokumentkategoriCode.E_BLANKETT)
                 .toList();
-    }
-
-    void setBrevdataMapper(BrevdataMapper brevdataMapper) {
-        this.brevdataMapper = brevdataMapper;
-    }
-
-    void setSakBrevMapper(SakBrevMapper sakBrevMapper) {
-        this.sakBrevMapper = sakBrevMapper;
     }
 }

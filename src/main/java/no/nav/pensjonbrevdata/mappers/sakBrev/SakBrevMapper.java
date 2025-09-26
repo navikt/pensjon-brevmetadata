@@ -1,33 +1,38 @@
 package no.nav.pensjonbrevdata.mappers.sakBrev;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Sets;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 
-import static java.util.List.of;
+import com.google.common.collect.ImmutableMap;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
+import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
+import no.nav.pensjonbrevdata.unleash.UnleashProvider;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.*;
+import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AFP_INNV_MAN;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
-import java.util.*;
-
+@Service
 public class SakBrevMapper {
     private final SakBrevMap sakToBrevMap = new SakBrevMap();
+    private final BrevdataMapper brevdataMapper = new BrevdataMapper();
 
     // Brevkoder som skal legges til, men kun når feature er aktivert. På denne måten kan en kode legges til i dev og testes,
     // og deretter legges til i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
     // Nøkkel skal være brevkode og verdi skal være feature-toggle.
     public static final Map<String, UnleashProvider.Toggle> addedBrevkoder = ImmutableMap.of(
             "AFP_INNV_MAN", toggle(BRUK_AFP_INNV_MAN)
-            );
-
-    // Brevkoder som skal fjernes, men kun når feature er aktivert. På denne måten kan en kode fjernes i dev og testes,
-    // og deretter fjernes i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
-    public static final List<BrevkodeToRemove> removedBrevkoder = of();
+    );
 
     public List<String> map(String saktype) {
-        return applyTogglesForRemovedBrevkoder(
-                saktype,
+        return filtrerUtRedigerbareDoksysbrev(
                 applyTogglesForAddedBrevkoder(mapIgnoreFeatureToggle(saktype))
         );
     }
@@ -54,22 +59,16 @@ public class SakBrevMapper {
         return brevkoder.stream().filter(brevKode -> Optional.ofNullable(addedBrevkoder.get(brevKode)).map(UnleashProvider.Toggle::isEnabled).orElse(true)).collect(toList());
     }
 
-    /**
-     * Legger til sanerte brevkoder igjen basert på feature toggles, altså brevkoder som skal fjernes, men ikke nødvendigvis i alle miljø enda.
-     *
-     * @param saktype Saktypen brevkoden må være med i.
-     * @param brevkoder Liste ov brevkoder (hvor sanerte brevkoder allerede er fjernet)
-     * @return Liste som inkluderer alle sanerte brevkoder hvor feature toggle er deaktivert.
-     */
-    private List<String> applyTogglesForRemovedBrevkoder(String saktype, List<String> brevkoder) {
-        Set<String> reAddBrevkoder = removedBrevkoder.stream().filter(brevkode -> brevkode.saktyper.contains(saktype))
-                .filter(brevkode -> brevkode.toggle.isDisabled())
-                .map(brevkode -> brevkode.brevkode)
-                .collect(toSet());
-
-        return new ArrayList<>(Sets.union(reAddBrevkoder, new HashSet<>(brevkoder)));
-    }
-
-    public record BrevkodeToRemove(String brevkode, UnleashProvider.Toggle toggle, List<String> saktyper) {
+    private List<String> filtrerUtRedigerbareDoksysbrev(List<String> brevkoder) {
+        Set<String> koder = new HashSet<>(brevkoder);
+        if (UnleashProvider.toggle("pensjonsbrev.fjernRedigerbareDoksysbrev").isEnabled()) {
+            koder.removeAll(brevdataMapper.getAllBrevAsList()
+                    .stream()
+                    .filter(kode -> kode.getBrevsystem() == BrevsystemCode.DOKSYS)
+                    .filter(Brevdata::isRedigerbart)
+                    .map(Brevdata::getBrevkodeIBrevsystem)
+                    .collect(Collectors.toSet()));
+        }
+        return new ArrayList<>(koder);
     }
 }

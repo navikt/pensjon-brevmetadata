@@ -1,6 +1,7 @@
 package no.nav.pensjonbrevdata.mappers.brevdata;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AFP_INNV_MAN;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
+@Service
 public class BrevdataMapper {
 
     private final BrevdataMap brevMap = new BrevdataMap();

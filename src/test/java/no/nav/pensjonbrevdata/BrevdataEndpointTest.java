@@ -34,8 +34,7 @@ public class BrevdataEndpointTest {
 
     @BeforeEach
     public void setup(){
-        endpoint = new BrevdataEndpoint();
-        endpoint.setProvider(brevdataProviderMock);
+        endpoint = new BrevdataEndpoint(brevdataProviderMock);
     }
 
     @Test
