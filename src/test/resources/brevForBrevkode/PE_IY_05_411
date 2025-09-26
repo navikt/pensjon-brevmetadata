@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INNHENTE_OPPL",
+  "brevkodeIBrevsystem" : "PE_IY_05_411",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

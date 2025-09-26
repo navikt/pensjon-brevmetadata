@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INNHENTE_OPPL",
+  "brevkodeIBrevsystem" : "PE_IY_03_167",
+  "brevkontekst" : "ALLTID",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Forespørsel om dokumentasjon av botid i Norge",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

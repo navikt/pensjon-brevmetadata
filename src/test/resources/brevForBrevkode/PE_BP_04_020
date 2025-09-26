@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_BP_04_020",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - endring av barnepensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

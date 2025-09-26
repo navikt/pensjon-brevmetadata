@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr007",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_FT_01_002",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - fortsatt rett til ektefelletillegg",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

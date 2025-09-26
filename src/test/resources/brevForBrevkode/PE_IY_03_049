@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INNHENTE_OPPL",
+  "brevkodeIBrevsystem" : "PE_IY_03_049",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Innhente bekreftelse på flyktningstatus fra UDI",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

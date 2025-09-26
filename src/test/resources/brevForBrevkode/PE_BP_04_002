@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_BP_04_002",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - innvilgelse av barnepensjon - utenlandssak",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

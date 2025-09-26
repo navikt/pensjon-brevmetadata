@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr010",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_UT_14_300",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - omregning av uførepensjon til uføretrygd (automatisk)",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : 3,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "ALLTID",
+  "visIPselv" : true
+}

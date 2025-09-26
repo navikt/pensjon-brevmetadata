@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr008",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "R005",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "R005 - Anmodning om motregning i etterbetalinger",
+  "dokType" : "U",
+  "dokumentkategori" : "SED",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

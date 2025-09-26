@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr010",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_UT_04_107",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - innvilgelse av uføretrygd (bosatt Norge - etter utland)",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : 3,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

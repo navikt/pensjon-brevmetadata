@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_UT_04_004",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Brev om forventet saksbehandlingstid (bosatt Norge - før utland)",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

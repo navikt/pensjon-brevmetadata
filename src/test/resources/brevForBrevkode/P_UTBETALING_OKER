@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_BA_04_507",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - endring i pensjonsopptjening",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_AP_04_903",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - endelig innvilgelse av alderspensjon - uendret - Norge/avtaleland",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

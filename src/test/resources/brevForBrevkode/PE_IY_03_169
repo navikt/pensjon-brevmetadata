@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "OVRIG",
+  "brevkodeIBrevsystem" : "PE_IY_03_169",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Bekreftelse på at bruker mottar uføretrygd (norsk)",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

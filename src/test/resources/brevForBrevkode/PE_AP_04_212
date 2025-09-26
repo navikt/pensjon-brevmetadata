@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr011",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_AP_04_212",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - avslag på alderspensjon - utenlandssak",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "EN" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

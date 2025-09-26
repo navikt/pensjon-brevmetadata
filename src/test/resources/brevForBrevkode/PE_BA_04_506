@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr002",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_BA_04_506",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - endring av alderspensjon fordi du fyller 70 år",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

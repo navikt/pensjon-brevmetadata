@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INFORMASJON",
+  "brevkodeIBrevsystem" : "PE_UT_04_001",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Forsidebrev - ny omregning av uførepensjon til uføretrygd",
+  "dokType" : "U",
+  "dokumentkategori" : "IB",
+  "prioritet" : 3,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "NN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

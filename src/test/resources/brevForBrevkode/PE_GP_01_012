@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "BREV_MED_SKJEMA",
+  "brevkodeIBrevsystem" : "PE_GP_01_012",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Brev med skjema Søknad om barnepensjon til foreldreløse barn (NAV 18-01.05)",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : true,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

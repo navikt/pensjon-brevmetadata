@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr003",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_GP_04_032",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - avslag ytelse til gjenlevende (bosatt Norge - etter utland)",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB", "EN" ],
+  "synligForVeileder" : null,
+  "utland" : "UTLAND",
+  "visIPselv" : true
+}

@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "PE_AP_01_019",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "GN",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Løpende delvis uførepensjon",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "NB", "EN" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}

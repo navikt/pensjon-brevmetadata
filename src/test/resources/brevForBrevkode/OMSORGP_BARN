@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr004",
+  "brevkategori" : "VEDTAK",
+  "brevkodeIBrevsystem" : "PE_IY_05_201",
+  "brevkontekst" : "VEDTAK",
+  "brevkravtype" : "ALLE",
+  "brevregeltype" : "GG",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn",
+  "dokType" : "U",
+  "dokumentkategori" : "VB",
+  "prioritet" : null,
+  "redigerbart" : false,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

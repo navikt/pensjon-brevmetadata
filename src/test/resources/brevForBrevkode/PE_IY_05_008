@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr001",
+  "brevkategori" : "INNHENTE_OPPL",
+  "brevkodeIBrevsystem" : "PE_IY_05_008",
+  "brevkontekst" : "SAK",
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "Innsendt blankett mangler underskrift",
+  "dokType" : "U",
+  "dokumentkategori" : "B",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "EN", "NB" ],
+  "synligForVeileder" : null,
+  "utland" : "NASJONALT",
+  "visIPselv" : true
+}

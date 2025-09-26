@@ -1,0 +1,18 @@
+{
+  "brevgruppe" : "brevgr008",
+  "brevkategori" : null,
+  "brevkodeIBrevsystem" : "E211",
+  "brevkontekst" : null,
+  "brevkravtype" : null,
+  "brevregeltype" : "OVRIGE",
+  "brevsystem" : "GAMMEL",
+  "dekode" : "E 211 - Samlet melding om vedtakene",
+  "dokType" : "U",
+  "dokumentkategori" : "E_BLANKETT",
+  "prioritet" : null,
+  "redigerbart" : true,
+  "sprak" : [ "NB" ],
+  "synligForVeileder" : null,
+  "utland" : null,
+  "visIPselv" : true
+}
