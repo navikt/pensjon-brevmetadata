@@ -65,6 +65,7 @@ public class SakBrevMapper {
             koder.removeAll(brevdataMapper.getAllBrevAsList()
                     .stream()
                     .filter(kode -> kode.getBrevsystem() == BrevsystemCode.DOKSYS)
+                    .filter(kode -> !kode.getBrevkodeIBrevsystem().equals("INFO_P1"))
                     .filter(Brevdata::isRedigerbart)
                     .map(Brevdata::getBrevkodeIBrevsystem)
                     .collect(Collectors.toSet()));
