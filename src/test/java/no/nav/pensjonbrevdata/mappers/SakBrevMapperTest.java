@@ -1,7 +1,10 @@
 package no.nav.pensjonbrevdata.mappers;
 
 import io.getunleash.FakeUnleash;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
+import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.hamcrest.core.IsIterableContaining;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
 import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
@@ -61,6 +63,29 @@ public class SakBrevMapperTest {
                     assertThat(mapper.map(sakType), IsIterableContaining.hasItem(brevKode));
                 }
             }
+        }
+    }
+
+    @Test
+    public void kunInfoP1ErInkludertNaarFjernRedigerbareDoksysbrevToggleErAktiv() {
+        fakeUnleash.enable("pensjonsbrev.fjernRedigerbareDoksysbrev");
+        var brevdataMapper = new BrevdataMapper();
+
+        var alleRedigerBareDoksysBrev = brevdataMapper.getAllBrevAsList().stream()
+                .filter(brev -> brev.getBrevsystem() == BrevsystemCode.DOKSYS && brev.isRedigerbart())
+                .map(Brevdata::getBrevkodeIBrevsystem)
+                .toList();                ;
+
+        for (String sakType: mapper.getSakTyper()) {
+            var sakBrev = mapper.map(sakType);
+
+            // ingen redigerbare doksysbrev blir returnert for sak, bortsett fra "INFO_P1"
+            var redigerbareDoksysbrevForSak = sakBrev.stream()
+                    .filter(alleRedigerBareDoksysBrev::contains)
+                    .filter(brev -> !brev.equals("INFO_P1"))
+                    .collect(toList());
+
+            assertThat(redigerbareDoksysbrevForSak, is(empty()));
         }
     }
 }
