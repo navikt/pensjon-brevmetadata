@@ -1,6 +1,7 @@
 package no.nav.pensjonbrevdata.unleash;
 
 import io.getunleash.DefaultUnleash;
+import io.getunleash.FakeUnleash;
 import io.getunleash.Unleash;
 import io.getunleash.util.UnleashConfig;
 import jakarta.annotation.PreDestroy;
@@ -22,9 +23,14 @@ public class UnleashEndpointConfig {
             @Value("${UNLEASH_SERVER_API_URL}") String endpoint,
             @Value("${UNLEASH_SERVER_API_TOKEN}") String token,
             @Value("${unleash.toggle.interval}") Long togglesInterval,
+            @Value("${unleash.enable}") Boolean enable,
             @Value("${NAIS_APP_NAME}") String appName,
-            @Value("${ENVIRONMENT_NAME}") String environmentName
-    ) {
+            @Value("${ENVIRONMENT_NAME}") String environmentName) {
+        if (!enable) {
+            Unleash fakeUnleash = new FakeUnleash();
+            UnleashProvider.initialize(fakeUnleash);
+            return fakeUnleash;
+        }
         DefaultUnleash unleash = new DefaultUnleash(
                 UnleashConfig.builder()
                         .appName(appName)
@@ -37,5 +43,5 @@ public class UnleashEndpointConfig {
         UnleashProvider.initialize(unleash);
         return unleash;
     }
-   
+
 }
