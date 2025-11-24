@@ -17,7 +17,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: "src/site"
+        working-directory: "src/site/asciidoc"
     steps:
     - uses: actions/checkout@v5
       with:
