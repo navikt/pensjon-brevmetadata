@@ -5,11 +5,11 @@ Dato: 03.06.2020
 Forslag om å endre dokumentasjonsvisning fra en "onepage" til en strukturbasert løsning.
 Antora er en vidreutvikling av asciidoctor.
 
-==== Status
+=== Status
 
 Under evaluering
 
-==== Motiviasjon for Antora
+=== Motiviasjon for Antora
 
 Få med nye features som:
 
@@ -17,7 +17,7 @@ Få med nye features som:
 - Oppdatering på styling av innhold
 - Struktur på visning
 
-==== Konsekvenser ved bruk av Antora
+=== Konsekvenser ved bruk av Antora
 
 - Ekstra arbeid for å få satt det opp
 - Enklere å utvide dokumentasjonen.

@@ -25,4 +25,4 @@ Det er videre lagt til ADR for å støtte om beslutninger som er under vurdering
 
 include::{dir}../main/java/no/nav/pensjonbrevdata/docs/samleside.adoc[]
 
-include::adr/introADR.adoc[]
+include::adr/antoraADR.adoc[]
