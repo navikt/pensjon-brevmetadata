@@ -21,6 +21,7 @@ jobs:
       id-token: write
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
+      digest: ${{ steps.docker-build-push.outputs.digest }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -48,7 +49,7 @@ jobs:
         with:
           team: pensjonsbrev
           image_suffix: pensjon-brevmetadata
-          push_image: true
+          salsa: false
 
   deploy-to-dev-q1:
     name: Deploy to dev - q1
@@ -138,3 +139,22 @@ jobs:
           RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
           VAR: image=${{ needs.build.outputs.image }}
           VARS: nais/prod.yaml
+
+  salsa:
+    name: Generate SBOM, attest and sign image
+    needs: build
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    permissions:
+      id-token: "write"
+    steps:
+      - name: NAIS login
+        uses: nais/login@v0
+        id: login
+        with:
+          team: pensjonsbrev
+      - name: Generate SBOM, attest and sign image
+        id: attest-sign
+        uses: nais/attest-sign@v1
+        with:
+          image_ref: ${{ needs.build.outputs.image }}@${{ needs.build.outputs.digest }}

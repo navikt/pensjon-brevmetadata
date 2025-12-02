@@ -23,6 +23,6 @@ Applikasjonen inneholder tjenester for å hente ut denne informasjonen.
 
 Det er videre lagt til ADR for å støtte om beslutninger som er under vurdering eller forslag til applikasjonen.
 
-include::{dir}../main/java/no/nav/pensjonbrevdata/docs/samleside.adoc[]
+include::samleside.adoc[]
 
-include::adr/introADR.adoc[]
+include::adr/antoraADR.adoc[]

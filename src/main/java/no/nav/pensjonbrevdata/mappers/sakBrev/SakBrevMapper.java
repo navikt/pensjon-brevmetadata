@@ -1,6 +1,5 @@
 package no.nav.pensjonbrevdata.mappers.sakBrev;
 
-import com.google.common.collect.ImmutableMap;
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
@@ -27,7 +26,7 @@ public class SakBrevMapper {
     // Brevkoder som skal legges til, men kun når feature er aktivert. På denne måten kan en kode legges til i dev og testes,
     // og deretter legges til i produksjon. Man kan fjerne et innslag her når det er testet og fungerer i produksjon.
     // Nøkkel skal være brevkode og verdi skal være feature-toggle.
-    public static final Map<String, UnleashProvider.Toggle> addedBrevkoder = ImmutableMap.of(
+    public static final Map<String, UnleashProvider.Toggle> addedBrevkoder = Map.of(
             "AFP_INNV_MAN", toggle(BRUK_AFP_INNV_MAN)
     );
 
