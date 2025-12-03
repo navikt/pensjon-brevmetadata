@@ -144,7 +144,7 @@ jobs:
     name: Generate SBOM, attest and sign image
     needs: build
     runs-on: ubuntu-latest
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'workflow_dispatch'
     permissions:
       id-token: "write"
     steps:
