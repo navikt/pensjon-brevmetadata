@@ -25,6 +25,9 @@ jobs:
     name: Deploy app
     runs-on: ubuntu-latest
     if: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == inputs.environment) }}
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v6
         with:
