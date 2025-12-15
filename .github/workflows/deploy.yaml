@@ -12,6 +12,10 @@ on:
           - q5
   push:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   build:
     name: Build
