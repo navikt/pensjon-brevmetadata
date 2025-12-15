@@ -43,8 +43,6 @@ jobs:
         run: mvn -B package --file pom.xml
       - name: "Build and publish container image"
         uses: nais/docker-build-push@v0
-        env:
-          TRIVY_JAVA_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-java-db:1"
         id: docker-build-push
         with:
           team: pensjonsbrev
@@ -53,92 +51,58 @@ jobs:
 
   deploy-to-dev-q1:
     name: Deploy to dev - q1
-    permissions:
-      contents: read
-      id-token: write
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'q1')
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ needs.build.outputs.image }}
-          VARS: nais/dev-q1.yaml
-          ENVIRONMENT: dev-gcp:pensjonsbrev:q1
+    uses: ./.github/workflows/.deploy.yaml
+    secrets: inherit
+    with:
+      cluster: dev-gcp
+      image: ${{ needs.build.outputs.image }}
+      vars: nais/dev-q1.yaml
+      environment: q1
 
   deploy-to-dev-q2:
     name: Deploy to dev - q2
-    permissions:
-      contents: read
-      id-token: write
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'q2')
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ needs.build.outputs.image }}
-          VARS: nais/dev-q2.yaml
-          ENVIRONMENT: dev-gcp:pensjonsbrev:q2
+    uses: ./.github/workflows/.deploy.yaml
+    secrets: inherit
+    with:
+      cluster: dev-gcp
+      image: ${{ needs.build.outputs.image }}
+      vars: nais/dev-q2.yaml
+      environment: q2
 
   deploy-to-dev-q5:
     name: Deploy to dev - q5
-    permissions:
-      contents: read
-      id-token: write
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'q5')
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ needs.build.outputs.image }}
-          VARS: nais/dev-q5.yaml
-          ENVIRONMENT: dev-gcp:pensjonsbrev:q5
+    uses: ./.github/workflows/.deploy.yaml
+    secrets: inherit
+    with:
+      cluster: dev-gcp
+      image: ${{ needs.build.outputs.image }}
+      vars: nais/dev-q5.yaml
+      environment: q5
 
   deploy-to-dev-prodlik:
     name: Deploy to dev - prodlik
-    permissions:
-      contents: read
-      id-token: write
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: dev-gcp
-          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ needs.build.outputs.image }}
-          VARS: nais/dev-prodlik.yaml
-          ENVIRONMENT: dev-gcp:pensjonsbrev:prodlik
+    uses: ./.github/workflows/.deploy.yaml
+    secrets: inherit
+    with:
+      cluster: dev-gcp
+      image: ${{ needs.build.outputs.image }}
+      vars: nais/dev-prodlik.yaml
+      environment: prodlik
 
   deploy-to-prod:
     name: Deploy to prod
-    permissions:
-      contents: read
-      id-token: write
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: [deploy-to-dev-prodlik, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: prod-gcp
-          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
-          VAR: image=${{ needs.build.outputs.image }}
-          VARS: nais/prod.yaml
+    uses: ./.github/workflows/.deploy.yaml
+    secrets: inherit
+    with:
+      cluster: prod-gcp
+      image: ${{ needs.build.outputs.image }}
+      vars: nais/prod.yaml
+      environment: prod
 
   salsa:
     name: Generate SBOM, attest and sign image
