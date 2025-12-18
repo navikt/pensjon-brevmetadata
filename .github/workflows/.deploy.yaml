@@ -36,7 +36,7 @@ jobs:
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: ${{ inputs.cluster }}
-          RESOURCE: nais/nais.yaml,nais/unleash-api-token.yaml
+          RESOURCE: nais/nais.yaml
           VAR: image=${{ inputs.image }}
           VARS: ${{ inputs.vars }}
           ENVIRONMENT: ${{ inputs.cluster }}:pensjonsbrev:${{ inputs.environment }}

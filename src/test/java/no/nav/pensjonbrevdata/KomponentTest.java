@@ -6,22 +6,17 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import io.getunleash.FakeUnleash;
-import io.getunleash.Unleash;
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.io.IOException;
 import java.net.URI;
@@ -41,18 +36,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class KomponentTest {
-    static private final FakeUnleash unleash = new FakeUnleash();
-
-    @MockitoBean
-    private Unleash defaultUnleash;
 
     @LocalServerPort
     private int port;
-
-    @BeforeAll
-    static public void setupForAll() {
-        UnleashProvider.initialize(unleash);
-    }
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("brevkoder")
@@ -211,7 +197,6 @@ public class KomponentTest {
                         .withObjectIndenter(new DefaultIndenter().withLinefeed("\n")));
 
         public static void main(String[] args) throws IOException {
-            UnleashProvider.initialize(new FakeUnleash());
             for (String brevkode : brevkoder()) {
                 writeString(brevkode, "brevForBrevkode", be.getBrevForBrevkode(brevkode));
                 writeString(brevkode, "sprakForBrevkode", be.getSprakForBrevkode(brevkode));

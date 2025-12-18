@@ -28,7 +28,6 @@ import org.springframework.web.server.ResponseStatusException;
 import no.nav.pensjonbrevdata.model.codes.SprakCode;
 
 @RestController
-@DependsOn({"defaultUnleash"})
 @RequestMapping("api/brevdata")
 public class BrevdataEndpoint {
     private static final Logger LOGGER = LoggerFactory.getLogger(BrevdataEndpoint.class);

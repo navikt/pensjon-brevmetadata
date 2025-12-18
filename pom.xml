@@ -19,7 +19,6 @@
         <asciidoctor-maven-plugin.version>3.2.0</asciidoctor-maven-plugin.version>
         <asciidoctorj-diagram.version>3.0.1</asciidoctorj-diagram.version>
         <graphviz-java.version>0.18.1</graphviz-java.version>
-        <unleash-next.version>11.1.1</unleash-next.version>
         <springdoc.version>3.0.0</springdoc.version>
     </properties>
 
@@ -32,11 +31,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.getunleash</groupId>
-            <artifactId>unleash-client-java</artifactId>
-            <version>${unleash-next.version}</version>
         </dependency>
 
         <dependency>

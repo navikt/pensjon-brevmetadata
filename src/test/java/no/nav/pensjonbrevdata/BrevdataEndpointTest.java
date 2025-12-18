@@ -1,8 +1,5 @@
 package no.nav.pensjonbrevdata;
 
-import io.getunleash.FakeUnleash;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,17 +17,10 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class BrevdataEndpointTest {
 
-    static private final FakeUnleash unleash = new FakeUnleash();
-
     @Mock
     private BrevdataProvider brevdataProviderMock;
 
     private BrevdataEndpoint endpoint;
-
-    @BeforeAll
-    static public void setupForAll() {
-        UnleashProvider.initialize(unleash);
-    }
 
     @BeforeEach
     public void setup(){
