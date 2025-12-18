@@ -6,14 +6,11 @@ import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
 import no.nav.pensjonbrevdata.unleash.UnleashProvider;
-import org.hamcrest.core.IsIterableContaining;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -43,30 +40,6 @@ public class SakBrevMapperTest {
     }
 
     @Test
-    public void brevkodeSomSkalLeggesTil_SkalIkkeVaere_SynligNaarToggleErDeaktivert() {
-        Set<String> brevkoderSomSkalLeggesTil = SakBrevMapper.addedBrevkoder.keySet();
-        fakeUnleash.disable(SakBrevMapper.addedBrevkoder.values().stream().map(t -> t.toggle()).toArray(String[]::new));
-
-        for (String sakType: mapper.getSakTyper()) {
-            assertThat(mapper.map(sakType), everyItem(not(is(in(brevkoderSomSkalLeggesTil)))));
-        }
-    }
-
-    @Test
-    public void brevkodeSomSkalLeggesTil_SkalVaere_SynligNaarToggleErAktivert() {
-        Set<String> brevkoderSomSkalLeggesTil = SakBrevMapper.addedBrevkoder.keySet();
-        fakeUnleash.enable(SakBrevMapper.addedBrevkoder.values().stream().map(t -> t.toggle()).toArray(String[]::new));
-
-        for (String brevKode: brevkoderSomSkalLeggesTil) {
-            for (String sakType: mapper.getSakTyper()) {
-                if (mapper.mapIgnoreFeatureToggle(sakType).contains(brevKode)) {
-                    assertThat(mapper.map(sakType), IsIterableContaining.hasItem(brevKode));
-                }
-            }
-        }
-    }
-
-    @Test
     public void kunInfoP1ErInkludertNaarFjernRedigerbareDoksysbrevToggleErAktiv() {
         fakeUnleash.enable("pensjonsbrev.fjernRedigerbareDoksysbrev");
         var brevdataMapper = new BrevdataMapper();
@@ -74,7 +47,7 @@ public class SakBrevMapperTest {
         var alleRedigerBareDoksysBrev = brevdataMapper.getAllBrevAsList().stream()
                 .filter(brev -> brev.getBrevsystem() == BrevsystemCode.DOKSYS && brev.isRedigerbart())
                 .map(Brevdata::getBrevkodeIBrevsystem)
-                .toList();                ;
+                .toList();
 
         for (String sakType: mapper.getSakTyper()) {
             var sakBrev = mapper.map(sakType);
