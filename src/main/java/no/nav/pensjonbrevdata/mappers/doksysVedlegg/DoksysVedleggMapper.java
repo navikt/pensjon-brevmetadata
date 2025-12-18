@@ -4,32 +4,16 @@ import no.nav.pensjonbrevdata.model.DoksysVedlegg;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class DoksysVedleggMapper {
     private final DoksysVedleggMap vedleggMap = new DoksysVedleggMap();
 
-    private static final DoksysVedlegg gamleVedlegg8 = new DoksysVedlegg(
-            "AFP_PRIV_MND_UTB_V1",
-            "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1",
-            "V00008",
-            "00001");
-
-
     public Supplier<List<DoksysVedlegg>> map(String... vedleggCodes) {
         return () -> {
-            Map<String, DoksysVedlegg> filtrertVedleggMap = vedleggMap.get().entrySet().stream().
-                    collect(
-                            Collectors.toMap(
-                                    Map.Entry::getKey,
-                                    entry -> entry.getKey().equals("AFP_PRIV_MND_UTB_V1") ? gamleVedlegg8 : entry.getValue()
-                            )
-                    );
             List<DoksysVedlegg> vedleggList = new ArrayList<>();
             for (String vedleggCode : vedleggCodes) {
-                vedleggList.add(filtrertVedleggMap.get(vedleggCode));
+                vedleggList.add(vedleggMap.get().get(vedleggCode));
             }
             return vedleggList;
         };
