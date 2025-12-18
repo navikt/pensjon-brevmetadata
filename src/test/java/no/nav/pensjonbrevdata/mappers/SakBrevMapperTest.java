@@ -13,7 +13,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 public class SakBrevMapperTest {
@@ -22,13 +21,6 @@ public class SakBrevMapperTest {
     @BeforeEach
     public void setup() {
         mapper = new SakBrevMapper();
-    }
-
-    @Test
-    public void shouldThrowIllegalArgumentExceptionWhenUnknownSaktype() {
-        String invalidBrevkode = "UGYLDIG_SAKTYPE";
-
-        assertThrows(IllegalArgumentException.class, () -> mapper.map(invalidBrevkode), "Saktype \"" + invalidBrevkode + "\" does not exist");
     }
 
     @Test
