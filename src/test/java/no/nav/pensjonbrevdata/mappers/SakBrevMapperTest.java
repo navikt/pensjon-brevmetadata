@@ -1,13 +1,10 @@
 package no.nav.pensjonbrevdata.mappers;
 
-import io.getunleash.FakeUnleash;
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMap;
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,12 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ExtendWith(MockitoExtension.class)
 public class SakBrevMapperTest {
     private SakBrevMapper mapper;
-    private static final FakeUnleash fakeUnleash = new FakeUnleash();
-
-    @BeforeAll
-    public static void setFakeUnleash() {
-        UnleashProvider.initialize(fakeUnleash);
-    }
 
     @BeforeEach
     public void setup() {
@@ -41,8 +32,7 @@ public class SakBrevMapperTest {
     }
 
     @Test
-    public void kunInfoP1ErInkludertNaarFjernRedigerbareDoksysbrevToggleErAktiv() {
-        fakeUnleash.enable("pensjonsbrev.fjernRedigerbareDoksysbrev");
+    public void kunInfoP1ErInkludertAvRedigerbareDoksysbrev() {
         var brevdataMapper = new BrevdataMapper();
 
         var alleRedigerBareDoksysBrev = brevdataMapper.getAllBrevAsList().stream()

@@ -3,7 +3,6 @@ package no.nav.pensjonbrevdata.mappers.sakBrev;
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,15 +18,13 @@ public class SakBrevMapper {
     public List<String> map(String saktype) {
         Set<String> koder = mapIgnoreFeatureToggle(saktype).stream().filter(brevKode -> !brevKode.equals("AFP_INNV_MAN")).collect(Collectors.toSet());
 
-        if (UnleashProvider.toggle("pensjonsbrev.fjernRedigerbareDoksysbrev").isEnabled()) {
-            koder.removeAll(brevdataMapper.getAllBrevAsList()
-                    .stream()
-                    .filter(kode -> kode.getBrevsystem() == BrevsystemCode.DOKSYS)
-                    .filter(kode -> !kode.getBrevkodeIBrevsystem().equals("INFO_P1"))
-                    .filter(Brevdata::isRedigerbart)
-                    .map(Brevdata::getBrevkodeIBrevsystem)
-                    .collect(Collectors.toSet()));
-        }
+        koder.removeAll(brevdataMapper.getAllBrevAsList()
+                .stream()
+                .filter(kode -> kode.getBrevsystem() == BrevsystemCode.DOKSYS)
+                .filter(kode -> !kode.getBrevkodeIBrevsystem().equals("INFO_P1"))
+                .filter(Brevdata::isRedigerbart)
+                .map(Brevdata::getBrevkodeIBrevsystem)
+                .collect(Collectors.toSet()));
         return new ArrayList<>(koder);
     }
 
