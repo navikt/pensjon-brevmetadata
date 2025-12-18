@@ -9,14 +9,11 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.ERSTATT_AFP_PRIV_MND_UTB_V1;
-import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
-
 public class DoksysVedleggMapper {
     private final DoksysVedleggMap vedleggMap = new DoksysVedleggMap();
 
-    private static Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> brevdataErstattMedGammeltVedlegg(String togglekey, String toggleVedleggkode, DoksysVedlegg gammeltVedlegg) {
-        return vedleggMap -> toggle(togglekey).isEnabled() ? vedleggMap : vedleggMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals(toggleVedleggkode) ? gammeltVedlegg : entry.getValue()));
+    private static Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> brevdataErstattMedGammeltVedlegg() {
+        return vedleggMap -> vedleggMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals("AFP_PRIV_MND_UTB_V1") ? gamleVedlegg8 : entry.getValue()));
     }
 
     private static final DoksysVedlegg gamleVedlegg8 = new DoksysVedlegg(
@@ -27,7 +24,7 @@ public class DoksysVedleggMapper {
 
 
     private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap =
-            brevdataErstattMedGammeltVedlegg(ERSTATT_AFP_PRIV_MND_UTB_V1, "AFP_PRIV_MND_UTB_V1", gamleVedlegg8);
+            brevdataErstattMedGammeltVedlegg();
 
     public Supplier<List<DoksysVedlegg>> map(String... vedleggCodes) {
         return () -> {
