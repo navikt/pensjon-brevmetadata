@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -31,9 +30,9 @@ public class SakBrevMapper {
     );
 
     public List<String> map(String saktype) {
-        return filtrerUtRedigerbareDoksysbrev(
-                applyTogglesForAddedBrevkoder(mapIgnoreFeatureToggle(saktype))
-        );
+        var applied = mapIgnoreFeatureToggle(saktype).stream().filter(brevKode -> !brevKode.equals("AFP_INNV_MAN")).collect(toList());
+
+        return filtrerUtRedigerbareDoksysbrev(applied);
     }
 
     public List<String> mapIgnoreFeatureToggle(String saktype) {
@@ -46,16 +45,6 @@ public class SakBrevMapper {
 
     public Set<String> getSakTyper() {
         return new HashSet<>(sakToBrevMap.keySet());
-    }
-
-    /**
-     * Filtrerer bort "nye" brevkoder basert på feature toggles, altså brevkoder som skal legges til, men ikke nødvendigvis skal være synlige i alle miljø enda.
-     *
-     * @param brevkoder Liste som brevkoder i deaktiverte features skal fjernes fra.
-     * @return Liste uten brevkoder i deaktiverte features.
-     */
-    private List<String> applyTogglesForAddedBrevkoder(List<String> brevkoder) {
-        return brevkoder.stream().filter(brevKode -> Optional.ofNullable(addedBrevkoder.get(brevKode)).map(UnleashProvider.Toggle::isEnabled).orElse(true)).collect(toList());
     }
 
     private List<String> filtrerUtRedigerbareDoksysbrev(List<String> brevkoder) {
