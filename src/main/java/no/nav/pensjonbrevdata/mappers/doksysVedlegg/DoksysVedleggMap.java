@@ -1,7 +1,6 @@
 package no.nav.pensjonbrevdata.mappers.doksysVedlegg;
 
 import no.nav.pensjonbrevdata.model.DoksysVedlegg;
-import no.nav.pensjonbrevdata.model.DoksysVedleggV2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,8 +9,8 @@ class DoksysVedleggMap {
 
     private final Map<String, DoksysVedlegg> vedleggMap;
 
-    Map<String, DoksysVedlegg> get() {
-        return vedleggMap;
+    DoksysVedlegg get(String kode) {
+        return vedleggMap.get(kode);
     }
 
     DoksysVedleggMap() {
