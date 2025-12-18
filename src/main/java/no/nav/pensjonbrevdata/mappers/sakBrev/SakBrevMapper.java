@@ -16,7 +16,7 @@ public class SakBrevMapper {
     private final BrevdataMapper brevdataMapper = new BrevdataMapper();
 
     public List<String> map(String saktype) {
-        Set<String> koder = mapIgnoreFeatureToggle(saktype).stream().filter(brevKode -> !brevKode.equals("AFP_INNV_MAN")).collect(Collectors.toSet());
+        Set<String> koder = sakToBrevMap.get(saktype).stream().filter(brevKode -> !brevKode.equals("AFP_INNV_MAN")).collect(Collectors.toSet());
 
         koder.removeAll(brevdataMapper.getAllBrevAsList()
                 .stream()
@@ -26,13 +26,5 @@ public class SakBrevMapper {
                 .map(Brevdata::getBrevkodeIBrevsystem)
                 .collect(Collectors.toSet()));
         return new ArrayList<>(koder);
-    }
-
-    public List<String> mapIgnoreFeatureToggle(String saktype) {
-        if (sakToBrevMap.containsKey(saktype)) {
-            return sakToBrevMap.get(saktype);
-        } else {
-            throw new IllegalArgumentException("Saktype \"" + saktype + "\" does not exist");
-        }
     }
 }
