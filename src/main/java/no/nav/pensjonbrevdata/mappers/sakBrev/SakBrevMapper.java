@@ -7,7 +7,6 @@ import no.nav.pensjonbrevdata.unleash.UnleashProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -38,9 +37,5 @@ public class SakBrevMapper {
         } else {
             throw new IllegalArgumentException("Saktype \"" + saktype + "\" does not exist");
         }
-    }
-
-    public Set<String> getSakTyper() {
-        return new HashSet<>(sakToBrevMap.keySet());
     }
 }
