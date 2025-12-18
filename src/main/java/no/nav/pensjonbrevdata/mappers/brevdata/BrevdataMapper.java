@@ -9,20 +9,13 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AFP_INNV_MAN;
-import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
-
 @Service
 public class BrevdataMapper {
 
     private final BrevdataMap brevMap = new BrevdataMap();
 
-    private static Function<Map<String, Brevdata>, Map<String, Brevdata>> brevdataFiltrerBortNyttBrev(String togglekey, String toggleBrevkode) {
-        return brevMap -> toggle(togglekey).isEnabled() ? brevMap : brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals(toggleBrevkode)).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
-
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
-            brevdataFiltrerBortNyttBrev(BRUK_AFP_INNV_MAN, "AFP_INNV_MAN");
+            brevMap -> brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals("AFP_INNV_MAN")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     public Brevdata map(String brevkode) {
         Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap.get());
