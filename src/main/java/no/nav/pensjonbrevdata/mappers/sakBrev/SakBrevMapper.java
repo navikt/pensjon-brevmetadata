@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
 import static no.nav.pensjonbrevdata.config.BrevdataFeature.BRUK_AFP_INNV_MAN;
 import static no.nav.pensjonbrevdata.unleash.UnleashProvider.toggle;
 
@@ -30,9 +29,18 @@ public class SakBrevMapper {
     );
 
     public List<String> map(String saktype) {
-        var applied = mapIgnoreFeatureToggle(saktype).stream().filter(brevKode -> !brevKode.equals("AFP_INNV_MAN")).collect(toList());
+        Set<String> koder = mapIgnoreFeatureToggle(saktype).stream().filter(brevKode -> !brevKode.equals("AFP_INNV_MAN")).collect(Collectors.toSet());
 
-        return filtrerUtRedigerbareDoksysbrev(applied);
+        if (UnleashProvider.toggle("pensjonsbrev.fjernRedigerbareDoksysbrev").isEnabled()) {
+            koder.removeAll(brevdataMapper.getAllBrevAsList()
+                    .stream()
+                    .filter(kode -> kode.getBrevsystem() == BrevsystemCode.DOKSYS)
+                    .filter(kode -> !kode.getBrevkodeIBrevsystem().equals("INFO_P1"))
+                    .filter(Brevdata::isRedigerbart)
+                    .map(Brevdata::getBrevkodeIBrevsystem)
+                    .collect(Collectors.toSet()));
+        }
+        return new ArrayList<>(koder);
     }
 
     public List<String> mapIgnoreFeatureToggle(String saktype) {
@@ -45,19 +53,5 @@ public class SakBrevMapper {
 
     public Set<String> getSakTyper() {
         return new HashSet<>(sakToBrevMap.keySet());
-    }
-
-    private List<String> filtrerUtRedigerbareDoksysbrev(List<String> brevkoder) {
-        Set<String> koder = new HashSet<>(brevkoder);
-        if (UnleashProvider.toggle("pensjonsbrev.fjernRedigerbareDoksysbrev").isEnabled()) {
-            koder.removeAll(brevdataMapper.getAllBrevAsList()
-                    .stream()
-                    .filter(kode -> kode.getBrevsystem() == BrevsystemCode.DOKSYS)
-                    .filter(kode -> !kode.getBrevkodeIBrevsystem().equals("INFO_P1"))
-                    .filter(Brevdata::isRedigerbart)
-                    .map(Brevdata::getBrevkodeIBrevsystem)
-                    .collect(Collectors.toSet()));
-        }
-        return new ArrayList<>(koder);
     }
 }
