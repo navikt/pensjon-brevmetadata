@@ -149,8 +149,4 @@ public class BrevdataEndpoint {
     public Set<String> getBrevTypeCode() {
         return BrevMetaData.getBrevTypeCodes();
     }
-
-    public void setProvider(BrevdataProvider provider) {
-        this.provider = provider;
-    }
 }
