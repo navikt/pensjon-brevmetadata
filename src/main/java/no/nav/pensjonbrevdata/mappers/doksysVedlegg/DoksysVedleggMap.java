@@ -71,7 +71,7 @@ class DoksysVedleggMap {
                         "V00007",
                         "00001"));
         vedleggMap.put("AFP_PRIV_MND_UTB_V1",
-                new DoksysVedleggV2(
+                new DoksysVedlegg(
                         "AFP_PRIV_MND_UTB_V1",
                         "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1",
                         "V00008",
