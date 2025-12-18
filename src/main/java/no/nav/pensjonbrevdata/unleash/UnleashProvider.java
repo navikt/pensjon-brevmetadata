@@ -18,11 +18,6 @@ public class UnleashProvider {
     }
 
     public record Toggle(String toggle) {
-
-        public boolean isDisabled() {
-            return !unleash.isEnabled(toggle);
-        }
-
         public boolean isEnabled() {
             return unleash.isEnabled(toggle);
         }
