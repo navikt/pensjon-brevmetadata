@@ -67,55 +67,6 @@
   "utland" : "UTLAND",
   "visIPselv" : true
 }, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_GJRETT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - endring ved gjenlevenderett",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000126",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger om avdøde brukt i beregningen.",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00006",
-    "vedleggkode" : "AP_AVDOD_OPPL_BER_V1"
-  } ],
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr002",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_AP_04_901",
@@ -131,55 +82,6 @@
   "sprak" : [ "EN", "NB" ],
   "synligForVeileder" : null,
   "utland" : "UTLAND",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_GRAD_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - endring av uttaksgrad",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000100",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen endret uttaksgrad. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00005",
-    "vedleggkode" : "AP_OPPL_BER_END_V1"
-  } ],
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr002",
@@ -386,27 +288,6 @@
   "utland" : "ALLTID",
   "visIPselv" : true
 }, {
-  "brevkategori" : "VARSEL",
-  "brevkodeIBrevsystem" : "VARSEL_REVURD",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Varsel - revurdering av pensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000156",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "vedleggListe" : null,
-  "visIPselv" : null
-}, {
   "brevgruppe" : "brevgr001",
   "brevkategori" : "INFORMASJON",
   "brevkodeIBrevsystem" : "PE_IY_03_162",
@@ -422,27 +303,6 @@
   "sprak" : [ "EN", "NB" ],
   "synligForVeileder" : null,
   "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "AP_INFO_STID_MAN",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : null,
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Informasjon om saksbehandlingstid",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000130",
-  "prioritet" : 3,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : true,
-  "utland" : null,
-  "vedleggListe" : null,
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr001",
@@ -717,41 +577,6 @@
   "utland" : "UTLAND",
   "visIPselv" : true
 }, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_INST_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - endring ved institusjonsopphold",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000122",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 4",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00007",
-    "vedleggkode" : "AP_MND_UTB_V4"
-  } ],
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr001",
   "brevkategori" : "INFORMASJON",
   "brevkodeIBrevsystem" : "PE_IY_05_041",
@@ -854,69 +679,6 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_AVSL_GJRETT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - avslag på gjenlevenderett i alderspensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000152",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Rettigheter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00001",
-    "vedleggkode" : "RETTIGH_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  } ],
-  "visIPselv" : null
-}, {
-  "brevkategori" : "INNHENTE_OPPL",
-  "brevkodeIBrevsystem" : "HENT_INFO_MAN",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Innhenting av opplysninger/dokumentasjon",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000133",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "vedleggListe" : null,
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr001",
   "brevkategori" : "VARSEL",
   "brevkodeIBrevsystem" : "PE_IY_03_180",
@@ -949,97 +711,6 @@
   "sprak" : [ "NB", "EN", "FR", "SE", "NN" ],
   "synligForVeileder" : true,
   "utland" : "NASJONALT",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_STANS_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - endring av uttaksgrad (stans)",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000101",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Rettigheter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00001",
-    "vedleggkode" : "RETTIGH_V1"
-  } ],
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_INNV_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - innvilgelse av alderspensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000092",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00004",
-    "vedleggkode" : "AP_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. AP2025",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00011",
-    "vedleggkode" : "AP2025_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger om avdøde brukt i beregningen.",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00006",
-    "vedleggkode" : "AP_AVDOD_OPPL_BER_V1"
-  } ],
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr002",
@@ -1110,48 +781,6 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_OPPH_FT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - opphør av forsørgingstillegg",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000147",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  } ],
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr001",
   "brevkategori" : "OVRIG",
   "brevkodeIBrevsystem" : "PE_IY_05_006",
@@ -1167,62 +796,6 @@
   "sprak" : [ "EN", "NB" ],
   "synligForVeileder" : null,
   "utland" : "NASJONALT",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_OPPTJ_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - endring av alderspensjon fordi opptjening er endret",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000119",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00004",
-    "vedleggkode" : "AP_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. AP2025",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00011",
-    "vedleggkode" : "AP2025_OPPL_BER_V1"
-  } ],
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr001",
@@ -1274,76 +847,6 @@
   "sprak" : [ "EN", "NB" ],
   "synligForVeileder" : null,
   "utland" : "NASJONALT",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_FLYTT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - endring av alderspensjon ved flytting mellom land",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000117",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00004",
-    "vedleggkode" : "AP_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. AP2025",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00011",
-    "vedleggkode" : "AP2025_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger om avdøde brukt i beregningen.",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00006",
-    "vedleggkode" : "AP_AVDOD_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Informasjon om medlemskap i folketrygden og rett til helsetjenester",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00009",
-    "vedleggkode" : "INFO_MEDLEM_HELSE_V1"
-  } ],
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr001",
@@ -1431,125 +934,6 @@
   "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "DOD_INFO_RETT_MAN",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Informasjon om gjenlevenderettigheter",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000069",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : null,
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_STANS_FLYTT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - stans av alderspensjon ved flytting mellom land",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000128",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Rettigheter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00001",
-    "vedleggkode" : "RETTIGH_V1"
-  }, {
-    "dekode" : "VEDLEGG: Informasjon om medlemskap i folketrygden og rett til helsetjenester",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00009",
-    "vedleggkode" : "INFO_MEDLEM_HELSE_V1"
-  } ],
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_AVSL_ENDR",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - avslag endring av uttaksgrad",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000065",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : null,
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_FT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - behandling av forsørgingstillegg",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000121",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  } ],
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr011",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_AP_04_202",
@@ -1565,55 +949,6 @@
   "sprak" : [ "NB", "EN", "NN" ],
   "synligForVeileder" : null,
   "utland" : "NASJONALT",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VARSEL",
-  "brevkodeIBrevsystem" : "VARSEL_TILBAKEBET",
-  "brevkontekst" : "ALLTID",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Varsel - tilbakekreving av feilutbetalt beløp",
-  "dokType" : "U",
-  "dokumentkategori" : "B",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000150",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "vedleggListe" : null,
-  "visIPselv" : null
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "VEDTAK_TILBAKEKREV_MIDL",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - tilbakekreving av feilutbetalt beløp",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000190",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Rettigheter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00001",
-    "vedleggkode" : "RETTIGH_V1"
-  } ],
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr004",
@@ -1682,90 +1017,6 @@
   "sprak" : [ "NB", "EN" ],
   "synligForVeileder" : null,
   "utland" : "UTLAND",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_AVSL_UTTAK",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - avslag på alderspensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000066",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : null,
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_ENDR_EPS_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - endring av alderspensjon (sivilstand)",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000102",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  } ],
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_AVSL_TIDLUTTAK",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - avslag uttak av alderspensjon før 67 år",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000064",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "ALLTID",
-  "vedleggListe" : null,
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr002",
@@ -1857,69 +1108,6 @@
   "vedleggListe" : null,
   "visIPselv" : true
 }, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_INNV_AVT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - innvilgelse av alderspensjon (trygdeavtale)",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000097",
-  "prioritet" : 1,
-  "redigerbart" : true,
-  "sprak" : [ "EN", "NN", "NB" ],
-  "synligForVeileder" : null,
-  "utland" : "UTLAND",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Orientering om rettigheter og plikter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00002",
-    "vedleggkode" : "RETTIGH_PLIKT_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00004",
-    "vedleggkode" : "AP_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger brukt i beregningen. AP2025",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00011",
-    "vedleggkode" : "AP2025_OPPL_BER_V1"
-  }, {
-    "dekode" : "VEDLEGG: Opplysninger om avdøde brukt i beregningen.",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00006",
-    "vedleggkode" : "AP_AVDOD_OPPL_BER_V1"
-  } ],
-  "visIPselv" : null
-}, {
   "brevgruppe" : "brevgr011",
   "brevkategori" : "VEDTAK",
   "brevkodeIBrevsystem" : "PE_AP_04_211",
@@ -2003,48 +1191,6 @@
   "sprak" : [ "NB", "NN" ],
   "synligForVeileder" : null,
   "utland" : "ALLTID",
-  "visIPselv" : true
-}, {
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "AP_AVSL_FT_MAN",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "OVRIGE",
-  "brevsystem" : "DOKSYS",
-  "dekode" : "Vedtak - avslag på forsørgingstillegg i alderspensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000164",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "NN", "EN" ],
-  "synligForVeileder" : true,
-  "utland" : "ALLTID",
-  "vedleggListe" : [ {
-    "dekode" : "VEDLEGG: Rettigheter. Versjon 1",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00001",
-    "vedleggkode" : "RETTIGH_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00003",
-    "vedleggkode" : "AP_MND_UTB_V1"
-  }, {
-    "dekode" : "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1\t",
-    "dokumentmal" : null,
-    "dokumentmalFelleselement" : null,
-    "dokumentmalFelleselementId" : "00001",
-    "dokumentmalId" : "V00010",
-    "vedleggkode" : "AP_MND_UTB_AP2025"
-  } ],
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr001",
