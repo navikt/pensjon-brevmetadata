@@ -12,10 +12,6 @@ import java.util.stream.Collectors;
 public class DoksysVedleggMapper {
     private final DoksysVedleggMap vedleggMap = new DoksysVedleggMap();
 
-    private static Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> brevdataErstattMedGammeltVedlegg() {
-        return vedleggMap -> vedleggMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals("AFP_PRIV_MND_UTB_V1") ? gamleVedlegg8 : entry.getValue()));
-    }
-
     private static final DoksysVedlegg gamleVedlegg8 = new DoksysVedlegg(
             "AFP_PRIV_MND_UTB_V1",
             "VEDLEGG: Dette er din månedlige pensjon før skatt. Versjon 1",
@@ -24,7 +20,7 @@ public class DoksysVedleggMapper {
 
 
     private static final Function<Map<String, DoksysVedlegg>, Map<String, DoksysVedlegg>> filtrerVedleggMap =
-            brevdataErstattMedGammeltVedlegg();
+            vedleggMap -> vedleggMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getKey().equals("AFP_PRIV_MND_UTB_V1") ? gamleVedlegg8 : entry.getValue()));
 
     public Supplier<List<DoksysVedlegg>> map(String... vedleggCodes) {
         return () -> {
