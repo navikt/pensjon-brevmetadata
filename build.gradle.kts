@@ -1,5 +1,7 @@
 plugins {
-    kotlin("jvm") version "2.3.0"
+    java
+    id("org.springframework.boot") version "4.0.1"
+    id("io.spring.dependency-management") version "1.1.7"
 }
 
 val javaTarget: String by System.getProperties()
@@ -16,7 +18,7 @@ dependencies {
     testImplementation(libs.org.springframework.boot.spring.boot.starter.webmvc.test)
     testImplementation(libs.org.skyscreamer.jsonassert)
     testImplementation(libs.junit.jupiter)
-    testImplementation(libs.junit.platform.launcher)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 group = "no.nav"
@@ -25,6 +27,9 @@ description = "pensjon-brevdata"
 
 java {
     targetCompatibility = JavaVersion.toVersion(javaTarget)
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaTarget)
+    }
 }
 
 tasks {

@@ -15,4 +15,4 @@ org-springframework-boot-spring-boot-starter-webmvc = { module = "org.springfram
 org-springframework-boot-spring-boot-starter-webmvc-test = { module = "org.springframework.boot:spring-boot-starter-webmvc-test", version.ref = "org-springframework-boot-spring-boot-starter-webmvc" }
 
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter",  version.ref = "jupiterVersion" }
-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher",  version = "jupiterVersion" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "jupiterVersion" }
