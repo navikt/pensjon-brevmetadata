@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BrevdataProvider {
@@ -23,8 +24,7 @@ public class BrevdataProvider {
     }
 
     public List<SprakCode> getSprakForBrevkode(String brevkode) {
-        Brevdata brevdata = brevdataMapper.map(brevkode);
-        return brevdata.getSprak();
+        return brevdataMapper.map(brevkode).getSprak();
     }
 
     public Brevdata getBrevForBrevkode(String brevkode) {
@@ -32,12 +32,9 @@ public class BrevdataProvider {
     }
 
     public List<Brevdata> getBrevdataForSaktype(String saktype){
-        List<Brevdata> brevList = new ArrayList<>();
-        for (String brevkode : sakBrevMapper.map(saktype)) {
-            Brevdata brevdata = brevdataMapper.map(brevkode);
-            brevList.add(brevdata);
-        }
-        return brevList;
+        return sakBrevMapper.map(saktype).stream()
+                .map(brevdataMapper::map)
+                .collect(Collectors.toList());
     }
 
     public List<String> getBrevkoderForSaktype(String saktype) {
