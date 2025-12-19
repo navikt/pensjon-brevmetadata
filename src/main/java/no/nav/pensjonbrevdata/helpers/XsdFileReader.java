@@ -20,16 +20,13 @@ public class XsdFileReader {
 
         InputStream inputStream = resource.getInputStream();
 
-        String xsd;
-
         try {
             byte[] bdata = FileCopyUtils.copyToByteArray(inputStream);
-            xsd = new String(bdata, StandardCharsets.UTF_8);
+            return new String(bdata, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new IOException("Failed when trying to read file on path " + resourcePath);
         } finally {
             IOUtils.closeQuietly(inputStream);
         }
-        return xsd;
     }
 }
