@@ -1,7 +1,9 @@
 plugins {
     java
+    kotlin("jvm") version libs.versions.kotlinVersion
     id("org.springframework.boot") version "4.0.1"
     id("io.spring.dependency-management") version "1.1.7"
+    kotlin("plugin.spring") version "2.3.0"
 }
 
 val javaTarget: String by System.getProperties()
@@ -19,6 +21,7 @@ dependencies {
     testImplementation(libs.org.skyscreamer.jsonassert)
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly(libs.junit.platform.launcher)
+    implementation(kotlin("stdlib"))
 }
 
 group = "no.nav"
