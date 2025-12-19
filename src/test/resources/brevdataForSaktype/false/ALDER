@@ -662,23 +662,6 @@
   "utland" : "UTLAND",
   "visIPselv" : true
 }, {
-  "brevgruppe" : "brevgr003",
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "PE_AP_04_010",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GG",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Vedtak - avslag på alderspensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "EN", "NB", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "NASJONALT",
-  "visIPselv" : true
-}, {
   "brevgruppe" : "brevgr001",
   "brevkategori" : "VARSEL",
   "brevkodeIBrevsystem" : "PE_IY_03_180",
@@ -1106,23 +1089,6 @@
   "synligForVeileder" : null,
   "utland" : "UTLAND",
   "vedleggListe" : null,
-  "visIPselv" : true
-}, {
-  "brevgruppe" : "brevgr011",
-  "brevkategori" : "VEDTAK",
-  "brevkodeIBrevsystem" : "PE_AP_04_211",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : "GN",
-  "brevsystem" : "GAMMEL",
-  "dekode" : "Vedtak - avslag på alderspensjon",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "EN", "NN" ],
-  "synligForVeileder" : null,
-  "utland" : "NASJONALT",
   "visIPselv" : true
 }, {
   "brevgruppe" : "brevgr011",
