@@ -34,8 +34,6 @@ spec:
       destinations:
         - id: elastic
         - id: loki
-  envFrom:
-    - secret: {{ application }}-unleash-api-token
   env:
     - name: ENVIRONMENT_NAME
       value: {{ environmentname }}
@@ -47,6 +45,3 @@ spec:
               namespace: {{app.namespace}}
               cluster: {{app.cluster}}
         {{/each}}
-    outbound:
-      external:
-        - host: teampensjon-unleash-api.nav.cloud.nais.io

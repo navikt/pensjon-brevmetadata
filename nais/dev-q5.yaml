@@ -27,6 +27,3 @@ inboundRules:
   - name: pensjon-testdata-server-q5
     namespace: pensjontestdata
     cluster: dev-fss
-
-# used for unleash-api-token.yaml
-unleashEnvironment: "development"

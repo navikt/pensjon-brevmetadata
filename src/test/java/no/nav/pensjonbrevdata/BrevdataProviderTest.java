@@ -1,14 +1,10 @@
 package no.nav.pensjonbrevdata;
 
-import io.getunleash.FakeUnleash;
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
-import no.nav.pensjonbrevdata.model.Doksysbrev;
 import no.nav.pensjonbrevdata.model.GammeltBrev;
 import no.nav.pensjonbrevdata.model.codes.*;
-import no.nav.pensjonbrevdata.unleash.UnleashProvider;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,26 +23,13 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class BrevdataProviderTest {
-    static private final FakeUnleash unleash = new FakeUnleash();
-
     @Mock
     private BrevdataMapper brevdataMapperMock;
 
     @Mock
     private SakBrevMapper sakBrevMapperMock;
 
-    @Mock
-    private Doksysbrev doksysbrevMock;
-
-    @Mock
-    private GammeltBrev gammeltBrevMock;
-
     private BrevdataProvider provider;
-
-    @BeforeAll
-    static public void setupForAll() {
-        UnleashProvider.initialize(unleash);
-    }
 
     @BeforeEach
     public void setup() {

@@ -24,6 +24,3 @@ inboundRules:
   - name: pensjon-pselv-borger-q0
     namespace: pensjon-q0
     cluster: dev-gcp
-
-# used for unleash-api-token.yaml
-unleashEnvironment: "production"

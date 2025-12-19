@@ -3,5 +3,3 @@ include::BrevdataEndpoint.adoc[]
 include::PensjonBrevdataMapper.adoc[]
 
 //include::model/Model.adoc[]
-
-include::unleash.adoc[]
