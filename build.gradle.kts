@@ -26,7 +26,6 @@ version = "0.0.1-SNAPSHOT"
 description = "pensjon-brevdata"
 
 java {
-    targetCompatibility = JavaVersion.toVersion(javaTarget)
     toolchain {
         languageVersion = JavaLanguageVersion.of(javaTarget)
     }
