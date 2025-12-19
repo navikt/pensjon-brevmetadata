@@ -1,4 +1,4 @@
-FROM gcr.io/distroless/java21
+FROM gcr.io/distroless/java25
 WORKDIR /app
 COPY target/pensjon-brevdata.jar ./
 EXPOSE 8080
