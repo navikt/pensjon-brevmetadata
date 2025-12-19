@@ -8,19 +8,19 @@ Applikasjonen eksponerer følgende tjenester:
 
 | sprakForBrevkode
 | Henter alle språk til en gitt brevkode
-|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/sprakForBrevkode/{brevkode}"
+|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/sprakForBrevkode/+{brevkode}+"
 
 |brevForBrevkode
 | Henter brevinformasjon om gitt brevkode. Dette inkluderer xsd.
-|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevForBrevkode/{brevkode}"
+|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevForBrevkode/+{brevkode}+"
 
 |brevdataForSaktype
 | Henter ut en liste med informasjon om brev for en gitt saktype
-|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevdataForSaktype/{saktype}"
+|"https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevdataForSaktype/+{saktype}+"
 
 |brevkoderForSaktype
 | Henter ut en liste med brevkoder for en gitt saktype
-| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevkoderForSaktype/{saktype}"
+| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevkoderForSaktype/+{saktype}+"
 
 |allBrev
 | Henter ut en liste med alle brev i brevmappet/applikasjonen.
@@ -30,6 +30,6 @@ Hvis det er ønsket å få med xsd i output kan det spesifiseres med input "_inc
 |brevKeyForBrevkodeIBrevsystem
 | Henter ut brevkey for en gitt brevkode.
 _brevKey_ er identifikatoren som brukes i bestilling brev.
-| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}"
+| "https://pensjon-brevdata.nais.preprod.local/api/brevdata/brevKeyForBrevkodeIBrevsystem/+{brevkodeIBrevsystem}+"
 
 |===

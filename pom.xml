@@ -16,9 +16,6 @@
 
     <properties>
         <java.version>21</java.version>
-        <asciidoctor-maven-plugin.version>3.2.0</asciidoctor-maven-plugin.version>
-        <asciidoctorj-diagram.version>3.0.1</asciidoctorj-diagram.version>
-        <graphviz-java.version>0.18.1</graphviz-java.version>
         <springdoc.version>3.0.0</springdoc.version>
     </properties>
 
@@ -66,51 +63,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-            <plugin>
-                <groupId>org.asciidoctor</groupId>
-                <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>${asciidoctor-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <phase>generate-resources</phase>
-                    </execution>
-                </executions>
-                <configuration>
-                    <sourceDirectory>src/</sourceDirectory>
-                    <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
-                    <doctype>book</doctype>
-                    <backend>html5</backend>
-                    <requires>asciidoctor-diagram</requires>
-                    <baseDir>src/site/asciidoc</baseDir>
-                    <attributes>
-                        <toc-title>Innholdsfortegnelse</toc-title>
-                        <important-caption>Viktig</important-caption>
-                        <tip-caption>Tips</tip-caption>
-                        <note-caption>NB</note-caption>
-                        <table-caption>Tabell</table-caption>
-                        <sectnums>true</sectnums>
-                        <linkcss>true</linkcss>
-                    </attributes>
-                </configuration>
-
-                <dependencies>
-                    <dependency>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctorj-diagram</artifactId>
-                        <version>${asciidoctorj-diagram.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>guru.nidi</groupId>
-                        <artifactId>graphviz-java</artifactId>
-                        <version>${graphviz-java.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-
         </plugins>
     </build>
 

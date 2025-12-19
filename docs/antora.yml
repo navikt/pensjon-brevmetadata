@@ -1,0 +1,5 @@
+name: docs
+version: true
+title: Pensjon-brevmetadata
+nav:
+    - modules/ROOT/samleside.adoc
