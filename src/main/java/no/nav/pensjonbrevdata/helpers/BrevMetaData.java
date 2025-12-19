@@ -9,8 +9,7 @@ import java.util.stream.Collectors;
 public class BrevMetaData {
 
     public static Set<String> getBrevTypeCodes() {
-        BrevdataMapper mapper = new BrevdataMapper();
-        return mapper.getAllBrevAsList().stream()
+        return new BrevdataMapper().getAllBrevAsList().stream()
                 .map(Brevdata::getBrevkodeIBrevsystem)
                 .collect(Collectors.toSet());
     }
