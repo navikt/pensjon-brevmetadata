@@ -1,6 +1,8 @@
 package no.nav.pensjonbrevdata.mappers.brevdata;
 
 import no.nav.pensjonbrevdata.model.Brevdata;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.stream.Collectors;
 public class BrevdataMapper {
 
     private final BrevdataMap brevMap = new BrevdataMap();
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevMap -> brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals("AFP_INNV_MAN")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
@@ -33,7 +36,8 @@ public class BrevdataMapper {
         for (Brevdata brevdataCallable : filtrertBrevMap.values()) {
             try {
                 brevdataList.add(brevdataCallable);
-            } catch (IllegalArgumentException ignored) {
+            } catch (IllegalArgumentException e) {
+                logger.info("Illegal argument i getAllBrevAsList", e);
             }
         }
         return brevdataList;
@@ -48,7 +52,8 @@ public class BrevdataMapper {
                 if (filtrertBrevMap.get(key).getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
                     brevkeys.add(key);
                 }
-            } catch (IllegalArgumentException ignored) {
+            } catch (IllegalArgumentException e) {
+                logger.info("Illegal argument i getBrevKeysForBrevkodeIBrevsystem", e);
             }
         }
         return brevkeys;
