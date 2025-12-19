@@ -1,12 +1,11 @@
-package no.nav.pensjonbrevdata;
+package no.nav.pensjonbrevdata
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
-public class PensjonBrevdataApplication {
+class PensjonBrevdataApplication
 
-    public static void main(String[] args) {
-        SpringApplication.run(PensjonBrevdataApplication.class, args);
-    }
+fun main(args: Array<String>) {
+    runApplication<PensjonBrevdataApplication>(*args)
 }
