@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class BrevdataMapper {
 
     private final BrevdataMap brevMap = new BrevdataMap();
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
             brevMap -> brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals("AFP_INNV_MAN")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
