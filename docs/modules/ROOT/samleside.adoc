@@ -1,0 +1,4 @@
+* xref:index.adoc[Startside]
+** xref:BrevdataEndpoint.adoc[Brevbaker-endepunkt]
+** xref:PensjonBrevdataMapper.adoc[Mapping av brev og vedlegg]
+** xref:adr/antoraADR.adoc[ADR for Antora]

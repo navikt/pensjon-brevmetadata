@@ -1,6 +1,4 @@
-= Pensjon Brevdata
-Pesys
-:toc: left
+= Pensjon brevmetadata
 :toclevels: 2
 :doctype: book
 :revnumber: 1.0
@@ -8,9 +6,6 @@ Pesys
 :revremark: Første utkast av {doctitle}
 :version-label!:
 
-:sectnums:
-
-:sectnumlevels: 3
 
 :dir: ../
 
@@ -23,6 +18,6 @@ Applikasjonen inneholder tjenester for å hente ut denne informasjonen.
 
 Det er videre lagt til ADR for å støtte om beslutninger som er under vurdering eller forslag til applikasjonen.
 
-include::samleside.adoc[]
-
-include::adr/antoraADR.adoc[]
+** xref:BrevdataEndpoint.adoc[Brevbaker-endepunkt]
+** xref:PensjonBrevdataMapper.adoc[Mapping av brev og vedlegg]
+** xref:adr/antoraADR.adoc[ADR for Antora]
