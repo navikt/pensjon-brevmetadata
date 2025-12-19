@@ -1,7 +1,6 @@
 package no.nav.pensjonbrevdata.mappers;
 
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
-import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMap;
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
 import no.nav.pensjonbrevdata.model.Brevdata;
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
@@ -32,7 +31,7 @@ public class SakBrevMapperTest {
                 .map(Brevdata::getBrevkodeIBrevsystem)
                 .toList();
 
-        for (String sakType: new SakBrevMap().keySet()) {
+        for (String sakType: mapper.keySet()) {
             var sakBrev = mapper.map(sakType);
 
             // ingen redigerbare doksysbrev blir returnert for sak, bortsett fra "INFO_P1"
