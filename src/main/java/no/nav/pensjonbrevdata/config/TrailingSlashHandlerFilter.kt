@@ -3,10 +3,8 @@ package no.nav.pensjonbrevdata.config
 import jakarta.servlet.*
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletRequestWrapper
-import java.io.IOException
 
 class TrailingSlashHandlerFilter : Filter {
-    @Throws(IOException::class, ServletException::class)
     override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain) {
         val httpRequest = request as HttpServletRequest
         val path = httpRequest.requestURI

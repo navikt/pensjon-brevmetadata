@@ -2,7 +2,6 @@ package no.nav.pensjonbrevdata
 
 import io.prometheus.client.exporter.common.TextFormat
 import org.apache.commons.lang3.StringUtils
-import org.json.JSONException
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.skyscreamer.jsonassert.JSONParser
@@ -10,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.server.LocalServerPort
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
-import java.io.IOException
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -27,7 +25,6 @@ internal class PensjonBrevdataApplicationTests {
     }
 
     @Test
-    @Throws(IOException::class, InterruptedException::class, JSONException::class)
     fun callForAP_ENDR_OPPTJ_MAN() {
         val response = HttpClient.newHttpClient()
             .send<String?>(
@@ -44,7 +41,6 @@ internal class PensjonBrevdataApplicationTests {
     }
 
     @Test
-    @Throws(IOException::class, InterruptedException::class)
     fun includeXsdShouldOnlyAffectPerRequest() {
         val expected = getBrevdataForSaktypeResponse("KRIGSP", false).body()
         getBrevdataForSaktypeResponse("KRIGSP", true).body()
@@ -53,7 +49,6 @@ internal class PensjonBrevdataApplicationTests {
     }
 
     @Test
-    @Throws(IOException::class, InterruptedException::class)
     fun shouldReturnAsPlainTextForPrometheus() {
         val response: HttpResponse<*> = HttpClient.newHttpClient()
             .send<String?>(
@@ -74,7 +69,6 @@ internal class PensjonBrevdataApplicationTests {
     }
 
     @Test
-    @Throws(IOException::class, InterruptedException::class)
     fun shouldMatchTrailingSlash() {
         val response: HttpResponse<*> = HttpClient.newHttpClient()
             .send<String?>(
@@ -94,7 +88,6 @@ internal class PensjonBrevdataApplicationTests {
         )
     }
 
-    @Throws(IOException::class, InterruptedException::class)
     private fun getBrevdataForSaktypeResponse(brevkode: String?, includeXsd: Boolean): HttpResponse<String?> {
         return HttpClient.newHttpClient().send<String?>(
             HttpRequest.newBuilder()

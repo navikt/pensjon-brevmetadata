@@ -5,7 +5,6 @@ import jakarta.servlet.http.HttpServletRequest
 import org.slf4j.MDC
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
-import java.io.IOException
 
 @Component
 @Order(1)

@@ -65,14 +65,12 @@ class KomponentTest {
     }
 
     @Test
-    @Throws(InterruptedException::class, IOException::class, JSONException::class, URISyntaxException::class)
     fun testGetAllBrev() {
         testGetAllBrev(false)
         testGetAllBrev(true)
     }
 
     @Test
-    @Throws(IOException::class, InterruptedException::class, JSONException::class)
     fun alleBrevkoderErRepresentertITest() {
         HttpClient.newHttpClient().use { client ->
             Assertions.assertEquals(
@@ -88,7 +86,6 @@ class KomponentTest {
         }
     }
 
-    @Throws(IOException::class, InterruptedException::class, URISyntaxException::class, JSONException::class)
     private fun testGetAllBrev(includeXsd: Boolean) {
         HttpClient.newHttpClient().use { client ->
             val resp: HttpResponse<String> = client.send<String>(
@@ -137,7 +134,6 @@ class KomponentTest {
         }
     }
 
-    @Throws(URISyntaxException::class, IOException::class)
     private fun loadResult(endpoint: String?, brevkode: String?, includeXsd: Boolean?): String {
         val url =
             javaClass.getResource("/" + endpoint + "/" + (if (includeXsd != null) includeXsd.toString() + "/" else "") + brevkode)
@@ -158,7 +154,6 @@ class KomponentTest {
                     .withObjectIndenter(DefaultIndenter().withLinefeed("\n"))
             )
 
-        @Throws(IOException::class)
         @JvmStatic
         fun main(args: Array<String>) {
             for (brevkode in brevkoder()) {
@@ -182,14 +177,12 @@ class KomponentTest {
             writeString("true", "allBrev", be.getAllBrev(true))
         }
 
-        @Throws(IOException::class)
         fun writeString(brevkode: String, dir: String?, toJSON: Any?) {
             val path = Path.of("src", "test", "resources", dir)
             Files.createDirectories(path)
             Files.writeString(path.resolve(brevkode), toJSON(toJSON))
         }
 
-        @Throws(JsonProcessingException::class)
         fun toJSON(`object`: Any?): CharSequence? {
             if (`object` == null) return ""
             return objectMapper.writeValueAsString(`object`)
