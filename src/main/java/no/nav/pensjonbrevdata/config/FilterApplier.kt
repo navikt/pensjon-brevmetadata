@@ -1,18 +1,17 @@
-package no.nav.pensjonbrevdata.config;
+package no.nav.pensjonbrevdata.config
 
-import jakarta.servlet.Filter;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import jakarta.servlet.Filter
+import org.springframework.boot.web.servlet.FilterRegistrationBean
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
 @Configuration
-public class FilterApplier {
-
+class FilterApplier {
     @Bean
-    public FilterRegistrationBean<Filter> trailingSlashFilter() {
-        FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new TrailingSlashHandlerFilter());
-        registrationBean.addUrlPatterns("/*");
-        return registrationBean;
+    fun trailingSlashFilter(): FilterRegistrationBean<Filter> {
+        val registrationBean = FilterRegistrationBean<Filter>()
+        registrationBean.setFilter(TrailingSlashHandlerFilter())
+        registrationBean.addUrlPatterns("/*")
+        return registrationBean
     }
 }
