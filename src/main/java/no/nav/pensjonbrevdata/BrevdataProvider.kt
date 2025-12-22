@@ -27,8 +27,6 @@ class BrevdataProvider @Autowired constructor(
 
     fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String): List<String> = brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem)
 
-    val eblanketter: MutableList<Brevdata?>
-        get() = brevdataMapper.allBrevAsList.stream()
-            .filter { brev: Brevdata? -> brev!!.dokumentkategori == DokumentkategoriCode.E_BLANKETT }
-            .toList()
+    val eblanketter: List<Brevdata>
+        get() = brevdataMapper.allBrevAsList.filter { brev -> brev.dokumentkategori == DokumentkategoriCode.E_BLANKETT }
 }

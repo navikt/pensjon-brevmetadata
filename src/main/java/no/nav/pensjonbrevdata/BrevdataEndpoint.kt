@@ -153,8 +153,8 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     }
 
     @get:GetMapping("/eblanketter")
-    val eblanketter: List<BrevdataDTO?>
-        get() = provider.eblanketter.stream().map<BrevdataDTO?> { obj: Brevdata? -> obj!!.toDTO() }.toList()
+    val eblanketter: List<BrevdataDTO>
+        get() = provider.eblanketter.map { it.toDTO() }
 
     @get:GetMapping("brevTypeCode")
     val brevTypeCode: Set<String>
