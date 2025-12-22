@@ -20,6 +20,7 @@ dependencies {
     testImplementation(libs.org.springframework.boot.spring.boot.starter.webmvc.test)
     testImplementation(libs.org.skyscreamer.jsonassert)
     testImplementation(libs.junit.jupiter)
+    testImplementation("io.mockk:mockk:1.14.7")
     testRuntimeOnly(libs.junit.platform.launcher)
     implementation(kotlin("stdlib"))
 }
