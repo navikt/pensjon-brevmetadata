@@ -27,19 +27,8 @@ class BrevdataMapper {
             return brevdataList
         }
 
-    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String?): List<String> {
-        val brevkeys: MutableList<String> = ArrayList()
-        val filtrertBrevMap: Map<String, Brevdata> = brevMap.get().filter { it.key != "AFP_INNV_MAN" }
-
-        for (key in filtrertBrevMap.keys) {
-            try {
-                if (filtrertBrevMap[key]!!.brevkodeIBrevsystem == brevkodeIBrevsystem) {
-                    brevkeys.add(key)
-                }
-            } catch (e: IllegalArgumentException) {
-                logger.info("Illegal argument i getBrevKeysForBrevkodeIBrevsystem", e)
-            }
-        }
-        return brevkeys
-    }
+    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String?): List<String> = brevMap.get()
+        .filter { it.key != "AFP_INNV_MAN" }
+        .filter { it.value.brevkodeIBrevsystem == brevkodeIBrevsystem }
+        .map { it.key }
 }
