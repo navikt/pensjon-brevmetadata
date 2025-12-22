@@ -27,7 +27,7 @@ internal class PensjonBrevdataApplicationTests {
     @Test
     fun callForAP_ENDR_OPPTJ_MAN() {
         val response = HttpClient.newHttpClient()
-            .send<String?>(
+            .send<String>(
                 HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:" + port + "/api/brevdata/brevForBrevkode/AP_ENDR_OPPTJ_MAN"))
                     .build(),
@@ -51,7 +51,7 @@ internal class PensjonBrevdataApplicationTests {
     @Test
     fun shouldReturnAsPlainTextForPrometheus() {
         val response: HttpResponse<*> = HttpClient.newHttpClient()
-            .send<String?>(
+            .send<String>(
                 HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:" + port + "/api/internal/prometheus"))
                     .build(),
@@ -71,7 +71,7 @@ internal class PensjonBrevdataApplicationTests {
     @Test
     fun shouldMatchTrailingSlash() {
         val response: HttpResponse<*> = HttpClient.newHttpClient()
-            .send<String?>(
+            .send<String>(
                 HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:" + port + "/api/brevdata/allBrev/"))
                     .build(),
@@ -88,8 +88,8 @@ internal class PensjonBrevdataApplicationTests {
         )
     }
 
-    private fun getBrevdataForSaktypeResponse(brevkode: String?, includeXsd: Boolean): HttpResponse<String?> {
-        return HttpClient.newHttpClient().send<String?>(
+    private fun getBrevdataForSaktypeResponse(brevkode: String, includeXsd: Boolean): HttpResponse<String> {
+        return HttpClient.newHttpClient().send<String>(
             HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:" + port + "/api/brevdata/brevdataForSaktype/" + brevkode + "?includeXsd=" + includeXsd))
                 .build(), HttpResponse.BodyHandlers.ofString()

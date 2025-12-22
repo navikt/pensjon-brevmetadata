@@ -8,10 +8,11 @@ import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import no.nav.pensjonbrevdata.model.Brevdata
 import no.nav.pensjonbrevdata.model.GammeltBrev
 import no.nav.pensjonbrevdata.model.codes.*
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
-import org.hamcrest.collection.IsEmptyCollection
-import org.junit.jupiter.api.Assertions
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.not
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.collection.IsEmptyCollection.empty
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -37,13 +38,10 @@ class BrevdataProviderTest {
 
         val brevkeysReturned: List<String> = provider.getBrevKeysForBrevkodeIBrevsystem("TEST")
 
-        MatcherAssert.assertThat<Int?>(brevkeysReturned.size, CoreMatchers.`is`<Int?>(2))
-        MatcherAssert.assertThat<Boolean?>(brevkeysReturned.contains("PE_AF_04_001"), CoreMatchers.`is`<Boolean?>(true))
-        MatcherAssert.assertThat<Boolean?>(
-            brevkeysReturned.contains("PE_AF_04_002"),
-            CoreMatchers.`is`<Boolean?>(false)
-        )
-        MatcherAssert.assertThat<Boolean?>(brevkeysReturned.contains("PE_AF_04_003"), CoreMatchers.`is`<Boolean?>(true))
+        assertThat(brevkeysReturned.size, `is`(2))
+        assertThat(brevkeysReturned.contains("PE_AF_04_001"), `is`(true))
+        assertThat(brevkeysReturned.contains("PE_AF_04_002"), `is`(false))
+        assertThat(brevkeysReturned.contains("PE_AF_04_003"), `is`(true))
     }
 
     @Test
@@ -71,20 +69,13 @@ class BrevdataProviderTest {
 
         val actualListOfSprakCodes = provider.getSprakForBrevkode(brevkode)
 
-        MatcherAssert.assertThat<List<SprakCode>?>(
-            actualListOfSprakCodes,
-            CoreMatchers.`is`<List<SprakCode>?>(brev.sprak)
-        )
+        assertThat(actualListOfSprakCodes, `is`<List<SprakCode>?>(brev.sprak))
     }
 
     @Test
     fun onlyEblanketterIsReturned() {
         val eblanketter = BrevdataProvider(BrevdataMapper(), sakBrevMapperMock).eblanketter
-        MatcherAssert.assertThat<List<Brevdata>>(
-            eblanketter,
-            CoreMatchers.not<Collection<Brevdata>>(IsEmptyCollection.empty<Brevdata>())
-        )
-        Assertions.assertTrue(
-            eblanketter.all { it.dokumentkategori == DokumentkategoriCode.E_BLANKETT })
+        assertThat(eblanketter, not(empty<Brevdata>()))
+        assertTrue(eblanketter.all { it.dokumentkategori == DokumentkategoriCode.E_BLANKETT })
     }
 }

@@ -25,32 +25,32 @@ class KomponentTest {
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("brevkoder")
-    fun testGetSprakForBrevkode(brevkode: String?) {
+    fun testGetSprakForBrevkode(brevkode: String) {
         testEndpoint("sprakForBrevkode", brevkode, "brevkode")
     }
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("brevkoder")
-    fun testGetBrevForBrevkode(brevkode: String?) {
+    fun testGetBrevForBrevkode(brevkode: String) {
         testEndpoint("brevForBrevkode", brevkode, "brevkode")
     }
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("sakstyper")
-    fun testGetBrevdataForSaktype(sakstype: String?) {
+    fun testGetBrevdataForSaktype(sakstype: String) {
         testEndpoint("brevdataForSaktype", sakstype, "sakstype", false)
         testEndpoint("brevdataForSaktype", sakstype, "sakstype", true)
     }
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("sakstyper")
-    fun testGetBrevkoderForSaktype(sakstype: String?) {
+    fun testGetBrevkoderForSaktype(sakstype: String) {
         testEndpoint("brevkoderForSaktype", sakstype, "sakstype")
     }
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("brevkoderIBrevSystem")
-    fun testGetBrevKeyForBrevkodeIBrevsystem(brevkodeIBrevsystem: String?) {
+    fun testGetBrevKeyForBrevkodeIBrevsystem(brevkodeIBrevsystem: String) {
         testEndpoint("brevKeyForBrevkodeIBrevsystem", brevkodeIBrevsystem, "brevkodeIBrevsystem")
     }
 
@@ -65,7 +65,7 @@ class KomponentTest {
         HttpClient.newHttpClient().use { client ->
             Assertions.assertEquals(
                 brevkoder().size, JSONArray(
-                    client.send<String?>(
+                    client.send<String>(
                         HttpRequest.newBuilder()
                             .uri(URI.create("http://localhost:" + port + "/api/brevdata/allBrev?includeXsd=false"))
                             .build(), HttpResponse.BodyHandlers.ofString()
@@ -93,7 +93,7 @@ class KomponentTest {
         }
     }
 
-    private fun testEndpoint(endpoint: String?, kode: String?, kodeDesc: String?, includeXsd: Boolean? = null) {
+    private fun testEndpoint(endpoint: String, kode: String, kodeDesc: String, includeXsd: Boolean? = null) {
         try {
             HttpClient.newHttpClient().use { client ->
                 val resp: HttpResponse<String> = client.send<String>(
@@ -124,7 +124,7 @@ class KomponentTest {
         }
     }
 
-    private fun loadResult(endpoint: String?, brevkode: String?, includeXsd: Boolean?): String {
+    private fun loadResult(endpoint: String, brevkode: String, includeXsd: Boolean?): String {
         val url =
             javaClass.getResource("/" + endpoint + "/" + (if (includeXsd != null) includeXsd.toString() + "/" else "") + brevkode)
         if (url == null) throw RuntimeException(endpoint + "-resultat ikke funnet for kode: " + brevkode)
