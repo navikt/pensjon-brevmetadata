@@ -6,7 +6,7 @@ mockkVersion = "1.14.7"
 net-logstash-logback-logstash-logback-encoder = "9.0"
 org-skyscreamer-jsonassert = "1.5.3"
 org-springdoc-springdoc-openapi-starter-webmvc-ui = "3.0.0"
-springBootVersion = "4.0.0"
+springBootVersion = "4.0.1"
 springDependencyManagementVersion = "1.1.7"
 
 [plugins]
