@@ -1,151 +1,164 @@
-package no.nav.pensjonbrevdata;
+package no.nav.pensjonbrevdata
 
-import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator;
-import static no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import no.nav.pensjonbrevdata.dto.BrevdataDTO;
-import no.nav.pensjonbrevdata.helpers.BrevMetaData;
-import no.nav.pensjonbrevdata.model.Brevdata;
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
-
-import no.nav.pensjonbrevdata.model.codes.SprakCode;
+import no.nav.pensjonbrevdata.dto.BrevdataDTO
+import no.nav.pensjonbrevdata.helpers.BrevMetaData.brevTypeCodes
+import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator
+import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator
+import no.nav.pensjonbrevdata.model.Brevdata
+import no.nav.pensjonbrevdata.model.codes.SprakCode
+import org.apache.commons.lang3.StringUtils
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
+import org.springframework.web.server.ResponseStatusException
+import java.util.function.Function
+import java.util.stream.Collectors
 
 @RestController
 @RequestMapping("api/brevdata")
-public class BrevdataEndpoint {
-    private static final Logger LOGGER = LoggerFactory.getLogger(BrevdataEndpoint.class);
-
-    private BrevdataProvider provider;
-
-    @Autowired
-    public BrevdataEndpoint(BrevdataProvider provider) {
-        this.provider = provider;
-    }
-
+class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProvider) {
     @GetMapping("/sprakForBrevkode/{brevkode}")
-    public List<SprakCode> getSprakForBrevkode(@PathVariable(value = "brevkode") String brevkode) {
+    fun getSprakForBrevkode(@PathVariable(value = "brevkode") brevkode: String?): MutableList<SprakCode?>? {
         try {
-            return provider.getSprakForBrevkode(brevkode);
-        } catch (IllegalArgumentException e) {
-            LOGGER.warn("Faulty request when calling sprakForBrevkode.", e);
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        } catch (RuntimeException e) {
-            LOGGER.error("Feil ved kall til sprakForBrevkode: " + e.getMessage() + " for kode: " + brevkode, e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+            return provider.getSprakForBrevkode(brevkode)
+        } catch (e: IllegalArgumentException) {
+            LOGGER.warn("Faulty request when calling sprakForBrevkode.", e)
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message, e)
+        } catch (e: RuntimeException) {
+            LOGGER.error("Feil ved kall til sprakForBrevkode: " + e.message + " for kode: " + brevkode, e)
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message, e)
         }
     }
 
-    @GetMapping(value = "/brevForBrevkode/{brevkode}")
-    public BrevdataDTO getBrevForBrevkode(@PathVariable(value = "brevkode") String brevkode) {
+    @GetMapping(value = ["/brevForBrevkode/{brevkode}"])
+    fun getBrevForBrevkode(@PathVariable(value = "brevkode") brevkode: String?): BrevdataDTO? {
         try {
-            return provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO();
-        } catch (IllegalArgumentException e) {
-            LOGGER.warn("Faulty request when calling brevForBrevkode.", e);
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        } catch (RuntimeException e) {
-            LOGGER.error("Feil ved kall til brevForBrevkode: " + e.getMessage() + " for kode: " + brevkode, e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+            return provider.getBrevForBrevkode(brevkode)!!.medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO()
+        } catch (e: IllegalArgumentException) {
+            LOGGER.warn("Faulty request when calling brevForBrevkode.", e)
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message, e)
+        } catch (e: RuntimeException) {
+            LOGGER.error("Feil ved kall til brevForBrevkode: " + e.message + " for kode: " + brevkode, e)
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message, e)
         }
     }
 
     @GetMapping("/brevdataForSaktype/{saktype}")
-    public List<BrevdataDTO> getBrevdataForSaktype(@PathVariable(value = "saktype") String saktype, @RequestParam(value = "includeXsd") boolean includeXsd) {
+    fun getBrevdataForSaktype(
+        @PathVariable(value = "saktype") saktype: String?,
+        @RequestParam(value = "includeXsd") includeXsd: Boolean
+    ): MutableList<BrevdataDTO?> {
         try {
-            List<Brevdata> brevdata = provider.getBrevdataForSaktype(saktype);
-            return (includeXsd ? brevdata.stream().map((brev) -> brev.medXSD(dokumentmalGenerator, fellesmalGenerator)).collect(Collectors.toUnmodifiableList()) :
-                    brevdata).stream().map(Brevdata::toDTO).collect(Collectors.toUnmodifiableList());
-        } catch (IllegalArgumentException e) {
-            LOGGER.warn("Faulty request when calling brevdataForSaktype.", e);
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        } catch (RuntimeException e) {
-            LOGGER.error("Feil ved kall til brevdataForSaktype: " + e.getMessage() + " for saktype: " + saktype, e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+            val brevdata = provider.getBrevdataForSaktype(saktype)
+            return (if (includeXsd) brevdata.stream()
+                .map<Brevdata?> { brev: Brevdata? -> brev!!.medXSD(dokumentmalGenerator, fellesmalGenerator) }.collect(
+                    Collectors.toUnmodifiableList()
+                ) else brevdata).stream().map<BrevdataDTO?> { obj: Brevdata? -> obj!!.toDTO() }.collect(
+                Collectors.toUnmodifiableList()
+            )
+        } catch (e: IllegalArgumentException) {
+            LOGGER.warn("Faulty request when calling brevdataForSaktype.", e)
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message, e)
+        } catch (e: RuntimeException) {
+            LOGGER.error("Feil ved kall til brevdataForSaktype: " + e.message + " for saktype: " + saktype, e)
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message, e)
         }
     }
 
     @GetMapping("/brevkoderForSaktype/{saktype}")
-    public List<String> getBrevkoderForSaktype(@PathVariable(value = "saktype") String saktype) {
+    fun getBrevkoderForSaktype(@PathVariable(value = "saktype") saktype: String?): MutableList<String?> {
         try {
-            return provider.getBrevkoderForSaktype(saktype);
-        } catch (IllegalArgumentException e) {
-            LOGGER.warn("Faulty request when calling brevkoderForSaktype.", e);
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        } catch (RuntimeException e) {
-            LOGGER.error("Feil ved kall til brevkoderForSaktype: " + e.getMessage() + " for saktype: " + saktype, e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+            return provider.getBrevkoderForSaktype(saktype)
+        } catch (e: IllegalArgumentException) {
+            LOGGER.warn("Faulty request when calling brevkoderForSaktype.", e)
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message, e)
+        } catch (e: RuntimeException) {
+            LOGGER.error("Feil ved kall til brevkoderForSaktype: " + e.message + " for saktype: " + saktype, e)
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message, e)
         }
     }
 
     @GetMapping("/allBrev")
-    public List<BrevdataDTO> getAllBrev(@RequestParam(value = "includeXsd", required = false) boolean includeXsd) {
+    fun getAllBrev(
+        @RequestParam(
+            value = "includeXsd",
+            required = false
+        ) includeXsd: Boolean
+    ): MutableList<BrevdataDTO?> {
         try {
-            List<Brevdata> brevdataList = provider.getAllBrev();
-            return (includeXsd ? brevdataList.stream().map((brevdata -> brevdata.medXSD(dokumentmalGenerator, fellesmalGenerator))).collect(Collectors.toUnmodifiableList()) :
-                    brevdataList).stream().map(Brevdata::toDTO).collect(Collectors.toUnmodifiableList());
-        } catch (RuntimeException e) {
-            LOGGER.error("Feil ved kall til allBrev: " + e.getMessage(), e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+            val brevdataList: List<Brevdata> = provider.allBrev
+            return (if (includeXsd) brevdataList.stream().map<Brevdata?>((Function { brevdata: Brevdata? ->
+                brevdata!!.medXSD(
+                    dokumentmalGenerator,
+                    fellesmalGenerator
+                )
+            })).collect(
+                Collectors.toUnmodifiableList()
+            ) else brevdataList).stream().map<BrevdataDTO?> { obj: Brevdata? -> obj!!.toDTO() }.collect(
+                Collectors.toUnmodifiableList()
+            )
+        } catch (e: RuntimeException) {
+            LOGGER.error("Feil ved kall til allBrev: " + e.message, e)
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message, e)
         }
     }
 
     @GetMapping("/brevForCodes")
-    public List<BrevdataDTO> getBrevForCodes(@RequestParam(value = "brevKoder") List<String> brevKoder, @RequestParam(value = "includeXsd") boolean includeXsd) {
+    fun getBrevForCodes(
+        @RequestParam(value = "brevKoder") brevKoder: MutableList<String?>,
+        @RequestParam(value = "includeXsd") includeXsd: Boolean
+    ): MutableList<BrevdataDTO?> {
         return brevKoder.stream()
-                .filter(StringUtils::isNotBlank)
-                .map(code -> provider.getBrevForBrevkode(code.trim()))
-                .map(brev -> includeXsd ? brev.medXSD(dokumentmalGenerator, fellesmalGenerator) : brev)
-                .map(Brevdata::toDTO)
-                .collect(Collectors.toUnmodifiableList());
+            .filter { cs: String? -> StringUtils.isNotBlank(cs) }
+            .map<Brevdata?> { code: String? -> provider.getBrevForBrevkode(code!!.trim { it <= ' ' }) }
+            .map<Brevdata?> { brev: Brevdata? ->
+                if (includeXsd) brev!!.medXSD(
+                    dokumentmalGenerator,
+                    fellesmalGenerator
+                ) else brev
+            }
+            .map<BrevdataDTO?> { obj: Brevdata? -> obj!!.toDTO() }
+            .collect(Collectors.toUnmodifiableList())
     }
 
     @GetMapping("/batchbBrevMapping")
-    public List<Map<String,String>> getBatchBrevMapping(@RequestParam(value = "batchBrevKoder") List<String> brevKoder) {
+    fun getBatchBrevMapping(@RequestParam(value = "batchBrevKoder") brevKoder: MutableList<String?>): MutableList<MutableMap<String?, String?>?> {
         return brevKoder.stream()
-                .filter(StringUtils::isNotBlank)
-                .map(code -> {
-                    Brevdata brev = provider.getBrevForBrevkode(code.trim());
-                    Map<String, String> map = new HashMap<>();
-                    map.put("batch", code);
-                    map.put("brev", brev.getBrevkodeIBrevsystem());
-                    return map;
-                })
-                .collect(Collectors.toUnmodifiableList());
+            .filter { cs: String? -> StringUtils.isNotBlank(cs) }
+            .map<MutableMap<String?, String?>?> { code: String? ->
+                val brev = provider.getBrevForBrevkode(code!!.trim { it <= ' ' })
+                val map: MutableMap<String?, String?> = HashMap<String?, String?>()
+                map.put("batch", code)
+                map.put("brev", brev!!.getBrevkodeIBrevsystem())
+                map
+            }
+            .collect(Collectors.toUnmodifiableList())
     }
 
     @GetMapping("/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}")
-    public List<String> getBrevKeyForBrevkodeIBrevsystem(@PathVariable(value = "brevkodeIBrevsystem") String brevkodeIBrevsystem) {
+    fun getBrevKeyForBrevkodeIBrevsystem(@PathVariable(value = "brevkodeIBrevsystem") brevkodeIBrevsystem: String): List<String> {
         try {
-            return provider.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem);
-        } catch (RuntimeException e) {
-            LOGGER.error("Feil ved kall til allBrev: " + e.getMessage() + " for brevkodeIBrevsystem " + brevkodeIBrevsystem, e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+            return provider.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem)
+        } catch (e: RuntimeException) {
+            LOGGER.error(
+                "Feil ved kall til allBrev: " + e.message + " for brevkodeIBrevsystem " + brevkodeIBrevsystem,
+                e
+            )
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message, e)
         }
     }
 
-    @GetMapping("/eblanketter")
-    public List<BrevdataDTO> getEblanketter() {
-        return provider.getEblanketter().stream().map(Brevdata::toDTO).toList();
-    }
+    @get:GetMapping("/eblanketter")
+    val eblanketter: MutableList<BrevdataDTO?>
+        get() = provider.eblanketter.stream().map<BrevdataDTO?> { obj: Brevdata? -> obj!!.toDTO() }.toList()
 
-    @GetMapping("brevTypeCode")
-    public Set<String> getBrevTypeCode() {
-        return BrevMetaData.getBrevTypeCodes();
+    @get:GetMapping("brevTypeCode")
+    val brevTypeCode: Set<String>
+        get() = brevTypeCodes
+
+    companion object {
+        private val LOGGER: Logger = LoggerFactory.getLogger(BrevdataEndpoint::class.java)
     }
 }
