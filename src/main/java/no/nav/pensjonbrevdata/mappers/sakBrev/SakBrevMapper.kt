@@ -19,7 +19,7 @@ class SakBrevMapper {
                 .asSequence()
                 .filter { kode: Brevdata? -> kode!!.brevsystem == BrevsystemCode.DOKSYS }
                 .filter { kode: Brevdata? -> kode!!.brevkodeIBrevsystem != "INFO_P1" }
-                .filter { obj: Brevdata? -> obj!!.isRedigerbart }
+                .filter { obj: Brevdata? -> obj!!.redigerbart }
                 .map { obj: Brevdata? -> obj!!.brevkodeIBrevsystem }
                 .toSet()
         )

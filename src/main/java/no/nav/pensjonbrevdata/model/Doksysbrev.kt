@@ -101,7 +101,7 @@ open class Doksysbrev(
             )
         }
         return Doksysbrev(
-            brevkodeIBrevsystem, isRedigerbart, dekode, brevkategori, dokType,
+            brevkodeIBrevsystem, redigerbart, dekode, brevkategori, dokType,
             sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori,
             synligForVeileder, brevkontekst, prioritet, vedleggListeMedXSD, dokumentmalId,
             dokumentmalFelleselementId, dokumentmal, fellesmal
@@ -111,7 +111,7 @@ open class Doksysbrev(
     override fun toDTO(): BrevdataDTO {
         return DoksysbrevDTO(
             brevkodeIBrevsystem,
-            isRedigerbart,
+            redigerbart,
             dekode,
             brevkategori,
             dokType,

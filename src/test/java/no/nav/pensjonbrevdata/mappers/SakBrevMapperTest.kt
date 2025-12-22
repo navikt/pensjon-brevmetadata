@@ -23,7 +23,7 @@ class SakBrevMapperTest {
         val brevdataMapper = BrevdataMapper()
 
         val alleRedigerBareDoksysBrev = brevdataMapper.allBrevAsList.stream()
-            .filter { brev: Brevdata? -> brev!!.brevsystem == BrevsystemCode.DOKSYS && brev.isRedigerbart }
+            .filter { brev: Brevdata? -> brev!!.brevsystem == BrevsystemCode.DOKSYS && brev.redigerbart }
             .map<String?>(Brevdata::brevkodeIBrevsystem)
             .toList()
 

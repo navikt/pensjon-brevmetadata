@@ -59,7 +59,7 @@ class DoksysbrevV2(
             )
         }
         return Doksysbrev(
-            brevkodeIBrevsystem, isRedigerbart, dekode, brevkategori, dokType,
+            brevkodeIBrevsystem, redigerbart, dekode, brevkategori, dokType,
             sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori,
             synligForVeileder, brevkontekst, prioritet, vedleggListeMedXSD, dokumentmalId,
             dokumentmalFelleselementId, dokumentmal, fellesmal
