@@ -69,7 +69,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     }
 
     @GetMapping("/brevkoderForSaktype/{saktype}")
-    fun getBrevkoderForSaktype(@PathVariable(value = "saktype") saktype: String?): MutableList<String?> {
+    fun getBrevkoderForSaktype(@PathVariable(value = "saktype") saktype: String?): List<String> {
         try {
             return provider.getBrevkoderForSaktype(saktype)
         } catch (e: IllegalArgumentException) {

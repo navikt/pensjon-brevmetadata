@@ -10,7 +10,7 @@ import java.util.stream.Collectors
 class SakBrevMapper {
     private val brevdataMapper = BrevdataMapper()
 
-    fun map(saktype: String?): MutableList<String?> {
+    fun map(saktype: String?): List<String> {
         val koder = sakToBrevMap.get(saktype)!!.stream().filter { brevKode: String? -> brevKode != "AFP_INNV_MAN" }
             .collect(Collectors.toSet())
 
@@ -22,7 +22,7 @@ class SakBrevMapper {
                 .filter { obj: Brevdata? -> obj!!.isRedigerbart }
                 .map<String?> { obj: Brevdata? -> obj!!.brevkodeIBrevsystem }
                 .collect(Collectors.toSet()))
-        return ArrayList<String?>(koder)
+        return ArrayList(koder)
     }
 
     fun keySet(): Set<String> {
