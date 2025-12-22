@@ -1,9 +1,9 @@
 package no.nav.pensjonbrevdata
 
 import no.nav.pensjonbrevdata.dto.BrevdataDTO
-import no.nav.pensjonbrevdata.helpers.BrevMetaData.brevTypeCodes
 import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator
 import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
 import no.nav.pensjonbrevdata.model.Brevdata
 import no.nav.pensjonbrevdata.model.codes.SprakCode
 import org.apache.commons.lang3.StringUtils
@@ -148,7 +148,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
 
     @get:GetMapping("brevTypeCode")
     val brevTypeCode: Set<String>
-        get() = brevTypeCodes
+        get() = BrevdataMapper().allBrevAsList.map { it.brevkodeIBrevsystem }.toSet()
 
     companion object {
         private val LOGGER: Logger = LoggerFactory.getLogger(BrevdataEndpoint::class.java)
