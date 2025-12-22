@@ -1,61 +1,52 @@
-package no.nav.pensjonbrevdata.mappers.brevdata;
+package no.nav.pensjonbrevdata.mappers.brevdata
 
-import no.nav.pensjonbrevdata.model.Brevdata;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import no.nav.pensjonbrevdata.model.Brevdata
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import org.springframework.stereotype.Service
 
 @Service
-public class BrevdataMapper {
+class BrevdataMapper {
+    private val brevMap = BrevdataMap()
+    private val logger: Logger = LoggerFactory.getLogger(this.javaClass)
 
-    private final BrevdataMap brevMap = new BrevdataMap();
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    private static final Function<Map<String, Brevdata>, Map<String, Brevdata>> filtrerBrevMap =
-            brevMap -> brevMap.entrySet().stream().filter(entry -> !entry.getKey().equals("AFP_INNV_MAN")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-    public Brevdata map(String brevkode) {
-        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap.get());
+    fun map(brevkode: String?): Brevdata? {
+        val filtrertBrevMap: Map<String, Brevdata> = brevMap.get().filter { it.key != "AFP_INNV_MAN" }
         if (filtrertBrevMap.containsKey(brevkode)) {
-            return filtrertBrevMap.get(brevkode);
+            return filtrertBrevMap.get(brevkode)
         } else {
-            throw new IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist");
+            throw IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist")
         }
     }
 
-    public List<Brevdata> getAllBrevAsList() {
-        List<Brevdata> brevdataList = new ArrayList<>();
-        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap.get());
+    val allBrevAsList: MutableList<Brevdata>
+        get() {
+            val brevdataList: MutableList<Brevdata> = ArrayList<Brevdata>()
+            val filtrertBrevMap: Map<String, Brevdata> = brevMap.get().filter { it.key != "AFP_INNV_MAN" }
 
-        for (Brevdata brevdataCallable : filtrertBrevMap.values()) {
-            try {
-                brevdataList.add(brevdataCallable);
-            } catch (IllegalArgumentException e) {
-                logger.info("Illegal argument i getAllBrevAsList", e);
-            }
-        }
-        return brevdataList;
-    }
-
-    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
-        List<String> brevkeys = new ArrayList<>();
-        Map<String, Brevdata> filtrertBrevMap = filtrerBrevMap.apply(brevMap.get());
-
-        for (String key : filtrertBrevMap.keySet()) {
-            try {
-                if (filtrertBrevMap.get(key).getBrevkodeIBrevsystem().equals(brevkodeIBrevsystem)) {
-                    brevkeys.add(key);
+            for (brevdataCallable in filtrertBrevMap.values) {
+                try {
+                    brevdataList.add(brevdataCallable)
+                } catch (e: IllegalArgumentException) {
+                    logger.info("Illegal argument i getAllBrevAsList", e)
                 }
-            } catch (IllegalArgumentException e) {
-                logger.info("Illegal argument i getBrevKeysForBrevkodeIBrevsystem", e);
+            }
+            return brevdataList
+        }
+
+    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String?): List<String> {
+        val brevkeys: MutableList<String> = ArrayList<String>()
+        val filtrertBrevMap: Map<String, Brevdata> = brevMap.get().filter { it.key != "AFP_INNV_MAN" }
+
+        for (key in filtrertBrevMap.keys) {
+            try {
+                if (filtrertBrevMap.get(key)!!.getBrevkodeIBrevsystem() == brevkodeIBrevsystem) {
+                    brevkeys.add(key)
+                }
+            } catch (e: IllegalArgumentException) {
+                logger.info("Illegal argument i getBrevKeysForBrevkodeIBrevsystem", e)
             }
         }
-        return brevkeys;
+        return brevkeys
     }
 }
