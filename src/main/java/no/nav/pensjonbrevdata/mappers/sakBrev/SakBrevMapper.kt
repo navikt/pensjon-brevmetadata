@@ -1,7 +1,6 @@
 package no.nav.pensjonbrevdata.mappers.sakBrev
 
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
-import no.nav.pensjonbrevdata.model.Brevdata
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode
 import org.springframework.stereotype.Service
 import java.util.stream.Collectors
@@ -17,10 +16,10 @@ class SakBrevMapper {
         koder.removeAll(
             brevdataMapper.allBrevAsList
                 .asSequence()
-                .filter { kode: Brevdata? -> kode!!.brevsystem == BrevsystemCode.DOKSYS }
-                .filter { kode: Brevdata? -> kode!!.brevkodeIBrevsystem != "INFO_P1" }
-                .filter { obj: Brevdata? -> obj!!.redigerbart }
-                .map { obj: Brevdata? -> obj!!.brevkodeIBrevsystem }
+                .filter { it.brevsystem == BrevsystemCode.DOKSYS }
+                .filter { it.brevkodeIBrevsystem != "INFO_P1" }
+                .filter { it.redigerbart }
+                .map { it.brevkodeIBrevsystem }
                 .toSet()
         )
         return ArrayList(koder)
