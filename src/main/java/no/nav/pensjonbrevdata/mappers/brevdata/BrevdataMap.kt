@@ -15,7 +15,7 @@ internal class BrevdataMap {
     }
 
     init {
-        brevMap = HashMap<String, Brevdata>()
+        brevMap = HashMap()
         brevMap["E001"] = GammeltBrev(
             "E001",
             true,
