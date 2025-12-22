@@ -17,7 +17,7 @@ abstract class Brevdata(
     open val dokumentkategori: DokumentkategoriCode?,
     open val synligForVeileder: Boolean?,
     open val brevkontekst: BrevkontekstCode?,
-    open val brevsystem: BrevsystemCode?,
+    open val brevsystem: BrevsystemCode,
     open val prioritet: Int?
 ) {
     abstract fun medXSD(

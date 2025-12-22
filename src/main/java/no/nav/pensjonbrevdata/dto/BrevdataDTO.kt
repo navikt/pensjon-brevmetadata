@@ -17,5 +17,5 @@ interface BrevdataDTO {
     val synligForVeileder: Boolean?
     val prioritet: Int?
     val brevkodeIBrevsystem: String?
-    val brevsystem: BrevsystemCode?
+    val brevsystem: BrevsystemCode
 }

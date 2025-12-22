@@ -18,7 +18,7 @@ class DoksysbrevDTO(
     override val synligForVeileder: Boolean?,
     override val brevkontekst: BrevkontekstCode?,
     override val prioritet: Int?,
-    override val brevsystem: BrevsystemCode?,
+    override val brevsystem: BrevsystemCode,
     val vedleggListe: List<DoksysVedlegg?>?,
     val dokumentmalId: String?,
     val dokumentmalFelleselementId: String?,

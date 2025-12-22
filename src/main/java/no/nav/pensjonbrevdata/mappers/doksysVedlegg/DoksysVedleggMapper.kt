@@ -1,7 +1,6 @@
 package no.nav.pensjonbrevdata.mappers.doksysVedlegg
 
 import no.nav.pensjonbrevdata.model.DoksysVedlegg
-import java.util.Arrays
 import java.util.function.Supplier
 
 class DoksysVedleggMapper {
