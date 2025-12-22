@@ -1,90 +1,136 @@
-package no.nav.pensjonbrevdata.model;
+package no.nav.pensjonbrevdata.model
 
-import kotlin.jvm.functions.Function1;
-import no.nav.pensjonbrevdata.dto.BrevdataDTO;
-import no.nav.pensjonbrevdata.dto.DoksysbrevDTO;
-import no.nav.pensjonbrevdata.model.codes.*;
-import org.jetbrains.annotations.NotNull;
+import no.nav.pensjonbrevdata.dto.BrevdataDTO
+import no.nav.pensjonbrevdata.dto.DoksysbrevDTO
+import no.nav.pensjonbrevdata.model.codes.*
+import java.util.function.Supplier
+import java.util.stream.Collectors
+import kotlin.Function1
 
-import java.util.List;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
+open class Doksysbrev(
+    brevkodeIBrevsystem: String?,
+    redigerbart: Boolean,
+    dekode: String?,
+    brevkategori: BrevkategoriCode?,
+    dokType: DokumenttypeCode?,
+    sprak: MutableList<SprakCode?>?,
+    visIPselv: Boolean?,
+    utland: BrevUtlandCode?,
+    brevregeltype: BrevregeltypeCode?,
+    brevkravtype: BrevkravtypeCode?,
+    dokumentkategori: DokumentkategoriCode?,
+    synligForVeileder: Boolean?,
+    brevkontekst: BrevkontekstCode?,
+    prioritet: Int?,
+    @JvmField protected val vedleggListe: Supplier<MutableList<DoksysVedlegg?>?>?,
+    @JvmField protected val dokumentmalId: String?,
+    @JvmField protected val dokumentmalFelleselementId: String?,
+    protected val dokumentmal: String?,
+    protected val dokumentmalFelleselement: String?
+) : Brevdata(
+    brevkodeIBrevsystem,
+    redigerbart,
+    dekode,
+    brevkategori,
+    dokType,
+    sprak,
+    visIPselv,
+    utland,
+    brevregeltype,
+    brevkravtype,
+    dokumentkategori,
+    synligForVeileder,
+    brevkontekst,
+    BrevsystemCode.DOKSYS,
+    prioritet
+) {
+    constructor(
+        brevkodeInBrevsystem: String?,
+        redigerbart: Boolean,
+        dekode: String?,
+        brevkategori: BrevkategoriCode?,
+        doktype: DokumenttypeCode?,
+        sprak: MutableList<SprakCode?>?,
+        visIPselv: Boolean?,
+        utland: BrevUtlandCode?,
+        brevregeltype: BrevregeltypeCode?,
+        brevkravtype: BrevkravtypeCode?,
+        dokumentkategori: DokumentkategoriCode?,
+        synligForVeileder: Boolean?,
+        brevkontekst: BrevkontekstCode?,
+        prioritet: Int?,
+        dokumentmalId: String?,
+        dokumentmalFelleselementId: String?,
+        vedleggListe: Supplier<MutableList<DoksysVedlegg?>?>?
+    ) : this(
+        brevkodeInBrevsystem,
+        redigerbart,
+        dekode,
+        brevkategori,
+        doktype,
+        sprak,
+        visIPselv,
+        utland,
+        brevregeltype,
+        brevkravtype,
+        dokumentkategori,
+        synligForVeileder,
+        brevkontekst,
+        prioritet,
+        vedleggListe,
+        dokumentmalId,
+        dokumentmalFelleselementId,
+        null,
+        null
+    )
 
-public class Doksysbrev extends Brevdata {
-    protected final Supplier<List<DoksysVedlegg>> vedleggListe;
-    protected final String dokumentmalId;
-    protected final String dokumentmalFelleselementId;
-    protected final String dokumentmal;
-    protected final String dokumentmalFelleselement;
-
-    public Doksysbrev(String brevkodeInBrevsystem,
-                      boolean redigerbart,
-                      String dekode,
-                      BrevkategoriCode brevkategori,
-                      DokumenttypeCode doktype,
-                      List<SprakCode> sprak,
-                      Boolean visIPselv,
-                      BrevUtlandCode utland,
-                      BrevregeltypeCode brevregeltype,
-                      BrevkravtypeCode brevkravtype,
-                      DokumentkategoriCode dokumentkategori,
-                      Boolean synligForVeileder,
-                      BrevkontekstCode brevkontekst,
-                      Integer prioritet,
-                      String dokumentmalId,
-                      String dokumentmalFelleselementId,
-                      Supplier<List<DoksysVedlegg>> vedleggListe) {
-        this(brevkodeInBrevsystem,
-                redigerbart,
-                dekode,
-                brevkategori,
-                doktype,
-                sprak,
-                visIPselv,
-                utland,
-                brevregeltype,
-                brevkravtype,
-                dokumentkategori,
-                synligForVeileder,
-                brevkontekst,
-                prioritet,
-                vedleggListe,
-                dokumentmalId,
-                dokumentmalFelleselementId,
-                null,
-                null);
+    override fun medXSD(
+        dokumentmalGenerator: Function1<String?, String?>,
+        fellesmalGenerator: Function1<String?, String?>
+    ): Brevdata? {
+        val dokumentmal = dokumentmalGenerator.invoke(dokumentmalId)
+        val fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId)
+        val vedleggListeMedXSD: Supplier<MutableList<DoksysVedlegg?>?>? =
+            if (vedleggListe == null) null else Supplier {
+            vedleggListe.get()!!.stream().map<DoksysVedlegg> { vedlegg: DoksysVedlegg? ->
+                vedlegg!!.medXSD(
+                    dokumentmalGenerator,
+                    fellesmalGenerator
+                )
+            }.collect(
+                Collectors.toList()
+            )
+        }
+        return Doksysbrev(
+            getBrevkodeIBrevsystem(), isRedigerbart(), getDekode(), getBrevkategori(), getDokType(),
+            getSprak(), getVisIPselv(), getUtland(), getBrevregeltype(), getBrevkravtype(), getDokumentkategori(),
+            getSynligForVeileder(), getBrevkontekst(), getPrioritet(), vedleggListeMedXSD, dokumentmalId,
+            dokumentmalFelleselementId, dokumentmal, fellesmal
+        )
     }
 
-    protected Doksysbrev(String brevkodeIBrevsystem, boolean redigerbart, String dekode, BrevkategoriCode brevkategori,
-                       DokumenttypeCode dokType,  List<SprakCode> sprak, Boolean visIPselv, BrevUtlandCode utland,
-                       BrevregeltypeCode brevregeltype, BrevkravtypeCode brevkravtype, DokumentkategoriCode dokumentkategori,
-                       Boolean synligForVeileder, BrevkontekstCode brevkontekst, Integer prioritet,
-                       Supplier<List<DoksysVedlegg>> vedleggListe, String dokumentmalId, String dokumentmalFelleselementId,
-                       String dokumentmal, String dokumentmalFelleselement) {
-        super(brevkodeIBrevsystem, redigerbart, dekode, brevkategori, dokType, sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori, synligForVeileder, brevkontekst,  BrevsystemCode.DOKSYS, prioritet);
-        this.vedleggListe = vedleggListe;
-        this.dokumentmalId = dokumentmalId;
-        this.dokumentmalFelleselementId = dokumentmalFelleselementId;
-        this.dokumentmal = dokumentmal;
-        this.dokumentmalFelleselement = dokumentmalFelleselement;
-    }
-
-    @Override
-    public Brevdata medXSD(@NotNull Function1<String, String> dokumentmalGenerator, @NotNull Function1<String, String> fellesmalGenerator) {
-        String dokumentmal = dokumentmalGenerator.invoke(dokumentmalId);
-        String fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId);
-        Supplier<List<DoksysVedlegg>> vedleggListeMedXSD = vedleggListe == null ? null : () -> vedleggListe.get().stream().map((vedlegg)-> vedlegg.medXSD(dokumentmalGenerator, fellesmalGenerator)).collect(Collectors.toList());
-        return new Doksysbrev(getBrevkodeIBrevsystem(), isRedigerbart(), getDekode(), getBrevkategori(), getDokType(),
-                getSprak(), getVisIPselv(), getUtland(), getBrevregeltype(), getBrevkravtype(), getDokumentkategori(),
-                getSynligForVeileder(), getBrevkontekst(), getPrioritet(), vedleggListeMedXSD, dokumentmalId,
-                dokumentmalFelleselementId, dokumentmal, fellesmal);
-    }
-
-    @Override
-    public BrevdataDTO toDTO() {
-        return new DoksysbrevDTO(getBrevkodeIBrevsystem(),isRedigerbart(),getDekode(),getBrevkategori(),getDokType(),getSprak(),
-                getVisIPselv(),getUtland(),getBrevregeltype(),getBrevkravtype(),getDokumentkategori(),getSynligForVeileder(),
-                getBrevkontekst(),getPrioritet(),getBrevsystem(),vedleggListe == null ? null: vedleggListe.get(),dokumentmalId,
-                dokumentmalFelleselementId,dokumentmal,dokumentmalFelleselement);
+    override fun toDTO(): BrevdataDTO {
+        return DoksysbrevDTO(
+            getBrevkodeIBrevsystem(),
+            isRedigerbart(),
+            getDekode(),
+            getBrevkategori(),
+            getDokType(),
+            getSprak(),
+            getVisIPselv(),
+            getUtland(),
+            getBrevregeltype(),
+            getBrevkravtype(),
+            getDokumentkategori(),
+            getSynligForVeileder(),
+            getBrevkontekst(),
+            getPrioritet(),
+            getBrevsystem(),
+            if (vedleggListe == null) null else vedleggListe.get(),
+            dokumentmalId,
+            dokumentmalFelleselementId,
+            dokumentmal,
+            dokumentmalFelleselement
+        )
     }
 }
