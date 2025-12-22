@@ -1,13 +1,10 @@
 package no.nav.pensjonbrevdata.helpers
 
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
-import no.nav.pensjonbrevdata.model.Brevdata
-import java.util.stream.Collectors
 
 object BrevMetaData {
-    @JvmStatic
-    val brevTypeCodes: Set<String?>
-        get() = BrevdataMapper().getAllBrevAsList().stream()
-            .map<String?> { obj: Brevdata? -> obj!!.getBrevkodeIBrevsystem() }
-            .collect(Collectors.toSet())
+    @JvmStatic // TODO: Fjern denne når resten er over på kotlin også
+    val brevTypeCodes: Set<String> = BrevdataMapper().getAllBrevAsList()
+        .map { it.brevkodeIBrevsystem }
+        .toSet()
 }
