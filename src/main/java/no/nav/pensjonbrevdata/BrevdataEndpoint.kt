@@ -132,11 +132,10 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
         return brevKoder
             .filter { StringUtils.isNotBlank(it) }
             .map { code: String ->
-                val brev = provider.getBrevForBrevkode(code.trim())
-                val map: MutableMap<String, String> = HashMap()
-                map["batch"] = code
-                map["brev"] = brev!!.brevkodeIBrevsystem!!
-                map
+                mapOf(
+                    "batch" to code,
+                    "brev" to provider.getBrevForBrevkode(code.trim())!!.brevkodeIBrevsystem!!
+                )
             }
     }
 
