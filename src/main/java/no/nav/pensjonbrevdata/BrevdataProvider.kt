@@ -1,57 +1,46 @@
-package no.nav.pensjonbrevdata;
+package no.nav.pensjonbrevdata
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
-import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
-import no.nav.pensjonbrevdata.model.Brevdata;
-import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode;
-import no.nav.pensjonbrevdata.model.codes.SprakCode;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
+import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
+import no.nav.pensjonbrevdata.model.Brevdata
+import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode
+import no.nav.pensjonbrevdata.model.codes.SprakCode
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
+import java.util.stream.Collectors
 
 @Service
-public class BrevdataProvider {
-    private final BrevdataMapper brevdataMapper;
-    private final SakBrevMapper sakBrevMapper;
-
-    @Autowired
-    public BrevdataProvider(BrevdataMapper brevdataMapper, SakBrevMapper sakBrevMapper) {
-        this.brevdataMapper = brevdataMapper;
-        this.sakBrevMapper = sakBrevMapper;
+class BrevdataProvider @Autowired constructor(
+    private val brevdataMapper: BrevdataMapper,
+    private val sakBrevMapper: SakBrevMapper
+) {
+    fun getSprakForBrevkode(brevkode: String?): MutableList<SprakCode?>? {
+        return brevdataMapper.map(brevkode)!!.getSprak()
     }
 
-    public List<SprakCode> getSprakForBrevkode(String brevkode) {
-        return brevdataMapper.map(brevkode).getSprak();
+    fun getBrevForBrevkode(brevkode: String?): Brevdata? {
+        return brevdataMapper.map(brevkode)
     }
 
-    public Brevdata getBrevForBrevkode(String brevkode) {
-        return brevdataMapper.map(brevkode);
-    }
-
-    public List<Brevdata> getBrevdataForSaktype(String saktype){
+    fun getBrevdataForSaktype(saktype: String?): MutableList<Brevdata?> {
         return sakBrevMapper.map(saktype).stream()
-                .map(brevdataMapper::map)
-                .collect(Collectors.toList());
+            .map<Brevdata?> { brevkode: String? -> brevdataMapper.map(brevkode) }
+            .collect(Collectors.toList())
     }
 
-    public List<String> getBrevkoderForSaktype(String saktype) {
-        return sakBrevMapper.map(saktype);
+    fun getBrevkoderForSaktype(saktype: String?): MutableList<String?> {
+        return sakBrevMapper.map(saktype)
     }
 
-    public List<Brevdata> getAllBrev() {
-        return brevdataMapper.getAllBrevAsList();
+    val allBrev: List<Brevdata>
+        get() = brevdataMapper.allBrevAsList
+
+    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String): List<String> {
+        return brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem)
     }
 
-    public List<String> getBrevKeysForBrevkodeIBrevsystem(String brevkodeIBrevsystem) {
-        return brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem);
-    }
-
-    public List<Brevdata> getEblanketter() {
-        return brevdataMapper.getAllBrevAsList().stream()
-                .filter(brev -> brev.getDokumentkategori() == DokumentkategoriCode.E_BLANKETT)
-                .toList();
-    }
+    val eblanketter: MutableList<Brevdata?>
+        get() = brevdataMapper.allBrevAsList.stream()
+            .filter { brev: Brevdata? -> brev!!.getDokumentkategori() == DokumentkategoriCode.E_BLANKETT }
+            .toList()
 }
