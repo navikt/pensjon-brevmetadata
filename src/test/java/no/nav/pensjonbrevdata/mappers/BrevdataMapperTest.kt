@@ -1,64 +1,53 @@
-package no.nav.pensjonbrevdata.mappers;
+package no.nav.pensjonbrevdata.mappers
 
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
+class BrevdataMapperTest {
+    @Test
+    fun shouldThrowIllegalArgumentExceptionWhenUnknownBrevkode() {
+        val invalidBrevkode = "UGYLDIG_BREVKODE"
+        val mapper = BrevdataMapper()
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import no.nav.pensjonbrevdata.model.Brevdata;
-
-@ExtendWith(MockitoExtension.class)
-public class BrevdataMapperTest {
-    private BrevdataMapper mapper;
-
-    @BeforeEach
-    public void setup() {
-        mapper = new BrevdataMapper();
+        assertThrows<IllegalArgumentException> {
+            mapper.map(invalidBrevkode)
+        }
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenUnknownBrevkode() {
-        String invalidBrevkode = "UGYLDIG_BREVKODE";
+    fun test_TestShowAPAvslAutoWhenUsingKeyAP_AVSLAG_AUTO() {
+        val testBrev = "AP_AVSLAG_AUTO"
 
-        assertThrows(IllegalArgumentException.class, () -> mapper.map(invalidBrevkode), "Brevkode \"" + invalidBrevkode + "\" does not exist");
+        val mapper = BrevdataMapper()
+
+        val brev = mapper.map(testBrev)
+
+        Assertions.assertNotNull(brev)
+        Assertions.assertEquals("AP_AVSL_AUTO", brev!!.brevkodeIBrevsystem)
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSLAG_AUTO() {
-        String testBrev = "AP_AVSLAG_AUTO";
+    fun test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTO() {
+        val testBrev = "AP_AVSL_AUTO"
 
-        mapper = new BrevdataMapper();
+        val mapper = BrevdataMapper()
 
-        Brevdata brev = mapper.map(testBrev);
+        val brev = mapper.map(testBrev)
 
-        assertNotNull(brev);
-        assertEquals("AP_AVSL_AUTO", brev.getBrevkodeIBrevsystem());
+        Assertions.assertNotNull(brev)
+        Assertions.assertEquals("AP_AVSL_AUTO", brev!!.brevkodeIBrevsystem)
     }
 
     @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyAP_AVSL_AUTO() {
-        String testBrev = "AP_AVSL_AUTO";
+    fun test_TestShowAPAvslAutoWhenUsingKeyPE_AP_04_210() {
+        val testBrev = "PE_AP_04_210"
 
-        mapper = new BrevdataMapper();
+        val mapper = BrevdataMapper()
 
-        Brevdata brev = mapper.map(testBrev);
-
-        assertNotNull(brev);
-        assertEquals("AP_AVSL_AUTO", brev.getBrevkodeIBrevsystem());
-    }
-
-    @Test
-    public void test_TestShowAPAvslAutoWhenUsingKeyPE_AP_04_210() {
-        String testBrev = "PE_AP_04_210";
-
-        mapper = new BrevdataMapper();
-
-        assertThrows(IllegalArgumentException.class, () -> mapper.map(testBrev));
+        assertThrows<IllegalArgumentException> {
+            mapper.map(testBrev)
+        }
     }
 }
