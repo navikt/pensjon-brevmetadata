@@ -1,84 +1,93 @@
-package no.nav.pensjonbrevdata;
+package no.nav.pensjonbrevdata
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
-import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
-import no.nav.pensjonbrevdata.model.Brevdata;
-import no.nav.pensjonbrevdata.model.GammeltBrev;
-import no.nav.pensjonbrevdata.model.codes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
+import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
+import no.nav.pensjonbrevdata.model.Brevdata
+import no.nav.pensjonbrevdata.model.GammeltBrev
+import no.nav.pensjonbrevdata.model.codes.*
+import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
+import org.hamcrest.collection.IsEmptyCollection
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.Mock
+import org.mockito.Mockito
+import org.mockito.junit.jupiter.MockitoExtension
+import java.util.Arrays
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.collection.IsEmptyCollection.empty;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
-
-@ExtendWith(MockitoExtension.class)
-public class BrevdataProviderTest {
+@ExtendWith(MockitoExtension::class)
+class BrevdataProviderTest {
     @Mock
-    private BrevdataMapper brevdataMapperMock;
+    private val brevdataMapperMock: BrevdataMapper? = null
 
     @Mock
-    private SakBrevMapper sakBrevMapperMock;
+    private val sakBrevMapperMock: SakBrevMapper? = null
 
-    private BrevdataProvider provider;
+    private var provider: BrevdataProvider? = null
 
     @BeforeEach
-    public void setup() {
-        provider = new BrevdataProvider(brevdataMapperMock, sakBrevMapperMock);
+    fun setup() {
+        provider = BrevdataProvider(brevdataMapperMock!!, sakBrevMapperMock!!)
     }
 
     @Test
-    public void shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() {
-        List<String> brevkeys = Arrays.asList("PE_AF_04_001","PE_AF_04_003");
-        when(brevdataMapperMock.getBrevKeysForBrevkodeIBrevsystem("TEST")).thenReturn(brevkeys);
+    fun shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() {
+        val brevkeys = listOf("PE_AF_04_001", "PE_AF_04_003")
+        Mockito.`when`<List<String>>(brevdataMapperMock!!.getBrevKeysForBrevkodeIBrevsystem("TEST"))
+            .thenReturn(brevkeys)
 
-        List<String> brevkeysReturned = provider.getBrevKeysForBrevkodeIBrevsystem("TEST");
+        val brevkeysReturned: List<String> = provider!!.getBrevKeysForBrevkodeIBrevsystem("TEST")
 
-        assertThat(brevkeysReturned.size(), is(2));
-        assertThat(brevkeysReturned.contains("PE_AF_04_001"), is(true));
-        assertThat(brevkeysReturned.contains("PE_AF_04_002"), is(false));
-        assertThat(brevkeysReturned.contains("PE_AF_04_003"), is(true));
+        MatcherAssert.assertThat<Int?>(brevkeysReturned.size, CoreMatchers.`is`<Int?>(2))
+        MatcherAssert.assertThat<Boolean?>(brevkeysReturned.contains("PE_AF_04_001"), CoreMatchers.`is`<Boolean?>(true))
+        MatcherAssert.assertThat<Boolean?>(
+            brevkeysReturned.contains("PE_AF_04_002"),
+            CoreMatchers.`is`<Boolean?>(false)
+        )
+        MatcherAssert.assertThat<Boolean?>(brevkeysReturned.contains("PE_AF_04_003"), CoreMatchers.`is`<Boolean?>(true))
     }
 
     @Test
-    public void shouldGetListOfSprakWhenGetSprakForBrevkode() {
-        String brevkode = "TEST";
-        Brevdata brev = new GammeltBrev("PE_AF_04_001",
-                        true,
-                        "Vedtak - innvilgelse av AFP",
-                        BrevkategoriCode.VEDTAK,
-                        DokumenttypeCode.U,
-                        Arrays.asList(SprakCode.NB, SprakCode.NN),
-                        true,
-                        BrevUtlandCode.NASJONALT,
-                        BrevregeltypeCode.GG,
-                        BrevkravtypeCode.ALLE,
-                        DokumentkategoriCode.VB,
-                        null,
-                        BrevkontekstCode.VEDTAK,
-                        null,
-                        "brevgr002",
-                BrevsystemCode.GAMMEL);
-        when(brevdataMapperMock.map(brevkode)).thenReturn(brev);
+    fun shouldGetListOfSprakWhenGetSprakForBrevkode() {
+        val brevkode = "TEST"
+        val brev: Brevdata = GammeltBrev(
+            "PE_AF_04_001",
+            true,
+            "Vedtak - innvilgelse av AFP",
+            BrevkategoriCode.VEDTAK,
+            DokumenttypeCode.U,
+            Arrays.asList<SprakCode?>(SprakCode.NB, SprakCode.NN),
+            true,
+            BrevUtlandCode.NASJONALT,
+            BrevregeltypeCode.GG,
+            BrevkravtypeCode.ALLE,
+            DokumentkategoriCode.VB,
+            null,
+            BrevkontekstCode.VEDTAK,
+            null,
+            "brevgr002",
+            BrevsystemCode.GAMMEL
+        )
+        Mockito.`when`<Brevdata?>(brevdataMapperMock!!.map(brevkode)).thenReturn(brev)
 
-        List<SprakCode> actualListOfSprakCodes = provider.getSprakForBrevkode(brevkode);
+        val actualListOfSprakCodes = provider!!.getSprakForBrevkode(brevkode)
 
-        assertThat(actualListOfSprakCodes, is(brev.getSprak()));
+        MatcherAssert.assertThat<MutableList<SprakCode?>?>(
+            actualListOfSprakCodes,
+            CoreMatchers.`is`<MutableList<SprakCode?>?>(brev.sprak)
+        )
     }
 
     @Test
-    public void onlyEblanketterIsReturned() {
-        List<Brevdata> eblanketter = new BrevdataProvider(new BrevdataMapper(), sakBrevMapperMock).getEblanketter();
-        assertThat(eblanketter, not(empty()));
-        assertTrue(eblanketter.stream().allMatch(b -> b.getDokumentkategori().equals(DokumentkategoriCode.E_BLANKETT)));
+    fun onlyEblanketterIsReturned() {
+        val eblanketter = BrevdataProvider(BrevdataMapper(), sakBrevMapperMock!!).eblanketter
+        MatcherAssert.assertThat<MutableList<Brevdata?>?>(
+            eblanketter,
+            CoreMatchers.not<MutableCollection<out Brevdata?>?>(IsEmptyCollection.empty<Brevdata?>())
+        )
+        Assertions.assertTrue(
+            eblanketter.stream().allMatch { b: Brevdata? -> b!!.dokumentkategori == DokumentkategoriCode.E_BLANKETT })
     }
 }
