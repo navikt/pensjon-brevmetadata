@@ -8,13 +8,10 @@ import org.hamcrest.MatcherAssert
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.junit.jupiter.MockitoExtension
 import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatusCode
 import org.springframework.web.server.ResponseStatusException
 
-@ExtendWith(MockitoExtension::class)
 class BrevdataEndpointTest {
     @MockK
     private lateinit var brevdataProviderMock: BrevdataProvider
