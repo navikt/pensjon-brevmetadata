@@ -25,7 +25,7 @@ class BrevdataMapperTest {
         val brev = mapper.map(testBrev)
 
         Assertions.assertNotNull(brev)
-        Assertions.assertEquals("AP_AVSL_AUTO", brev!!.brevkodeIBrevsystem)
+        Assertions.assertEquals("AP_AVSL_AUTO", brev.brevkodeIBrevsystem)
     }
 
     @Test
@@ -37,7 +37,7 @@ class BrevdataMapperTest {
         val brev = mapper.map(testBrev)
 
         Assertions.assertNotNull(brev)
-        Assertions.assertEquals("AP_AVSL_AUTO", brev!!.brevkodeIBrevsystem)
+        Assertions.assertEquals("AP_AVSL_AUTO", brev.brevkodeIBrevsystem)
     }
 
     @Test

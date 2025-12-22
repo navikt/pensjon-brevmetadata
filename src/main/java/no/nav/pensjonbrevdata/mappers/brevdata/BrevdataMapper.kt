@@ -10,18 +10,11 @@ class BrevdataMapper {
     private val brevMap = BrevdataMap()
     private val logger: Logger = LoggerFactory.getLogger(this.javaClass)
 
-    fun map(brevkode: String?): Brevdata? {
-        val filtrertBrevMap: Map<String, Brevdata> = brevMap.get().filter { it.key != "AFP_INNV_MAN" }
-        if (filtrertBrevMap.containsKey(brevkode)) {
-            return filtrertBrevMap.get(brevkode)
-        } else {
-            throw IllegalArgumentException("Brevkode \"" + brevkode + "\" does not exist")
-        }
-    }
+    fun map(brevkode: String): Brevdata = brevMap.get().filter { it.key != "AFP_INNV_MAN" }[brevkode] ?: throw IllegalArgumentException("Brevkode \"$brevkode\" does not exist")
 
     val allBrevAsList: MutableList<Brevdata>
         get() {
-            val brevdataList: MutableList<Brevdata> = ArrayList<Brevdata>()
+            val brevdataList: MutableList<Brevdata> = ArrayList()
             val filtrertBrevMap: Map<String, Brevdata> = brevMap.get().filter { it.key != "AFP_INNV_MAN" }
 
             for (brevdataCallable in filtrertBrevMap.values) {
@@ -35,12 +28,12 @@ class BrevdataMapper {
         }
 
     fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String?): List<String> {
-        val brevkeys: MutableList<String> = ArrayList<String>()
+        val brevkeys: MutableList<String> = ArrayList()
         val filtrertBrevMap: Map<String, Brevdata> = brevMap.get().filter { it.key != "AFP_INNV_MAN" }
 
         for (key in filtrertBrevMap.keys) {
             try {
-                if (filtrertBrevMap.get(key)!!.brevkodeIBrevsystem == brevkodeIBrevsystem) {
+                if (filtrertBrevMap[key]!!.brevkodeIBrevsystem == brevkodeIBrevsystem) {
                     brevkeys.add(key)
                 }
             } catch (e: IllegalArgumentException) {

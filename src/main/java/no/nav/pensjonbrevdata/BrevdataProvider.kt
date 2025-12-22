@@ -7,7 +7,6 @@ import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode
 import no.nav.pensjonbrevdata.model.codes.SprakCode
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.util.stream.Collectors
 import kotlin.collections.map
 
 @Service
@@ -15,13 +14,9 @@ class BrevdataProvider @Autowired constructor(
     private val brevdataMapper: BrevdataMapper,
     private val sakBrevMapper: SakBrevMapper
 ) {
-    fun getSprakForBrevkode(brevkode: String?): List<SprakCode>? {
-        return brevdataMapper.map(brevkode)!!.sprak
-    }
+    fun getSprakForBrevkode(brevkode: String): List<SprakCode>? = brevdataMapper.map(brevkode).sprak
 
-    fun getBrevForBrevkode(brevkode: String?): Brevdata? {
-        return brevdataMapper.map(brevkode)
-    }
+    fun getBrevForBrevkode(brevkode: String): Brevdata = brevdataMapper.map(brevkode)
 
     fun getBrevdataForSaktype(saktype: String?): List<Brevdata?> {
         return sakBrevMapper.map(saktype).map { brevdataMapper.map(it) }

@@ -36,7 +36,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     @GetMapping(value = ["/brevForBrevkode/{brevkode}"])
     fun getBrevForBrevkode(@PathVariable brevkode: String): BrevdataDTO? {
         try {
-            return provider.getBrevForBrevkode(brevkode)!!.medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO()
+            return provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO()
         } catch (e: IllegalArgumentException) {
             LOGGER.warn("Faulty request when calling brevForBrevkode.", e)
             throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message, e)
@@ -134,7 +134,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
             .map { code: String ->
                 mapOf(
                     "batch" to code,
-                    "brev" to provider.getBrevForBrevkode(code.trim())!!.brevkodeIBrevsystem!!
+                    "brev" to provider.getBrevForBrevkode(code.trim()).brevkodeIBrevsystem!!
                 )
             }
     }
