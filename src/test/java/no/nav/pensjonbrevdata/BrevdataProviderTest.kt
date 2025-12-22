@@ -1,5 +1,8 @@
 package no.nav.pensjonbrevdata
 
+import io.mockk.MockKAnnotations
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import no.nav.pensjonbrevdata.model.Brevdata
@@ -11,34 +14,29 @@ import org.hamcrest.collection.IsEmptyCollection
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.Mock
-import org.mockito.Mockito
-import org.mockito.junit.jupiter.MockitoExtension
 import java.util.Arrays
 
-@ExtendWith(MockitoExtension::class)
 class BrevdataProviderTest {
-    @Mock
-    private val brevdataMapperMock: BrevdataMapper? = null
+    @MockK
+    private lateinit var brevdataMapperMock: BrevdataMapper
 
-    @Mock
-    private val sakBrevMapperMock: SakBrevMapper? = null
+    @MockK
+    private lateinit var sakBrevMapperMock: SakBrevMapper
 
-    private var provider: BrevdataProvider? = null
+    private lateinit var provider: BrevdataProvider
 
     @BeforeEach
     fun setup() {
-        provider = BrevdataProvider(brevdataMapperMock!!, sakBrevMapperMock!!)
+        MockKAnnotations.init(this)
+        provider = BrevdataProvider(brevdataMapperMock, sakBrevMapperMock)
     }
 
     @Test
     fun shouldGetListOfBrevKeysWhenGetBrevkeysForBrevkodeIBrevsystem() {
         val brevkeys = listOf("PE_AF_04_001", "PE_AF_04_003")
-        Mockito.`when`<List<String>>(brevdataMapperMock!!.getBrevKeysForBrevkodeIBrevsystem("TEST"))
-            .thenReturn(brevkeys)
+        every { brevdataMapperMock.getBrevKeysForBrevkodeIBrevsystem("TEST") } returns brevkeys
 
-        val brevkeysReturned: List<String> = provider!!.getBrevKeysForBrevkodeIBrevsystem("TEST")
+        val brevkeysReturned: List<String> = provider.getBrevKeysForBrevkodeIBrevsystem("TEST")
 
         MatcherAssert.assertThat<Int?>(brevkeysReturned.size, CoreMatchers.`is`<Int?>(2))
         MatcherAssert.assertThat<Boolean?>(brevkeysReturned.contains("PE_AF_04_001"), CoreMatchers.`is`<Boolean?>(true))
@@ -70,9 +68,9 @@ class BrevdataProviderTest {
             "brevgr002",
             BrevsystemCode.GAMMEL
         )
-        Mockito.`when`<Brevdata?>(brevdataMapperMock!!.map(brevkode)).thenReturn(brev)
+        every { brevdataMapperMock.map(brevkode) } returns brev
 
-        val actualListOfSprakCodes = provider!!.getSprakForBrevkode(brevkode)
+        val actualListOfSprakCodes = provider.getSprakForBrevkode(brevkode)
 
         MatcherAssert.assertThat<MutableList<SprakCode?>?>(
             actualListOfSprakCodes,
@@ -82,7 +80,7 @@ class BrevdataProviderTest {
 
     @Test
     fun onlyEblanketterIsReturned() {
-        val eblanketter = BrevdataProvider(BrevdataMapper(), sakBrevMapperMock!!).eblanketter
+        val eblanketter = BrevdataProvider(BrevdataMapper(), sakBrevMapperMock).eblanketter
         MatcherAssert.assertThat<MutableList<Brevdata?>?>(
             eblanketter,
             CoreMatchers.not<MutableCollection<out Brevdata?>?>(IsEmptyCollection.empty<Brevdata?>())
