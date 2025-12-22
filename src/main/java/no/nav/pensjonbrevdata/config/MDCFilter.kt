@@ -10,8 +10,7 @@ import java.io.IOException
 @Component
 @Order(1)
 class MDCFilter : Filter {
-    @Throws(IOException::class, ServletException::class)
-    override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain) {
+    override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
         val req = request as HttpServletRequest
 
         MDC.put("X-Correlation-Id", req.getHeader("X-Correlation-Id"))

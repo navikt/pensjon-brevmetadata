@@ -8,7 +8,6 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
-import java.io.IOException
 import java.util.Locale
 
 @Component
@@ -18,31 +17,30 @@ class PrometheusFilter : Filter {
         return skipUris.contains(uriPath.lowercase(Locale.getDefault())) || uriPath.startsWith(swaggerUriPattern)
     }
 
-    @Throws(IOException::class, ServletException::class)
-    override fun doFilter(servletRequest: ServletRequest?, servletResponse: ServletResponse?, chain: FilterChain) {
+    override fun doFilter(servletRequest: ServletRequest, servletResponse: ServletResponse, chain: FilterChain) {
         val req = servletRequest as HttpServletRequest
-        if (skipCounting(req.getServletPath())) {
+        if (skipCounting(req.servletPath)) {
             chain.doFilter(servletRequest, servletResponse)
             return
         }
 
         totalIncomingRequests.inc()
 
-        LOGGER.info(req.getRequestURI())
+        LOGGER.info(req.requestURI)
 
         try {
             chain.doFilter(servletRequest, servletResponse)
         } finally {
             val response = servletResponse as HttpServletResponse
 
-            if (response.getStatus() >= 300) {
-                LOGGER.error(req.getRequestURI() + " failing with code " + response.getStatus())
+            if (response.status >= 300) {
+                LOGGER.error(req.requestURI + " failing with code " + response.status)
                 totalFailedRequests.inc()
-                if (response.getStatus() >= 500) {
+                if (response.status >= 500) {
                     totalFailedRequests500.inc()
-                } else if (response.getStatus() >= 400) {
+                } else if (response.status >= 400) {
                     totalFailedRequests400.inc()
-                } else if (response.getStatus() >= 300) {
+                } else if (response.status >= 300) {
                     totalFailedRequests300.inc()
                 }
             } else {
@@ -78,7 +76,7 @@ class PrometheusFilter : Filter {
             .help("Number of total failed requests (status == 2xx)")
             .register()
 
-        val skipUris: MutableList<String?> = mutableListOf<String?>(
+        val skipUris = listOf(
             "/api/internal/prometheus",
             "/api/internal/isalive",
             "/api/internal/isready",
