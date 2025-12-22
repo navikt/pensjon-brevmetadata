@@ -16,47 +16,41 @@ import java.nio.file.Path
 /**
  * Bygger en base-line av responser som applikasjonen gjør akkurat nå, og som benyttes av KomponentTest
  */
-object ResultBuilder {
-    private val be = BrevdataEndpoint(BrevdataProvider(BrevdataMapper(), SakBrevMapper()))
-    private val objectMapper: ObjectWriter = JsonMapper.builder()
-        .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
-        .build()
-        .writer(
-            DefaultPrettyPrinter()
-                .withObjectIndenter(DefaultIndenter().withLinefeed("\n"))
+private val be = BrevdataEndpoint(BrevdataProvider(BrevdataMapper(), SakBrevMapper()))
+private val objectMapper: ObjectWriter = JsonMapper.builder()
+    .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+    .build()
+    .writer(
+        DefaultPrettyPrinter()
+            .withObjectIndenter(DefaultIndenter().withLinefeed("\n"))
+    )
+
+fun writeString(brevkode: String, dir: String?, toJSON: Any?) {
+    val path = Path.of("src", "test", "resources", dir)
+    Files.createDirectories(path)
+    Files.writeString(path.resolve(brevkode), toJSON(toJSON))
+}
+
+fun toJSON(obj: Any?) = obj?.let { objectMapper.writeValueAsString(it) } ?: ""
+
+fun main() {
+    for (brevkode in brevkoder()) {
+        writeString(brevkode, "brevForBrevkode", be.getBrevForBrevkode(brevkode))
+        writeString(brevkode, "sprakForBrevkode", be.getSprakForBrevkode(brevkode))
+    }
+    for (sakstype in sakstyper()) {
+        writeString(sakstype, "brevdataForSaktype/" + true, be.getBrevdataForSaktype(sakstype, true))
+        writeString(sakstype, "brevdataForSaktype/" + false, be.getBrevdataForSaktype(sakstype, false))
+        writeString(sakstype, "brevkoderForSaktype", be.getBrevkoderForSaktype(sakstype))
+    }
+    for (brevkodeIBrevsystem in brevkoderIBrevSystem()) {
+        writeString(
+            brevkodeIBrevsystem,
+            "brevKeyForBrevkodeIBrevsystem",
+            be.getBrevKeyForBrevkodeIBrevsystem(brevkodeIBrevsystem)
         )
-
-    @JvmStatic
-    fun main(args: Array<String>) {
-        for (brevkode in brevkoder()) {
-            writeString(brevkode, "brevForBrevkode", be.getBrevForBrevkode(brevkode))
-            writeString(brevkode, "sprakForBrevkode", be.getSprakForBrevkode(brevkode))
-        }
-        for (sakstype in sakstyper()) {
-            writeString(sakstype, "brevdataForSaktype/" + true, be.getBrevdataForSaktype(sakstype, true))
-            writeString(sakstype, "brevdataForSaktype/" + false, be.getBrevdataForSaktype(sakstype, false))
-            writeString(sakstype, "brevkoderForSaktype", be.getBrevkoderForSaktype(sakstype))
-        }
-        for (brevkodeIBrevsystem in brevkoderIBrevSystem()) {
-            writeString(
-                brevkodeIBrevsystem,
-                "brevKeyForBrevkodeIBrevsystem",
-                be.getBrevKeyForBrevkodeIBrevsystem(brevkodeIBrevsystem)
-            )
-        }
-
-        writeString("false", "allBrev", be.getAllBrev(false))
-        writeString("true", "allBrev", be.getAllBrev(true))
     }
 
-    fun writeString(brevkode: String, dir: String?, toJSON: Any?) {
-        val path = Path.of("src", "test", "resources", dir)
-        Files.createDirectories(path)
-        Files.writeString(path.resolve(brevkode), toJSON(toJSON))
-    }
-
-    fun toJSON(`object`: Any?): CharSequence? {
-        if (`object` == null) return ""
-        return objectMapper.writeValueAsString(`object`)
-    }
+    writeString("false", "allBrev", be.getAllBrev(false))
+    writeString("true", "allBrev", be.getAllBrev(true))
 }
