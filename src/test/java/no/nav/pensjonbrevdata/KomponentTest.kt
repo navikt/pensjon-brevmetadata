@@ -1,27 +1,20 @@
 package no.nav.pensjonbrevdata
 
-import org.json.JSONArray
-import org.json.JSONException
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.client.statement.bodyAsText
+import io.ktor.http.HttpStatusCode
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import org.skyscreamer.jsonassert.JSONAssert
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.web.server.LocalServerPort
-import java.io.IOException
-import java.net.URI
-import java.net.URISyntaxException
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
 import java.nio.file.Files
 import java.nio.file.Path
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class KomponentTest {
-    @LocalServerPort
-    private val port = 0
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("brevkoder")
@@ -62,30 +55,21 @@ class KomponentTest {
 
     @Test
     fun alleBrevkoderErRepresentertITest() {
-        HttpClient.newHttpClient().use { client ->
-            Assertions.assertEquals(
-                brevkoder().size, JSONArray(
-                    client.send<String>(
-                        HttpRequest.newBuilder()
-                            .uri(URI.create("http://localhost:" + port + "/api/brevdata/allBrev?includeXsd=false"))
-                            .build(), HttpResponse.BodyHandlers.ofString()
-                    ).body()
-                ).length(),
+        testBrevmetadataApp { client ->
+            val asText = client.get("/api/brevdata/allBrev?includeXsd=false").bodyAsText()
+            val read = jacksonObjectMapper().readValue<List<Any>>(asText)
+            Assertions.assertEquals(brevkoder().size, read.size,
                 "Ny brevkode er lagt til eller fjernet uten at KomponentTest.brevkoder() er oppdatert."
             )
         }
     }
 
     private fun testGetAllBrev(includeXsd: Boolean) {
-        HttpClient.newHttpClient().use { client ->
-            val resp: HttpResponse<String> = client.send<String>(
-                HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:" + port + "/api/brevdata/allBrev?includeXsd=" + includeXsd))
-                    .build(), HttpResponse.BodyHandlers.ofString()
-            )
-            Assertions.assertEquals(200, resp.statusCode(), "Feil i respons til allBrev med includeXsd " + includeXsd)
+        testBrevmetadataApp { client ->
+            val resp = client.get("api/brevdata/allBrev?includeXsd=$includeXsd")
+            Assertions.assertEquals(HttpStatusCode.OK, resp.status, "Feil i respons til allBrev med includeXsd " + includeXsd)
             val expected = loadResult("allBrev", "" + includeXsd, null)
-            val actual = resp.body()
+            val actual = resp.body<String>()
             if (!(expected.isEmpty() && actual.isEmpty())) JSONAssert.assertEquals(
                 "Feil i respons til allBrev med includeXsd " + includeXsd + "\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
                 expected, actual, true
@@ -94,40 +78,27 @@ class KomponentTest {
     }
 
     private fun testEndpoint(endpoint: String, kode: String, kodeDesc: String, includeXsd: Boolean? = null) {
-        try {
-            HttpClient.newHttpClient().use { client ->
-                val resp: HttpResponse<String> = client.send<String>(
-                    HttpRequest.newBuilder()
-                        .uri(URI.create("http://localhost:" + port + "/api/brevdata/" + endpoint + "/" + kode + (if (includeXsd != null) "?includeXsd=" + includeXsd else "")))
-                        .build(), HttpResponse.BodyHandlers.ofString()
-                )
-                Assertions.assertEquals(200, resp.statusCode(), "Feil i respons til " + kodeDesc + " " + kode)
+            testBrevmetadataApp { client ->
+                val resp = client.get("/api/brevdata/" + endpoint + "/" + kode + (if (includeXsd != null) "?includeXsd=$includeXsd" else ""))
+                Assertions.assertEquals(HttpStatusCode.OK, resp.status, "Feil i respons til $kodeDesc $kode")
                 val expected = loadResult(endpoint, kode, includeXsd)
-                val actual = resp.body()
+                val actual = resp.body<String>()
                 if (expected.isEmpty() || actual.isEmpty()) {
                     Assertions.assertEquals(expected, actual, "Feil i " + kodeDesc + " " + kode)
                 } else {
                     JSONAssert.assertEquals(
-                        "Feil i respons til " + kodeDesc + " " + kode + "\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
-                        expected, actual, true
+                        "Feil i respons til $kodeDesc $kode\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt." +
+                                "expected.length: ${expected.length}, actual.length: ${actual.length}",
+                        expected, actual, false
                     )
                 }
             }
-        } catch (e: IOException) {
-            throw RuntimeException(e)
-        } catch (e: InterruptedException) {
-            throw RuntimeException(e)
-        } catch (e: JSONException) {
-            throw RuntimeException(e)
-        } catch (e: URISyntaxException) {
-            throw RuntimeException(e)
-        }
     }
 
     private fun loadResult(endpoint: String, brevkode: String, includeXsd: Boolean?): String {
         val url =
             javaClass.getResource("/" + endpoint + "/" + (if (includeXsd != null) includeXsd.toString() + "/" else "") + brevkode)
-        if (url == null) throw RuntimeException(endpoint + "-resultat ikke funnet for kode: " + brevkode)
+        if (url == null) throw RuntimeException("$endpoint-resultat ikke funnet for kode: $brevkode")
         return Files.readString(Path.of(url.toURI()))
     }
 

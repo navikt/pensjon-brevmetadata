@@ -5,12 +5,9 @@ import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import no.nav.pensjonbrevdata.model.Brevdata
 import no.nav.pensjonbrevdata.model.codes.DokumentkategoriCode
 import no.nav.pensjonbrevdata.model.codes.SprakCode
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Service
 import kotlin.collections.map
 
-@Service
-class BrevdataProvider @Autowired constructor(
+class BrevdataProvider(
     private val brevdataMapper: BrevdataMapper,
     private val sakBrevMapper: SakBrevMapper
 ) {

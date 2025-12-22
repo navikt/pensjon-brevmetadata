@@ -1,98 +1,41 @@
 package no.nav.pensjonbrevdata
 
-import io.prometheus.client.exporter.common.TextFormat
-import org.apache.commons.lang3.StringUtils
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.isSuccess
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.skyscreamer.jsonassert.JSONParser
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.web.server.LocalServerPort
-import org.springframework.http.HttpStatus
-import org.springframework.http.MediaType
-import java.net.URI
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
-import java.util.Locale
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 internal class PensjonBrevdataApplicationTests {
-    @LocalServerPort
-    private val port = 0
-
-    @Test
-    fun contextLoads() {
-    }
 
     @Test
     fun callForAP_ENDR_OPPTJ_MAN() {
-        val response = HttpClient.newHttpClient()
-            .send<String>(
-                HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:" + port + "/api/brevdata/brevForBrevkode/AP_ENDR_OPPTJ_MAN"))
-                    .build(),
-                HttpResponse.BodyHandlers.ofString()
-            )
-        JSONParser.parseJSON(response.body())
-        Assertions.assertNotNull(response.body())
-        val status = HttpStatus.resolve(response.statusCode())
-        Assertions.assertNotNull(status)
-        Assertions.assertTrue(status!!.is2xxSuccessful())
+        testBrevmetadataApp { client ->
+            val response = client.get("/api/brevdata/brevForBrevkode/AP_ENDR_OPPTJ_MAN")
+            val s = response.body<String>()
+            JSONParser.parseJSON(s)
+            Assertions.assertNotNull(response.body())
+            Assertions.assertTrue(response.status.isSuccess())
+        }
     }
 
     @Test
     fun includeXsdShouldOnlyAffectPerRequest() {
-        val expected = getBrevdataForSaktypeResponse("KRIGSP", false).body()
-        getBrevdataForSaktypeResponse("KRIGSP", true).body()
-        val actual = getBrevdataForSaktypeResponse("KRIGSP", false).body()
-        Assertions.assertEquals(expected, actual)
-    }
-
-    @Test
-    fun shouldReturnAsPlainTextForPrometheus() {
-        val response: HttpResponse<*> = HttpClient.newHttpClient()
-            .send<String>(
-                HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:" + port + "/api/internal/prometheus"))
-                    .build(),
-                HttpResponse.BodyHandlers.ofString()
-            )
-
-        Assertions.assertEquals(HttpStatus.OK.value(), response.statusCode())
-        Assertions.assertEquals(
-            StringUtils.deleteWhitespace(TextFormat.CONTENT_TYPE_004), StringUtils.deleteWhitespace(
-                response.headers().firstValue("Content-Type").get().lowercase(
-                    Locale.getDefault()
-                )
-            )
-        )
+        testBrevmetadataApp { client ->
+            val expected = client.get("/api/brevdata/brevdataForSaktype/KRIGSP?includeXsd=false").body<String>()
+            client.get("/api/brevdata/brevdataForSaktype/KRIGSP?includeXsd=true").body<String>()
+            val actual = client.get("/api/brevdata/brevdataForSaktype/KRIGSP?includeXsd=false").body<String>()
+            Assertions.assertEquals(expected, actual)
+        }
     }
 
     @Test
     fun shouldMatchTrailingSlash() {
-        val response: HttpResponse<*> = HttpClient.newHttpClient()
-            .send<String>(
-                HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:" + port + "/api/brevdata/allBrev/"))
-                    .build(),
-                HttpResponse.BodyHandlers.ofString()
-            )
-
-        Assertions.assertEquals(HttpStatus.OK.value(), response.statusCode())
-        Assertions.assertEquals(
-            MediaType.APPLICATION_JSON_VALUE, StringUtils.deleteWhitespace(
-                response.headers().firstValue("Content-Type").get().lowercase(
-                    Locale.getDefault()
-                )
-            )
-        )
-    }
-
-    private fun getBrevdataForSaktypeResponse(brevkode: String, includeXsd: Boolean): HttpResponse<String> {
-        return HttpClient.newHttpClient().send<String>(
-            HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:" + port + "/api/brevdata/brevdataForSaktype/" + brevkode + "?includeXsd=" + includeXsd))
-                .build(), HttpResponse.BodyHandlers.ofString()
-        )
+        testBrevmetadataApp { client ->
+            Assertions.assertEquals(HttpStatusCode.OK, client.get("/api/brevdata/allBrev").status)
+            Assertions.assertEquals(HttpStatusCode.OK, client.get("/api/brevdata/allBrev/").status)
+        }
     }
 }

@@ -1,13 +1,11 @@
 package no.nav.pensjonbrevdata.mappers.sakBrev
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode
-import org.springframework.stereotype.Service
 import java.util.stream.Collectors
 
-@Service
 class SakBrevMapper {
-    private val brevdataMapper = BrevdataMapper()
+    private val brevdataMapper = BrevdataMapperImpl()
 
     fun map(saktype: String): List<String> {
         val koder = sakToBrevMap[saktype]!!.stream().filter { brevKode: String? -> brevKode != "AFP_INNV_MAN" }

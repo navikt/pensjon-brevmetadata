@@ -7,7 +7,7 @@ import no.nav.pensjonbrevdata.model.DoksysbrevV2
 import no.nav.pensjonbrevdata.model.GammeltBrev
 import no.nav.pensjonbrevdata.model.codes.*
 
-internal class BrevdataMap {
+class BrevdataMap {
     private val brevMap: MutableMap<String, Brevdata>
 
     fun get(): Map<String, Brevdata> {

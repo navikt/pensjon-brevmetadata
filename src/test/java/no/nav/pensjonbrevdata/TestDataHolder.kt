@@ -1,6 +1,6 @@
 package no.nav.pensjonbrevdata
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 
 object TestDataHolder {
     @JvmStatic
@@ -479,5 +479,5 @@ object TestDataHolder {
     )
 
     @JvmStatic
-    fun brevkoderIBrevSystem(): List<String> = BrevdataMapper().allBrevAsList.map { it.brevkodeIBrevsystem }
+    fun brevkoderIBrevSystem(): List<String> = BrevdataMapperImpl().allBrevAsList.map { it.brevkodeIBrevsystem }
 }

@@ -10,6 +10,8 @@ object DokumentmalGenerators {
     val fellesmalGenerator: (String) -> String = dokumentmalBuilder("felles")
 
     private fun dokumentmalBuilder(dokumentMalType: String): (String) -> String = { dokumentmalId: String ->
-        XsdFileReader().read("xsd" + File.separator + dokumentMalType + File.separator + dokumentmalId + ".xsd")
+        read("xsd" + File.separator + dokumentMalType + File.separator + dokumentmalId + ".xsd")
     }
+
+    private fun read(resourcePath: String): String = javaClass.getResource("/$resourcePath").readText(Charsets.UTF_8)
 }
