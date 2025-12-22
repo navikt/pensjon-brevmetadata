@@ -1,60 +1,50 @@
-package no.nav.pensjonbrevdata.model;
+package no.nav.pensjonbrevdata.model
 
-import kotlin.jvm.functions.Function1;
-import no.nav.pensjonbrevdata.dto.BrevdataDTO;
-import no.nav.pensjonbrevdata.model.codes.*;
-import org.jetbrains.annotations.NotNull;
+import no.nav.pensjonbrevdata.dto.BrevdataDTO
+import no.nav.pensjonbrevdata.model.codes.*
+import kotlin.Function1
 
-import java.util.List;
-
-public class GammeltBrev extends Brevdata implements BrevdataDTO {
-
-    private final String brevgruppe;
-
-    public GammeltBrev(String brevkodeInBrevsystem,
-                       boolean redigerbart,
-                       String dekode,
-                       BrevkategoriCode brevkategori,
-                       DokumenttypeCode doktype,
-                       List<SprakCode> sprak,
-                       Boolean visIPselv,
-                       BrevUtlandCode utland,
-                       BrevregeltypeCode brevregeltype,
-                       BrevkravtypeCode brevkravtype,
-                       DokumentkategoriCode dokumentkategori,
-                       Boolean synligForVeileder,
-                       BrevkontekstCode brevkontekst,
-                       Integer prioritet,
-                       String brevgruppe) {
-        super(brevkodeInBrevsystem,
-                redigerbart,
-                dekode,
-                brevkategori,
-                doktype,
-                sprak,
-                visIPselv,
-                utland,
-                brevregeltype,
-                brevkravtype,
-                dokumentkategori,
-                synligForVeileder,
-                brevkontekst,
-                BrevsystemCode.GAMMEL,
-                prioritet);
-        this.brevgruppe = brevgruppe;
+class GammeltBrev(
+    brevkodeInBrevsystem: String?,
+    redigerbart: Boolean,
+    dekode: String?,
+    brevkategori: BrevkategoriCode?,
+    doktype: DokumenttypeCode?,
+    sprak: MutableList<SprakCode?>?,
+    visIPselv: Boolean?,
+    utland: BrevUtlandCode?,
+    brevregeltype: BrevregeltypeCode?,
+    brevkravtype: BrevkravtypeCode?,
+    dokumentkategori: DokumentkategoriCode?,
+    synligForVeileder: Boolean?,
+    brevkontekst: BrevkontekstCode?,
+    prioritet: Int?,
+    val brevgruppe: String?
+) : Brevdata(
+    brevkodeInBrevsystem,
+    redigerbart,
+    dekode,
+    brevkategori,
+    doktype,
+    sprak,
+    visIPselv,
+    utland,
+    brevregeltype,
+    brevkravtype,
+    dokumentkategori,
+    synligForVeileder,
+    brevkontekst,
+    BrevsystemCode.GAMMEL,
+    prioritet
+), BrevdataDTO {
+    override fun medXSD(
+        dokumentmalGenerator: Function1<String?, String?>,
+        fellesmalGenerator: Function1<String?, String?>
+    ): Brevdata {
+        return this
     }
 
-    public String getBrevgruppe() {
-        return brevgruppe;
-    }
-
-    @Override
-    public Brevdata medXSD(@NotNull Function1<String, String> dokumentmalGenerator, @NotNull Function1<String, String> fellesmalGenerator) {
-        return this;
-    }
-
-    @Override
-    public BrevdataDTO toDTO() {
-        return this;
+    override fun toDTO(): BrevdataDTO {
+        return this
     }
 }
