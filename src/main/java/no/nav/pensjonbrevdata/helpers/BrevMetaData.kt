@@ -1,16 +1,13 @@
-package no.nav.pensjonbrevdata.helpers;
+package no.nav.pensjonbrevdata.helpers
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
-import no.nav.pensjonbrevdata.model.Brevdata;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
+import no.nav.pensjonbrevdata.model.Brevdata
+import java.util.stream.Collectors
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
-public class BrevMetaData {
-
-    public static Set<String> getBrevTypeCodes() {
-        return new BrevdataMapper().getAllBrevAsList().stream()
-                .map(Brevdata::getBrevkodeIBrevsystem)
-                .collect(Collectors.toSet());
-    }
+object BrevMetaData {
+    @JvmStatic
+    val brevTypeCodes: Set<String?>
+        get() = BrevdataMapper().getAllBrevAsList().stream()
+            .map<String?> { obj: Brevdata? -> obj!!.getBrevkodeIBrevsystem() }
+            .collect(Collectors.toSet())
 }
