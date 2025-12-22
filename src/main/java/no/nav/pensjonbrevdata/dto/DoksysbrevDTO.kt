@@ -1,154 +1,87 @@
-package no.nav.pensjonbrevdata.dto;
+package no.nav.pensjonbrevdata.dto
 
-import no.nav.pensjonbrevdata.model.DoksysVedlegg;
-import no.nav.pensjonbrevdata.model.codes.*;
+import no.nav.pensjonbrevdata.model.DoksysVedlegg
+import no.nav.pensjonbrevdata.model.codes.*
 
-import java.util.List;
-
-public class DoksysbrevDTO implements BrevdataDTO {
-    private final boolean redigerbart;
-    private final String dekode;
-    private final BrevkategoriCode brevkategori;
-    private final DokumenttypeCode dokType;
-    private final List<SprakCode> sprak;
-    private final Boolean visIPselv;
-    private final BrevUtlandCode utland;
-    private final BrevregeltypeCode brevregeltype;
-    private final BrevkravtypeCode brevkravtype;
-    private final BrevkontekstCode brevkontekst;
-    private final DokumentkategoriCode dokumentkategori;
-    private final Boolean synligForVeileder;
-    private final Integer prioritet;
-    private final String brevkodeIBrevsystem;
-    private final BrevsystemCode brevsystem;
-    private final List<DoksysVedlegg> vedleggListe;
-    private final String dokumentmalId;
-    private final String dokumentmalFelleselementId;
-    private final String dokumentmal;
-    private final String dokumentmalFelleselement;
-
-    public DoksysbrevDTO(String brevkodeIBrevsystem, boolean redigerbart, String dekode, BrevkategoriCode brevkategori,
-                         DokumenttypeCode dokType, List<SprakCode> sprak, Boolean visIPselv, BrevUtlandCode utland,
-                         BrevregeltypeCode brevregeltype, BrevkravtypeCode brevkravtype, DokumentkategoriCode dokumentkategori,
-                         Boolean synligForVeileder, BrevkontekstCode brevkontekst, Integer prioritet, BrevsystemCode brevsystem,
-                         List<DoksysVedlegg> vedleggListe, String dokumentmalId, String dokumentmalFelleselementId,
-                         String dokumentmal, String dokumentmalFelleselement) {
-
-        this.brevkodeIBrevsystem = brevkodeIBrevsystem;
-        this.brevsystem = brevsystem;
-        this.redigerbart = redigerbart;
-        this.dekode = dekode;
-        this.brevkategori = brevkategori;
-        this.dokType = dokType;
-        this.sprak = sprak;
-        this.visIPselv = visIPselv;
-        this.utland = utland;
-        this.brevregeltype = brevregeltype;
-        this.brevkravtype = brevkravtype;
-        this.brevkontekst = brevkontekst;
-        this.dokumentkategori = dokumentkategori;
-        this.synligForVeileder = synligForVeileder;
-        this.prioritet = prioritet;
-        this.vedleggListe = vedleggListe;
-        this.dokumentmalId = dokumentmalId;
-        this.dokumentmalFelleselementId = dokumentmalFelleselementId;
-        this.dokumentmal = dokumentmal;
-        this.dokumentmalFelleselement = dokumentmalFelleselement;
+class DoksysbrevDTO(
+    private val brevkodeIBrevsystem: String?,
+    private val redigerbart: Boolean,
+    private val dekode: String?,
+    private val brevkategori: BrevkategoriCode?,
+    private val dokType: DokumenttypeCode?,
+    private val sprak: MutableList<SprakCode?>?,
+    private val visIPselv: Boolean?,
+    private val utland: BrevUtlandCode?,
+    private val brevregeltype: BrevregeltypeCode?,
+    private val brevkravtype: BrevkravtypeCode?,
+    private val dokumentkategori: DokumentkategoriCode?,
+    private val synligForVeileder: Boolean?,
+    private val brevkontekst: BrevkontekstCode?,
+    private val prioritet: Int?,
+    private val brevsystem: BrevsystemCode?,
+    val vedleggListe: MutableList<DoksysVedlegg?>?,
+    val dokumentmalId: String?,
+    val dokumentmalFelleselementId: String?,
+    val dokumentmal: String?,
+    val dokumentmalFelleselement: String?
+) : BrevdataDTO {
+    override fun isRedigerbart(): Boolean {
+        return redigerbart
     }
 
-    public String getDokumentmalId() {
-        return dokumentmalId;
+    override fun getDekode(): String? {
+        return dekode
     }
 
-    public List<DoksysVedlegg> getVedleggListe() {
-        return vedleggListe;
+    override fun getBrevkategori(): BrevkategoriCode? {
+        return brevkategori
     }
 
-    public String getDokumentmal() {
-        return dokumentmal;
+    override fun getDokType(): DokumenttypeCode? {
+        return dokType
     }
 
-    public String getDokumentmalFelleselement() {
-        return dokumentmalFelleselement;
+    override fun getSprak(): MutableList<SprakCode?>? {
+        return sprak
     }
 
-    public String getDokumentmalFelleselementId() {
-        return dokumentmalFelleselementId;
+    override fun getVisIPselv(): Boolean? {
+        return visIPselv
     }
 
-
-    @Override
-    public boolean isRedigerbart() {
-        return redigerbart;
+    override fun getUtland(): BrevUtlandCode? {
+        return utland
     }
 
-    @Override
-    public String getDekode() {
-        return dekode;
+    override fun getBrevregeltype(): BrevregeltypeCode? {
+        return brevregeltype
     }
 
-    @Override
-    public BrevkategoriCode getBrevkategori() {
-        return brevkategori;
+    override fun getBrevkravtype(): BrevkravtypeCode? {
+        return brevkravtype
     }
 
-    @Override
-    public DokumenttypeCode getDokType() {
-        return dokType;
+    override fun getBrevkontekst(): BrevkontekstCode? {
+        return brevkontekst
     }
 
-    @Override
-    public List<SprakCode> getSprak() {
-        return sprak;
+    override fun getDokumentkategori(): DokumentkategoriCode? {
+        return dokumentkategori
     }
 
-    @Override
-    public Boolean getVisIPselv() {
-        return visIPselv;
+    override fun getSynligForVeileder(): Boolean? {
+        return synligForVeileder
     }
 
-    @Override
-    public BrevUtlandCode getUtland() {
-        return utland;
+    override fun getPrioritet(): Int? {
+        return prioritet
     }
 
-    @Override
-    public BrevregeltypeCode getBrevregeltype() {
-        return brevregeltype;
+    override fun getBrevkodeIBrevsystem(): String? {
+        return brevkodeIBrevsystem
     }
 
-    @Override
-    public BrevkravtypeCode getBrevkravtype() {
-        return brevkravtype;
-    }
-
-    @Override
-    public BrevkontekstCode getBrevkontekst() {
-        return brevkontekst;
-    }
-
-    @Override
-    public DokumentkategoriCode getDokumentkategori() {
-        return dokumentkategori;
-    }
-
-    @Override
-    public Boolean getSynligForVeileder() {
-        return synligForVeileder;
-    }
-
-    @Override
-    public Integer getPrioritet() {
-        return prioritet;
-    }
-
-    @Override
-    public String getBrevkodeIBrevsystem() {
-        return brevkodeIBrevsystem;
-    }
-
-    @Override
-    public BrevsystemCode getBrevsystem() {
-        return brevsystem;
+    override fun getBrevsystem(): BrevsystemCode? {
+        return brevsystem
     }
 }
