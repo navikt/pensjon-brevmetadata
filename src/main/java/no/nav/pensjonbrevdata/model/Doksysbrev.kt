@@ -108,28 +108,26 @@ open class Doksysbrev(
         )
     }
 
-    override fun toDTO(): BrevdataDTO {
-        return DoksysbrevDTO(
-            brevkodeIBrevsystem,
-            redigerbart,
-            dekode,
-            brevkategori,
-            dokType,
-            sprak,
-            visIPselv,
-            utland,
-            brevregeltype,
-            brevkravtype,
-            dokumentkategori,
-            synligForVeileder,
-            brevkontekst,
-            prioritet,
-            brevsystem,
-            if (vedleggListe == null) null else vedleggListe.get(),
-            dokumentmalId,
-            dokumentmalFelleselementId,
-            dokumentmal,
-            dokumentmalFelleselement
-        )
-    }
+    override fun toDTO(): BrevdataDTO = DoksysbrevDTO(
+        brevkodeIBrevsystem,
+        redigerbart,
+        dekode,
+        brevkategori,
+        dokType,
+        sprak,
+        visIPselv,
+        utland,
+        brevregeltype,
+        brevkravtype,
+        dokumentkategori,
+        synligForVeileder,
+        brevkontekst,
+        prioritet,
+        brevsystem,
+        vedleggListe?.get(),
+        dokumentmalId,
+        dokumentmalFelleselementId,
+        dokumentmal,
+        dokumentmalFelleselement
+    )
 }
