@@ -74,9 +74,9 @@ class DoksysVedleggMapper {
         )
     )
 
-    fun map(vararg vedleggCodes: String?): Supplier<MutableList<DoksysVedlegg?>?> {
+    fun map(vararg vedleggCodes: String?): Supplier<List<DoksysVedlegg?>?> {
         return Supplier {
-            Arrays.stream<String?>(vedleggCodes).map<DoksysVedlegg?> { key: String? -> vedleggMap.get(key) }.toList()
+            vedleggCodes.map { vedleggMap[it] }
         }
     }
 }

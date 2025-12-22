@@ -21,7 +21,7 @@ open class Doksysbrev(
     synligForVeileder: Boolean?,
     brevkontekst: BrevkontekstCode?,
     prioritet: Int?,
-    @JvmField protected val vedleggListe: Supplier<MutableList<DoksysVedlegg?>?>?,
+    @JvmField protected val vedleggListe: Supplier<List<DoksysVedlegg?>?>?,
     @JvmField protected val dokumentmalId: String,
     @JvmField protected val dokumentmalFelleselementId: String,
     protected val dokumentmal: String?,
@@ -60,7 +60,7 @@ open class Doksysbrev(
         prioritet: Int?,
         dokumentmalId: String,
         dokumentmalFelleselementId: String,
-        vedleggListe: Supplier<MutableList<DoksysVedlegg?>?>?
+        vedleggListe: Supplier<List<DoksysVedlegg?>?>?
     ) : this(
         brevkodeInBrevsystem,
         redigerbart,
@@ -89,7 +89,7 @@ open class Doksysbrev(
     ): Brevdata {
         val dokumentmal = dokumentmalGenerator.invoke(dokumentmalId)
         val fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId)
-        val vedleggListeMedXSD: Supplier<MutableList<DoksysVedlegg?>?>? =
+        val vedleggListeMedXSD: Supplier<List<DoksysVedlegg?>?>? =
             if (vedleggListe == null) null else Supplier {
             vedleggListe.get()!!.stream().map<DoksysVedlegg> { vedlegg: DoksysVedlegg? ->
                 vedlegg!!.medXSD(
