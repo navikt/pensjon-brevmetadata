@@ -27,7 +27,7 @@ public class SakBrevMapperTest {
         var brevdataMapper = new BrevdataMapper();
 
         var alleRedigerBareDoksysBrev = brevdataMapper.getAllBrevAsList().stream()
-                .filter(brev -> brev.brevsystem == BrevsystemCode.DOKSYS && brev.isRedigerbart())
+                .filter(brev -> brev.getBrevsystem() == BrevsystemCode.DOKSYS && brev.isRedigerbart())
                 .map(Brevdata::getBrevkodeIBrevsystem)
                 .toList();
 
