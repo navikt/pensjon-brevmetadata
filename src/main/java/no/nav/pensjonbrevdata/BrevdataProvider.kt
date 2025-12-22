@@ -15,7 +15,7 @@ class BrevdataProvider @Autowired constructor(
     private val sakBrevMapper: SakBrevMapper
 ) {
     fun getSprakForBrevkode(brevkode: String?): MutableList<SprakCode?>? {
-        return brevdataMapper.map(brevkode)!!.getSprak()
+        return brevdataMapper.map(brevkode)!!.sprak
     }
 
     fun getBrevForBrevkode(brevkode: String?): Brevdata? {
@@ -41,6 +41,6 @@ class BrevdataProvider @Autowired constructor(
 
     val eblanketter: MutableList<Brevdata?>
         get() = brevdataMapper.allBrevAsList.stream()
-            .filter { brev: Brevdata? -> brev!!.getDokumentkategori() == DokumentkategoriCode.E_BLANKETT }
+            .filter { brev: Brevdata? -> brev!!.dokumentkategori == DokumentkategoriCode.E_BLANKETT }
             .toList()
 }

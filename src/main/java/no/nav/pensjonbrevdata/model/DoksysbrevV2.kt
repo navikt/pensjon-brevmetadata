@@ -3,7 +3,6 @@ package no.nav.pensjonbrevdata.model
 import no.nav.pensjonbrevdata.model.codes.*
 import java.util.function.Supplier
 import java.util.stream.Collectors
-import kotlin.Function1
 
 class DoksysbrevV2(
     brevkodeInBrevsystem: String?,
@@ -20,8 +19,8 @@ class DoksysbrevV2(
     synligForVeileder: Boolean?,
     brevkontekst: BrevkontekstCode?,
     prioritet: Int?,
-    dokumentmalId: String?,
-    dokumentmalFelleselementId: String?,
+    dokumentmalId: String,
+    dokumentmalFelleselementId: String,
     vedleggListe: Supplier<MutableList<DoksysVedlegg?>?>?
 ) : Doksysbrev(
     brevkodeInBrevsystem,
@@ -43,8 +42,8 @@ class DoksysbrevV2(
     vedleggListe
 ) {
     override fun medXSD(
-        dokumentmalGenerator: Function1<String?, String?>,
-        fellesmalGenerator: Function1<String?, String?>
+        dokumentmalGenerator: (String) -> String,
+        fellesmalGenerator: (String) -> String
     ): Brevdata {
         val dokumentmal = dokumentmalGenerator.invoke("v2." + dokumentmalId)
         val fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId)
@@ -60,9 +59,9 @@ class DoksysbrevV2(
             )
         }
         return Doksysbrev(
-            getBrevkodeIBrevsystem(), isRedigerbart(), getDekode(), getBrevkategori(), getDokType(),
-            getSprak(), getVisIPselv(), getUtland(), getBrevregeltype(), getBrevkravtype(), getDokumentkategori(),
-            getSynligForVeileder(), getBrevkontekst(), getPrioritet(), vedleggListeMedXSD, dokumentmalId,
+            brevkodeIBrevsystem, isRedigerbart, dekode, brevkategori, dokType,
+            sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori,
+            synligForVeileder, brevkontekst, prioritet, vedleggListeMedXSD, dokumentmalId,
             dokumentmalFelleselementId, dokumentmal, fellesmal
         )
     }

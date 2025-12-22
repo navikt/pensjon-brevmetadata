@@ -40,7 +40,7 @@ class BrevdataMapper {
 
         for (key in filtrertBrevMap.keys) {
             try {
-                if (filtrertBrevMap.get(key)!!.getBrevkodeIBrevsystem() == brevkodeIBrevsystem) {
+                if (filtrertBrevMap.get(key)!!.brevkodeIBrevsystem == brevkodeIBrevsystem) {
                     brevkeys.add(key)
                 }
             } catch (e: IllegalArgumentException) {

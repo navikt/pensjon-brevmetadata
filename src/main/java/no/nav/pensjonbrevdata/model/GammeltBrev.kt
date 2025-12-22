@@ -2,30 +2,30 @@ package no.nav.pensjonbrevdata.model
 
 import no.nav.pensjonbrevdata.dto.BrevdataDTO
 import no.nav.pensjonbrevdata.model.codes.*
-import kotlin.Function1
 
 class GammeltBrev(
-    brevkodeInBrevsystem: String?,
-    redigerbart: Boolean,
-    dekode: String?,
-    brevkategori: BrevkategoriCode?,
-    doktype: DokumenttypeCode?,
-    sprak: MutableList<SprakCode?>?,
-    visIPselv: Boolean?,
-    utland: BrevUtlandCode?,
-    brevregeltype: BrevregeltypeCode?,
-    brevkravtype: BrevkravtypeCode?,
-    dokumentkategori: DokumentkategoriCode?,
-    synligForVeileder: Boolean?,
-    brevkontekst: BrevkontekstCode?,
-    prioritet: Int?,
-    val brevgruppe: String?
+    override val brevkodeIBrevsystem: String?,
+    override val redigerbart: Boolean,
+    override val dekode: String?,
+    override val brevkategori: BrevkategoriCode?,
+    override val dokType: DokumenttypeCode?,
+    override val sprak: MutableList<SprakCode?>?,
+    override val visIPselv: Boolean?,
+    override val utland: BrevUtlandCode?,
+    override val brevregeltype: BrevregeltypeCode?,
+    override val brevkravtype: BrevkravtypeCode?,
+    override val dokumentkategori: DokumentkategoriCode?,
+    override val synligForVeileder: Boolean?,
+    override val brevkontekst: BrevkontekstCode?,
+    override val prioritet: Int?,
+    val brevgruppe: String?,
+    override val brevsystem: BrevsystemCode = BrevsystemCode.GAMMEL
 ) : Brevdata(
-    brevkodeInBrevsystem,
+    brevkodeIBrevsystem,
     redigerbart,
     dekode,
     brevkategori,
-    doktype,
+    dokType,
     sprak,
     visIPselv,
     utland,
@@ -34,12 +34,12 @@ class GammeltBrev(
     dokumentkategori,
     synligForVeileder,
     brevkontekst,
-    BrevsystemCode.GAMMEL,
+    brevsystem,
     prioritet
 ), BrevdataDTO {
     override fun medXSD(
-        dokumentmalGenerator: Function1<String?, String?>,
-        fellesmalGenerator: Function1<String?, String?>
+        dokumentmalGenerator: (String) -> String,
+        fellesmalGenerator: (String) -> String,
     ): Brevdata {
         return this
     }

@@ -18,10 +18,10 @@ class SakBrevMapper {
         koder.removeAll(
             brevdataMapper.allBrevAsList
                 .stream()
-                .filter { kode: Brevdata? -> kode!!.getBrevsystem() == BrevsystemCode.DOKSYS }
-                .filter { kode: Brevdata? -> kode!!.getBrevkodeIBrevsystem() != "INFO_P1" }
-                .filter { obj: Brevdata? -> obj!!.isRedigerbart() }
-                .map<String?> { obj: Brevdata? -> obj!!.getBrevkodeIBrevsystem() }
+                .filter { kode: Brevdata? -> kode!!.brevsystem == BrevsystemCode.DOKSYS }
+                .filter { kode: Brevdata? -> kode!!.brevkodeIBrevsystem != "INFO_P1" }
+                .filter { obj: Brevdata? -> obj!!.isRedigerbart }
+                .map<String?> { obj: Brevdata? -> obj!!.brevkodeIBrevsystem }
                 .collect(Collectors.toSet()))
         return ArrayList<String?>(koder)
     }

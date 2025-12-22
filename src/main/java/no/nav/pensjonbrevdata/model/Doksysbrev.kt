@@ -5,7 +5,6 @@ import no.nav.pensjonbrevdata.dto.DoksysbrevDTO
 import no.nav.pensjonbrevdata.model.codes.*
 import java.util.function.Supplier
 import java.util.stream.Collectors
-import kotlin.Function1
 
 open class Doksysbrev(
     brevkodeIBrevsystem: String?,
@@ -23,8 +22,8 @@ open class Doksysbrev(
     brevkontekst: BrevkontekstCode?,
     prioritet: Int?,
     @JvmField protected val vedleggListe: Supplier<MutableList<DoksysVedlegg?>?>?,
-    @JvmField protected val dokumentmalId: String?,
-    @JvmField protected val dokumentmalFelleselementId: String?,
+    @JvmField protected val dokumentmalId: String,
+    @JvmField protected val dokumentmalFelleselementId: String,
     protected val dokumentmal: String?,
     protected val dokumentmalFelleselement: String?
 ) : Brevdata(
@@ -59,8 +58,8 @@ open class Doksysbrev(
         synligForVeileder: Boolean?,
         brevkontekst: BrevkontekstCode?,
         prioritet: Int?,
-        dokumentmalId: String?,
-        dokumentmalFelleselementId: String?,
+        dokumentmalId: String,
+        dokumentmalFelleselementId: String,
         vedleggListe: Supplier<MutableList<DoksysVedlegg?>?>?
     ) : this(
         brevkodeInBrevsystem,
@@ -85,9 +84,9 @@ open class Doksysbrev(
     )
 
     override fun medXSD(
-        dokumentmalGenerator: Function1<String?, String?>,
-        fellesmalGenerator: Function1<String?, String?>
-    ): Brevdata? {
+        dokumentmalGenerator: (String) -> String,
+        fellesmalGenerator: (String) -> String,
+    ): Brevdata {
         val dokumentmal = dokumentmalGenerator.invoke(dokumentmalId)
         val fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId)
         val vedleggListeMedXSD: Supplier<MutableList<DoksysVedlegg?>?>? =
@@ -102,30 +101,30 @@ open class Doksysbrev(
             )
         }
         return Doksysbrev(
-            getBrevkodeIBrevsystem(), isRedigerbart(), getDekode(), getBrevkategori(), getDokType(),
-            getSprak(), getVisIPselv(), getUtland(), getBrevregeltype(), getBrevkravtype(), getDokumentkategori(),
-            getSynligForVeileder(), getBrevkontekst(), getPrioritet(), vedleggListeMedXSD, dokumentmalId,
+            brevkodeIBrevsystem, isRedigerbart, dekode, brevkategori, dokType,
+            sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori,
+            synligForVeileder, brevkontekst, prioritet, vedleggListeMedXSD, dokumentmalId,
             dokumentmalFelleselementId, dokumentmal, fellesmal
         )
     }
 
     override fun toDTO(): BrevdataDTO {
         return DoksysbrevDTO(
-            getBrevkodeIBrevsystem(),
-            isRedigerbart(),
-            getDekode(),
-            getBrevkategori(),
-            getDokType(),
-            getSprak(),
-            getVisIPselv(),
-            getUtland(),
-            getBrevregeltype(),
-            getBrevkravtype(),
-            getDokumentkategori(),
-            getSynligForVeileder(),
-            getBrevkontekst(),
-            getPrioritet(),
-            getBrevsystem(),
+            brevkodeIBrevsystem,
+            isRedigerbart,
+            dekode,
+            brevkategori,
+            dokType,
+            sprak,
+            visIPselv,
+            utland,
+            brevregeltype,
+            brevkravtype,
+            dokumentkategori,
+            synligForVeileder,
+            brevkontekst,
+            prioritet,
+            brevsystem,
             if (vedleggListe == null) null else vedleggListe.get(),
             dokumentmalId,
             dokumentmalFelleselementId,

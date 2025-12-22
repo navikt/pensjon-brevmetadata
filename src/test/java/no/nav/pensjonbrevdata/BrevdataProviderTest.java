@@ -71,13 +71,13 @@ public class BrevdataProviderTest {
 
         List<SprakCode> actualListOfSprakCodes = provider.getSprakForBrevkode(brevkode);
 
-        assertThat(actualListOfSprakCodes, is(brev.getSprak()));
+        assertThat(actualListOfSprakCodes, is(brev.sprak));
     }
 
     @Test
     public void onlyEblanketterIsReturned() {
         List<Brevdata> eblanketter = new BrevdataProvider(new BrevdataMapper(), sakBrevMapperMock).getEblanketter();
         assertThat(eblanketter, not(empty()));
-        assertTrue(eblanketter.stream().allMatch(b -> b.getDokumentkategori().equals(DokumentkategoriCode.E_BLANKETT)));
+        assertTrue(eblanketter.stream().allMatch(b -> b.dokumentkategori.equals(DokumentkategoriCode.E_BLANKETT)));
     }
 }
