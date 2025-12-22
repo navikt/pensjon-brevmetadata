@@ -6,9 +6,9 @@ import no.nav.pensjonbrevdata.model.codes.*
 class DoksysbrevDTO(
     override val brevkodeIBrevsystem: String?,
     override val redigerbart: Boolean,
-    override val dekode: String?,
+    override val dekode: String,
     override val brevkategori: BrevkategoriCode?,
-    override val dokType: DokumenttypeCode?,
+    override val dokType: DokumenttypeCode,
     override val sprak: List<SprakCode>?,
     override val visIPselv: Boolean?,
     override val utland: BrevUtlandCode?,

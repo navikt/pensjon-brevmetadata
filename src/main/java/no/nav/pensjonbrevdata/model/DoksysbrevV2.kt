@@ -9,7 +9,7 @@ class DoksysbrevV2(
     redigerbart: Boolean,
     dekode: String,
     brevkategori: BrevkategoriCode?,
-    doktype: DokumenttypeCode?,
+    doktype: DokumenttypeCode,
     sprak: List<SprakCode>?,
     visIPselv: Boolean?,
     utland: BrevUtlandCode?,
