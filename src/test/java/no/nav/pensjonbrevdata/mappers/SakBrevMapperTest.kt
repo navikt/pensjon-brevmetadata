@@ -1,46 +1,45 @@
-package no.nav.pensjonbrevdata.mappers;
+package no.nav.pensjonbrevdata.mappers
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper;
-import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper;
-import no.nav.pensjonbrevdata.model.Brevdata;
-import no.nav.pensjonbrevdata.model.codes.BrevsystemCode;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
+import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
+import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
+import no.nav.pensjonbrevdata.model.Brevdata
+import no.nav.pensjonbrevdata.model.codes.BrevsystemCode
+import org.hamcrest.MatcherAssert
+import org.hamcrest.Matchers
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import java.util.stream.Collectors
 
-import static java.util.stream.Collectors.toList;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
-@ExtendWith(MockitoExtension.class)
-public class SakBrevMapperTest {
-    private SakBrevMapper mapper;
+class SakBrevMapperTest {
+    private var mapper: SakBrevMapper? = null
 
     @BeforeEach
-    public void setup() {
-        mapper = new SakBrevMapper();
+    fun setup() {
+        mapper = SakBrevMapper()
     }
 
     @Test
-    public void kunInfoP1ErInkludertAvRedigerbareDoksysbrev() {
-        var brevdataMapper = new BrevdataMapper();
+    fun kunInfoP1ErInkludertAvRedigerbareDoksysbrev() {
+        val brevdataMapper = BrevdataMapper()
 
-        var alleRedigerBareDoksysBrev = brevdataMapper.getAllBrevAsList().stream()
-                .filter(brev -> brev.getBrevsystem() == BrevsystemCode.DOKSYS && brev.isRedigerbart())
-                .map(Brevdata::getBrevkodeIBrevsystem)
-                .toList();
+        val alleRedigerBareDoksysBrev = brevdataMapper.allBrevAsList.stream()
+            .filter { brev: Brevdata? -> brev!!.brevsystem == BrevsystemCode.DOKSYS && brev.isRedigerbart }
+            .map<String?>(Brevdata::brevkodeIBrevsystem)
+            .toList()
 
-        for (String sakType: mapper.keySet()) {
-            var sakBrev = mapper.map(sakType);
+        for (sakType in mapper!!.keySet()) {
+            val sakBrev = mapper!!.map(sakType)
 
             // ingen redigerbare doksysbrev blir returnert for sak, bortsett fra "INFO_P1"
-            var redigerbareDoksysbrevForSak = sakBrev.stream()
-                    .filter(alleRedigerBareDoksysBrev::contains)
-                    .filter(brev -> !brev.equals("INFO_P1"))
-                    .collect(toList());
+            val redigerbareDoksysbrevForSak = sakBrev.stream()
+                .filter { o: String? -> alleRedigerBareDoksysBrev.contains(o) }
+                .filter { brev: String? -> brev != "INFO_P1" }
+                .collect(Collectors.toList())
 
-            assertThat(redigerbareDoksysbrevForSak, is(empty()));
+            MatcherAssert.assertThat<MutableList<String?>?>(
+                redigerbareDoksysbrevForSak,
+                Matchers.`is`<MutableCollection<out String?>?>(Matchers.empty<String?>())
+            )
         }
     }
 }
