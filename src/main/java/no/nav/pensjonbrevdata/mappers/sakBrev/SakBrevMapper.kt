@@ -10,8 +10,8 @@ import java.util.stream.Collectors
 class SakBrevMapper {
     private val brevdataMapper = BrevdataMapper()
 
-    fun map(saktype: String?): List<String> {
-        val koder = sakToBrevMap.get(saktype)!!.stream().filter { brevKode: String? -> brevKode != "AFP_INNV_MAN" }
+    fun map(saktype: String): List<String> {
+        val koder = sakToBrevMap[saktype]!!.stream().filter { brevKode: String? -> brevKode != "AFP_INNV_MAN" }
             .collect(Collectors.toSet())
 
         koder.removeAll(

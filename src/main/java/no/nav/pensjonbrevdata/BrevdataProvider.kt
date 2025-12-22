@@ -18,20 +18,14 @@ class BrevdataProvider @Autowired constructor(
 
     fun getBrevForBrevkode(brevkode: String): Brevdata = brevdataMapper.map(brevkode)
 
-    fun getBrevdataForSaktype(saktype: String?): List<Brevdata?> {
-        return sakBrevMapper.map(saktype).map { brevdataMapper.map(it) }
-    }
+    fun getBrevdataForSaktype(saktype: String): List<Brevdata> = sakBrevMapper.map(saktype).map { brevdataMapper.map(it) }
 
-    fun getBrevkoderForSaktype(saktype: String?): List<String> {
-        return sakBrevMapper.map(saktype)
-    }
+    fun getBrevkoderForSaktype(saktype: String): List<String> = sakBrevMapper.map(saktype)
 
     val allBrev: List<Brevdata>
         get() = brevdataMapper.allBrevAsList
 
-    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String): List<String> {
-        return brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem)
-    }
+    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String): List<String> = brevdataMapper.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem)
 
     val eblanketter: MutableList<Brevdata?>
         get() = brevdataMapper.allBrevAsList.stream()
