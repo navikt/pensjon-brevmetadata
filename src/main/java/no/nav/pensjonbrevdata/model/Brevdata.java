@@ -1,10 +1,11 @@
 package no.nav.pensjonbrevdata.model;
 
+import kotlin.jvm.functions.Function1;
 import no.nav.pensjonbrevdata.dto.BrevdataDTO;
 import no.nav.pensjonbrevdata.model.codes.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.function.Function;
 
 public abstract class Brevdata {
     private final boolean redigerbart;
@@ -115,7 +116,7 @@ public abstract class Brevdata {
         return prioritet;
     }
 
-    public abstract Brevdata medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator);
+    public abstract Brevdata medXSD(@NotNull Function1<String, String> dokumentmalGenerator, @NotNull Function1<String, String> fellesmalGenerator);
 
     public abstract BrevdataDTO toDTO();
 }

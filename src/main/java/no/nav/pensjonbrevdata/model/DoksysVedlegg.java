@@ -1,5 +1,7 @@
 package no.nav.pensjonbrevdata.model;
 
+import kotlin.jvm.functions.Function1;
+
 import java.util.function.Function;
 
 public class DoksysVedlegg {
@@ -47,9 +49,9 @@ public class DoksysVedlegg {
         return vedleggkode;
     }
 
-    public DoksysVedlegg medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator) {
-        String dokumentmal = dokumentmalGenerator.apply(dokumentmalId);
-        String dokumentmalFelleselement = fellesmalGenerator.apply(dokumentmalFelleselementId);
+    public DoksysVedlegg medXSD(Function1<String, String> dokumentmalGenerator, Function1<String, String> fellesmalGenerator) {
+        String dokumentmal = dokumentmalGenerator.invoke(dokumentmalId);
+        String dokumentmalFelleselement = fellesmalGenerator.invoke(dokumentmalFelleselementId);
         return new DoksysVedlegg(vedleggkode, dekode, dokumentmalId, dokumentmalFelleselementId, dokumentmal, dokumentmalFelleselement);
     }
 }

@@ -1,10 +1,11 @@
 package no.nav.pensjonbrevdata.model;
 
+import kotlin.jvm.functions.Function1;
 import no.nav.pensjonbrevdata.dto.BrevdataDTO;
 import no.nav.pensjonbrevdata.model.codes.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.function.Function;
 
 public class GammeltBrev extends Brevdata implements BrevdataDTO {
 
@@ -48,7 +49,7 @@ public class GammeltBrev extends Brevdata implements BrevdataDTO {
     }
 
     @Override
-    public Brevdata medXSD(Function<String, String> dokumentmalGenerator, Function<String, String> fellesmalGenerator) {
+    public Brevdata medXSD(@NotNull Function1<String, String> dokumentmalGenerator, @NotNull Function1<String, String> fellesmalGenerator) {
         return this;
     }
 

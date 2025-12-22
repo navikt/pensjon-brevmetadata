@@ -1,23 +1,15 @@
-package no.nav.pensjonbrevdata.helpers;
+package no.nav.pensjonbrevdata.helpers
 
-import java.io.File;
-import java.io.IOException;
-import java.util.function.Function;
+import java.io.File
 
-public class DokumentmalGenerators {
+object DokumentmalGenerators {
+    @JvmField
+    val dokumentmalGenerator: (String) -> String = dokumentmalBuilder("dokumentmal")
 
-    public static final Function<String, String> dokumentmalGenerator = dokumentmalBuilder("dokumentmal");
-    public static final Function<String, String> fellesmalGenerator = dokumentmalBuilder("felles");
+    @JvmField
+    val fellesmalGenerator: (String) -> String = dokumentmalBuilder("felles")
 
-    private DokumentmalGenerators() { }
-
-    private static Function<String, String> dokumentmalBuilder(String dokumentMalType){
-        return dokumentmalId -> {
-            try {
-                return new XsdFileReader().read("xsd" + File.separator + dokumentMalType + File.separator + dokumentmalId + ".xsd");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        };
+    private fun dokumentmalBuilder(dokumentMalType: String): (String) -> String = { dokumentmalId: String ->
+        XsdFileReader().read("xsd" + File.separator + dokumentMalType + File.separator + dokumentmalId + ".xsd")
     }
 }
