@@ -16,9 +16,6 @@ import java.io.Writer
 @RequestMapping("api/internal")
 class NaisRestController {
     @RequestMapping(path = ["prometheus"], method = [RequestMethod.GET], produces = [TextFormat.CONTENT_TYPE_004])
-    @Throws(
-        IOException::class
-    )
     fun prometheus(): ResponseEntity<*> {
         val writer: Writer = StringWriter()
         writer.use {

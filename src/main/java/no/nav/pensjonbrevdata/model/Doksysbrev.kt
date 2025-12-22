@@ -91,7 +91,7 @@ open class Doksysbrev(
         val fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId)
         val vedleggListeMedXSD: Supplier<List<DoksysVedlegg?>?>? =
             if (vedleggListe == null) null else Supplier {
-            vedleggListe.get()!!.stream().map<DoksysVedlegg> { vedlegg: DoksysVedlegg? ->
+            vedleggListe.get()!!.stream().map<DoksysVedlegg> { vedlegg ->
                 vedlegg!!.medXSD(
                     dokumentmalGenerator,
                     fellesmalGenerator

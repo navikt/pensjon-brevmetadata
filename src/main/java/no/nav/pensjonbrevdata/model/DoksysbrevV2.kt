@@ -45,11 +45,11 @@ class DoksysbrevV2(
         dokumentmalGenerator: (String) -> String,
         fellesmalGenerator: (String) -> String
     ): Brevdata {
-        val dokumentmal = dokumentmalGenerator.invoke("v2." + dokumentmalId)
+        val dokumentmal = dokumentmalGenerator.invoke("v2.$dokumentmalId")
         val fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId)
         val vedleggListeMedXSD: Supplier<List<DoksysVedlegg?>?>? =
             if (vedleggListe == null) null else Supplier {
-            vedleggListe.get()!!.stream().map<DoksysVedlegg> { vedlegg: DoksysVedlegg? ->
+            vedleggListe.get()!!.stream().map<DoksysVedlegg> { vedlegg ->
                 vedlegg!!.medXSD(
                     dokumentmalGenerator,
                     fellesmalGenerator

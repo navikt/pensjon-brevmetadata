@@ -1,6 +1,6 @@
 package no.nav.pensjonbrevdata.model
 
-class DoksysVedlegg protected constructor(
+class DoksysVedlegg private constructor(
     val vedleggkode: String?,
     val dekode: String?,
     val dokumentmalId: String,

@@ -19,7 +19,7 @@ class GammeltBrev(
     override val brevkontekst: BrevkontekstCode?,
     override val prioritet: Int?,
     val brevgruppe: String?,
-    override val brevsystem: BrevsystemCode = BrevsystemCode.GAMMEL
+    override val brevsystem: BrevsystemCode = BrevsystemCode.GAMMEL,
 ) : Brevdata(
     brevkodeIBrevsystem,
     redigerbart,
@@ -37,14 +37,7 @@ class GammeltBrev(
     brevsystem,
     prioritet
 ), BrevdataDTO {
-    override fun medXSD(
-        dokumentmalGenerator: (String) -> String,
-        fellesmalGenerator: (String) -> String,
-    ): Brevdata {
-        return this
-    }
+    override fun medXSD(dokumentmalGenerator: (String) -> String, fellesmalGenerator: (String) -> String): Brevdata = this
 
-    override fun toDTO(): BrevdataDTO {
-        return this
-    }
+    override fun toDTO(): BrevdataDTO = this
 }
