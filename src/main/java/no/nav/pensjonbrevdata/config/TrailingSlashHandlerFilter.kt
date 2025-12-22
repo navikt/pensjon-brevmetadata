@@ -20,9 +20,7 @@ class TrailingSlashHandlerFilter : Filter {
 
     private class CustomHttpServletRequestWrapper(request: HttpServletRequest, private val newPath: String?) :
         HttpServletRequestWrapper(request) {
-        override fun getRequestURI(): String? {
-            return newPath
-        }
+        override fun getRequestURI(): String? = newPath
 
         override fun getRequestURL(): StringBuffer {
             val url = StringBuffer()

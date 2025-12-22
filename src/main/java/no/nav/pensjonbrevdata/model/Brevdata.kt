@@ -20,10 +20,7 @@ abstract class Brevdata(
     open val brevsystem: BrevsystemCode,
     open val prioritet: Int?
 ) {
-    abstract fun medXSD(
-        dokumentmalGenerator: (String) -> String,
-        fellesmalGenerator: (String) -> String
-    ): Brevdata
+    abstract fun medXSD(dokumentmalGenerator: (String) -> String, fellesmalGenerator: (String) -> String): Brevdata
 
     abstract fun toDTO(): BrevdataDTO
 }
