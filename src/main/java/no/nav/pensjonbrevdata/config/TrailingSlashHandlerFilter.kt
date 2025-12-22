@@ -9,7 +9,7 @@ class TrailingSlashHandlerFilter : Filter {
     @Throws(IOException::class, ServletException::class)
     override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain) {
         val httpRequest = request as HttpServletRequest
-        val path = httpRequest.getRequestURI()
+        val path = httpRequest.requestURI
 
         if (path.endsWith("/")) {
             val newPath = path.substring(0, path.length - 1)
@@ -28,7 +28,7 @@ class TrailingSlashHandlerFilter : Filter {
 
         override fun getRequestURL(): StringBuffer {
             val url = StringBuffer()
-            url.append(getScheme()).append("://").append(getServerName()).append(":").append(getServerPort())
+            url.append(scheme).append("://").append(serverName).append(":").append(serverPort)
                 .append(newPath)
             return url
         }
