@@ -7,7 +7,7 @@ import java.util.stream.Collectors
 class DoksysbrevV2(
     brevkodeInBrevsystem: String,
     redigerbart: Boolean,
-    dekode: String?,
+    dekode: String,
     brevkategori: BrevkategoriCode?,
     doktype: DokumenttypeCode?,
     sprak: List<SprakCode>?,

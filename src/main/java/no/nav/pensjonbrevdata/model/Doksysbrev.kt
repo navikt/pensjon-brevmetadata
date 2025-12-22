@@ -9,7 +9,7 @@ import java.util.stream.Collectors
 open class Doksysbrev(
     brevkodeIBrevsystem: String,
     redigerbart: Boolean,
-    dekode: String?,
+    dekode: String,
     brevkategori: BrevkategoriCode?,
     dokType: DokumenttypeCode?,
     sprak: List<SprakCode>?,
@@ -46,7 +46,7 @@ open class Doksysbrev(
     constructor(
         brevkodeInBrevsystem: String,
         redigerbart: Boolean,
-        dekode: String?,
+        dekode: String,
         brevkategori: BrevkategoriCode?,
         doktype: DokumenttypeCode?,
         sprak: List<SprakCode>?,
