@@ -14,7 +14,6 @@ import org.hamcrest.collection.IsEmptyCollection
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import java.util.Arrays
 
 class BrevdataProviderTest {
     @MockK
@@ -56,7 +55,7 @@ class BrevdataProviderTest {
             "Vedtak - innvilgelse av AFP",
             BrevkategoriCode.VEDTAK,
             DokumenttypeCode.U,
-            Arrays.asList<SprakCode?>(SprakCode.NB, SprakCode.NN),
+            listOf(SprakCode.NB, SprakCode.NN),
             true,
             BrevUtlandCode.NASJONALT,
             BrevregeltypeCode.GG,
@@ -72,9 +71,9 @@ class BrevdataProviderTest {
 
         val actualListOfSprakCodes = provider.getSprakForBrevkode(brevkode)
 
-        MatcherAssert.assertThat<MutableList<SprakCode?>?>(
+        MatcherAssert.assertThat<List<SprakCode>?>(
             actualListOfSprakCodes,
-            CoreMatchers.`is`<MutableList<SprakCode?>?>(brev.sprak)
+            CoreMatchers.`is`<List<SprakCode>?>(brev.sprak)
         )
     }
 

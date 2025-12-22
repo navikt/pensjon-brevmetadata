@@ -9,7 +9,7 @@ abstract class Brevdata(
     open val dekode: String?,
     open val brevkategori: BrevkategoriCode?,
     open val dokType: DokumenttypeCode?,
-    open val sprak: MutableList<SprakCode?>?,
+    open val sprak: List<SprakCode>?,
     open val visIPselv: Boolean?,
     open val utland: BrevUtlandCode?,
     open val brevregeltype: BrevregeltypeCode?,

@@ -21,7 +21,7 @@ import kotlin.collections.map
 @RequestMapping("api/brevdata")
 class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProvider) {
     @GetMapping("/sprakForBrevkode/{brevkode}")
-    fun getSprakForBrevkode(@PathVariable(value = "brevkode") brevkode: String?): MutableList<SprakCode?>? {
+    fun getSprakForBrevkode(@PathVariable(value = "brevkode") brevkode: String?): List<SprakCode>? {
         try {
             return provider.getSprakForBrevkode(brevkode)
         } catch (e: IllegalArgumentException) {

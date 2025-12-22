@@ -7,7 +7,7 @@ interface BrevdataDTO {
     val dekode: String?
     val brevkategori: BrevkategoriCode?
     val dokType: DokumenttypeCode?
-    val sprak: MutableList<SprakCode?>?
+    val sprak: List<SprakCode>?
     val visIPselv: Boolean?
     val utland: BrevUtlandCode?
     val brevregeltype: BrevregeltypeCode?

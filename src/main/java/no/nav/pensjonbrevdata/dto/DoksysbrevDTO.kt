@@ -9,7 +9,7 @@ class DoksysbrevDTO(
     override val dekode: String?,
     override val brevkategori: BrevkategoriCode?,
     override val dokType: DokumenttypeCode?,
-    override val sprak: MutableList<SprakCode?>?,
+    override val sprak: List<SprakCode>?,
     override val visIPselv: Boolean?,
     override val utland: BrevUtlandCode?,
     override val brevregeltype: BrevregeltypeCode?,

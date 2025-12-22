@@ -14,7 +14,7 @@ class BrevdataProvider @Autowired constructor(
     private val brevdataMapper: BrevdataMapper,
     private val sakBrevMapper: SakBrevMapper
 ) {
-    fun getSprakForBrevkode(brevkode: String?): MutableList<SprakCode?>? {
+    fun getSprakForBrevkode(brevkode: String?): List<SprakCode>? {
         return brevdataMapper.map(brevkode)!!.sprak
     }
 
