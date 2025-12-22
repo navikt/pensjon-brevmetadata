@@ -21,7 +21,7 @@ import kotlin.collections.map
 @RequestMapping("api/brevdata")
 class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProvider) {
     @GetMapping("/sprakForBrevkode/{brevkode}")
-    fun getSprakForBrevkode(@PathVariable(value = "brevkode") brevkode: String?): List<SprakCode>? {
+    fun getSprakForBrevkode(@PathVariable brevkode: String): List<SprakCode>? {
         try {
             return provider.getSprakForBrevkode(brevkode)
         } catch (e: IllegalArgumentException) {
@@ -34,7 +34,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     }
 
     @GetMapping(value = ["/brevForBrevkode/{brevkode}"])
-    fun getBrevForBrevkode(@PathVariable(value = "brevkode") brevkode: String?): BrevdataDTO? {
+    fun getBrevForBrevkode(@PathVariable brevkode: String): BrevdataDTO? {
         try {
             return provider.getBrevForBrevkode(brevkode)!!.medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO()
         } catch (e: IllegalArgumentException) {
@@ -48,7 +48,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
 
     @GetMapping("/brevdataForSaktype/{saktype}")
     fun getBrevdataForSaktype(
-        @PathVariable(value = "saktype") saktype: String?,
+        @PathVariable saktype: String,
         @RequestParam(value = "includeXsd") includeXsd: Boolean
     ): List<BrevdataDTO> {
         try {
@@ -69,7 +69,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     }
 
     @GetMapping("/brevkoderForSaktype/{saktype}")
-    fun getBrevkoderForSaktype(@PathVariable(value = "saktype") saktype: String?): List<String> {
+    fun getBrevkoderForSaktype(@PathVariable saktype: String): List<String> {
         try {
             return provider.getBrevkoderForSaktype(saktype)
         } catch (e: IllegalArgumentException) {
@@ -134,14 +134,14 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
             .map { code: String? ->
                 val brev = provider.getBrevForBrevkode(code!!.trim { it <= ' ' })
                 val map: MutableMap<String, String> = HashMap()
-                map.put("batch", code)
-                map.put("brev", brev!!.brevkodeIBrevsystem!!)
+                map["batch"] = code
+                map["brev"] = brev!!.brevkodeIBrevsystem!!
                 map
             }
     }
 
     @GetMapping("/brevKeyForBrevkodeIBrevsystem/{brevkodeIBrevsystem}")
-    fun getBrevKeyForBrevkodeIBrevsystem(@PathVariable(value = "brevkodeIBrevsystem") brevkodeIBrevsystem: String): List<String> {
+    fun getBrevKeyForBrevkodeIBrevsystem(@PathVariable brevkodeIBrevsystem: String): List<String> {
         try {
             return provider.getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem)
         } catch (e: RuntimeException) {
