@@ -14,7 +14,7 @@ class DoksysbrevDTO(
     override val utland: BrevUtlandCode?,
     override val brevregeltype: BrevregeltypeCode?,
     override val brevkravtype: BrevkravtypeCode?,
-    override val dokumentkategori: DokumentkategoriCode?,
+    override val dokumentkategori: DokumentkategoriCode,
     override val synligForVeileder: Boolean?,
     override val brevkontekst: BrevkontekstCode?,
     override val prioritet: Int?,

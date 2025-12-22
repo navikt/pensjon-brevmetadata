@@ -13,7 +13,7 @@ interface BrevdataDTO {
     val brevregeltype: BrevregeltypeCode?
     val brevkravtype: BrevkravtypeCode?
     val brevkontekst: BrevkontekstCode?
-    val dokumentkategori: DokumentkategoriCode?
+    val dokumentkategori: DokumentkategoriCode
     val synligForVeileder: Boolean?
     val prioritet: Int?
     val brevkodeIBrevsystem: String?

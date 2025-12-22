@@ -15,7 +15,7 @@ class DoksysbrevV2(
     utland: BrevUtlandCode?,
     brevregeltype: BrevregeltypeCode?,
     brevkravtype: BrevkravtypeCode?,
-    dokumentkategori: DokumentkategoriCode?,
+    dokumentkategori: DokumentkategoriCode,
     synligForVeileder: Boolean?,
     brevkontekst: BrevkontekstCode?,
     prioritet: Int?,

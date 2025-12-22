@@ -14,7 +14,7 @@ abstract class Brevdata(
     open val utland: BrevUtlandCode?,
     open val brevregeltype: BrevregeltypeCode?,
     open val brevkravtype: BrevkravtypeCode?,
-    open val dokumentkategori: DokumentkategoriCode?,
+    open val dokumentkategori: DokumentkategoriCode,
     open val synligForVeileder: Boolean?,
     open val brevkontekst: BrevkontekstCode?,
     open val brevsystem: BrevsystemCode,
