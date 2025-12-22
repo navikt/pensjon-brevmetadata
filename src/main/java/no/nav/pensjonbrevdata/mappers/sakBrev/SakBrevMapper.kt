@@ -4,7 +4,6 @@ import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
 import no.nav.pensjonbrevdata.model.Brevdata
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode
 import org.springframework.stereotype.Service
-import java.util.Map
 import java.util.stream.Collectors
 
 @Service
@@ -26,15 +25,14 @@ class SakBrevMapper {
         return ArrayList<String?>(koder)
     }
 
-    fun keySet(): MutableSet<String?> {
+    fun keySet(): Set<String> {
         return sakToBrevMap.keys
     }
 
-    private val sakToBrevMap: MutableMap<String?, MutableList<String?>?> =
-        Map.ofEntries<String?, MutableList<String?>?>(
-            Map.entry<String?, MutableList<String?>?>(
-                "FAM_PL",
-                mutableListOf<String?>(
+    private val sakToBrevMap: Map<String, List<String>> =
+        mapOf(
+                "FAM_PL" to
+                listOf(
                     "PE_GP_01_010",
                     "PE_IY_03_047",
                     "PE_IY_03_048",
@@ -87,11 +85,9 @@ class SakBrevMapper {
                     "HENT_INFO_MAN",
                     "VARSEL_TILBAKEBET",
                     "VEDTAK_TILBAKEKREV_MIDL"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "GAM_YRK",
-                mutableListOf<String?>(
+                "GAM_YRK" to
+                listOf(
                     "PE_GP_01_010",
                     "PE_IY_03_047",
                     "PE_IY_03_048",
@@ -141,11 +137,9 @@ class SakBrevMapper {
                     "PE_IY_03_167",
                     "AP_INFO_STID_MAN",
                     "HENT_INFO_MAN"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "OMSORG",
-                mutableListOf<String?>(
+                "OMSORG" to
+                listOf(
                     "PE_GP_01_010",
                     "PE_IY_03_047",
                     "PE_IY_03_048",
@@ -206,10 +200,8 @@ class SakBrevMapper {
                     "HENT_INFO_MAN",
                     "PE_IY_04_120",
                     "PE_IY_04_121"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "AFP", mutableListOf<String?>(
+                "AFP" to listOf(
                     "PE_AF_03_101",
                     "PE_AF_04_001",
                     "PE_AF_04_010",
@@ -279,10 +271,8 @@ class SakBrevMapper {
                     "HENT_INFO_MAN",
                     "VARSEL_TILBAKEBET",
                     "VEDTAK_TILBAKEKREV_MIDL"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "BARNEP", mutableListOf<String?>(
+                "BARNEP" to listOf(
                     "PE_BP_01_001",
                     "PE_BP_01_002",
                     "PE_BP_04_001",
@@ -353,10 +343,8 @@ class SakBrevMapper {
                     "HENT_INFO_MAN",
                     "VARSEL_TILBAKEBET",
                     "VEDTAK_TILBAKEKREV_MIDL"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "UFOREP", mutableListOf<String?>(
+                "UFOREP" to listOf(
                     "PE_BA_01_108",
                     "PE_FT_01_002",
                     "PE_FT_01_003",
@@ -453,10 +441,8 @@ class SakBrevMapper {
                     "INFO_P1",
                     "AP_INFO_STID_MAN",
                     "VEDTAK_TILBAKEKREV_MIDL"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "GJENLEV", mutableListOf<String?>(
+                "GJENLEV" to listOf(
                     "PE_GP_01_010",
                     "PE_GP_01_011",
                     "PE_GP_04_001",
@@ -530,10 +516,8 @@ class SakBrevMapper {
                     "HENT_INFO_MAN",
                     "VARSEL_TILBAKEBET",
                     "VEDTAK_TILBAKEKREV_MIDL"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "ALDER", mutableListOf<String?>(
+                "ALDER" to listOf(
                     "PE_AP_01_006",
                     "PE_AP_04_001",
                     "PE_AP_04_020",
@@ -640,11 +624,8 @@ class SakBrevMapper {
                     "HENT_INFO_MAN",
                     "VARSEL_TILBAKEBET",
                     "VEDTAK_TILBAKEKREV_MIDL"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "GRBL",
-                mutableListOf<String?>(
+                "GRBL" to listOf(
                     "PE_GP_01_010",
                     "PE_IY_03_047",
                     "PE_IY_03_048",
@@ -694,11 +675,8 @@ class SakBrevMapper {
                     "PE_IY_03_167",
                     "AP_INFO_STID_MAN",
                     "HENT_INFO_MAN"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "GENRL",
-                mutableListOf<String?>(
+                "GENRL" to listOf(
                     "PE_AP_01_006",
                     "PE_GP_01_010",
                     "PE_GP_01_011",
@@ -756,11 +734,8 @@ class SakBrevMapper {
                     "AP_INFO_STID_MAN",
                     "HENT_INFO_MAN",
                     "VARSEL_TILBAKEBET"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "KRIGSP",
-                mutableListOf<String?>(
+                "KRIGSP" to listOf(
                     "PE_GP_01_010",
                     "PE_IY_03_047",
                     "PE_IY_03_048",
@@ -810,11 +785,8 @@ class SakBrevMapper {
                     "PE_IY_03_167",
                     "AP_INFO_STID_MAN",
                     "HENT_INFO_MAN"
-                )
             ),
-            Map.entry<String?, MutableList<String?>?>(
-                "AFP_PRIVAT",
-                mutableListOf<String?>(
+                "AFP_PRIVAT" to listOf(
                     "PE_AF_04_111",
                     "PE_AF_04_112",
                     "PE_AF_04_114",
@@ -875,5 +847,4 @@ class SakBrevMapper {
                     "AFP_INNV_MAN"
                 )
             )
-        )
 }
