@@ -34,7 +34,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     }
 
     @GetMapping(value = ["/brevForBrevkode/{brevkode}"])
-    fun getBrevForBrevkode(@PathVariable brevkode: String): BrevdataDTO? {
+    fun getBrevForBrevkode(@PathVariable brevkode: String): BrevdataDTO {
         try {
             return provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO()
         } catch (e: IllegalArgumentException) {
@@ -54,11 +54,11 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
         try {
             val brevdata = provider.getBrevdataForSaktype(saktype)
             return (if (includeXsd) {
-                brevdata.map { it!!.medXSD(dokumentmalGenerator, fellesmalGenerator) }
+                brevdata.map { it.medXSD(dokumentmalGenerator, fellesmalGenerator) }
             } else {
                 brevdata
             })
-                .map { obj: Brevdata? -> obj!!.toDTO() }
+                .map { it.toDTO() }
         } catch (e: IllegalArgumentException) {
             LOGGER.warn("Faulty request when calling brevdataForSaktype.", e)
             throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message, e)
@@ -103,7 +103,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
             } else {
                 brevdataList
             })
-                .map { obj: Brevdata? -> obj!!.toDTO() }
+                .map { it.toDTO() }
         } catch (e: RuntimeException) {
             LOGGER.error("Feil ved kall til allBrev: " + e.message, e)
             throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message, e)
@@ -112,19 +112,19 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
 
     @GetMapping("/brevForCodes")
     fun getBrevForCodes(
-        @RequestParam(value = "brevKoder") brevKoder: List<String?>,
+        @RequestParam(value = "brevKoder") brevKoder: List<String>,
         @RequestParam(value = "includeXsd") includeXsd: Boolean
     ): List<BrevdataDTO> {
         return brevKoder
-            .filter { cs: String? -> StringUtils.isNotBlank(cs) }
-            .map { code: String? -> provider.getBrevForBrevkode(code!!.trim { it <= ' ' }) }
-            .map { brev: Brevdata? ->
-                if (includeXsd) brev!!.medXSD(
+            .filter { StringUtils.isNotBlank(it) }
+            .map { code -> provider.getBrevForBrevkode(code.trim()) }
+            .map { brev ->
+                if (includeXsd) brev.medXSD(
                     dokumentmalGenerator,
                     fellesmalGenerator
                 ) else brev
             }
-            .map { obj: Brevdata? -> obj!!.toDTO() }
+            .map { it.toDTO() }
     }
 
     @GetMapping("/batchbBrevMapping")
