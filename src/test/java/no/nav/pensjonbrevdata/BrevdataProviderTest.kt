@@ -80,11 +80,11 @@ class BrevdataProviderTest {
     @Test
     fun onlyEblanketterIsReturned() {
         val eblanketter = BrevdataProvider(BrevdataMapper(), sakBrevMapperMock).eblanketter
-        MatcherAssert.assertThat<MutableList<Brevdata?>?>(
+        MatcherAssert.assertThat<List<Brevdata>>(
             eblanketter,
-            CoreMatchers.not<MutableCollection<out Brevdata?>?>(IsEmptyCollection.empty<Brevdata?>())
+            CoreMatchers.not<Collection<Brevdata>>(IsEmptyCollection.empty<Brevdata>())
         )
         Assertions.assertTrue(
-            eblanketter.stream().allMatch { b: Brevdata? -> b!!.dokumentkategori == DokumentkategoriCode.E_BLANKETT })
+            eblanketter.all { it.dokumentkategori == DokumentkategoriCode.E_BLANKETT })
     }
 }

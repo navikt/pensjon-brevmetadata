@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
-import java.util.function.Function
-import java.util.stream.Collectors
 import kotlin.collections.map
 
 @RestController
@@ -91,15 +89,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
         try {
             val brevdataList: List<Brevdata> = provider.allBrev
             return (if (includeXsd) {
-                brevdataList
-                    .stream()
-                    .map<Brevdata?>((Function { brevdata: Brevdata? ->
-                    brevdata!!.medXSD(
-                        dokumentmalGenerator,
-                        fellesmalGenerator
-                    )
-                }))
-                    .collect(Collectors.toUnmodifiableList())
+                brevdataList.map { it.medXSD(dokumentmalGenerator, fellesmalGenerator) }
             } else {
                 brevdataList
             })
