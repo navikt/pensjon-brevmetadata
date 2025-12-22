@@ -1,22 +1,26 @@
-package no.nav.pensjonbrevdata.model.codes;
+package no.nav.pensjonbrevdata.model.codes
 
-public enum SprakCode {
+enum class SprakCode {
     /**
      * Engelsk
      */
     EN,
+
     /**
      * Fransk
      */
     FR,
+
     /**
-     * Bokm&aring;l
+     * Bokml
      */
     NB,
+
     /**
      * Nynorsk
      */
     NN,
+
     /**
      * Nordsamisk
      */

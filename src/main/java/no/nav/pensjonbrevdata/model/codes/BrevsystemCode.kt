@@ -1,12 +1,13 @@
-package no.nav.pensjonbrevdata.model.codes;
+package no.nav.pensjonbrevdata.model.codes
 
-public enum BrevsystemCode {
+enum class BrevsystemCode {
     /**
      * Brev som skal bestilles i doksys
      */
     DOKSYS,
+
     /**
      * Brev som ikke bestilles i doksys
      */
-    GAMMEL;
+    GAMMEL
 }

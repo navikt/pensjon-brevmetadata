@@ -1,16 +1,18 @@
-package no.nav.pensjonbrevdata.model.codes;
+package no.nav.pensjonbrevdata.model.codes
 
-public enum DokumenttypeCode {
-        /**
-         * Inng&aring;ende dokument
-         */
-        I,
-        /**
-         * Notat
-         */
-        N,
-        /**
-         * Utg&aring;ende dokument
-         */
-        U;
+enum class DokumenttypeCode {
+    /**
+     * Inngende dokument
+     */
+    I,
+
+    /**
+     * Notat
+     */
+    N,
+
+    /**
+     * Utgende dokument
+     */
+    U
 }
