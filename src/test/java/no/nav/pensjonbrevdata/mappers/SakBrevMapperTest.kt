@@ -36,9 +36,9 @@ class SakBrevMapperTest {
                 .filter { brev: String? -> brev != "INFO_P1" }
                 .collect(Collectors.toList())
 
-            MatcherAssert.assertThat<MutableList<String?>?>(
+            MatcherAssert.assertThat<List<String>>(
                 redigerbareDoksysbrevForSak,
-                Matchers.`is`<MutableCollection<out String?>?>(Matchers.empty<String?>())
+                Matchers.`is`<Collection<String>>(Matchers.empty<String>())
             )
         }
     }
