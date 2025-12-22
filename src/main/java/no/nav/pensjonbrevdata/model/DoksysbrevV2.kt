@@ -5,7 +5,7 @@ import java.util.function.Supplier
 import java.util.stream.Collectors
 
 class DoksysbrevV2(
-    brevkodeInBrevsystem: String?,
+    brevkodeInBrevsystem: String,
     redigerbart: Boolean,
     dekode: String?,
     brevkategori: BrevkategoriCode?,

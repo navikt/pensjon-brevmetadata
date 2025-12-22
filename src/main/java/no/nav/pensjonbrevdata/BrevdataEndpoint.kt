@@ -124,7 +124,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
             .map { code: String ->
                 mapOf(
                     "batch" to code,
-                    "brev" to provider.getBrevForBrevkode(code.trim()).brevkodeIBrevsystem!!
+                    "brev" to provider.getBrevForBrevkode(code.trim()).brevkodeIBrevsystem
                 )
             }
     }

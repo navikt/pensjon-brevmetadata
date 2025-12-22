@@ -7,7 +7,7 @@ import java.util.function.Supplier
 import java.util.stream.Collectors
 
 open class Doksysbrev(
-    brevkodeIBrevsystem: String?,
+    brevkodeIBrevsystem: String,
     redigerbart: Boolean,
     dekode: String?,
     brevkategori: BrevkategoriCode?,
@@ -44,7 +44,7 @@ open class Doksysbrev(
     prioritet
 ) {
     constructor(
-        brevkodeInBrevsystem: String?,
+        brevkodeInBrevsystem: String,
         redigerbart: Boolean,
         dekode: String?,
         brevkategori: BrevkategoriCode?,

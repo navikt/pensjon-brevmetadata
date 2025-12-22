@@ -4,7 +4,7 @@ import no.nav.pensjonbrevdata.dto.BrevdataDTO
 import no.nav.pensjonbrevdata.model.codes.*
 
 class GammeltBrev(
-    override val brevkodeIBrevsystem: String?,
+    override val brevkodeIBrevsystem: String,
     override val redigerbart: Boolean,
     override val dekode: String?,
     override val brevkategori: BrevkategoriCode?,

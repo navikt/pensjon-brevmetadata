@@ -4,7 +4,7 @@ import no.nav.pensjonbrevdata.dto.BrevdataDTO
 import no.nav.pensjonbrevdata.model.codes.*
 
 abstract class Brevdata(
-    open val brevkodeIBrevsystem: String?,
+    open val brevkodeIBrevsystem: String,
     open val isRedigerbart: Boolean,
     open val dekode: String?,
     open val brevkategori: BrevkategoriCode?,
