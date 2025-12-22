@@ -3,13 +3,12 @@ package no.nav.pensjonbrevdata
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
-import org.springframework.http.HttpStatusCode
 import org.springframework.web.server.ResponseStatusException
 
 class BrevdataEndpointTest {
@@ -32,10 +31,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevForBrevkode("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.BAD_REQUEST)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.BAD_REQUEST))
     }
 
     @Test
@@ -46,10 +42,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevForBrevkode("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -61,10 +54,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevForBrevkode("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -75,10 +65,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevdataForSaktype("Test", false) }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.BAD_REQUEST)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.BAD_REQUEST))
     }
 
     @Test
@@ -89,10 +76,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevdataForSaktype("Test", true) }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -103,10 +87,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevdataForSaktype("Test", true) }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -117,10 +98,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getAllBrev(false) }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -131,10 +109,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getAllBrev(true) }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -145,10 +120,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevKeyForBrevkodeIBrevsystem("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -159,10 +131,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevkoderForSaktype("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 
     @Test
@@ -173,10 +142,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getBrevkoderForSaktype("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.BAD_REQUEST)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.BAD_REQUEST))
     }
 
     @Test
@@ -187,10 +153,7 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getSprakForBrevkode("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.BAD_REQUEST)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.BAD_REQUEST))
     }
 
     @Test
@@ -201,9 +164,6 @@ class BrevdataEndpointTest {
             ResponseStatusException::class.java
         ) { endpoint.getSprakForBrevkode("Test") }
 
-        MatcherAssert.assertThat<HttpStatusCode?>(
-            thrown.statusCode,
-            CoreMatchers.`is`<HttpStatusCode?>(HttpStatus.INTERNAL_SERVER_ERROR)
-        )
+        assertThat(thrown.statusCode, `is`(HttpStatus.INTERNAL_SERVER_ERROR))
     }
 }
