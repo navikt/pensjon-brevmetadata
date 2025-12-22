@@ -73,9 +73,7 @@ class DoksysVedleggMapper {
         )
     )
 
-    fun map(vararg vedleggCodes: String?): Supplier<List<DoksysVedlegg?>?> {
-        return Supplier {
-            vedleggCodes.map { vedleggMap[it] }
-        }
+    fun map(vararg vedleggCodes: String?): Supplier<List<DoksysVedlegg>> = Supplier {
+        vedleggCodes.mapNotNull { vedleggMap[it] }
     }
 }

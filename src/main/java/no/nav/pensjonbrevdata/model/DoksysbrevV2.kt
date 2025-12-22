@@ -21,7 +21,7 @@ class DoksysbrevV2(
     prioritet: Int?,
     dokumentmalId: String,
     dokumentmalFelleselementId: String,
-    vedleggListe: Supplier<List<DoksysVedlegg?>?>?
+    vedleggListe: Supplier<List<DoksysVedlegg>>?
 ) : Doksysbrev(
     brevkodeInBrevsystem,
     redigerbart,
@@ -47,9 +47,9 @@ class DoksysbrevV2(
     ): Brevdata {
         val dokumentmal = dokumentmalGenerator.invoke("v2.$dokumentmalId")
         val fellesmal = fellesmalGenerator.invoke(dokumentmalFelleselementId)
-        val vedleggListeMedXSD: Supplier<List<DoksysVedlegg?>?>? =
+        val vedleggListeMedXSD: Supplier<List<DoksysVedlegg>>? =
             if (vedleggListe == null) null else Supplier {
-            vedleggListe.get()!!.stream().map<DoksysVedlegg> { vedlegg ->
+            vedleggListe.get().stream().map<DoksysVedlegg> { vedlegg ->
                 vedlegg!!.medXSD(
                     dokumentmalGenerator,
                     fellesmalGenerator
