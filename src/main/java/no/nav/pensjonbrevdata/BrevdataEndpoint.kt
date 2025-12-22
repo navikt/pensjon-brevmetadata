@@ -112,7 +112,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
 
     @GetMapping("/brevForCodes")
     fun getBrevForCodes(
-        @RequestParam(value = "brevKoder") brevKoder: MutableList<String?>,
+        @RequestParam(value = "brevKoder") brevKoder: List<String?>,
         @RequestParam(value = "includeXsd") includeXsd: Boolean
     ): List<BrevdataDTO> {
         return brevKoder
@@ -128,11 +128,11 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     }
 
     @GetMapping("/batchbBrevMapping")
-    fun getBatchBrevMapping(@RequestParam(value = "batchBrevKoder") brevKoder: MutableList<String?>): List<Map<String, String>> {
+    fun getBatchBrevMapping(@RequestParam(value = "batchBrevKoder") brevKoder: List<String>): List<Map<String, String>> {
         return brevKoder
-            .filter { cs: String? -> StringUtils.isNotBlank(cs) }
-            .map { code: String? ->
-                val brev = provider.getBrevForBrevkode(code!!.trim { it <= ' ' })
+            .filter { StringUtils.isNotBlank(it) }
+            .map { code: String ->
+                val brev = provider.getBrevForBrevkode(code.trim())
                 val map: MutableMap<String, String> = HashMap()
                 map["batch"] = code
                 map["brev"] = brev!!.brevkodeIBrevsystem!!
@@ -154,7 +154,7 @@ class BrevdataEndpoint @Autowired constructor(private val provider: BrevdataProv
     }
 
     @get:GetMapping("/eblanketter")
-    val eblanketter: MutableList<BrevdataDTO?>
+    val eblanketter: List<BrevdataDTO?>
         get() = provider.eblanketter.stream().map<BrevdataDTO?> { obj: Brevdata? -> obj!!.toDTO() }.toList()
 
     @get:GetMapping("brevTypeCode")
