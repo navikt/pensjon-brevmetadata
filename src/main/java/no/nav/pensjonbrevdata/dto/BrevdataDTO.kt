@@ -1,23 +1,21 @@
-package no.nav.pensjonbrevdata.dto;
+package no.nav.pensjonbrevdata.dto
 
-import no.nav.pensjonbrevdata.model.codes.*;
+import no.nav.pensjonbrevdata.model.codes.*
 
-import java.util.List;
-
-public interface BrevdataDTO {
-    boolean isRedigerbart();
-    String getDekode();
-    BrevkategoriCode getBrevkategori();
-    DokumenttypeCode getDokType();
-    List<SprakCode> getSprak();
-    Boolean getVisIPselv();
-    BrevUtlandCode getUtland();
-    BrevregeltypeCode getBrevregeltype();
-    BrevkravtypeCode getBrevkravtype();
-    BrevkontekstCode getBrevkontekst();
-    DokumentkategoriCode getDokumentkategori();
-    Boolean getSynligForVeileder();
-    Integer getPrioritet();
-    String getBrevkodeIBrevsystem();
-    BrevsystemCode getBrevsystem();
+interface BrevdataDTO {
+    val redigerbart: Boolean
+    val dekode: String?
+    val brevkategori: BrevkategoriCode?
+    val dokType: DokumenttypeCode?
+    val sprak: MutableList<SprakCode?>?
+    val visIPselv: Boolean?
+    val utland: BrevUtlandCode?
+    val brevregeltype: BrevregeltypeCode?
+    val brevkravtype: BrevkravtypeCode?
+    val brevkontekst: BrevkontekstCode?
+    val dokumentkategori: DokumentkategoriCode?
+    val synligForVeileder: Boolean?
+    val prioritet: Int?
+    val brevkodeIBrevsystem: String?
+    val brevsystem: BrevsystemCode?
 }
