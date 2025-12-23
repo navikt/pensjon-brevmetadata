@@ -2,17 +2,19 @@
 jupiterVersion = "6.0.1"
 kotlinVersion = "2.3.0"
 ktorVersion = "3.3.3"
+logbackVersion = "1.5.21"
+logstashVersion = "9.0"
 micrometerVersion = "1.16.0"
 mockkVersion = "1.14.7"
-net-logstash-logback-logstash-logback-encoder = "9.0"
 org-skyscreamer-jsonassert = "1.5.3"
 
 [libraries]
-net-logstash-logback-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version.ref = "net-logstash-logback-logstash-logback-encoder" }
 org-skyscreamer-jsonassert = { module = "org.skyscreamer:jsonassert", version.ref = "org-skyscreamer-jsonassert" }
 
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jupiterVersion" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "jupiterVersion" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackVersion" }
+logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version.ref = "logstashVersion" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
 
 
@@ -32,4 +34,5 @@ ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref 
 micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version.ref = "micrometerVersion" }
 
 [bundles]
+logging = ["logback-classic", "logback-encoder"]
 metrics = ["micrometer-prometheus", "ktor-server-metrics", "ktor-server-metrics-micrometer"]

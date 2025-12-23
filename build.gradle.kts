@@ -24,7 +24,7 @@ dependencies {
     implementation(libs.ktor.server.netty)
     implementation(libs.ktor.server.status.pages)
 
-    implementation(libs.net.logstash.logback.logstash.logback.encoder)
+    implementation(libs.bundles.logging)
 
     implementation(kotlin("stdlib"))
 
