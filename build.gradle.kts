@@ -24,7 +24,6 @@ dependencies {
     implementation(libs.ktor.server.netty)
     implementation(libs.ktor.server.status.pages)
 
-    implementation(libs.io.prometheus.simpleclient.common)
     implementation(libs.net.logstash.logback.logstash.logback.encoder)
 
     implementation(kotlin("stdlib"))
