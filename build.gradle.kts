@@ -1,9 +1,13 @@
 plugins {
-    java
+    application
     kotlin("jvm") version libs.versions.kotlinVersion
 }
 
 val javaTarget: String by System.getProperties()
+
+application {
+    mainClass.set("no.nav.pensjonbrevdata.PensjonBrevdataApplicationKt")
+}
 
 repositories {
     mavenCentral()
@@ -45,5 +49,8 @@ java {
 tasks {
     test {
         useJUnitPlatform()
+    }
+    build {
+        dependsOn(installDist)
     }
 }
