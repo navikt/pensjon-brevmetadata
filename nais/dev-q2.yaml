@@ -13,18 +13,6 @@ inboundRules:
   - name: pensjon-psak-q2
     namespace: pensjon-q2
     cluster: dev-fss
-  - name: pensjon-pselv-q2
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pselv-veileder-q2
-    namespace: pensjon-q2
-    cluster: dev-gcp
-  - name: pensjon-pselv-q2
-    namespace: teampensjon
-    cluster: dev-gcp
-  - name: pensjon-pselv-borger-q2
-    namespace: pensjon-q2
-    cluster: dev-gcp
   - name: pensjon-testdata-server-q2
     namespace: pensjontestdata
     cluster: dev-fss
@@ -41,18 +29,6 @@ inboundRules:
   - name: pensjon-psak-q1
     namespace: pensjon-q1
     cluster: dev-fss
-  - name: pensjon-pselv-q1
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pselv-veileder-q1
-    namespace: pensjon-q1
-    cluster: dev-gcp
-  - name: pensjon-pselv-q1
-    namespace: teampensjon
-    cluster: dev-gcp
-  - name: pensjon-pselv-borger-q1
-    namespace: pensjon-q1
-    cluster: dev-gcp
   - name: pensjon-testdata-server-q1
     namespace: pensjontestdata
     cluster: dev-fss
@@ -63,18 +39,6 @@ inboundRules:
   - name: pensjon-psak-q5
     namespace: pensjon-q5
     cluster: dev-fss
-  - name: pensjon-pselv-q5
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pselv-veileder-q5
-    namespace: pensjon-q5
-    cluster: dev-gcp
-  - name: pensjon-pselv-q5
-    namespace: teampensjon
-    cluster: dev-gcp
-  - name: pensjon-pselv-borger-q5
-    namespace: pensjon-q5
-    cluster: dev-gcp
   - name: pensjon-testdata-server-q5
     namespace: pensjontestdata
     cluster: dev-fss
@@ -85,15 +49,3 @@ inboundRules:
   - name: pensjon-psak-q0
     namespace: pensjon-q0
     cluster: dev-fss
-  - name: pensjon-pselv-q0
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pselv-veileder-q0
-    namespace: pensjon-q0
-    cluster: dev-gcp
-  - name: pensjon-pselv-q0
-    namespace: teampensjon
-    cluster: dev-gcp
-  - name: pensjon-pselv-borger-q0
-    namespace: pensjon-q0
-    cluster: dev-gcp

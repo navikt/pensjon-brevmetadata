@@ -12,15 +12,3 @@ inboundRules:
   - name: pensjon-psak-q0
     namespace: pensjon-q0
     cluster: dev-fss
-  - name: pensjon-pselv-q0
-    namespace: teampensjon
-    cluster: dev-fss
-  - name: pensjon-pselv-veileder-q0
-    namespace: pensjon-q0
-    cluster: dev-gcp
-  - name: pensjon-pselv-q0
-    namespace: teampensjon
-    cluster: dev-gcp
-  - name: pensjon-pselv-borger-q0
-    namespace: pensjon-q0
-    cluster: dev-gcp
