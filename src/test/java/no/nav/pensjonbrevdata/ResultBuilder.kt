@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.json.JsonMapper
 import no.nav.pensjonbrevdata.TestDataHolder.brevkoder
 import no.nav.pensjonbrevdata.TestDataHolder.brevkoderIBrevSystem
 import no.nav.pensjonbrevdata.TestDataHolder.sakstyper
+import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator
+import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import java.nio.file.Files
@@ -37,7 +39,7 @@ fun toJSON(obj: Any?) = obj?.let { objectMapper.writeValueAsString(it) } ?: ""
 
 fun main() {
     for (brevkode in brevkoder()) {
-        writeString(brevkode, "brevForBrevkode", provider.getBrevForBrevkode(brevkode))
+        writeString(brevkode, "brevForBrevkode", provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO())
         writeString(brevkode, "sprakForBrevkode", provider.getSprakForBrevkode(brevkode))
     }
     for (sakstype in sakstyper()) {
