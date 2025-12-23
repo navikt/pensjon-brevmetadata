@@ -9,7 +9,6 @@ import io.ktor.server.util.getOrFail
 import no.nav.pensjonbrevdata.dto.BrevdataDTO
 import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator
 import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import no.nav.pensjonbrevdata.model.Brevdata
 import kotlin.collections.map
@@ -61,7 +60,7 @@ fun Routing.routes(provider: BrevdataProvider) {
         }
         get("/brevForCodes") {
             val brevKoder: List<String> =
-                (call.request.queryParameters["brevkoder"]?.toList() ?: listOf()) as List<String>
+                (call.request.queryParameters["brevkoder"]?.split(",") ?: listOf())
             val includeXsd = call.request.queryParameters["includeXsd"]?.toBoolean() ?: false
             val dto = brevKoder.filter { it.isNotBlank() }
                 .map { code -> provider.getBrevForBrevkode(code.trim()) }
@@ -76,7 +75,7 @@ fun Routing.routes(provider: BrevdataProvider) {
         }
         get("/batchbBrevMapping") {
             val brevKoder: List<String> =
-                (call.request.queryParameters["brevkoder"]?.toList() ?: listOf()) as List<String>
+                (call.request.queryParameters["brevkoder"]?.split(",") ?: listOf())
             call.respond(
                 brevKoder
                     .filter { it.isNotBlank() }
