@@ -2,14 +2,6 @@ name: NAIS Deploy
 
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: Deploy to environment
-        options:
-          - q1
-          - q2
-          - q5
   push:
 
 permissions:
@@ -53,17 +45,6 @@ jobs:
           image_suffix: pensjon-brevmetadata
           salsa: false
 
-  deploy-to-dev-q1:
-    name: Deploy to dev - q1
-    needs: build
-    uses: ./.github/workflows/.deploy.yaml
-    secrets: inherit
-    with:
-      cluster: dev-gcp
-      image: ${{ needs.build.outputs.image }}
-      vars: nais/dev-q1.yaml
-      environment: q1
-
   deploy-to-dev-q2:
     name: Deploy to dev - q2
     needs: build
@@ -75,31 +56,9 @@ jobs:
       vars: nais/dev-q2.yaml
       environment: q2
 
-  deploy-to-dev-q5:
-    name: Deploy to dev - q5
-    needs: build
-    uses: ./.github/workflows/.deploy.yaml
-    secrets: inherit
-    with:
-      cluster: dev-gcp
-      image: ${{ needs.build.outputs.image }}
-      vars: nais/dev-q5.yaml
-      environment: q5
-
-  deploy-to-dev-prodlik:
-    name: Deploy to dev - prodlik
-    needs: build
-    uses: ./.github/workflows/.deploy.yaml
-    secrets: inherit
-    with:
-      cluster: dev-gcp
-      image: ${{ needs.build.outputs.image }}
-      vars: nais/dev-prodlik.yaml
-      environment: prodlik
-
   deploy-to-prod:
     name: Deploy to prod
-    needs: [deploy-to-dev-prodlik, build]
+    needs: [build]
     uses: ./.github/workflows/.deploy.yaml
     secrets: inherit
     with:
