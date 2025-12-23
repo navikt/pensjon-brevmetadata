@@ -53,7 +53,7 @@ fun Application.configureApp() {
     install(CallLogging) {
         callIdMdc("x_correlationId")
         disableDefaultColors()
-        val ignorePaths = setOf("/isAlive", "/isReady", "/metrics")
+        val ignorePaths = setOf("/api/internal/isAlive", "/api/internal/isReady", "/metrics")
         filter {
             !ignorePaths.contains(it.request.path())
         }
