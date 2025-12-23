@@ -1,6 +1,7 @@
 package no.nav.pensjonbrevdata
 
 import com.fasterxml.jackson.databind.DeserializationFeature
+import com.typesafe.config.ConfigFactory
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.JsonConvertException
 import io.ktor.serialization.jackson.jackson
@@ -31,12 +32,13 @@ private val logger = LoggerFactory.getLogger("PensjonBrevdataApplication")
 
 fun main() {
     try {
+        val config = ConfigFactory.load().getConfig("brevmetadata")
         embeddedServer(
             Netty,
             configure = {
                 connectors.add(EngineConnectorBuilder().apply {
                     host = "0.0.0.0"
-                    port = 8085
+                    port = config.getInt("port")
                 })
             },
             ) { configureApp() }
