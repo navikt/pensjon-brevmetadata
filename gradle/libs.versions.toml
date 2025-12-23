@@ -1,0 +1,38 @@
+[versions]
+jupiterVersion = "6.0.1"
+kotlinVersion = "2.3.0"
+ktorVersion = "3.3.3"
+logbackVersion = "1.5.21"
+logstashVersion = "9.0"
+micrometerVersion = "1.16.0"
+mockkVersion = "1.14.7"
+org-skyscreamer-jsonassert = "1.5.3"
+
+[libraries]
+org-skyscreamer-jsonassert = { module = "org.skyscreamer:jsonassert", version.ref = "org-skyscreamer-jsonassert" }
+
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jupiterVersion" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "jupiterVersion" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackVersion" }
+logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version.ref = "logstashVersion" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
+
+
+# Ktor
+ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktorVersion" }
+ktor-server-callId = { module = "io.ktor:ktor-server-call-id", version.ref = "ktorVersion" }
+ktor-server-callLogging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktorVersion" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktorVersion" }
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktorVersion" }
+ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktorVersion" }
+ktor-server-metrics = { module = "io.ktor:ktor-server-metrics", version.ref = "ktorVersion" }
+ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer", version.ref = "ktorVersion" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktorVersion" }
+ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages", version.ref = "ktorVersion" }
+ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktorVersion" }
+
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version.ref = "micrometerVersion" }
+
+[bundles]
+logging = ["logback-classic", "logback-encoder"]
+metrics = ["micrometer-prometheus", "ktor-server-metrics", "ktor-server-metrics-micrometer"]

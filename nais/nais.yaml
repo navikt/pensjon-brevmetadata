@@ -13,7 +13,7 @@ spec:
     max: {{ replicas.max }}
   liveness:
     path: "/api/internal/isAlive"
-    initialDelay: 35
+    initialDelay: 20
     timeout: 3
   ingresses:
     {{#each ingresses as |url|}}
@@ -21,11 +21,12 @@ spec:
       {{/each}}
   readiness:
     path: "/api/internal/isReady"
-    initialDelay: 35
+    initialDelay: 20
     timeout: 3
   prometheus:
     enabled: true
-    path: "/api/internal/prometheus"
+    path: "/metrics"
+    port: "8080"
   observability:
     autoInstrumentation:
       enabled: true

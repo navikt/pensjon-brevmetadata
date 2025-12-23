@@ -4,7 +4,7 @@ updates:
   # ==============
   # BACKEND
   # ==============
-  - package-ecosystem: "maven"
+  - package-ecosystem: "gradle"
     directories:
       - "/"
     schedule:
