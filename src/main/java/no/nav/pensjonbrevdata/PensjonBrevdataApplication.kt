@@ -65,25 +65,6 @@ fun Application.configureApp() {
     }
 
     install(StatusPages) {
-        exception<JacksonException> { call, cause ->
-            logger.info("Bad request, kunne ikke deserialisere json")
-            call.respond(
-                status = HttpStatusCode.BadRequest,
-                message = cause.message ?: "Failed to deserialize json body: unknown cause"
-            )
-        }
-        exception<BadRequestException> { call, cause ->
-            if (cause.cause is JsonConvertException) {
-                logger.info(cause.message, cause)
-                call.respond(
-                    HttpStatusCode.BadRequest,
-                    cause.cause?.message ?: "Failed to deserialize json body: unknown reason"
-                )
-            } else {
-                logger.info("Bad request, men ikke knytta til deserialisering")
-                call.respond(HttpStatusCode.BadRequest, cause.message ?: "Bad request exception")
-            }
-        }
         exception<Exception> { call, cause ->
             logger.error(cause.message, cause)
             call.respond(HttpStatusCode.InternalServerError, cause.message ?: "Ukjent intern feil")
