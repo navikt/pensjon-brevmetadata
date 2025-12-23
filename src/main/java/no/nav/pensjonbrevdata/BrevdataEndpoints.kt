@@ -16,7 +16,9 @@ import kotlin.collections.map
 
 
 fun Routing.routes(provider: BrevdataProvider) {
-    healthRoute()
+    route("/api/internal") {
+        healthRoute()
+    }
     route("api/brevdata") {
         get("/sprakForBrevkode/{brevkode}") {
             val brevkode = call.parameters.getOrFail("brevkode")
