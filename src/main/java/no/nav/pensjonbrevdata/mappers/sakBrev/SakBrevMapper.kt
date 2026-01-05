@@ -2,14 +2,12 @@ package no.nav.pensjonbrevdata.mappers.sakBrev
 
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode
-import java.util.stream.Collectors
 
 class SakBrevMapper {
     private val brevdataMapper = BrevdataMapperImpl()
 
     fun map(saktype: String): List<String> {
-        val koder = sakToBrevMap[saktype]!!.stream().filter { brevKode: String? -> brevKode != "AFP_INNV_MAN" }
-            .collect(Collectors.toSet())
+        val koder = sakToBrevMap[saktype]?.filter { it != "AFP_INNV_MAN" }?.toMutableSet() ?: mutableSetOf()
 
         koder.removeAll(
             brevdataMapper.allBrevAsList
