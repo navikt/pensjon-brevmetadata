@@ -47,16 +47,10 @@ class DoksysbrevV2(
     ): Brevdata {
         val dokumentmal = dokumentmalGenerator("v2.$dokumentmalId")
         val fellesmal = fellesmalGenerator(dokumentmalFelleselementId)
-        val vedleggListeMedXSD: Supplier<List<DoksysVedlegg>>? =
-            if (vedleggListe == null) null else Supplier {
-            vedleggListe.get().stream().map<DoksysVedlegg> { vedlegg ->
-                vedlegg!!.medXSD(
-                    dokumentmalGenerator,
-                    fellesmalGenerator
-                )
-            }.collect(
-                Collectors.toList()
-            )
+        val vedleggListeMedXSD = vedleggListe?.let { liste ->
+            Supplier {
+                liste.get().map { vedlegg -> vedlegg.medXSD(dokumentmalGenerator, fellesmalGenerator) }
+            }
         }
         return Doksysbrev(
             brevkodeIBrevsystem, redigerbart, dekode, brevkategori, dokType,
