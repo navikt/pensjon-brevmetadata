@@ -3,7 +3,7 @@ package no.nav.pensjonbrevdata.dto
 import no.nav.pensjonbrevdata.model.DoksysVedlegg
 import no.nav.pensjonbrevdata.model.codes.*
 
-class DoksysbrevDTO(
+data class DoksysbrevDTO(
     override val brevkodeIBrevsystem: String?,
     override val redigerbart: Boolean,
     override val dekode: String,
