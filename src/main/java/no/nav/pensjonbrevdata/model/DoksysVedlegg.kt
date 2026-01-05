@@ -20,7 +20,7 @@ class DoksysVedlegg private constructor(
         dekode,
         dokumentmalId,
         dokumentmalFelleselementId,
-        dokumentmalGenerator.invoke(dokumentmalId),
-        fellesmalGenerator.invoke(dokumentmalFelleselementId)
+        dokumentmalGenerator(dokumentmalId),
+        fellesmalGenerator(dokumentmalFelleselementId)
     )
 }
