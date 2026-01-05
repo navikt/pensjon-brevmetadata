@@ -23,23 +23,23 @@ class DoksysbrevV2(
     dokumentmalFelleselementId: String,
     vedleggListe: Supplier<List<DoksysVedlegg>>?
 ) : Doksysbrev(
-    brevkodeInBrevsystem,
-    redigerbart,
-    dekode,
-    brevkategori,
-    doktype,
-    sprak,
-    visIPselv,
-    utland,
-    brevregeltype,
-    brevkravtype,
-    dokumentkategori,
-    synligForVeileder,
-    brevkontekst,
-    prioritet,
-    dokumentmalId,
-    dokumentmalFelleselementId,
-    vedleggListe
+    brevkodeIBrevsystem = brevkodeInBrevsystem,
+    redigerbart = redigerbart,
+    dekode = dekode,
+    brevkategori = brevkategori,
+    dokType = doktype,
+    sprak = sprak,
+    visIPselv = visIPselv,
+    utland = utland,
+    brevregeltype = brevregeltype,
+    brevkravtype = brevkravtype,
+    dokumentkategori = dokumentkategori,
+    synligForVeileder = synligForVeileder,
+    brevkontekst = brevkontekst,
+    prioritet = prioritet,
+    vedleggListe = vedleggListe,
+    dokumentmalId = dokumentmalId,
+    dokumentmalFelleselementId = dokumentmalFelleselementId,
 ) {
     override fun medXSD(
         dokumentmalGenerator: (String) -> String,
@@ -61,8 +61,8 @@ class DoksysbrevV2(
         return Doksysbrev(
             brevkodeIBrevsystem, redigerbart, dekode, brevkategori, dokType,
             sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori,
-            synligForVeileder, brevkontekst, prioritet, vedleggListeMedXSD, dokumentmalId,
-            dokumentmalFelleselementId, dokumentmal, fellesmal
+            synligForVeileder, brevkontekst, prioritet,  dokumentmalId,
+            dokumentmalFelleselementId, vedleggListeMedXSD, dokumentmal, fellesmal
         )
     }
 }

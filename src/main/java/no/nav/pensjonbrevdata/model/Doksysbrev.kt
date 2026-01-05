@@ -21,11 +21,11 @@ open class Doksysbrev(
     synligForVeileder: Boolean?,
     brevkontekst: BrevkontekstCode?,
     prioritet: Int?,
-    protected val vedleggListe: Supplier<List<DoksysVedlegg>>?,
     protected val dokumentmalId: String,
     protected val dokumentmalFelleselementId: String,
-    protected val dokumentmal: String?,
-    protected val dokumentmalFelleselement: String?
+    protected val vedleggListe: Supplier<List<DoksysVedlegg>>?,
+    protected val dokumentmal: String? = null,
+    protected val dokumentmalFelleselement: String? = null
 ) : Brevdata(
     brevkodeIBrevsystem,
     redigerbart,
@@ -43,46 +43,6 @@ open class Doksysbrev(
     BrevsystemCode.DOKSYS,
     prioritet
 ) {
-    constructor(
-        brevkodeInBrevsystem: String,
-        redigerbart: Boolean,
-        dekode: String,
-        brevkategori: BrevkategoriCode?,
-        doktype: DokumenttypeCode,
-        sprak: List<SprakCode>?,
-        visIPselv: Boolean?,
-        utland: BrevUtlandCode?,
-        brevregeltype: BrevregeltypeCode?,
-        brevkravtype: BrevkravtypeCode?,
-        dokumentkategori: DokumentkategoriCode,
-        synligForVeileder: Boolean?,
-        brevkontekst: BrevkontekstCode?,
-        prioritet: Int?,
-        dokumentmalId: String,
-        dokumentmalFelleselementId: String,
-        vedleggListe: Supplier<List<DoksysVedlegg>>?
-    ) : this(
-        brevkodeInBrevsystem,
-        redigerbart,
-        dekode,
-        brevkategori,
-        doktype,
-        sprak,
-        visIPselv,
-        utland,
-        brevregeltype,
-        brevkravtype,
-        dokumentkategori,
-        synligForVeileder,
-        brevkontekst,
-        prioritet,
-        vedleggListe,
-        dokumentmalId,
-        dokumentmalFelleselementId,
-        null,
-        null
-    )
-
     override fun medXSD(
         dokumentmalGenerator: (String) -> String,
         fellesmalGenerator: (String) -> String,
@@ -103,8 +63,8 @@ open class Doksysbrev(
         return Doksysbrev(
             brevkodeIBrevsystem, redigerbart, dekode, brevkategori, dokType,
             sprak, visIPselv, utland, brevregeltype, brevkravtype, dokumentkategori,
-            synligForVeileder, brevkontekst, prioritet, vedleggListeMedXSD, dokumentmalId,
-            dokumentmalFelleselementId, dokumentmal, fellesmal
+            synligForVeileder, brevkontekst, prioritet,  dokumentmalId,
+            dokumentmalFelleselementId, vedleggListeMedXSD, dokumentmal, fellesmal
         )
     }
 
