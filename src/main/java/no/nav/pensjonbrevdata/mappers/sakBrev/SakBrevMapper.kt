@@ -7,18 +7,18 @@ class SakBrevMapper {
     private val brevdataMapper = BrevdataMapperImpl()
 
     fun map(saktype: String): List<String> {
-        val koder = sakToBrevMap[saktype]?.filter { it != "AFP_INNV_MAN" }?.toMutableSet() ?: mutableSetOf()
-
-        koder.removeAll(
-            brevdataMapper.allBrevAsList
-                .asSequence()
-                .filter { it.brevsystem == BrevsystemCode.DOKSYS }
-                .filter { it.brevkodeIBrevsystem != "INFO_P1" }
-                .filter { it.redigerbart }
-                .map { it.brevkodeIBrevsystem }
-                .toSet()
-        )
-        return ArrayList(koder)
+        val redigerbareDoksyskoder = brevdataMapper.allBrevAsList
+            .asSequence()
+            .filter { it.brevsystem == BrevsystemCode.DOKSYS }
+            .filter { it.brevkodeIBrevsystem != "INFO_P1" }
+            .filter { it.redigerbart }
+            .map { it.brevkodeIBrevsystem }
+            .toSet()
+        return sakToBrevMap[saktype]
+            ?.filter { it != "AFP_INNV_MAN" }
+            ?.minus(redigerbareDoksyskoder)
+            ?.toList()
+            ?: listOf()
     }
 
     fun keySet(): Set<String> {
