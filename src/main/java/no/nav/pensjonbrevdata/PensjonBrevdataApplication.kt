@@ -3,14 +3,12 @@ package no.nav.pensjonbrevdata
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.typesafe.config.ConfigFactory
 import io.ktor.http.HttpStatusCode
-import io.ktor.serialization.JsonConvertException
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.engine.EngineConnectorBuilder
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import io.ktor.server.plugins.BadRequestException
 import io.ktor.server.plugins.callid.CallId
 import io.ktor.server.plugins.callid.callIdMdc
 import io.ktor.server.plugins.callid.generate
@@ -22,11 +20,9 @@ import io.ktor.server.response.respond
 import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.routing
 import no.nav.pensjonbrevdata.Metrics.configureMetrics
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import org.slf4j.LoggerFactory
-import tools.jackson.core.JacksonException
 
 private val logger = LoggerFactory.getLogger("PensjonBrevdataApplication")
 
@@ -82,12 +78,9 @@ fun Application.configureApp() {
     val sakBrevMapper = SakBrevMapper()
     val provider = BrevdataProvider(brevdataMapper, sakBrevMapper)
 
-    configureRouting(provider)
-    configureMetrics()
-}
-
-fun Application.configureRouting(provider: BrevdataProvider) {
     routing {
         routes(provider)
     }
+    configureMetrics()
 }
+
