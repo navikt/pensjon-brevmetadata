@@ -13,7 +13,7 @@ class BrevdataMapperImpl(private val brevMap: BrevdataMap = BrevdataMap()) : Bre
         ?: throw IllegalArgumentException("Brevkode $brevkode does not exist")
 
     override val allBrevAsList: List<Brevdata>
-        get() = brevMap.get().filter { it.key != "AFP_INNV_MAN" }.map { it.value }
+        get() = brevMap.get().filter { it.key != "AFP_INNV_MAN" }.values.toList()
 
     override fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String): List<String> = brevMap.get()
         .filter { it.key != "AFP_INNV_MAN" }
