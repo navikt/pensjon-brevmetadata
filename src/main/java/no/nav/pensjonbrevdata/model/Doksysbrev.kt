@@ -21,9 +21,9 @@ open class Doksysbrev(
     synligForVeileder: Boolean?,
     brevkontekst: BrevkontekstCode?,
     prioritet: Int?,
-    @JvmField protected val vedleggListe: Supplier<List<DoksysVedlegg>>?,
-    @JvmField protected val dokumentmalId: String,
-    @JvmField protected val dokumentmalFelleselementId: String,
+    protected val vedleggListe: Supplier<List<DoksysVedlegg>>?,
+    protected val dokumentmalId: String,
+    protected val dokumentmalFelleselementId: String,
     protected val dokumentmal: String?,
     protected val dokumentmalFelleselement: String?
 ) : Brevdata(
