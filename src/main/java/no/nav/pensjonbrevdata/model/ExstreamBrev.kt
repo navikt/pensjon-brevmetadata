@@ -3,7 +3,7 @@ package no.nav.pensjonbrevdata.model
 import no.nav.pensjonbrevdata.dto.BrevdataDTO
 import no.nav.pensjonbrevdata.model.codes.*
 
-data class GammeltBrev(
+data class Exstreambrev(
     override val brevkodeIBrevsystem: String,
     override val redigerbart: Boolean,
     override val dekode: String,

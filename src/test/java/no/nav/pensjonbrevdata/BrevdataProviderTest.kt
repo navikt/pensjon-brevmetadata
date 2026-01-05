@@ -7,7 +7,7 @@ import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import no.nav.pensjonbrevdata.model.Brevdata
-import no.nav.pensjonbrevdata.model.GammeltBrev
+import no.nav.pensjonbrevdata.model.Exstreambrev
 import no.nav.pensjonbrevdata.model.codes.*
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
@@ -42,7 +42,7 @@ class BrevdataProviderTest {
     @Test
     fun shouldGetListOfSprakWhenGetSprakForBrevkode() {
         val brevkode = "TEST"
-        val brev: Brevdata = GammeltBrev(
+        val brev: Brevdata = Exstreambrev(
             "PE_AF_04_001",
             true,
             "Vedtak - innvilgelse av AFP",

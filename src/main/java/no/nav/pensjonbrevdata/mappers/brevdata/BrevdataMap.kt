@@ -4,7 +4,7 @@ import no.nav.pensjonbrevdata.mappers.doksysVedlegg.DoksysVedleggMapper
 import no.nav.pensjonbrevdata.model.Brevdata
 import no.nav.pensjonbrevdata.model.Doksysbrev
 import no.nav.pensjonbrevdata.model.DoksysbrevV2
-import no.nav.pensjonbrevdata.model.GammeltBrev
+import no.nav.pensjonbrevdata.model.Exstreambrev
 import no.nav.pensjonbrevdata.model.codes.*
 
 class BrevdataMap {
@@ -16,7 +16,7 @@ class BrevdataMap {
 
     init {
         brevMap = HashMap()
-        brevMap["E001"] = GammeltBrev(
+        brevMap["E001"] = Exstreambrev(
             "E001",
             true,
             "E 001 - Anmodning om opplysninger",
@@ -33,7 +33,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["E204"] = GammeltBrev(
+        brevMap["E204"] = Exstreambrev(
             "E204",
             true,
             "E 204 - Behandling av krav om uføretrygd/uførepensjon",
@@ -50,7 +50,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["E205"] = GammeltBrev(
+        brevMap["E205"] = Exstreambrev(
             "E205",
             true,
             "E 205 - Attest om trygdetid i Norge",
@@ -67,7 +67,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["E210"] = GammeltBrev(
+        brevMap["E210"] = Exstreambrev(
             "E210",
             true,
             "E 210 - Melding om vedtak i sak som gjelder krav",
@@ -84,7 +84,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["E211"] = GammeltBrev(
+        brevMap["E211"] = Exstreambrev(
             "E211",
             true,
             "E 211 - Samlet melding om vedtakene",
@@ -101,7 +101,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["H001"] = GammeltBrev(
+        brevMap["H001"] = Exstreambrev(
             "H001",
             true,
             "H001 - Anmodning om informasjon",
@@ -118,7 +118,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["H002"] = GammeltBrev(
+        brevMap["H002"] = Exstreambrev(
             "H002",
             true,
             "H002 - Svar på anmodning om informasjon",
@@ -135,7 +135,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["H061"] = GammeltBrev(
+        brevMap["H061"] = Exstreambrev(
             "H061",
             false,
             "H061 - Melding/anmodning om personnummer",
@@ -152,7 +152,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H062"] = GammeltBrev(
+        brevMap["H062"] = Exstreambrev(
             "H062",
             false,
             "H062 - Bekreftelse/svar på anmodning om personnummer",
@@ -169,7 +169,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H070"] = GammeltBrev(
+        brevMap["H070"] = Exstreambrev(
             "H070",
             false,
             "H070 - Melding om dødsfall",
@@ -186,7 +186,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["PE_AF_03_100"] = GammeltBrev(
+        brevMap["PE_AF_03_100"] = Exstreambrev(
             "PE_AF_03_100",
             false,
             "Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -203,7 +203,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_03_101"] = GammeltBrev(
+        brevMap["PE_AF_03_101"] = Exstreambrev(
             "PE_AF_03_101",
             true,
             "Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -220,7 +220,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_001"] = GammeltBrev(
+        brevMap["PE_AF_04_001"] = Exstreambrev(
             "PE_AF_04_001",
             true,
             "Vedtak - innvilgelse av AFP",
@@ -237,7 +237,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AF_04_010"] = GammeltBrev(
+        brevMap["PE_AF_04_010"] = Exstreambrev(
             "PE_AF_04_010",
             true,
             "Vedtak - avslag på AFP",
@@ -254,7 +254,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_AF_04_020"] = GammeltBrev(
+        brevMap["PE_AF_04_020"] = Exstreambrev(
             "PE_AF_04_020",
             true,
             "Vedtak - endring av AFP",
@@ -271,7 +271,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AF_04_100"] = GammeltBrev(
+        brevMap["PE_AF_04_100"] = Exstreambrev(
             "PE_AF_04_100",
             false,
             "Vedtak - ingen endring - AFP etteroppgjør",
@@ -288,7 +288,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_101"] = GammeltBrev(
+        brevMap["PE_AF_04_101"] = Exstreambrev(
             "PE_AF_04_101",
             false,
             "Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
@@ -305,7 +305,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_102"] = GammeltBrev(
+        brevMap["PE_AF_04_102"] = Exstreambrev(
             "PE_AF_04_102",
             false,
             "Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
@@ -322,7 +322,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_103"] = GammeltBrev(
+        brevMap["PE_AF_04_103"] = Exstreambrev(
             "PE_AF_04_103",
             true,
             "Vedtak - ingen endring etter mottatt svar - AFP etteroppgjør",
@@ -339,7 +339,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_104"] = GammeltBrev(
+        brevMap["PE_AF_04_104"] = Exstreambrev(
             "PE_AF_04_104",
             true,
             "Vedtak - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -356,7 +356,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_105"] = GammeltBrev(
+        brevMap["PE_AF_04_105"] = Exstreambrev(
             "PE_AF_04_105",
             true,
             "Vedtak - etterbetaling av for lite utbetalt pensjon etter mottatt svar - AFP etteroppgjør",
@@ -373,7 +373,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_106"] = GammeltBrev(
+        brevMap["PE_AF_04_106"] = Exstreambrev(
             "PE_AF_04_106",
             true,
             "Vedtak - ingen endring (andre avvik) etter mottatt svar - AFP etteroppgjør",
@@ -390,7 +390,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_107"] = GammeltBrev(
+        brevMap["PE_AF_04_107"] = Exstreambrev(
             "PE_AF_04_107",
             false,
             "Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
@@ -407,7 +407,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["E202"] = GammeltBrev(
+        brevMap["E202"] = Exstreambrev(
             "E202",
             true,
             "E 202 - Behandling av krav om alderspensjon",
@@ -424,7 +424,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["E202_E205"] = GammeltBrev(
+        brevMap["E202_E205"] = Exstreambrev(
             "E202_E205",
             true,
             "E 202 og E 205 - Behandling av krav om alderspensjon og Attest om trygdetid i Norge",
@@ -441,7 +441,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["PE_AF_04_108"] = GammeltBrev(
+        brevMap["PE_AF_04_108"] = Exstreambrev(
             "PE_AF_04_108",
             true,
             "Vedtak - ingen endring - AFP etteroppgjør",
@@ -458,7 +458,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_109"] = GammeltBrev(
+        brevMap["PE_AF_04_109"] = Exstreambrev(
             "PE_AF_04_109",
             true,
             "Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
@@ -475,7 +475,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_110"] = GammeltBrev(
+        brevMap["PE_AF_04_110"] = Exstreambrev(
             "PE_AF_04_110",
             true,
             "Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
@@ -492,7 +492,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_AF_04_111"] = GammeltBrev(
+        brevMap["PE_AF_04_111"] = Exstreambrev(
             "PE_AF_04_111",
             true,
             "Vedtak - innvilgelse av AFP i privat sektor",
@@ -509,7 +509,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_AF_04_112"] = GammeltBrev(
+        brevMap["PE_AF_04_112"] = Exstreambrev(
             "PE_AF_04_112",
             true,
             "Vedtak - avslag på AFP i privat sektor",
@@ -526,7 +526,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_AF_04_113"] = GammeltBrev(
+        brevMap["PE_AF_04_113"] = Exstreambrev(
             "PE_AF_04_113",
             false,
             "Vedtak - endring av opptjening - AFP i privat sektor",
@@ -543,7 +543,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_AF_04_114"] = GammeltBrev(
+        brevMap["PE_AF_04_114"] = Exstreambrev(
             "PE_AF_04_114",
             true,
             "Vedtak - endring av AFP i privat sektor",
@@ -560,7 +560,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_AF_04_115"] = GammeltBrev(
+        brevMap["PE_AF_04_115"] = Exstreambrev(
             "PE_AF_04_115",
             false,
             "Vedtak - innvilgelse av AFP i privat sektor",
@@ -577,7 +577,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_AF_04_116"] = GammeltBrev(
+        brevMap["PE_AF_04_116"] = Exstreambrev(
             "PE_AF_04_116",
             false,
             "Vedtak - avslag på AFP i privat sektor",
@@ -594,7 +594,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_AP_01_006"] = GammeltBrev(
+        brevMap["PE_AP_01_006"] = Exstreambrev(
             "PE_AP_01_006",
             false,
             "Brev med skjema Søknad om alderspensjon (NAV 19-01.05)",
@@ -611,7 +611,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_AP_01_011"] = GammeltBrev(
+        brevMap["PE_AP_01_011"] = Exstreambrev(
             "PE_AP_01_011",
             false,
             "Ikke løpende ytelse",
@@ -628,7 +628,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_AP_01_015"] = GammeltBrev(
+        brevMap["PE_AP_01_015"] = Exstreambrev(
             "PE_AP_01_015",
             false,
             "Løpende gjenlevendepensjon",
@@ -645,7 +645,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_AP_01_019"] = GammeltBrev(
+        brevMap["PE_AP_01_019"] = Exstreambrev(
             "PE_AP_01_019",
             false,
             "Løpende delvis uførepensjon",
@@ -662,7 +662,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_AP_04_001"] = GammeltBrev(
+        brevMap["PE_AP_04_001"] = Exstreambrev(
             "PE_AP_04_001",
             true,
             "Vedtak - innvilgelse av alderspensjon (ev. innvilgelse/avslag forsørgingstillegg)",
@@ -679,7 +679,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_010"] = GammeltBrev(
+        brevMap["PE_AP_04_010"] = Exstreambrev(
             "PE_AP_04_010",
             true,
             "Vedtak - avslag på alderspensjon",
@@ -696,7 +696,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_AP_04_020"] = GammeltBrev(
+        brevMap["PE_AP_04_020"] = Exstreambrev(
             "PE_AP_04_020",
             true,
             "Vedtak - endring av alderspensjon  (ev. innvilgelse/avslag forsørgingstillegg)",
@@ -713,7 +713,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_202"] = GammeltBrev(
+        brevMap["PE_AP_04_202"] = Exstreambrev(
             "PE_AP_04_202",
             true,
             "Vedtak - innvilgelse av alderspensjon",
@@ -730,7 +730,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_203"] = GammeltBrev(
+        brevMap["PE_AP_04_203"] = Exstreambrev(
             "PE_AP_04_203",
             true,
             "Vedtak - innvilgelse av alderspensjon - utenlandssak",
@@ -747,7 +747,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_211"] = GammeltBrev(
+        brevMap["PE_AP_04_211"] = Exstreambrev(
             "PE_AP_04_211",
             true,
             "Vedtak - avslag på alderspensjon",
@@ -764,7 +764,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_212"] = GammeltBrev(
+        brevMap["PE_AP_04_212"] = Exstreambrev(
             "PE_AP_04_212",
             true,
             "Vedtak - avslag på alderspensjon - utenlandssak",
@@ -781,7 +781,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_214"] = GammeltBrev(
+        brevMap["PE_AP_04_214"] = Exstreambrev(
             "PE_AP_04_214",
             true,
             "Vedtak - endring av alderspensjon fordi opptjening er endret",
@@ -798,7 +798,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_215"] = GammeltBrev(
+        brevMap["PE_AP_04_215"] = Exstreambrev(
             "PE_AP_04_215",
             true,
             "Vedtak - opphør av alderspensjon fordi opptjening er endret",
@@ -815,7 +815,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_216"] = GammeltBrev(
+        brevMap["PE_AP_04_216"] = Exstreambrev(
             "PE_AP_04_216",
             true,
             "Vedtak - opphør av alderspensjon og AFP i privat sektor fordi opptjening er endret",
@@ -832,7 +832,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_220"] = GammeltBrev(
+        brevMap["PE_AP_04_220"] = Exstreambrev(
             "PE_AP_04_220",
             true,
             "Vedtak - endring av alderspensjon",
@@ -849,7 +849,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_221"] = GammeltBrev(
+        brevMap["PE_AP_04_221"] = Exstreambrev(
             "PE_AP_04_221",
             false,
             "Vedtak - endring av alderspensjon på grunn av innvilgelse eller opphør av ektefelle/partner/samboers pensjon eller uføretrygd",
@@ -866,7 +866,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_223"] = GammeltBrev(
+        brevMap["PE_AP_04_223"] = Exstreambrev(
             "PE_AP_04_223",
             true,
             "Vedtak - innvilgelse eksport av alderspensjon",
@@ -883,7 +883,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_224"] = GammeltBrev(
+        brevMap["PE_AP_04_224"] = Exstreambrev(
             "PE_AP_04_224",
             true,
             "Vedtak - delvis eksport av alderspensjon",
@@ -900,7 +900,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_225"] = GammeltBrev(
+        brevMap["PE_AP_04_225"] = Exstreambrev(
             "PE_AP_04_225",
             true,
             "Vedtak - avslag på eksport av alderspensjon",
@@ -917,7 +917,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_226"] = GammeltBrev(
+        brevMap["PE_AP_04_226"] = Exstreambrev(
             "PE_AP_04_226",
             false,
             "Vedtak - endring av alderspensjon på grunn av endring av ektefelle/partner/samboers pensjon eller uføretrygd",
@@ -934,7 +934,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_901"] = GammeltBrev(
+        brevMap["PE_AP_04_901"] = Exstreambrev(
             "PE_AP_04_901",
             true,
             "Vedtak - innvilgelse av alderspensjon - bodd i ikke-avtaleland",
@@ -951,7 +951,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_902"] = GammeltBrev(
+        brevMap["PE_AP_04_902"] = Exstreambrev(
             "PE_AP_04_902",
             true,
             "Vedtak - foreløpig innvilgelse av alderspensjon - Norge/avtaleland",
@@ -968,7 +968,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_903"] = GammeltBrev(
+        brevMap["PE_AP_04_903"] = Exstreambrev(
             "PE_AP_04_903",
             true,
             "Vedtak - endelig innvilgelse av alderspensjon - uendret - Norge/avtaleland",
@@ -985,7 +985,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_904"] = GammeltBrev(
+        brevMap["PE_AP_04_904"] = Exstreambrev(
             "PE_AP_04_904",
             true,
             "Vedtak - endelig innvilgelse av alderspensjon - endret - Norge/avtaleland",
@@ -1002,7 +1002,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_910"] = GammeltBrev(
+        brevMap["PE_AP_04_910"] = Exstreambrev(
             "PE_AP_04_910",
             true,
             "Vedtak - avslag på alderspensjon - bosatt i utlandet",
@@ -1019,7 +1019,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_AP_04_911"] = GammeltBrev(
+        brevMap["PE_AP_04_911"] = Exstreambrev(
             "PE_AP_04_911",
             true,
             "Vedtak - foreløpig avslag på alderspensjon - Norge/avtaleland",
@@ -1036,7 +1036,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_AP_04_912"] = GammeltBrev(
+        brevMap["PE_AP_04_912"] = Exstreambrev(
             "PE_AP_04_912",
             true,
             "Vedtak - endelig avslag på alderspensjon - Norge/avtaleland",
@@ -1053,7 +1053,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_AP_04_913"] = GammeltBrev(
+        brevMap["PE_AP_04_913"] = Exstreambrev(
             "PE_AP_04_913",
             true,
             "Vedtak - innvilgelse av alderspensjon - bosatt i avtaleland",
@@ -1070,7 +1070,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_914"] = GammeltBrev(
+        brevMap["PE_AP_04_914"] = Exstreambrev(
             "PE_AP_04_914",
             true,
             "Vedtak - innvilgelse av alderspensjon - bosatt i ikke-avtaleland",
@@ -1087,7 +1087,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_920"] = GammeltBrev(
+        brevMap["PE_AP_04_920"] = Exstreambrev(
             "PE_AP_04_920",
             true,
             "Vedtak - endring av alderspensjon - utenlandssak",
@@ -1104,7 +1104,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_AP_04_921"] = GammeltBrev(
+        brevMap["PE_AP_04_921"] = Exstreambrev(
             "PE_AP_04_921",
             false,
             "Vedtak - endring av opptjening - alderspensjon",
@@ -1121,7 +1121,7 @@ class BrevdataMap {
             null,
             "brevgr011"
         )
-        brevMap["PE_AP_04_922"] = GammeltBrev(
+        brevMap["PE_AP_04_922"] = Exstreambrev(
             "PE_AP_04_922",
             true,
             "Informasjon om uttakstidspunkt ved mellombehandling av alderspensjon",
@@ -1138,7 +1138,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_AP_05_001"] = GammeltBrev(
+        brevMap["PE_AP_05_001"] = Exstreambrev(
             "PE_AP_05_001",
             true,
             "Dummybrev AP 2016/2025",
@@ -1155,7 +1155,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_01_100"] = GammeltBrev(
+        brevMap["PE_BA_01_100"] = Exstreambrev(
             "PE_BA_01_100",
             false,
             "Informasjon til deg som fyller 67 år",
@@ -1172,7 +1172,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_01_103"] = GammeltBrev(
+        brevMap["PE_BA_01_103"] = Exstreambrev(
             "PE_BA_01_103",
             false,
             "Informasjon til deg som fyller 67 år og mottar uføretrygd",
@@ -1189,7 +1189,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_01_104"] = GammeltBrev(
+        brevMap["PE_BA_01_104"] = Exstreambrev(
             "PE_BA_01_104",
             false,
             "Informasjon til deg som fyller 67 år og mottar gradert uføretrygd",
@@ -1206,7 +1206,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_01_105"] = GammeltBrev(
+        brevMap["PE_BA_01_105"] = Exstreambrev(
             "PE_BA_01_105",
             false,
             "Informasjon til deg som fyller 67 år og mottar uføretrygd og alderspensjon",
@@ -1223,7 +1223,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_01_106"] = GammeltBrev(
+        brevMap["PE_BA_01_106"] = Exstreambrev(
             "PE_BA_01_106",
             false,
             "Informasjon til deg som fyller 67 år og mottar AFP",
@@ -1240,7 +1240,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_01_107"] = GammeltBrev(
+        brevMap["PE_BA_01_107"] = Exstreambrev(
             "PE_BA_01_107",
             false,
             "Informasjon til deg som fyller 67 år og mottar familiepleierytelse",
@@ -1257,7 +1257,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_01_108"] = GammeltBrev(
+        brevMap["PE_BA_01_108"] = Exstreambrev(
             "PE_BA_01_108",
             false,
             "Informasjon om vilkår for rett til ektefelletillegg",
@@ -1274,7 +1274,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BA_04_501"] = GammeltBrev(
+        brevMap["PE_BA_04_501"] = Exstreambrev(
             "PE_BA_04_501",
             false,
             "Vedtak - forsørgingstillegg fra folketrygden",
@@ -1291,7 +1291,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_502"] = GammeltBrev(
+        brevMap["PE_BA_04_502"] = Exstreambrev(
             "PE_BA_04_502",
             false,
             "Vedtak - forsørgingstillegg fra folketrygden",
@@ -1308,7 +1308,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_503"] = GammeltBrev(
+        brevMap["PE_BA_04_503"] = Exstreambrev(
             "PE_BA_04_503",
             false,
             "Vedtak - forsørgingstillegg fra folketrygden",
@@ -1325,7 +1325,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_504"] = GammeltBrev(
+        brevMap["PE_BA_04_504"] = Exstreambrev(
             "PE_BA_04_504",
             false,
             "Vedtak - alderspensjon fra folketrygden",
@@ -1342,7 +1342,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_505"] = GammeltBrev(
+        brevMap["PE_BA_04_505"] = Exstreambrev(
             "PE_BA_04_505",
             false,
             "Vedtak - endring av uføretrygd fordi du fyller 20 år",
@@ -1359,7 +1359,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["PE_BA_04_506"] = GammeltBrev(
+        brevMap["PE_BA_04_506"] = Exstreambrev(
             "PE_BA_04_506",
             false,
             "Vedtak - endring av alderspensjon fordi du fyller 70 år",
@@ -1376,7 +1376,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_507"] = GammeltBrev(
+        brevMap["PE_BA_04_507"] = Exstreambrev(
             "PE_BA_04_507",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -1393,7 +1393,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_508"] = GammeltBrev(
+        brevMap["PE_BA_04_508"] = Exstreambrev(
             "PE_BA_04_508",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -1410,7 +1410,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_509"] = GammeltBrev(
+        brevMap["PE_BA_04_509"] = Exstreambrev(
             "PE_BA_04_509",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -1427,7 +1427,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_510"] = GammeltBrev(
+        brevMap["PE_BA_04_510"] = Exstreambrev(
             "PE_BA_04_510",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -1444,7 +1444,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_511"] = GammeltBrev(
+        brevMap["PE_BA_04_511"] = Exstreambrev(
             "PE_BA_04_511",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -1461,7 +1461,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_512"] = GammeltBrev(
+        brevMap["PE_BA_04_512"] = Exstreambrev(
             "PE_BA_04_512",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -1478,7 +1478,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_515"] = GammeltBrev(
+        brevMap["PE_BA_04_515"] = Exstreambrev(
             "PE_BA_04_515",
             false,
             "Vedtak - alderspensjon fra folketrygden",
@@ -1495,7 +1495,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_516"] = GammeltBrev(
+        brevMap["PE_BA_04_516"] = Exstreambrev(
             "PE_BA_04_516",
             false,
             "Vedtak - alderspensjon fra folketrygden",
@@ -1512,7 +1512,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_520"] = GammeltBrev(
+        brevMap["PE_BA_04_520"] = Exstreambrev(
             "PE_BA_04_520",
             false,
             "Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -1529,7 +1529,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_521"] = GammeltBrev(
+        brevMap["PE_BA_04_521"] = Exstreambrev(
             "PE_BA_04_521",
             false,
             "Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
@@ -1546,7 +1546,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_522"] = GammeltBrev(
+        brevMap["PE_BA_04_522"] = Exstreambrev(
             "PE_BA_04_522",
             false,
             "Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -1563,7 +1563,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_523"] = GammeltBrev(
+        brevMap["PE_BA_04_523"] = Exstreambrev(
             "PE_BA_04_523",
             false,
             "Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -1580,7 +1580,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BA_04_525"] = GammeltBrev(
+        brevMap["PE_BA_04_525"] = Exstreambrev(
             "PE_BA_04_525",
             false,
             "Vedtak - opphør av barnetillegg",
@@ -1597,7 +1597,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BA_04_526"] = GammeltBrev(
+        brevMap["PE_BA_04_526"] = Exstreambrev(
             "PE_BA_04_526",
             false,
             "Vedtak - opphør barne- og ektefelletillegg",
@@ -1614,7 +1614,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BA_04_527"] = GammeltBrev(
+        brevMap["PE_BA_04_527"] = Exstreambrev(
             "PE_BA_04_527",
             false,
             "Vedtak - opphør av ektefelletilegg",
@@ -1631,7 +1631,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BA_04_528"] = GammeltBrev(
+        brevMap["PE_BA_04_528"] = Exstreambrev(
             "PE_BA_04_528",
             false,
             "Vedtak - omregning av uføretrygd til alderspensjon",
@@ -1648,7 +1648,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BA_04_530"] = GammeltBrev(
+        brevMap["PE_BA_04_530"] = Exstreambrev(
             "PE_BA_04_530",
             false,
             "Vedtak - omregning av AFP til alderspensjon",
@@ -1665,7 +1665,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BA_04_531"] = GammeltBrev(
+        brevMap["PE_BA_04_531"] = Exstreambrev(
             "PE_BA_04_531",
             false,
             "Vedtak - fra familiepleierytelse til alderspensjon",
@@ -1682,7 +1682,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BA_04_532"] = GammeltBrev(
+        brevMap["PE_BA_04_532"] = Exstreambrev(
             "PE_BA_04_532",
             false,
             "Vedtak - endring av alderspensjon fordi ektefelle fyller 60 år",
@@ -1699,7 +1699,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BA_04_533"] = GammeltBrev(
+        brevMap["PE_BA_04_533"] = Exstreambrev(
             "PE_BA_04_533",
             false,
             "Vedtak - endring av alderspensjon fordi du fyller 75 år",
@@ -1716,7 +1716,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_BP_01_001"] = GammeltBrev(
+        brevMap["PE_BP_01_001"] = Exstreambrev(
             "PE_BP_01_001",
             false,
             "Informasjon til deg som snart fyller 18 år om forlenget barnepensjon til foreldreløse barn",
@@ -1733,7 +1733,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BP_01_002"] = GammeltBrev(
+        brevMap["PE_BP_01_002"] = Exstreambrev(
             "PE_BP_01_002",
             false,
             "Informasjon til deg som snart fyller 18 år om forlenget barnepensjon",
@@ -1750,7 +1750,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_BP_04_001"] = GammeltBrev(
+        brevMap["PE_BP_04_001"] = Exstreambrev(
             "PE_BP_04_001",
             true,
             "Vedtak - innvilgelse av barnepensjon",
@@ -1767,7 +1767,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BP_04_002"] = GammeltBrev(
+        brevMap["PE_BP_04_002"] = Exstreambrev(
             "PE_BP_04_002",
             true,
             "Vedtak - innvilgelse av barnepensjon - utenlandssak",
@@ -1784,7 +1784,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BP_04_010"] = GammeltBrev(
+        brevMap["PE_BP_04_010"] = Exstreambrev(
             "PE_BP_04_010",
             true,
             "Vedtak - avslag på barnepensjon",
@@ -1801,7 +1801,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_BP_04_011"] = GammeltBrev(
+        brevMap["PE_BP_04_011"] = Exstreambrev(
             "PE_BP_04_011",
             true,
             "Vedtak - avslag på barnepensjon - utenlandssak",
@@ -1818,7 +1818,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_BP_04_020"] = GammeltBrev(
+        brevMap["PE_BP_04_020"] = Exstreambrev(
             "PE_BP_04_020",
             true,
             "Vedtak - endring av barnepensjon",
@@ -1835,7 +1835,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BP_04_021"] = GammeltBrev(
+        brevMap["PE_BP_04_021"] = Exstreambrev(
             "PE_BP_04_021",
             true,
             "Vedtak - endring av barnepensjon - utenlandssak",
@@ -1852,7 +1852,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BP_04_022"] = GammeltBrev(
+        brevMap["PE_BP_04_022"] = Exstreambrev(
             "PE_BP_04_022",
             false,
             "Vedtak - omregning  av barnepensjon",
@@ -1869,7 +1869,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_BP_04_030"] = GammeltBrev(
+        brevMap["PE_BP_04_030"] = Exstreambrev(
             "PE_BP_04_030",
             true,
             "Vedtak - opphør av barnepensjon",
@@ -1886,7 +1886,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_BP_04_031"] = GammeltBrev(
+        brevMap["PE_BP_04_031"] = Exstreambrev(
             "PE_BP_04_031",
             true,
             "Vedtak - opphør av barnepensjon - utenlandssak",
@@ -1903,7 +1903,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_FT_01_002"] = GammeltBrev(
+        brevMap["PE_FT_01_002"] = Exstreambrev(
             "PE_FT_01_002",
             true,
             "Vedtak - fortsatt rett til ektefelletillegg",
@@ -1920,7 +1920,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_FT_01_003"] = GammeltBrev(
+        brevMap["PE_FT_01_003"] = Exstreambrev(
             "PE_FT_01_003",
             true,
             "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1937,7 +1937,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_FT_01_004"] = GammeltBrev(
+        brevMap["PE_FT_01_004"] = Exstreambrev(
             "PE_FT_01_004",
             false,
             "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1954,7 +1954,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["PE_FT_01_005"] = GammeltBrev(
+        brevMap["PE_FT_01_005"] = Exstreambrev(
             "PE_FT_01_005",
             false,
             "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1971,7 +1971,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_FT_01_006"] = GammeltBrev(
+        brevMap["PE_FT_01_006"] = Exstreambrev(
             "PE_FT_01_006",
             true,
             "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -1988,7 +1988,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_FT_01_007"] = GammeltBrev(
+        brevMap["PE_FT_01_007"] = Exstreambrev(
             "PE_FT_01_007",
             true,
             "Vedtak - fortsatt rett til ektefelletillegg",
@@ -2005,7 +2005,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_01_010"] = GammeltBrev(
+        brevMap["PE_GP_01_010"] = Exstreambrev(
             "PE_GP_01_010",
             false,
             "Brev med skjema Krav om stønad til gjenlevende ektefelle/partner/samboer og gjenlevende barn (NAV 17-01.05)",
@@ -2022,7 +2022,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_GP_01_011"] = GammeltBrev(
+        brevMap["PE_GP_01_011"] = Exstreambrev(
             "PE_GP_01_011",
             false,
             "Brev med skjema Søknad om barnepensjon når en forelder er død (NAV 18-04.01)",
@@ -2039,7 +2039,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_GP_01_012"] = GammeltBrev(
+        brevMap["PE_GP_01_012"] = Exstreambrev(
             "PE_GP_01_012",
             false,
             "Brev med skjema Søknad om barnepensjon til foreldreløse barn (NAV 18-01.05)",
@@ -2056,7 +2056,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_GP_04_001"] = GammeltBrev(
+        brevMap["PE_GP_04_001"] = Exstreambrev(
             "PE_GP_04_001",
             true,
             "Vedtak - innvilgelse av ytelse til gjenlevende",
@@ -2073,7 +2073,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_010"] = GammeltBrev(
+        brevMap["PE_GP_04_010"] = Exstreambrev(
             "PE_GP_04_010",
             true,
             "Vedtak - avslag på ytelse til gjenlevende",
@@ -2090,7 +2090,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_GP_04_020"] = GammeltBrev(
+        brevMap["PE_GP_04_020"] = Exstreambrev(
             "PE_GP_04_020",
             true,
             "Vedtak - endring av ytelse til gjenlevende",
@@ -2107,7 +2107,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_022"] = GammeltBrev(
+        brevMap["PE_GP_04_022"] = Exstreambrev(
             "PE_GP_04_022",
             true,
             "Vedtak - delvis eksport av ytelse til gjenlevende",
@@ -2124,7 +2124,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_023"] = GammeltBrev(
+        brevMap["PE_GP_04_023"] = Exstreambrev(
             "PE_GP_04_023",
             true,
             "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - før utland)",
@@ -2141,7 +2141,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_024"] = GammeltBrev(
+        brevMap["PE_GP_04_024"] = Exstreambrev(
             "PE_GP_04_024",
             true,
             "Vedtak - innvilgelse av ytelse til gjenlevende med endring (bosatt Norge - Etter utland)",
@@ -2158,7 +2158,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_025"] = GammeltBrev(
+        brevMap["PE_GP_04_025"] = Exstreambrev(
             "PE_GP_04_025",
             true,
             "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - etter utland)",
@@ -2175,7 +2175,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_026"] = GammeltBrev(
+        brevMap["PE_GP_04_026"] = Exstreambrev(
             "PE_GP_04_026",
             true,
             "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt avtaleland)",
@@ -2192,7 +2192,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_027"] = GammeltBrev(
+        brevMap["PE_GP_04_027"] = Exstreambrev(
             "PE_GP_04_027",
             true,
             "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt ikke avtaleland)",
@@ -2209,7 +2209,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_028"] = GammeltBrev(
+        brevMap["PE_GP_04_028"] = Exstreambrev(
             "PE_GP_04_028",
             true,
             "Vedtak - endring av ytelse til gjenlevende (bosatt Norge)",
@@ -2226,7 +2226,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_029"] = GammeltBrev(
+        brevMap["PE_GP_04_029"] = Exstreambrev(
             "PE_GP_04_029",
             true,
             "Vedtak - endring av ytelse til gjenlevende (bosatt utland)",
@@ -2243,7 +2243,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_GP_04_030"] = GammeltBrev(
+        brevMap["PE_GP_04_030"] = Exstreambrev(
             "PE_GP_04_030",
             true,
             "Vedtak - opphør av ytelse til gjenlevende",
@@ -2260,7 +2260,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_GP_04_031"] = GammeltBrev(
+        brevMap["PE_GP_04_031"] = Exstreambrev(
             "PE_GP_04_031",
             true,
             "Vedtak - avslag ytelse til gjenlevende (bosatt Norge - før utland)",
@@ -2277,7 +2277,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_GP_04_032"] = GammeltBrev(
+        brevMap["PE_GP_04_032"] = Exstreambrev(
             "PE_GP_04_032",
             true,
             "Vedtak - avslag ytelse til gjenlevende (bosatt Norge - etter utland)",
@@ -2294,7 +2294,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_GP_04_033"] = GammeltBrev(
+        brevMap["PE_GP_04_033"] = Exstreambrev(
             "PE_GP_04_033",
             true,
             "Vedtak - avslag ytelse til gjenlevende (bosatt utland)",
@@ -2311,7 +2311,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_GP_04_034"] = GammeltBrev(
+        brevMap["PE_GP_04_034"] = Exstreambrev(
             "PE_GP_04_034",
             true,
             "Vedtak - innvilgelse av ytelse til gjenlevende (bosatt Norge - mellombehandling)",
@@ -2328,7 +2328,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_IY_02_301"] = GammeltBrev(
+        brevMap["PE_IY_02_301"] = Exstreambrev(
             "PE_IY_02_301",
             true,
             "Melding fra Samordningsregisteret",
@@ -2345,7 +2345,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_047"] = GammeltBrev(
+        brevMap["PE_IY_03_047"] = Exstreambrev(
             "PE_IY_03_047",
             true,
             "Innhente dokumentasjon",
@@ -2362,7 +2362,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_048"] = GammeltBrev(
+        brevMap["PE_IY_03_048"] = Exstreambrev(
             "PE_IY_03_048",
             true,
             "Innhente opplysninger",
@@ -2379,7 +2379,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_049"] = GammeltBrev(
+        brevMap["PE_IY_03_049"] = Exstreambrev(
             "PE_IY_03_049",
             false,
             "Innhente bekreftelse på flyktningstatus fra UDI",
@@ -2396,7 +2396,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_051"] = GammeltBrev(
+        brevMap["PE_IY_03_051"] = Exstreambrev(
             "PE_IY_03_051",
             false,
             "Varsel om mulig avslag/opphør p.g.a. manglende opplysninger",
@@ -2413,7 +2413,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_150"] = GammeltBrev(
+        brevMap["PE_IY_03_150"] = Exstreambrev(
             "PE_IY_03_150",
             true,
             "Klage - oversendelse til NAV Klageinstans",
@@ -2430,7 +2430,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_151"] = GammeltBrev(
+        brevMap["PE_IY_03_151"] = Exstreambrev(
             "PE_IY_03_151",
             true,
             "Anke - tilsvar til ankende part",
@@ -2447,7 +2447,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_152"] = GammeltBrev(
+        brevMap["PE_IY_03_152"] = Exstreambrev(
             "PE_IY_03_152",
             true,
             "Anke - oversendelse til Trygderetten",
@@ -2464,7 +2464,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_153"] = GammeltBrev(
+        brevMap["PE_IY_03_153"] = Exstreambrev(
             "PE_IY_03_153",
             true,
             "Klage - orientering om saksbehandlingstid",
@@ -2481,7 +2481,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_154"] = GammeltBrev(
+        brevMap["PE_IY_03_154"] = Exstreambrev(
             "PE_IY_03_154",
             true,
             "Klage - følgeskriv til oversendelse til NAV Klageinstans",
@@ -2498,7 +2498,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_156"] = GammeltBrev(
+        brevMap["PE_IY_03_156"] = Exstreambrev(
             "PE_IY_03_156",
             true,
             "Notat",
@@ -2515,7 +2515,7 @@ class BrevdataMap {
             1,
             "brevgr001"
         )
-        brevMap["PE_IY_03_157"] = GammeltBrev(
+        brevMap["PE_IY_03_157"] = Exstreambrev(
             "PE_IY_03_157",
             true,
             "Klage - orientering om oversendelse til NAV Klageinstans",
@@ -2532,7 +2532,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_158"] = GammeltBrev(
+        brevMap["PE_IY_03_158"] = Exstreambrev(
             "PE_IY_03_158",
             true,
             "Anke - orientering om saksbehandlingstid",
@@ -2549,7 +2549,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_159"] = GammeltBrev(
+        brevMap["PE_IY_03_159"] = Exstreambrev(
             "PE_IY_03_159",
             true,
             "Anke - følgeskriv til oversendelse til Trygderetten",
@@ -2566,7 +2566,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_160"] = GammeltBrev(
+        brevMap["PE_IY_03_160"] = Exstreambrev(
             "PE_IY_03_160",
             true,
             "Anke - orientering om oversendelse til Trygderetten",
@@ -2583,7 +2583,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_161"] = GammeltBrev(
+        brevMap["PE_IY_03_161"] = Exstreambrev(
             "PE_IY_03_161",
             true,
             "Klage - tilsvar til klagende part",
@@ -2600,7 +2600,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_162"] = GammeltBrev(
+        brevMap["PE_IY_03_162"] = Exstreambrev(
             "PE_IY_03_162",
             true,
             "Klage - orientering om saksbehandlingstid ved NAV Klageinstans",
@@ -2617,7 +2617,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_163"] = GammeltBrev(
+        brevMap["PE_IY_03_163"] = Exstreambrev(
             "PE_IY_03_163",
             true,
             "Orientering om saksbehandlingstid  (bosatt avtaleland)",
@@ -2634,7 +2634,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_164"] = GammeltBrev(
+        brevMap["PE_IY_03_164"] = Exstreambrev(
             "PE_IY_03_164",
             true,
             "Orientering om saksbehandlingstid (bosatt i ikke-avtaleland)",
@@ -2651,7 +2651,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_165"] = GammeltBrev(
+        brevMap["PE_IY_03_165"] = Exstreambrev(
             "PE_IY_03_165",
             true,
             "Innhente opplysninger i EØS-sak (bruker bosatt i Norge)",
@@ -2668,7 +2668,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_166"] = GammeltBrev(
+        brevMap["PE_IY_03_166"] = Exstreambrev(
             "PE_IY_03_166",
             true,
             "Forespørsel om fartstidsoppgave",
@@ -2685,7 +2685,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_167"] = GammeltBrev(
+        brevMap["PE_IY_03_167"] = Exstreambrev(
             "PE_IY_03_167",
             true,
             "Forespørsel om dokumentasjon av botid i Norge",
@@ -2702,7 +2702,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_168"] = GammeltBrev(
+        brevMap["PE_IY_03_168"] = Exstreambrev(
             "PE_IY_03_168",
             true,
             "Oversettelse av dokumenter",
@@ -2719,7 +2719,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_169"] = GammeltBrev(
+        brevMap["PE_IY_03_169"] = Exstreambrev(
             "PE_IY_03_169",
             true,
             "Bekreftelse på at bruker mottar uføretrygd (norsk)",
@@ -2736,7 +2736,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_170"] = GammeltBrev(
+        brevMap["PE_IY_03_170"] = Exstreambrev(
             "PE_IY_03_170",
             true,
             "Bekreftelse på at bruker mottar uføretrygd (engelsk)",
@@ -2753,7 +2753,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_174"] = GammeltBrev(
+        brevMap["PE_IY_03_174"] = Exstreambrev(
             "PE_IY_03_174",
             true,
             "Bekreftelse på at bruker mottar pensjon (engelsk)",
@@ -2770,7 +2770,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_175"] = GammeltBrev(
+        brevMap["PE_IY_03_175"] = Exstreambrev(
             "PE_IY_03_175",
             true,
             "Informasjon til deg som er bosatt i utlandet og snart fyller 67 år",
@@ -2787,7 +2787,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_176"] = GammeltBrev(
+        brevMap["PE_IY_03_176"] = Exstreambrev(
             "PE_IY_03_176",
             true,
             "Vedtak - stans av pensjon på grunn av manglende leveattest",
@@ -2804,7 +2804,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_177"] = GammeltBrev(
+        brevMap["PE_IY_03_177"] = Exstreambrev(
             "PE_IY_03_177",
             true,
             "Varsel - melding om stans eller gjenopptatt utbetaling på grunn av leveattest",
@@ -2821,7 +2821,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_178"] = GammeltBrev(
+        brevMap["PE_IY_03_178"] = Exstreambrev(
             "PE_IY_03_178",
             true,
             "Påminnelse generell",
@@ -2838,7 +2838,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_179"] = GammeltBrev(
+        brevMap["PE_IY_03_179"] = Exstreambrev(
             "PE_IY_03_179",
             true,
             "Varsel - revurdering av pensjon",
@@ -2855,7 +2855,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_03_180"] = GammeltBrev(
+        brevMap["PE_IY_03_180"] = Exstreambrev(
             "PE_IY_03_180",
             true,
             "Orientering om saksbehandlingstid  i EØS-sak (bruker bosatt i Norge)",
@@ -2872,7 +2872,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_04_001"] = GammeltBrev(
+        brevMap["PE_IY_04_001"] = Exstreambrev(
             "PE_IY_04_001",
             false,
             "Vedtak - innvilgelse av omsorgsopptjening ved pleie og omsorg for eldre syke og funksjonshemmede",
@@ -2889,7 +2889,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_04_010"] = GammeltBrev(
+        brevMap["PE_IY_04_010"] = Exstreambrev(
             "PE_IY_04_010",
             true,
             "Vedtak- avslag på omsorgsopptjening",
@@ -2906,7 +2906,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_04_050"] = GammeltBrev(
+        brevMap["PE_IY_04_050"] = Exstreambrev(
             "PE_IY_04_050",
             true,
             "Vedtak - klagesak - NAV Klageinstans",
@@ -2923,7 +2923,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_04_051"] = GammeltBrev(
+        brevMap["PE_IY_04_051"] = Exstreambrev(
             "PE_IY_04_051",
             true,
             "Vedtak - omgjøring i ankesak - NAV Klageinstans",
@@ -2940,7 +2940,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_04_060"] = GammeltBrev(
+        brevMap["PE_IY_04_060"] = Exstreambrev(
             "PE_IY_04_060",
             true,
             "Vedtak om tilbakekreving av feilutbetalt beløp",
@@ -2957,7 +2957,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_04_061"] = GammeltBrev(
+        brevMap["PE_IY_04_061"] = Exstreambrev(
             "PE_IY_04_061",
             true,
             "Vedtak om at feilutbetalt beløp ikke vil bli tilbakekrevet",
@@ -2974,7 +2974,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_04_062"] = GammeltBrev(
+        brevMap["PE_IY_04_062"] = Exstreambrev(
             "PE_IY_04_062",
             false,
             "Vedtak om tilbakekreving",
@@ -2991,7 +2991,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_04_120"] = GammeltBrev(
+        brevMap["PE_IY_04_120"] = Exstreambrev(
             "PE_IY_04_120",
             false,
             "Vedtak - overføring av omsorgsopptjening brev til mottaker",
@@ -3008,7 +3008,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_04_121"] = GammeltBrev(
+        brevMap["PE_IY_04_121"] = Exstreambrev(
             "PE_IY_04_121",
             false,
             "Vedtak - overføring av omsorgsopptjening brev til avgiver",
@@ -3025,7 +3025,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_04_125"] = GammeltBrev(
+        brevMap["PE_IY_04_125"] = Exstreambrev(
             "PE_IY_04_125",
             true,
             "Vedtak - innvilgelse eksport av alderspensjon",
@@ -3042,7 +3042,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_IY_04_126"] = GammeltBrev(
+        brevMap["PE_IY_04_126"] = Exstreambrev(
             "PE_IY_04_126",
             true,
             "Vedtak - avslag på eksport av alderspensjon",
@@ -3059,7 +3059,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_IY_04_127"] = GammeltBrev(
+        brevMap["PE_IY_04_127"] = Exstreambrev(
             "PE_IY_04_127",
             true,
             "Vedtak - delvis eksport av alderspensjon",
@@ -3076,7 +3076,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_IY_05_006"] = GammeltBrev(
+        brevMap["PE_IY_05_006"] = Exstreambrev(
             "PE_IY_05_006",
             true,
             "Retur av dokumenter",
@@ -3093,7 +3093,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_007"] = GammeltBrev(
+        brevMap["PE_IY_05_007"] = Exstreambrev(
             "PE_IY_05_007",
             true,
             "Forespørsel på grunn av uleselig dokument",
@@ -3110,7 +3110,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_008"] = GammeltBrev(
+        brevMap["PE_IY_05_008"] = Exstreambrev(
             "PE_IY_05_008",
             true,
             "Innsendt blankett mangler underskrift",
@@ -3127,7 +3127,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_027"] = GammeltBrev(
+        brevMap["PE_IY_05_027"] = Exstreambrev(
             "PE_IY_05_027",
             true,
             "Varsel - tilbakekreving av feilutbetalt beløp",
@@ -3144,7 +3144,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_028"] = GammeltBrev(
+        brevMap["PE_IY_05_028"] = Exstreambrev(
             "PE_IY_05_028",
             false,
             "Forhåndsvarsel for tilbakekreving",
@@ -3161,7 +3161,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_05_041"] = GammeltBrev(
+        brevMap["PE_IY_05_041"] = Exstreambrev(
             "PE_IY_05_041",
             true,
             "Orientering om forlenget saksbehandlingstid",
@@ -3178,7 +3178,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_101"] = GammeltBrev(
+        brevMap["PE_IY_05_101"] = Exstreambrev(
             "PE_IY_05_101",
             false,
             "Brev med skjema Overføring av Omsorgsopptjening (NAV 03-16.10)",
@@ -3195,7 +3195,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_102"] = GammeltBrev(
+        brevMap["PE_IY_05_102"] = Exstreambrev(
             "PE_IY_05_102",
             false,
             "Brev med skjema Søknad om godskriving av pensjonsopptjening for pleie og omsorg for eldre syke og funksjonshemmede (NAV 03-16.05)",
@@ -3212,7 +3212,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_104"] = GammeltBrev(
+        brevMap["PE_IY_05_104"] = Exstreambrev(
             "PE_IY_05_104",
             false,
             "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01)",
@@ -3229,7 +3229,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_105"] = GammeltBrev(
+        brevMap["PE_IY_05_105"] = Exstreambrev(
             "PE_IY_05_105",
             false,
             "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02)",
@@ -3246,7 +3246,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_111"] = GammeltBrev(
+        brevMap["PE_IY_05_111"] = Exstreambrev(
             "PE_IY_05_111",
             false,
             "Brev med skjema Søknad om ytelser til tidligere familiepleier (NAV 16-01.05)",
@@ -3263,7 +3263,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_200"] = GammeltBrev(
+        brevMap["PE_IY_05_200"] = Exstreambrev(
             "PE_IY_05_200",
             false,
             "Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
@@ -3280,7 +3280,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_05_201"] = GammeltBrev(
+        brevMap["PE_IY_05_201"] = Exstreambrev(
             "PE_IY_05_201",
             false,
             "Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn",
@@ -3297,7 +3297,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_05_300"] = GammeltBrev(
+        brevMap["PE_IY_05_300"] = Exstreambrev(
             "PE_IY_05_300",
             true,
             "Brev fra NAV",
@@ -3314,7 +3314,7 @@ class BrevdataMap {
             1,
             "brevgr001"
         )
-        brevMap["PE_IY_05_301"] = GammeltBrev(
+        brevMap["PE_IY_05_301"] = Exstreambrev(
             "PE_IY_05_301",
             true,
             "Melding til samhandlere om stans eller gjenopptatt betaling",
@@ -3331,7 +3331,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_302"] = GammeltBrev(
+        brevMap["PE_IY_05_302"] = Exstreambrev(
             "PE_IY_05_302",
             false,
             "Melding til Samordningsregisteret - purring",
@@ -3348,7 +3348,7 @@ class BrevdataMap {
             null,
             "brevgr009"
         )
-        brevMap["PE_IY_05_303"] = GammeltBrev(
+        brevMap["PE_IY_05_303"] = Exstreambrev(
             "PE_IY_05_303",
             false,
             "Melding til Samordningsregisteret",
@@ -3365,7 +3365,7 @@ class BrevdataMap {
             null,
             "brevgr009"
         )
-        brevMap["PE_IY_05_304"] = GammeltBrev(
+        brevMap["PE_IY_05_304"] = Exstreambrev(
             "PE_IY_05_304",
             false,
             "Melding til Samordningsregisteret",
@@ -3382,7 +3382,7 @@ class BrevdataMap {
             null,
             "brevgr009"
         )
-        brevMap["PE_IY_05_305"] = GammeltBrev(
+        brevMap["PE_IY_05_305"] = Exstreambrev(
             "PE_IY_05_305",
             false,
             "Melding til Samordningsregisteret",
@@ -3399,7 +3399,7 @@ class BrevdataMap {
             null,
             "brevgr009"
         )
-        brevMap["PE_IY_05_410"] = GammeltBrev(
+        brevMap["PE_IY_05_410"] = Exstreambrev(
             "PE_IY_05_410",
             false,
             "Brev med skjema Leveattest (NAV 21-03.05)",
@@ -3416,7 +3416,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_411"] = GammeltBrev(
+        brevMap["PE_IY_05_411"] = Exstreambrev(
             "PE_IY_05_411",
             false,
             "Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
@@ -3433,7 +3433,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_05_502"] = GammeltBrev(
+        brevMap["PE_IY_05_502"] = Exstreambrev(
             "PE_IY_05_502",
             false,
             "Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn før 1992",
@@ -3450,7 +3450,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_IY_06_103"] = GammeltBrev(
+        brevMap["PE_IY_06_103"] = Exstreambrev(
             "PE_IY_06_103",
             true,
             "Varsel - uttaksgraden kan bli satt ned eller retten til uttak av alderspensjon kan falle bort",
@@ -3467,7 +3467,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_06_510"] = GammeltBrev(
+        brevMap["PE_IY_06_510"] = Exstreambrev(
             "PE_IY_06_510",
             false,
             "Brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -3484,7 +3484,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_IY_06_511"] = GammeltBrev(
+        brevMap["PE_IY_06_511"] = Exstreambrev(
             "PE_IY_06_511",
             false,
             "Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -3501,7 +3501,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_OK_06_100"] = GammeltBrev(
+        brevMap["PE_OK_06_100"] = Exstreambrev(
             "PE_OK_06_100",
             true,
             "Posteringsgrunnlag (virkningstidspunkt før 01.01.09)",
@@ -3518,7 +3518,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_OK_06_101"] = GammeltBrev(
+        brevMap["PE_OK_06_101"] = Exstreambrev(
             "PE_OK_06_101",
             true,
             "Posteringsgrunnlag",
@@ -3535,7 +3535,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_OK_06_102"] = GammeltBrev(
+        brevMap["PE_OK_06_102"] = Exstreambrev(
             "PE_OK_06_102",
             true,
             "Posteringsgrunnlag ved tilbakekrevingssaker",
@@ -3552,7 +3552,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["PE_UP_04_001"] = GammeltBrev(
+        brevMap["PE_UP_04_001"] = Exstreambrev(
             "PE_UP_04_001",
             true,
             "Vedtak - innvilgelse av uførepensjon",
@@ -3569,7 +3569,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_010"] = GammeltBrev(
+        brevMap["PE_UP_04_010"] = Exstreambrev(
             "PE_UP_04_010",
             true,
             "Vedtak - opphør av uførepensjon",
@@ -3586,7 +3586,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_UP_04_020"] = GammeltBrev(
+        brevMap["PE_UP_04_020"] = Exstreambrev(
             "PE_UP_04_020",
             true,
             "Vedtak - endring av uførepensjon",
@@ -3603,7 +3603,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_021"] = GammeltBrev(
+        brevMap["PE_UP_04_021"] = Exstreambrev(
             "PE_UP_04_021",
             true,
             "Vedtak - forlengelse av perioden med hvilende rett til uførepensjon",
@@ -3620,7 +3620,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_UP_04_022"] = GammeltBrev(
+        brevMap["PE_UP_04_022"] = Exstreambrev(
             "PE_UP_04_022",
             true,
             "Vedtak - delvis eksport av uførepensjon",
@@ -3637,7 +3637,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_023"] = GammeltBrev(
+        brevMap["PE_UP_04_023"] = Exstreambrev(
             "PE_UP_04_023",
             true,
             "Vedtak - innvilgelse av uførepensjon (bosatt Norge - før utland)",
@@ -3654,7 +3654,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_024"] = GammeltBrev(
+        brevMap["PE_UP_04_024"] = Exstreambrev(
             "PE_UP_04_024",
             true,
             "Vedtak - innvilgelse av uførepensjon med endring (bosatt Norge - etter utland)",
@@ -3671,7 +3671,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_025"] = GammeltBrev(
+        brevMap["PE_UP_04_025"] = Exstreambrev(
             "PE_UP_04_025",
             true,
             "Vedtak - innvilgelse av uførepensjon (bosatt Norge - etter utland)",
@@ -3688,7 +3688,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_026"] = GammeltBrev(
+        brevMap["PE_UP_04_026"] = Exstreambrev(
             "PE_UP_04_026",
             true,
             "Vedtak - innvilgelse av uførepensjon (bosatt utland - avtaleland)",
@@ -3705,7 +3705,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_027"] = GammeltBrev(
+        brevMap["PE_UP_04_027"] = Exstreambrev(
             "PE_UP_04_027",
             true,
             "Vedtak - innvilgelse av uførepensjon (bosatt utland - ikke avtaleland)",
@@ -3722,7 +3722,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_028"] = GammeltBrev(
+        brevMap["PE_UP_04_028"] = Exstreambrev(
             "PE_UP_04_028",
             true,
             "Vedtak - endring av uførepensjon (bosatt Norge)",
@@ -3739,7 +3739,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_029"] = GammeltBrev(
+        brevMap["PE_UP_04_029"] = Exstreambrev(
             "PE_UP_04_029",
             true,
             "Vedtak - endring av uførepensjon (bosatt utland)",
@@ -3756,7 +3756,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_04_030"] = GammeltBrev(
+        brevMap["PE_UP_04_030"] = Exstreambrev(
             "PE_UP_04_030",
             true,
             "Vedtak - innvilgelse av uførepensjon (bosatt Norge - mellombehandling)",
@@ -3773,7 +3773,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["PE_UP_07_010"] = GammeltBrev(
+        brevMap["PE_UP_07_010"] = Exstreambrev(
             "PE_UP_07_010",
             true,
             "Vedtak - avslag på uførepensjon",
@@ -3790,7 +3790,7 @@ class BrevdataMap {
             null,
             "brevgr003"
         )
-        brevMap["PE_UP_07_100"] = GammeltBrev(
+        brevMap["PE_UP_07_100"] = Exstreambrev(
             "PE_UP_07_100",
             true,
             "Innhente opplysninger (uføretrygd - med førsteside for ettersendelse)",
@@ -3807,7 +3807,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_UP_07_105"] = GammeltBrev(
+        brevMap["PE_UP_07_105"] = Exstreambrev(
             "PE_UP_07_105",
             true,
             "Orientering om saksbehandlingstid (uføretrygd)",
@@ -3824,7 +3824,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_UT_01_001"] = GammeltBrev(
+        brevMap["PE_UT_01_001"] = Exstreambrev(
             "PE_UT_01_001",
             false,
             "Informasjonsbrev om overgang fra uførepensjon til uføretrygd",
@@ -3841,7 +3841,7 @@ class BrevdataMap {
             3,
             "brevgr001"
         )
-        brevMap["PE_UT_04_001"] = GammeltBrev(
+        brevMap["PE_UT_04_001"] = Exstreambrev(
             "PE_UT_04_001",
             true,
             "Forsidebrev - ny omregning av uførepensjon til uføretrygd",
@@ -3858,7 +3858,7 @@ class BrevdataMap {
             3,
             "brevgr001"
         )
-        brevMap["PE_UT_04_002"] = GammeltBrev(
+        brevMap["PE_UT_04_002"] = Exstreambrev(
             "PE_UT_04_002",
             true,
             "Innhenting av opplysninger - EØS",
@@ -3875,7 +3875,7 @@ class BrevdataMap {
             3,
             "brevgr001"
         )
-        brevMap["PE_UT_04_003"] = GammeltBrev(
+        brevMap["PE_UT_04_003"] = Exstreambrev(
             "PE_UT_04_003",
             true,
             "Innhenting av opplysninger - Lege",
@@ -3892,7 +3892,7 @@ class BrevdataMap {
             3,
             "brevgr001"
         )
-        brevMap["PE_UT_04_004"] = GammeltBrev(
+        brevMap["PE_UT_04_004"] = Exstreambrev(
             "PE_UT_04_004",
             true,
             "Brev om forventet saksbehandlingstid (bosatt Norge - før utland)",
@@ -3909,7 +3909,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_UT_04_100"] = GammeltBrev(
+        brevMap["PE_UT_04_100"] = Exstreambrev(
             "PE_UT_04_100",
             true,
             "Vedtak - opphør av uføretrygd",
@@ -3926,7 +3926,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_101"] = GammeltBrev(
+        brevMap["PE_UT_04_101"] = Exstreambrev(
             "PE_UT_04_101",
             true,
             "Vedtak - innvilgelse av uføretrygd",
@@ -3943,7 +3943,7 @@ class BrevdataMap {
             2,
             "brevgr010"
         )
-        brevMap["PE_UT_04_102"] = GammeltBrev(
+        brevMap["PE_UT_04_102"] = Exstreambrev(
             "PE_UT_04_102",
             true,
             "Vedtak - endring av uføretrygd",
@@ -3960,7 +3960,7 @@ class BrevdataMap {
             2,
             "brevgr010"
         )
-        brevMap["PE_UT_04_103"] = GammeltBrev(
+        brevMap["PE_UT_04_103"] = Exstreambrev(
             "PE_UT_04_103",
             true,
             "Vedtak - delvis eksport av uføretrygd",
@@ -3977,7 +3977,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_104"] = GammeltBrev(
+        brevMap["PE_UT_04_104"] = Exstreambrev(
             "PE_UT_04_104",
             true,
             "Vedtak - avslag på uføretrygd",
@@ -3994,7 +3994,7 @@ class BrevdataMap {
             2,
             "brevgr010"
         )
-        brevMap["PE_UT_04_106"] = GammeltBrev(
+        brevMap["PE_UT_04_106"] = Exstreambrev(
             "PE_UT_04_106",
             true,
             "Vedtak - innvilgelse av uføretrygd med endring (bosatt Norge - etter utland)",
@@ -4011,7 +4011,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_107"] = GammeltBrev(
+        brevMap["PE_UT_04_107"] = Exstreambrev(
             "PE_UT_04_107",
             true,
             "Vedtak - innvilgelse av uføretrygd (bosatt Norge - etter utland)",
@@ -4028,7 +4028,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_108"] = GammeltBrev(
+        brevMap["PE_UT_04_108"] = Exstreambrev(
             "PE_UT_04_108",
             false,
             "Vedtak - Ny beregning av barnetillegget (auto)",
@@ -4045,7 +4045,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_109"] = GammeltBrev(
+        brevMap["PE_UT_04_109"] = Exstreambrev(
             "PE_UT_04_109",
             true,
             "Vedtak - Ny beregning av barnetillegget (manuelt)",
@@ -4062,7 +4062,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_114"] = GammeltBrev(
+        brevMap["PE_UT_04_114"] = Exstreambrev(
             "PE_UT_04_114",
             true,
             "Vedtak - økning av uføregrad",
@@ -4079,7 +4079,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_115"] = GammeltBrev(
+        brevMap["PE_UT_04_115"] = Exstreambrev(
             "PE_UT_04_115",
             true,
             "Vedtak - full eksport av uføretrygd",
@@ -4096,7 +4096,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_117"] = GammeltBrev(
+        brevMap["PE_UT_04_117"] = Exstreambrev(
             "PE_UT_04_117",
             true,
             "Vedtak - foreløpig avslag på uføretrygd (bosatt Norge - før utland)",
@@ -4113,7 +4113,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_118"] = GammeltBrev(
+        brevMap["PE_UT_04_118"] = Exstreambrev(
             "PE_UT_04_118",
             true,
             "Vedtak avslag uføretrygd medlemskap under ett år (bosatt utland)",
@@ -4130,7 +4130,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_300"] = GammeltBrev(
+        brevMap["PE_UT_04_300"] = Exstreambrev(
             "PE_UT_04_300",
             true,
             "Vedtak - omregning av uførepensjon til uføretrygd",
@@ -4147,7 +4147,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_400"] = GammeltBrev(
+        brevMap["PE_UT_04_400"] = Exstreambrev(
             "PE_UT_04_400",
             true,
             "Vedtak om etteroppgjør - etterbetaling (manuell)",
@@ -4164,7 +4164,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_04_401"] = GammeltBrev(
+        brevMap["PE_UT_04_401"] = Exstreambrev(
             "PE_UT_04_401",
             true,
             "Vedtak om etteroppgjør - endelig vedtak etter mottatt svar",
@@ -4181,7 +4181,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["PE_UT_04_402"] = GammeltBrev(
+        brevMap["PE_UT_04_402"] = Exstreambrev(
             "PE_UT_04_402",
             true,
             "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (manuell)",
@@ -4198,7 +4198,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_05_100"] = GammeltBrev(
+        brevMap["PE_UT_05_100"] = Exstreambrev(
             "PE_UT_05_100",
             false,
             "Vedtak - endring av uføretrygd på grunn av inntekt (automatisk)",
@@ -4215,7 +4215,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_06_100"] = GammeltBrev(
+        brevMap["PE_UT_06_100"] = Exstreambrev(
             "PE_UT_06_100",
             false,
             "Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",
@@ -4232,7 +4232,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_06_200"] = GammeltBrev(
+        brevMap["PE_UT_06_200"] = Exstreambrev(
             "PE_UT_06_200",
             false,
             "Automatisk varsel om saksbehandlingstid",
@@ -4249,7 +4249,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["PE_UT_07_100"] = GammeltBrev(
+        brevMap["PE_UT_07_100"] = Exstreambrev(
             "PE_UT_07_100",
             true,
             "Vedtak - endring av uføretrygd på grunn av inntekt",
@@ -4266,7 +4266,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["PE_UT_14_300"] = GammeltBrev(
+        brevMap["PE_UT_14_300"] = Exstreambrev(
             "PE_UT_14_300",
             false,
             "Vedtak - omregning av uførepensjon til uføretrygd (automatisk)",
@@ -4283,7 +4283,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_23_001"] = GammeltBrev(
+        brevMap["PE_UT_23_001"] = Exstreambrev(
             "PE_UT_23_001",
             false,
             "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
@@ -4300,7 +4300,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["PE_UT_23_101"] = GammeltBrev(
+        brevMap["PE_UT_23_101"] = Exstreambrev(
             "PE_UT_23_101",
             false,
             "Vedtak om etteroppgjør - etterbetaling",
@@ -4317,7 +4317,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["P1000"] = GammeltBrev(
+        brevMap["P1000"] = Exstreambrev(
             "P1000",
             true,
             "P1000 - Anmodning om perioder med foreldreansvar",
@@ -4334,7 +4334,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P10000"] = GammeltBrev(
+        brevMap["P10000"] = Exstreambrev(
             "P10000",
             true,
             "P10000 - Overføring av utfyllende opplysninger",
@@ -4351,7 +4351,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P11000"] = GammeltBrev(
+        brevMap["P11000"] = Exstreambrev(
             "P11000",
             true,
             "P11000 - Anmodning om pensjonsbeløp",
@@ -4368,7 +4368,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P12000"] = GammeltBrev(
+        brevMap["P12000"] = Exstreambrev(
             "P12000",
             true,
             "P12000 - Informasjon om pensjonsbeløp",
@@ -4385,7 +4385,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P13000"] = GammeltBrev(
+        brevMap["P13000"] = Exstreambrev(
             "P13000",
             true,
             "P13000 - Informasjon om pensjonstillegg",
@@ -4402,7 +4402,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["PE_UT_06_300"] = GammeltBrev(
+        brevMap["PE_UT_06_300"] = Exstreambrev(
             "PE_UT_06_300",
             false,
             "Endring av barnetillegg i uføretrygden",
@@ -4419,7 +4419,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["PE_UT_07_200"] = GammeltBrev(
+        brevMap["PE_UT_07_200"] = Exstreambrev(
             "PE_UT_07_200",
             false,
             "Vedtak - opphør av barnetillegg (automatisk)",
@@ -4436,7 +4436,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["P4000"] = GammeltBrev(
+        brevMap["P4000"] = Exstreambrev(
             "P4000",
             true,
             "P4000 - Rapport om trygdehistorikk",
@@ -4453,7 +4453,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P6000"] = GammeltBrev(
+        brevMap["P6000"] = Exstreambrev(
             "P6000",
             true,
             "P6000 - Vedtak om pensjon",
@@ -4470,7 +4470,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P7000"] = GammeltBrev(
+        brevMap["P7000"] = Exstreambrev(
             "P7000",
             true,
             "P7000 - Melding om vedtakssammendrag",
@@ -4487,7 +4487,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P8000"] = GammeltBrev(
+        brevMap["P8000"] = Exstreambrev(
             "P8000",
             true,
             "P8000 - Anmodning om tilleggsinformasjon",
@@ -4504,7 +4504,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["P9000"] = GammeltBrev(
+        brevMap["P9000"] = Exstreambrev(
             "P9000",
             true,
             "P9000 - Svar på anmodning om tilleggsinformasjon",
@@ -4521,7 +4521,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["R001"] = GammeltBrev(
+        brevMap["R001"] = Exstreambrev(
             "R001",
             true,
             "R001 - Anmodning om motregning i etterbetalinger/løpende utbetalinger",
@@ -4538,7 +4538,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["R002"] = GammeltBrev(
+        brevMap["R002"] = Exstreambrev(
             "R002",
             true,
             "R002 - Svar på anmodning om motregning i etterbetalinger/løpende utbetalinger",
@@ -4555,7 +4555,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["R003"] = GammeltBrev(
+        brevMap["R003"] = Exstreambrev(
             "R003",
             true,
             "R003 - Beslutning om motregning i etterbetalinger/løpende utbetalinger",
@@ -4572,7 +4572,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["R004"] = GammeltBrev(
+        brevMap["R004"] = Exstreambrev(
             "R004",
             true,
             "R004 - Melding om utbetaling",
@@ -4589,7 +4589,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["R005"] = GammeltBrev(
+        brevMap["R005"] = Exstreambrev(
             "R005",
             true,
             "R005 - Anmodning om motregning i etterbetalinger",
@@ -4606,7 +4606,7 @@ class BrevdataMap {
             null,
             "brevgr008"
         )
-        brevMap["R006"] = GammeltBrev(
+        brevMap["R006"] = Exstreambrev(
             "R006",
             true,
             "R006 - Svar på anmodning om informasjon",
@@ -6287,7 +6287,7 @@ class BrevdataMap {
             "00001",
             null
         )
-        brevMap["AFPEO_BREV_B"] = GammeltBrev(
+        brevMap["AFPEO_BREV_B"] = Exstreambrev(
             "PE_AF_03_100",
             false,
             "Varsel - tilbakekreving av for mye utbetalt pensjon - AFP etteroppgjør",
@@ -6304,7 +6304,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["AFPEO_BREV_A"] = GammeltBrev(
+        brevMap["AFPEO_BREV_A"] = Exstreambrev(
             "PE_AF_04_100",
             false,
             "Vedtak - ingen endring - AFP etteroppgjør",
@@ -6321,7 +6321,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["AFPEO_BREV_C"] = GammeltBrev(
+        brevMap["AFPEO_BREV_C"] = Exstreambrev(
             "PE_AF_04_101",
             false,
             "Vedtak - etterbetaling av for lite utbetalt pensjon - AFP etteroppgjør",
@@ -6338,7 +6338,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["AFPEO_BREV_D"] = GammeltBrev(
+        brevMap["AFPEO_BREV_D"] = Exstreambrev(
             "PE_AF_04_102",
             false,
             "Vedtak - ingen endring (andre avvik) - AFP etteroppgjør",
@@ -6355,7 +6355,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["AFPEO_TILBAKEKREVING"] = GammeltBrev(
+        brevMap["AFPEO_TILBAKEKREVING"] = Exstreambrev(
             "PE_AF_04_107",
             false,
             "Vedtak - tilbakekreving grunnet manglende tilbakemelding - AFP etteroppgjør",
@@ -6372,7 +6372,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["AFPP_INNVILG_AUTO"] = GammeltBrev(
+        brevMap["AFPP_INNVILG_AUTO"] = Exstreambrev(
             "PE_AF_04_115",
             false,
             "Vedtak - innvilgelse av AFP i privat sektor",
@@ -6389,7 +6389,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["AFPP_AVSL_AUTO"] = GammeltBrev(
+        brevMap["AFPP_AVSL_AUTO"] = Exstreambrev(
             "PE_AF_04_116",
             false,
             "Vedtak - avslag på AFP i privat sektor",
@@ -6407,7 +6407,7 @@ class BrevdataMap {
             "brevgr007"
         )
 
-        brevMap["AP_INNVILG_UTL"] = GammeltBrev(
+        brevMap["AP_INNVILG_UTL"] = Exstreambrev(
             "PE_AP_04_203",
             true,
             "Vedtak - innvilgelse av alderspensjon - utenlandssak",
@@ -6511,7 +6511,7 @@ class BrevdataMap {
             )
         )
 
-        brevMap["DUMMYBREV"] = GammeltBrev(
+        brevMap["DUMMYBREV"] = Exstreambrev(
             "PE_AP_05_001",
             true,
             "Dummybrev AP 2016/2025",
@@ -6528,7 +6528,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["GJP_FULL_3MND_67"] = GammeltBrev(
+        brevMap["GJP_FULL_3MND_67"] = Exstreambrev(
             "PE_BA_01_101",
             false,
             "Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon",
@@ -6545,7 +6545,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["GJP_AVKORT_3MND_67"] = GammeltBrev(
+        brevMap["GJP_AVKORT_3MND_67"] = Exstreambrev(
             "PE_BA_01_102",
             false,
             "Informasjon til deg som fyller 67 år og mottar gjenlevendepensjon",
@@ -6562,7 +6562,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["AFP_3MND_67"] = GammeltBrev(
+        brevMap["AFP_3MND_67"] = Exstreambrev(
             "PE_BA_01_106",
             false,
             "Informasjon til deg som fyller 67 år og mottar AFP",
@@ -6579,7 +6579,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["INFOBREV_VP_ET"] = GammeltBrev(
+        brevMap["INFOBREV_VP_ET"] = Exstreambrev(
             "PE_BA_01_108",
             false,
             "Informasjon om vilkår for rett til ektefelletillegg",
@@ -6596,7 +6596,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["FORSORG_BT_OPPH"] = GammeltBrev(
+        brevMap["FORSORG_BT_OPPH"] = Exstreambrev(
             "PE_BA_04_501",
             false,
             "Vedtak - forsørgingstillegg fra folketrygden",
@@ -6613,7 +6613,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["FORSORG_ET_BT_OPPH"] = GammeltBrev(
+        brevMap["FORSORG_ET_BT_OPPH"] = Exstreambrev(
             "PE_BA_04_502",
             false,
             "Vedtak - forsørgingstillegg fra folketrygden",
@@ -6630,7 +6630,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["FORSORG_ET_OPPH"] = GammeltBrev(
+        brevMap["FORSORG_ET_OPPH"] = Exstreambrev(
             "PE_BA_04_503",
             false,
             "Vedtak - forsørgingstillegg fra folketrygden",
@@ -6647,7 +6647,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["KONV_YT_ALDERSOVERG"] = GammeltBrev(
+        brevMap["KONV_YT_ALDERSOVERG"] = Exstreambrev(
             "PE_BA_04_504",
             false,
             "Vedtak - alderspensjon fra folketrygden",
@@ -6664,7 +6664,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["UP_FULLTT_BELOPENDR"] = GammeltBrev(
+        brevMap["UP_FULLTT_BELOPENDR"] = Exstreambrev(
             "PE_BA_04_505",
             false,
             "Vedtak - endring av uføretrygd fordi du fyller 20 år",
@@ -6681,7 +6681,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["AP_FULLTT_BELOPENDR"] = GammeltBrev(
+        brevMap["AP_FULLTT_BELOPENDR"] = Exstreambrev(
             "PE_BA_04_506",
             false,
             "Vedtak - endring av alderspensjon fordi du fyller 70 år",
@@ -6698,7 +6698,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["P_UTBETALING_OKER"] = GammeltBrev(
+        brevMap["P_UTBETALING_OKER"] = Exstreambrev(
             "PE_BA_04_507",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -6715,7 +6715,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["P_UTBETALING_MINKER"] = GammeltBrev(
+        brevMap["P_UTBETALING_MINKER"] = Exstreambrev(
             "PE_BA_04_508",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -6732,7 +6732,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["GJR_UTBET_OKER"] = GammeltBrev(
+        brevMap["GJR_UTBET_OKER"] = Exstreambrev(
             "PE_BA_04_509",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -6749,7 +6749,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["GJR_UTBET_MINKER"] = GammeltBrev(
+        brevMap["GJR_UTBET_MINKER"] = Exstreambrev(
             "PE_BA_04_510",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -6766,7 +6766,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["BP_UTBET_OKER"] = GammeltBrev(
+        brevMap["BP_UTBET_OKER"] = Exstreambrev(
             "PE_BA_04_511",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -6783,7 +6783,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["BP_UTBET_MINKER"] = GammeltBrev(
+        brevMap["BP_UTBET_MINKER"] = Exstreambrev(
             "PE_BA_04_512",
             false,
             "Vedtak - endring i pensjonsopptjening",
@@ -6800,7 +6800,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["ALDER_IVERK"] = GammeltBrev(
+        brevMap["ALDER_IVERK"] = Exstreambrev(
             "PE_BA_04_515",
             false,
             "Vedtak - alderspensjon fra folketrygden",
@@ -6817,7 +6817,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["ALDER_SAMM_IVERK"] = GammeltBrev(
+        brevMap["ALDER_SAMM_IVERK"] = Exstreambrev(
             "PE_BA_04_516",
             false,
             "Vedtak - alderspensjon fra folketrygden",
@@ -6834,7 +6834,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["REV_TIL_AP_PGA_DOD"] = GammeltBrev(
+        brevMap["REV_TIL_AP_PGA_DOD"] = Exstreambrev(
             "PE_BA_04_520",
             false,
             "Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6851,7 +6851,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["TILST_AP"] = GammeltBrev(
+        brevMap["TILST_AP"] = Exstreambrev(
             "PE_BA_04_520",
             false,
             "Vedtak - endring av alderspensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6868,7 +6868,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["REV_TIL_UP_PGA_DOD"] = GammeltBrev(
+        brevMap["REV_TIL_UP_PGA_DOD"] = Exstreambrev(
             "PE_BA_04_521",
             false,
             "Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
@@ -6885,7 +6885,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["TILST_UP"] = GammeltBrev(
+        brevMap["TILST_UP"] = Exstreambrev(
             "PE_BA_04_521",
             false,
             "Vedtak - endring av uførepensjon fordi din eller din ektefelle/partner/samboers pensjon er endret",
@@ -6902,7 +6902,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["REV_TIL_AFP_PGA_DOD"] = GammeltBrev(
+        brevMap["REV_TIL_AFP_PGA_DOD"] = Exstreambrev(
             "PE_BA_04_522",
             false,
             "Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6919,7 +6919,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["TILST_AFP"] = GammeltBrev(
+        brevMap["TILST_AFP"] = Exstreambrev(
             "PE_BA_04_522",
             false,
             "Vedtak - endring av AFP fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6936,7 +6936,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["TILST_GJP"] = GammeltBrev(
+        brevMap["TILST_GJP"] = Exstreambrev(
             "PE_BA_04_523",
             false,
             "Vedtak - endring av gjenlevendepensjon fordi ektefelle/partner/samboers pensjon eller uføretrygd er endret",
@@ -6953,7 +6953,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["AO_AP_UP_67_2011"] = GammeltBrev(
+        brevMap["AO_AP_UP_67_2011"] = Exstreambrev(
             "PE_BA_04_528",
             false,
             "Vedtak - omregning av uføretrygd til alderspensjon",
@@ -6970,7 +6970,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["AO_AP_AFP_67_2011"] = GammeltBrev(
+        brevMap["AO_AP_AFP_67_2011"] = Exstreambrev(
             "PE_BA_04_530",
             false,
             "Vedtak - omregning av AFP til alderspensjon",
@@ -6987,7 +6987,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["VEDTAK_SKJERMT"] = GammeltBrev(
+        brevMap["VEDTAK_SKJERMT"] = Exstreambrev(
             "PE_BA_04_534",
             false,
             "Vedtak - endring av alderspensjon - innvilgelse av skjermingstillegg",
@@ -7004,7 +7004,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["OMR_BP_OPPH"] = GammeltBrev(
+        brevMap["OMR_BP_OPPH"] = Exstreambrev(
             "PE_BP_04_022",
             false,
             "Vedtak - omregning  av barnepensjon",
@@ -7021,7 +7021,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["OPPHOR_ET_NN"] = GammeltBrev(
+        brevMap["OPPHOR_ET_NN"] = Exstreambrev(
             "PE_FT_01_004",
             false,
             "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -7038,7 +7038,7 @@ class BrevdataMap {
             null,
             "brevgr007"
         )
-        brevMap["OPPHOR_ET_GG"] = GammeltBrev(
+        brevMap["OPPHOR_ET_GG"] = Exstreambrev(
             "PE_FT_01_005",
             false,
             "Vedtak - opphør av ektefelletilegg fordi ektefelle/partner/samboer har rett til egen hel pensjon",
@@ -7055,7 +7055,7 @@ class BrevdataMap {
             null,
             "brevgr002"
         )
-        brevMap["OMSORGP_INNVILG"] = GammeltBrev(
+        brevMap["OMSORGP_INNVILG"] = Exstreambrev(
             "PE_IY_04_001",
             false,
             "Vedtak - innvilgelse av omsorgsopptjening ved pleie og omsorg for eldre syke og funksjonshemmede",
@@ -7072,7 +7072,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["VEDTAK_TILB_KREV"] = GammeltBrev(
+        brevMap["VEDTAK_TILB_KREV"] = Exstreambrev(
             "PE_IY_04_062",
             false,
             "Vedtak om tilbakekreving",
@@ -7089,7 +7089,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["OO_MOTTAKER"] = GammeltBrev(
+        brevMap["OO_MOTTAKER"] = Exstreambrev(
             "PE_IY_04_120",
             false,
             "Vedtak - overføring av omsorgsopptjening brev til mottaker",
@@ -7106,7 +7106,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["OO_AVGIVER"] = GammeltBrev(
+        brevMap["OO_AVGIVER"] = Exstreambrev(
             "PE_IY_04_121",
             false,
             "Vedtak - overføring av omsorgsopptjening brev til avgiver",
@@ -7123,7 +7123,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["VARSEL_TILB_KREV"] = GammeltBrev(
+        brevMap["VARSEL_TILB_KREV"] = Exstreambrev(
             "PE_IY_05_028",
             false,
             "Forhåndsvarsel for tilbakekreving",
@@ -7140,7 +7140,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["OMSORGP_SOKNAD_MOR"] = GammeltBrev(
+        brevMap["OMSORGP_SOKNAD_MOR"] = Exstreambrev(
             "PE_IY_05_104",
             false,
             "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 mor (NAV 03-16.01)",
@@ -7157,7 +7157,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["OMSORGP_SOKNAD_FAR"] = GammeltBrev(
+        brevMap["OMSORGP_SOKNAD_FAR"] = Exstreambrev(
             "PE_IY_05_105",
             false,
             "Brev med skjema Søknad om godskriving av pensjonsopptjening for omsorg av barn under 7 år før 1992 far (NAV 03-16.02)",
@@ -7174,7 +7174,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["OMSORGP_ORIENT_GODS"] = GammeltBrev(
+        brevMap["OMSORGP_ORIENT_GODS"] = Exstreambrev(
             "PE_IY_05_200",
             false,
             "Vedtak - innvilgelse av omsorgsopptjening ved forhøyet hjelpestønad sats 3 eller 4",
@@ -7191,7 +7191,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["OMSORGP_BARN"] = GammeltBrev(
+        brevMap["OMSORGP_BARN"] = Exstreambrev(
             "PE_IY_05_201",
             false,
             "Vedtak - innvilgelse av omsorgsopptjening ved omsorg for små barn",
@@ -7208,7 +7208,7 @@ class BrevdataMap {
             null,
             "brevgr004"
         )
-        brevMap["LEVEATT"] = GammeltBrev(
+        brevMap["LEVEATT"] = Exstreambrev(
             "PE_IY_05_410",
             false,
             "Brev med skjema Leveattest (NAV 21-03.05)",
@@ -7225,7 +7225,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["LEVEATT_PURRING"] = GammeltBrev(
+        brevMap["LEVEATT_PURRING"] = Exstreambrev(
             "PE_IY_05_411",
             false,
             "Påminnelse om leveattest - med skjema Leveattest (NAV 21-03.05)",
@@ -7242,7 +7242,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["LEVEATT_ALT"] = GammeltBrev(
+        brevMap["LEVEATT_ALT"] = Exstreambrev(
             "PE_IY_06_510",
             false,
             "Brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -7259,7 +7259,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["LEVEATT_PURRING_ALT"] = GammeltBrev(
+        brevMap["LEVEATT_PURRING_ALT"] = Exstreambrev(
             "PE_IY_06_511",
             false,
             "Påminnelse – brev med skjema Alternativ leveattest (NAV 21-03.06)",
@@ -7276,7 +7276,7 @@ class BrevdataMap {
             null,
             "brevgr001"
         )
-        brevMap["KONV_UP_TIL_UT"] = GammeltBrev(
+        brevMap["KONV_UP_TIL_UT"] = Exstreambrev(
             "PE_UT_01_001",
             false,
             "Informasjonsbrev om overgang fra uførepensjon til uføretrygd",
@@ -7293,7 +7293,7 @@ class BrevdataMap {
             3,
             "brevgr001"
         )
-        brevMap["NY_BER_UT_BT"] = GammeltBrev(
+        brevMap["NY_BER_UT_BT"] = Exstreambrev(
             "PE_UT_04_108",
             false,
             "Vedtak - Ny beregning av barnetillegget (auto)",
@@ -7310,7 +7310,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["ENDRING_UT"] = GammeltBrev(
+        brevMap["ENDRING_UT"] = Exstreambrev(
             "PE_UT_04_300",
             true,
             "Vedtak - omregning av uførepensjon til uføretrygd",
@@ -7327,7 +7327,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["ENDR_UT_PGA_INNT"] = GammeltBrev(
+        brevMap["ENDR_UT_PGA_INNT"] = Exstreambrev(
             "PE_UT_05_100",
             false,
             "Vedtak - endring av uføretrygd på grunn av inntekt (automatisk)",
@@ -7344,7 +7344,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["NY_BER_UT_ENDR_OPPTJ"] = GammeltBrev(
+        brevMap["NY_BER_UT_ENDR_OPPTJ"] = Exstreambrev(
             "PE_UT_06_100",
             false,
             "Vedtak - ny beregning av uføretrygd på grunn av endring i opptjening (automatisk)",
@@ -7361,7 +7361,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["OMREGN_UP_TIL_UT"] = GammeltBrev(
+        brevMap["OMREGN_UP_TIL_UT"] = Exstreambrev(
             "PE_UT_14_300",
             false,
             "Vedtak - omregning av uførepensjon til uføretrygd (automatisk)",
@@ -7378,7 +7378,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["UT_EO_VARSEL_FU"] = GammeltBrev(
+        brevMap["UT_EO_VARSEL_FU"] = Exstreambrev(
             "PE_UT_23_001",
             false,
             "Varsel - etteroppgjør av uføretrygd ved feilutbetaling (automatisk)",
@@ -7395,7 +7395,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["UT_EO_VEDTAK_EB"] = GammeltBrev(
+        brevMap["UT_EO_VEDTAK_EB"] = Exstreambrev(
             "PE_UT_23_101",
             false,
             "Vedtak om etteroppgjør - etterbetaling",
@@ -7412,7 +7412,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["ENDRING_UT_BT"] = GammeltBrev(
+        brevMap["ENDRING_UT_BT"] = Exstreambrev(
             "PE_UT_06_300",
             false,
             "Endring av barnetillegg i uføretrygden",
@@ -7429,7 +7429,7 @@ class BrevdataMap {
             3,
             "brevgr010"
         )
-        brevMap["OPPHOR_ENDRING_UT_BT"] = GammeltBrev(
+        brevMap["OPPHOR_ENDRING_UT_BT"] = Exstreambrev(
             "PE_UT_07_200",
             false,
             "Vedtak - opphør av barnetillegg (automatisk)",
@@ -7446,7 +7446,7 @@ class BrevdataMap {
             null,
             "brevgr010"
         )
-        brevMap["P1100"] = GammeltBrev(
+        brevMap["P1100"] = Exstreambrev(
             "P1100",
             false,
             "P1100 - Svar på anmodning om perioder med foreldreansvar",
@@ -7463,7 +7463,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["P5000"] = GammeltBrev(
+        brevMap["P5000"] = Exstreambrev(
             "P5000",
             false,
             "P5000 - Opplysninger om forsikrings- og bosettingsperioder",
@@ -7480,7 +7480,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["P14000"] = GammeltBrev(
+        brevMap["P14000"] = Exstreambrev(
             "P14000",
             false,
             "P14000 - Endring i personlige forhold",
@@ -7497,7 +7497,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["P15000"] = GammeltBrev(
+        brevMap["P15000"] = Exstreambrev(
             "P15000",
             false,
             "P15000 - Overføring av pensjonssaker til EESSI",
@@ -7514,7 +7514,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H020"] = GammeltBrev(
+        brevMap["H020"] = Exstreambrev(
             "H020",
             false,
             "H020 - Krav om refusjon - administrativ kontroll/medisinsk refusjon",
@@ -7531,7 +7531,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H021"] = GammeltBrev(
+        brevMap["H021"] = Exstreambrev(
             "H021",
             false,
             "H021 - Svar på krav om refusjon - administrativ kontroll/medisinsk refusjon",
@@ -7548,7 +7548,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H065"] = GammeltBrev(
+        brevMap["H065"] = Exstreambrev(
             "H065",
             false,
             "H065 - Overføring av krav/dokument/informasjon",
@@ -7565,7 +7565,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H066"] = GammeltBrev(
+        brevMap["H066"] = Exstreambrev(
             "H066",
             false,
             "H066 - Svar på overføring av krav/dokument/informasjon",
@@ -7582,7 +7582,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H120"] = GammeltBrev(
+        brevMap["H120"] = Exstreambrev(
             "H120",
             false,
             "H120 - Anmodning om medisinsk informasjon",
@@ -7599,7 +7599,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["H121"] = GammeltBrev(
+        brevMap["H121"] = Exstreambrev(
             "H121",
             false,
             "H121 - Svar på anmodning om medisinsk informasjon",
@@ -7616,7 +7616,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X001"] = GammeltBrev(
+        brevMap["X001"] = Exstreambrev(
             "X001",
             false,
             "X001 - Anmodning om avslutning",
@@ -7633,7 +7633,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X002"] = GammeltBrev(
+        brevMap["X002"] = Exstreambrev(
             "X002",
             false,
             "X002 - Anmodning om gjenåpning av avsluttet sak",
@@ -7650,7 +7650,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X003"] = GammeltBrev(
+        brevMap["X003"] = Exstreambrev(
             "X003",
             false,
             "X003 - Svar på anmodning om gjenåpning av avsluttet sak",
@@ -7667,7 +7667,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X004"] = GammeltBrev(
+        brevMap["X004"] = Exstreambrev(
             "X004",
             false,
             "X004 - Gjenåpne saken",
@@ -7684,7 +7684,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X005"] = GammeltBrev(
+        brevMap["X005"] = Exstreambrev(
             "X005",
             false,
             "X005 - Legg til ny institusjon",
@@ -7701,7 +7701,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X006"] = GammeltBrev(
+        brevMap["X006"] = Exstreambrev(
             "X006",
             false,
             "X006 - Fjern institusjon",
@@ -7718,7 +7718,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X007"] = GammeltBrev(
+        brevMap["X007"] = Exstreambrev(
             "X007",
             false,
             "X007 - Videresende sak",
@@ -7735,7 +7735,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X008"] = GammeltBrev(
+        brevMap["X008"] = Exstreambrev(
             "X008",
             false,
             "X008 - Ugyldiggjøre SED",
@@ -7752,7 +7752,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X009"] = GammeltBrev(
+        brevMap["X009"] = Exstreambrev(
             "X009",
             false,
             "X009 - Påminnelse",
@@ -7769,7 +7769,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X010"] = GammeltBrev(
+        brevMap["X010"] = Exstreambrev(
             "X010",
             false,
             "X010 - Svar på påminnelse",
@@ -7786,7 +7786,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X011"] = GammeltBrev(
+        brevMap["X011"] = Exstreambrev(
             "X011",
             false,
             "X011 - Avvis SED",
@@ -7803,7 +7803,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X012"] = GammeltBrev(
+        brevMap["X012"] = Exstreambrev(
             "X012",
             false,
             "X012 - Presiser innhold",
@@ -7820,7 +7820,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X013"] = GammeltBrev(
+        brevMap["X013"] = Exstreambrev(
             "X013",
             false,
             "X013 - Svar på anmodning om presisering av innhold",
@@ -7837,7 +7837,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X050"] = GammeltBrev(
+        brevMap["X050"] = Exstreambrev(
             "X050",
             false,
             "X050 - Avvikshåndtering",
@@ -7854,7 +7854,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["X100"] = GammeltBrev(
+        brevMap["X100"] = Exstreambrev(
             "X100",
             false,
             "X100 - Endring av institusjon",
@@ -7871,7 +7871,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["P2000"] = GammeltBrev(
+        brevMap["P2000"] = Exstreambrev(
             "P2000",
             false,
             "P2000 - Krav om alderspensjon",
@@ -7888,7 +7888,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["P2100"] = GammeltBrev(
+        brevMap["P2100"] = Exstreambrev(
             "P2100",
             false,
             "P2100 - Krav om ytelser til gjenlevende",
@@ -7905,7 +7905,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["P2200"] = GammeltBrev(
+        brevMap["P2200"] = Exstreambrev(
             "P2200",
             false,
             "P2200 - Krav om uføretrygd",
@@ -7922,7 +7922,7 @@ class BrevdataMap {
             null,
             "INGEN_BREVGRUPPE"
         )
-        brevMap["P3000"] = GammeltBrev(
+        brevMap["P3000"] = Exstreambrev(
             "P3000",
             false,
             "P3000 - Landspesifikk informasjon",
