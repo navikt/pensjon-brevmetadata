@@ -5,7 +5,7 @@ import no.nav.pensjonbrevdata.model.Brevdata
 interface BrevdataMapper {
     fun map(brevkode: String): Brevdata
     val allBrevAsList: List<Brevdata>
-    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String?): List<String>
+    fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String): List<String>
 }
 
 class BrevdataMapperImpl(private val brevMap: BrevdataMap = BrevdataMap()) : BrevdataMapper {
@@ -15,7 +15,7 @@ class BrevdataMapperImpl(private val brevMap: BrevdataMap = BrevdataMap()) : Bre
     override val allBrevAsList: List<Brevdata>
         get() = brevMap.get().filter { it.key != "AFP_INNV_MAN" }.map { it.value }
 
-    override fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String?): List<String> = brevMap.get()
+    override fun getBrevKeysForBrevkodeIBrevsystem(brevkodeIBrevsystem: String): List<String> = brevMap.get()
         .filter { it.key != "AFP_INNV_MAN" }
         .filter { it.value.brevkodeIBrevsystem == brevkodeIBrevsystem }
         .map { it.key }
