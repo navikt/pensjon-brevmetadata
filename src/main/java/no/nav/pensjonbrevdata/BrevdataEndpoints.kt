@@ -45,7 +45,11 @@ fun Routing.routes(provider: BrevdataProvider) {
             } else {
                 brevdata
             }
+            if (dto.any { it == null }) {
+                call.respond(HttpStatusCode.NotFound)
+            } else {
             call.respond(dto.map { it?.toDTO() })
+                }
         }
         get("/brevkoderForSaktype/{saktype}") {
             val saktype = call.parameters.getOrFail("saktype")
