@@ -11,11 +11,11 @@ class BrevdataProvider(
     private val brevdataMapper: BrevdataMapper,
     private val sakBrevMapper: SakBrevMapper
 ) {
-    fun getSprakForBrevkode(brevkode: String): List<SprakCode>? = brevdataMapper.map(brevkode).sprak
+    fun getSprakForBrevkode(brevkode: String): List<SprakCode>? = brevdataMapper.map(brevkode)?.sprak
 
-    fun getBrevForBrevkode(brevkode: String): Brevdata = brevdataMapper.map(brevkode)
+    fun getBrevForBrevkode(brevkode: String): Brevdata? = brevdataMapper.map(brevkode)
 
-    fun getBrevdataForSaktype(saktype: String): List<Brevdata> = sakBrevMapper.map(saktype).map { brevdataMapper.map(it) }
+    fun getBrevdataForSaktype(saktype: String): List<Brevdata?> = sakBrevMapper.map(saktype).map { brevdataMapper.map(it) }
 
     fun getBrevkoderForSaktype(saktype: String): List<String> = sakBrevMapper.map(saktype)
 

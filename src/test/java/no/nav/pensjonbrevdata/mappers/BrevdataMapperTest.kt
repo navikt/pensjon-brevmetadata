@@ -1,20 +1,17 @@
 package no.nav.pensjonbrevdata.mappers
 
-import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapper
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import kotlin.test.assertNull
 
 class BrevdataMapperTest {
     @Test
-    fun shouldThrowIllegalArgumentExceptionWhenUnknownBrevkode() {
+    fun shouldReturnNullWhenUnknownBrevkode() {
         val invalidBrevkode = "UGYLDIG_BREVKODE"
         val mapper = BrevdataMapperImpl()
 
-        assertThrows<IllegalArgumentException> {
-            mapper.map(invalidBrevkode)
-        }
+        assertNull(mapper.map(invalidBrevkode))
     }
 
     @Test
@@ -26,7 +23,7 @@ class BrevdataMapperTest {
         val brev = mapper.map(testBrev)
 
         Assertions.assertNotNull(brev)
-        Assertions.assertEquals("AP_AVSL_AUTO", brev.brevkodeIBrevsystem)
+        Assertions.assertEquals("AP_AVSL_AUTO", brev?.brevkodeIBrevsystem)
     }
 
     @Test
@@ -38,7 +35,7 @@ class BrevdataMapperTest {
         val brev = mapper.map(testBrev)
 
         Assertions.assertNotNull(brev)
-        Assertions.assertEquals("AP_AVSL_AUTO", brev.brevkodeIBrevsystem)
+        Assertions.assertEquals("AP_AVSL_AUTO", brev?.brevkodeIBrevsystem)
     }
 
     @Test
@@ -47,8 +44,6 @@ class BrevdataMapperTest {
 
         val mapper = BrevdataMapperImpl()
 
-        assertThrows<IllegalArgumentException> {
-            mapper.map(testBrev)
-        }
+        assertNull(mapper.map(testBrev))
     }
 }

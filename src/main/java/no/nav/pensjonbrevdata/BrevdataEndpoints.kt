@@ -6,7 +6,6 @@ import io.ktor.server.routing.Routing
 import io.ktor.server.routing.get
 import io.ktor.server.routing.route
 import io.ktor.server.util.getOrFail
-import no.nav.pensjonbrevdata.dto.BrevdataDTO
 import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.dokumentmalGenerator
 import no.nav.pensjonbrevdata.helpers.DokumentmalGenerators.fellesmalGenerator
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
@@ -30,19 +29,23 @@ fun Routing.routes(provider: BrevdataProvider) {
         }
         get("/brevForBrevkode/{brevkode}") {
             val brevkode = call.parameters.getOrFail("brevkode")
-            val message: BrevdataDTO = provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO()
-            call.respond(message)
+            val message = provider.getBrevForBrevkode(brevkode)?.medXSD(dokumentmalGenerator, fellesmalGenerator)?.toDTO()
+            if (message != null) {
+                call.respond(message)
+            } else {
+                call.respond(HttpStatusCode.NotFound)
+            }
         }
         get("/brevdataForSaktype/{saktype}") {
             val saktype = call.parameters.getOrFail("saktype")
             val includeXsd = call.request.queryParameters["includeXsd"]?.toBoolean() ?: false
             val brevdata = provider.getBrevdataForSaktype(saktype)
             val dto = if (includeXsd) {
-                brevdata.map { it.medXSD(dokumentmalGenerator, fellesmalGenerator) }
+                brevdata.map { it?.medXSD(dokumentmalGenerator, fellesmalGenerator) }
             } else {
                 brevdata
             }
-            call.respond(dto.map { it.toDTO() })
+            call.respond(dto.map { it?.toDTO() })
         }
         get("/brevkoderForSaktype/{saktype}") {
             val saktype = call.parameters.getOrFail("saktype")
@@ -64,9 +67,9 @@ fun Routing.routes(provider: BrevdataProvider) {
             val brev = brevKoder.filter { it.isNotBlank() }
                 .map { code -> provider.getBrevForBrevkode(code.trim()) }
             if (!includeXsd) {
-                call.respond(brev.map { it.toDTO() })
+                call.respond(brev.map { it?.toDTO() })
             } else {
-                call.respond(brev.map { it.medXSD(dokumentmalGenerator, fellesmalGenerator) }.map { it.toDTO() })
+                call.respond(brev.map { it?.medXSD(dokumentmalGenerator, fellesmalGenerator) }.map { it?.toDTO() })
             }
         }
         get("/batchbBrevMapping") {
@@ -78,7 +81,7 @@ fun Routing.routes(provider: BrevdataProvider) {
                     .map { code: String ->
                         mapOf(
                             "batch" to code,
-                            "brev" to provider.getBrevForBrevkode(code.trim()).brevkodeIBrevsystem
+                            "brev" to provider.getBrevForBrevkode(code.trim())?.brevkodeIBrevsystem
                         )
                     })
         }

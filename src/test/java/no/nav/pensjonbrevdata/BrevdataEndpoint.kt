@@ -7,11 +7,11 @@ import no.nav.pensjonbrevdata.model.Brevdata
 class BrevdataEndpoint(private val provider: BrevdataProvider) {
     fun getBrevdataForSaktype(
         saktype: String, includeXsd: Boolean,
-    ): List<BrevdataDTO> {
+    ): List<BrevdataDTO?> {
         val brevdata = provider.getBrevdataForSaktype(saktype)
         return (if (includeXsd) {
             brevdata.map {
-                it.medXSD(
+                it?.medXSD(
                     DokumentmalGenerators.dokumentmalGenerator,
                     DokumentmalGenerators.fellesmalGenerator
                 )
@@ -19,7 +19,7 @@ class BrevdataEndpoint(private val provider: BrevdataProvider) {
         } else {
             brevdata
         })
-            .map { it.toDTO() }
+            .map { it?.toDTO() }
     }
 
 

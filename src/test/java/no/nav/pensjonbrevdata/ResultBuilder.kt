@@ -39,7 +39,7 @@ fun toJSON(obj: Any?) = obj?.let { objectMapper.writeValueAsString(it) } ?: ""
 
 fun main() {
     for (brevkode in brevkoder()) {
-        writeString(brevkode, "brevForBrevkode", provider.getBrevForBrevkode(brevkode).medXSD(dokumentmalGenerator, fellesmalGenerator).toDTO())
+        writeString(brevkode, "brevForBrevkode", provider.getBrevForBrevkode(brevkode)?.medXSD(dokumentmalGenerator, fellesmalGenerator)?.toDTO())
         writeString(brevkode, "sprakForBrevkode", provider.getSprakForBrevkode(brevkode))
     }
     for (sakstype in sakstyper()) {
