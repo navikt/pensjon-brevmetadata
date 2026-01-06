@@ -1,14 +1,10 @@
 package no.nav.pensjonbrevdata
 
 import com.fasterxml.jackson.databind.DeserializationFeature
-import com.typesafe.config.ConfigFactory
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
-import io.ktor.server.engine.EngineConnectorBuilder
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.callid.CallId
 import io.ktor.server.plugins.callid.callIdMdc
 import io.ktor.server.plugins.callid.generate
@@ -26,19 +22,12 @@ import org.slf4j.LoggerFactory
 
 private val logger = LoggerFactory.getLogger("PensjonBrevdataApplication")
 
-fun main() {
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+
+@Suppress("unused") // Brukt frå application.conf
+fun Application.module() {
     try {
-        val config = ConfigFactory.load().getConfig("brevmetadata")
-        embeddedServer(
-            Netty,
-            configure = {
-                connectors.add(EngineConnectorBuilder().apply {
-                    host = "0.0.0.0"
-                    port = config.getInt("port")
-                })
-            },
-            ) { configureApp() }
-            .start(wait = true)
+        configureApp()
     }  catch (e: Exception) {
         logger.error(e.message, e)
         throw e
