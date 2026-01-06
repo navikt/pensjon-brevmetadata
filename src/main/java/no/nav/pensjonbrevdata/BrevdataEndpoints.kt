@@ -37,12 +37,12 @@ fun Routing.routes(provider: BrevdataProvider) {
             val saktype = call.parameters.getOrFail("saktype")
             val includeXsd = call.request.queryParameters["includeXsd"]?.toBoolean() ?: false
             val brevdata = provider.getBrevdataForSaktype(saktype)
-            val dto = (if (includeXsd) {
+            val dto = if (includeXsd) {
                 brevdata.map { it.medXSD(dokumentmalGenerator, fellesmalGenerator) }
             } else {
                 brevdata
-            }).map { it.toDTO() }
-            call.respond(dto)
+            }
+            call.respond(dto.map { it.toDTO() })
         }
         get("/brevkoderForSaktype/{saktype}") {
             val saktype = call.parameters.getOrFail("saktype")
@@ -51,12 +51,12 @@ fun Routing.routes(provider: BrevdataProvider) {
         get("/allBrev") {
             val includeXsd = call.request.queryParameters["includeXsd"]?.toBoolean() ?: false
             val brevdataList: List<Brevdata> = provider.allBrev
-            val dto = (if (includeXsd) {
+            val dto = if (includeXsd) {
                 brevdataList.map { it.medXSD(dokumentmalGenerator, fellesmalGenerator) }
             } else {
                 brevdataList
-            }).map { it.toDTO() }
-            call.respond(dto)
+            }
+            call.respond(dto.map { it.toDTO() })
         }
         get("/brevForCodes") {
             val brevKoder = (call.request.queryParameters["brevkoder"]?.split(",") ?: listOf())
