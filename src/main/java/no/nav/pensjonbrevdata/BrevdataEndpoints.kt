@@ -70,6 +70,10 @@ fun Routing.routes(provider: BrevdataProvider) {
             val includeXsd = call.request.queryParameters["includeXsd"]?.toBoolean() ?: false
             val brev = brevKoder.filter { it.isNotBlank() }
                 .map { code -> provider.getBrevForBrevkode(code.trim()) }
+            if (brev.any { it == null }) {
+                call.respond(HttpStatusCode.NotFound)
+                return@get
+            }
             if (!includeXsd) {
                 call.respond(brev.map { it?.toDTO() })
             } else {
