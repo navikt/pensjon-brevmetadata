@@ -59,19 +59,15 @@ fun Routing.routes(provider: BrevdataProvider) {
             call.respond(dto)
         }
         get("/brevForCodes") {
-            val brevKoder: List<String> =
-                (call.request.queryParameters["brevkoder"]?.split(",") ?: listOf())
+            val brevKoder = (call.request.queryParameters["brevkoder"]?.split(",") ?: listOf())
             val includeXsd = call.request.queryParameters["includeXsd"]?.toBoolean() ?: false
-            val dto = brevKoder.filter { it.isNotBlank() }
+            val brev = brevKoder.filter { it.isNotBlank() }
                 .map { code -> provider.getBrevForBrevkode(code.trim()) }
-                .map { brev ->
-                    if (includeXsd) brev.medXSD(
-                        dokumentmalGenerator,
-                        fellesmalGenerator
-                    ) else brev
-                }
-                .map { it.toDTO() }
-            call.respond(dto)
+            if (!includeXsd) {
+                call.respond(brev.map { it.toDTO() })
+            } else {
+                call.respond(brev.map { it.medXSD(dokumentmalGenerator, fellesmalGenerator) }.map { it.toDTO() })
+            }
         }
         get("/batchbBrevMapping") {
             val brevKoder: List<String> =
