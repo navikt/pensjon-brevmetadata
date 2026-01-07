@@ -11,7 +11,7 @@ Utgangspunktet er generert basert på PEN databasen hvor det er kjørt et script
 IMPORTANT: Når applikasjonen er produksjonsatt og i full bruk, vil det ikke være nødvendig å kjøre databsescriptet igjen.
 Scriptet er kun brukt for å gi et utgangspunkt for applikasjonen slik at innholdet er det samme som i PEN databasen.
 
-For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et gammeltbrev(hpextream brev).
+For å legge til et nytt brev må det legges til en ny mapping med følgende elementer basert på det er et doksysbrev eller et exstreambrev.
 
 .Brev
 [#brev-tabell,cols="1,1,3",]
@@ -93,7 +93,7 @@ Doksysbrev må inneholde følgende elementer i tillegg til elementene beskrevet 
 
 |===
 
-GammeltBrev (HPExstream brev) må inneholde følgende elementer i tillegg til elementene beskrevet over i <<index.adoc#brev-tabell,brev-tabellen>>:
+Exstreambrev må inneholde følgende elementer i tillegg til elementene beskrevet over i <<index.adoc#brev-tabell,brev-tabellen>>:
 
 |===
 |Element | Type | Beskrivelse
@@ -108,13 +108,13 @@ GammeltBrev (HPExstream brev) må inneholde følgende elementer i tillegg til el
 
 ==== Teknisk
 
-Brev er kategorisert som enten Doksysbrev eller "Gammeltbrev" (HPExstream osv.).
+Brev er kategorisert som enten Doksysbrev eller Exstrembrev.
 Alle brev er lagt inn i et Hashmap med brevkode som keyId og Brev som et objekt.
 
 [source,java]
 ----
 brevMap.put("OPPHOR_ENDRING_UT_BT",() ->
-                new GammeltBrev("PE_UT_07_200",false, ... )
+                new Exstreambrev("PE_UT_07_200",false, ... )
 
 brevMap.put("AP_AVSL_ENDR", () ->
                 new Doksysbrev("AP_AVSL_ENDR",true, ... )
