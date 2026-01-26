@@ -67,11 +67,13 @@ class KomponentTest {
     private fun testGetAllBrev(includeXsd: Boolean) {
         testBrevmetadataApp { client ->
             val resp = client.get("api/brevdata/allBrev?includeXsd=$includeXsd")
-            Assertions.assertEquals(HttpStatusCode.OK, resp.status, "Feil i respons til allBrev med includeXsd " + includeXsd)
+            Assertions.assertEquals(HttpStatusCode.OK, resp.status,
+                "Feil i respons til allBrev med includeXsd $includeXsd"
+            )
             val expected = loadResult("allBrev", "" + includeXsd, null)
             val actual = resp.body<String>()
             if (!(expected.isEmpty() && actual.isEmpty())) JSONAssert.assertEquals(
-                "Feil i respons til allBrev med includeXsd " + includeXsd + "\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
+                "Feil i respons til allBrev med includeXsd $includeXsd\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt.",
                 expected, actual, true
             )
         }
@@ -84,7 +86,7 @@ class KomponentTest {
                 val expected = loadResult(endpoint, kode, includeXsd)
                 val actual = resp.body<String>()
                 if (expected.isEmpty() || actual.isEmpty()) {
-                    Assertions.assertEquals(expected, actual, "Feil i " + kodeDesc + " " + kode)
+                    Assertions.assertEquals(expected, actual, "Feil i $kodeDesc $kode")
                 } else {
                     JSONAssert.assertEquals(
                         "Feil i respons til $kodeDesc $kode\nOm man har endret i xsd-er kan man kjøre KomponentTest.ResultBuilder på nytt." +
@@ -97,7 +99,7 @@ class KomponentTest {
 
     private fun loadResult(endpoint: String, brevkode: String, includeXsd: Boolean?): String {
         val url =
-            javaClass.getResource("/" + endpoint + "/" + (if (includeXsd != null) includeXsd.toString() + "/" else "") + brevkode)
+            javaClass.getResource("/" + endpoint + "/" + (if (includeXsd != null) "$includeXsd/" else "") + brevkode)
         if (url == null) throw RuntimeException("$endpoint-resultat ikke funnet for kode: $brevkode")
         return Files.readString(Path.of(url.toURI()))
     }
