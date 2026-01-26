@@ -10,7 +10,6 @@ class SakBrevMapper {
         val redigerbareDoksyskoder = brevdataMapper.allBrevAsList
             .asSequence()
             .filter { it.brevsystem == BrevsystemCode.DOKSYS }
-            .filter { it.brevkodeIBrevsystem != "INFO_P1" }
             .filter { it.redigerbart }
             .map { it.brevkodeIBrevsystem }
             .toSet()

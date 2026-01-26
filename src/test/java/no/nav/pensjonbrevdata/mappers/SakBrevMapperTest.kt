@@ -23,7 +23,6 @@ class SakBrevMapperTest {
             // ingen redigerbare doksysbrev blir returnert for sak, bortsett fra "INFO_P1"
             val redigerbareDoksysbrevForSak = sakBrev
                 .filter { o: String? -> alleRedigerBareDoksysBrev.contains(o) }
-                .filter { brev: String? -> brev != "INFO_P1" }
 
             assertEquals(redigerbareDoksysbrevForSak, listOf())
         }

@@ -1120,25 +1120,4 @@
   "synligForVeileder" : null,
   "utland" : "ALLTID",
   "visIPselv" : true
-}, {
-  "brevkategori" : "INFORMASJON",
-  "brevkodeIBrevsystem" : "INFO_P1",
-  "brevkontekst" : "VEDTAK",
-  "brevkravtype" : "ALLE",
-  "brevregeltype" : null,
-  "brevsystem" : "DOKSYS",
-  "dekode" : "P1 med forsidebrev",
-  "dokType" : "U",
-  "dokumentkategori" : "VB",
-  "dokumentmal" : null,
-  "dokumentmalFelleselement" : null,
-  "dokumentmalFelleselementId" : "00001",
-  "dokumentmalId" : "000090",
-  "prioritet" : null,
-  "redigerbart" : true,
-  "sprak" : [ "NB", "EN" ],
-  "synligForVeileder" : null,
-  "utland" : "UTLAND",
-  "vedleggListe" : null,
-  "visIPselv" : true
 } ]
