@@ -3,7 +3,7 @@ package no.nav.pensjonbrevdata.mappers
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import kotlin.test.assertNull
+import org.junit.jupiter.api.assertNull
 
 class BrevdataMapperTest {
     @Test
