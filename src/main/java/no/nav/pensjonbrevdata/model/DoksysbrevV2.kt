@@ -2,7 +2,6 @@ package no.nav.pensjonbrevdata.model
 
 import no.nav.pensjonbrevdata.model.codes.*
 import java.util.function.Supplier
-import java.util.stream.Collectors
 
 class DoksysbrevV2(
     brevkodeInBrevsystem: String,

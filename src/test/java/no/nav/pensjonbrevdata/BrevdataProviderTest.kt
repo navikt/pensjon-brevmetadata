@@ -9,11 +9,9 @@ import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import no.nav.pensjonbrevdata.model.Brevdata
 import no.nav.pensjonbrevdata.model.Exstreambrev
 import no.nav.pensjonbrevdata.model.codes.*
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNotEquals
 
 class BrevdataProviderTest {
     private val brevdataMapperMock: BrevdataMapper = mockk()
@@ -70,7 +68,7 @@ class BrevdataProviderTest {
     @Test
     fun onlyEblanketterIsReturned() {
         val eblanketter = BrevdataProvider(BrevdataMapperImpl(), sakBrevMapperMock).eblanketter
-        assertNotEquals(eblanketter, listOf())
+        assertNotEquals(eblanketter, listOf<Any>())
         assertTrue(eblanketter.all { it.dokumentkategori == DokumentkategoriCode.E_BLANKETT })
     }
 }

@@ -3,8 +3,8 @@ package no.nav.pensjonbrevdata.mappers
 import no.nav.pensjonbrevdata.mappers.brevdata.BrevdataMapperImpl
 import no.nav.pensjonbrevdata.mappers.sakBrev.SakBrevMapper
 import no.nav.pensjonbrevdata.model.codes.BrevsystemCode
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 class SakBrevMapperTest {
     private var mapper = SakBrevMapper()
@@ -24,7 +24,7 @@ class SakBrevMapperTest {
             val redigerbareDoksysbrevForSak = sakBrev
                 .filter { o: String? -> alleRedigerBareDoksysBrev.contains(o) }
 
-            assertEquals(redigerbareDoksysbrevForSak, listOf())
+            assertEquals(redigerbareDoksysbrevForSak, listOf<Any>())
         }
     }
 }

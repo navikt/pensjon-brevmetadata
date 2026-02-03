@@ -1,11 +1,11 @@
 [versions]
 jupiterVersion = "6.0.2"
 kotlinVersion = "2.3.0"
-ktorVersion = "3.3.3"
-logbackVersion = "1.5.24"
+ktorVersion = "3.4.0"
+logbackVersion = "1.5.27"
 logstashVersion = "9.0"
-micrometerVersion = "1.16.1"
-mockkVersion = "1.14.7"
+micrometerVersion = "1.16.2"
+mockkVersion = "1.14.9"
 org-skyscreamer-jsonassert = "1.5.3"
 
 [libraries]
