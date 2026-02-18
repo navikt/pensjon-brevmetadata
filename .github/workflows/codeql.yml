@@ -55,7 +55,7 @@ jobs:
 
       - name: Assemble
         if: ${{ github.event_name != 'pull_request' }}
-        run: ./gradlew assemble -Dorg.gradle.jvmargs="-Dkotlin.daemon.jvmargs=-Xmx16g" -Dorg.gradle.configuration-cache=false
+        run: ./gradlew assemble -Dorg.gradle.jvmargs="-Dkotlin.daemon.jvmargs=-Xmx16g" -Dorg.gradle.configuration-cache=false --no-build-cache
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
