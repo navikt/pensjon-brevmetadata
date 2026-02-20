@@ -24,7 +24,7 @@ jobs:
   deploy:
     name: Deploy app
     runs-on: ubuntu-latest
-    if: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && inputs.cluster == 'dev-gcp') }}
+    if: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && (inputs.cluster == 'dev-gcp' || github.ref == 'refs/heads/main')) }}
     permissions:
       contents: read
       id-token: write
