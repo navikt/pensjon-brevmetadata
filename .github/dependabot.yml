@@ -38,3 +38,17 @@ updates:
       docker-frontend:
         patterns:
           - "*"
+  # ==============
+  # DOCS
+  # ==============
+  - package-ecosystem: "npm"
+    directories:
+      - "docs"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+    open-pull-requests-limit: 10
+    groups:
+      docs:
+        patterns:
+          - "*"
