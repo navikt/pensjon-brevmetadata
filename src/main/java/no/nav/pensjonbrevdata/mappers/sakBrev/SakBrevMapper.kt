@@ -15,7 +15,7 @@ class SakBrevMapper {
             .toSet()
         return sakToBrevMap[saktype]
             ?.filter { it != "AFP_INNV_MAN" }
-            ?.minus(redigerbareDoksyskoder)
+            //?.minus(redigerbareDoksyskoder) // IKKE PRODSETT.
             ?.toList()
             ?: listOf()
     }
