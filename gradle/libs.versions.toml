@@ -2,8 +2,7 @@
 jupiterVersion = "6.1.1"
 kotlinVersion = "2.3.0"
 ktorVersion = "3.5.1"
-logbackVersion = "1.5.37"
-logstashVersion = "9.0"
+log4j2Version = "2.26.1"
 micrometerVersion = "1.17.0"
 mockkVersion = "1.14.11"
 org-skyscreamer-jsonassert = "1.5.3"
@@ -13,8 +12,10 @@ org-skyscreamer-jsonassert = { module = "org.skyscreamer:jsonassert", version.re
 
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jupiterVersion" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "jupiterVersion" }
-logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackVersion" }
-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version.ref = "logstashVersion" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j2Version" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j2Version" }
+log4j-slf4j2-impl = { module = "org.apache.logging.log4j:log4j-slf4j2-impl", version.ref = "log4j2Version" }
+log4j-layout-template-json = { module = "org.apache.logging.log4j:log4j-layout-template-json", version.ref = "log4j2Version" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
 
 
@@ -34,5 +35,5 @@ ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref 
 micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version.ref = "micrometerVersion" }
 
 [bundles]
-logging = ["logback-classic", "logback-encoder"]
+logging = ["log4j-api", "log4j-core", "log4j-slf4j2-impl", "log4j-layout-template-json"]
 metrics = ["micrometer-prometheus", "ktor-server-metrics", "ktor-server-metrics-micrometer"]
