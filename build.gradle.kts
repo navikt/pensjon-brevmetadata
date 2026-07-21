@@ -14,6 +14,7 @@ repositories {
 }
 
 dependencies {
+    implementation(platform(libs.jackson.bom))
     implementation(libs.bundles.metrics)
     implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.server.callId)
