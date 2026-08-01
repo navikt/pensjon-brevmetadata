@@ -13,6 +13,6 @@
     "onchange": "^7.1.0"
   },
   "dependencies": {
-    "asciidoctor-kroki": "^0.18.1"
+    "asciidoctor-kroki": "^1.0.1"
   }
 }
