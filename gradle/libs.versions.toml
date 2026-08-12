@@ -2,7 +2,7 @@
 jacksonVersion = "2.22.1"
 jupiterVersion = "6.1.2"
 kotlinVersion = "2.3.0"
-ktorVersion = "3.5.1"
+ktorVersion = "3.5.2"
 log4j2Version = "2.26.1"
 micrometerVersion = "1.17.0"
 mockkVersion = "1.14.11"
