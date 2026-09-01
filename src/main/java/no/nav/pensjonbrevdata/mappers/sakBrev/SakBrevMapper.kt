@@ -197,18 +197,9 @@ class SakBrevMapper {
                         "PE_IY_04_121"
                     ),
             "AFP" to listOf(
-                "PE_AF_03_101",
                 "PE_AF_04_001",
                 "PE_AF_04_010",
                 "PE_AF_04_020",
-                "PE_AF_04_103",
-                "PE_AF_04_104",
-                "PE_AF_04_105",
-                "PE_AF_04_106",
-                "PE_AF_04_107",
-                "PE_AF_04_108",
-                "PE_AF_04_109",
-                "PE_AF_04_110",
                 "PE_BA_01_108",
                 "PE_FT_01_002",
                 "PE_FT_01_003",
