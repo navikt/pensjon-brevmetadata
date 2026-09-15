@@ -15,6 +15,7 @@ repositories {
 
 dependencies {
     implementation(platform(libs.jackson.bom))
+    implementation(platform(libs.netty.bom)) // Vi opplever ofte at netty har sårbarheter, så vi ønsker å enkelt kunne patche denne separat
     implementation(libs.bundles.metrics)
     implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.server.callId)
