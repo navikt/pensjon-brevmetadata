@@ -6,6 +6,7 @@ ktorVersion = "3.5.2"
 log4j2Version = "2.26.1"
 micrometerVersion = "1.17.1"
 mockkVersion = "1.14.11"
+nettyVersion = "4.2.17.Final"
 org-skyscreamer-jsonassert = "1.5.3"
 
 [libraries]
@@ -34,6 +35,7 @@ ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-microme
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktorVersion" }
 ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages", version.ref = "ktorVersion" }
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktorVersion" }
+netty-bom = { module = "io.netty:netty-bom", version.ref = "nettyVersion" }
 
 micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version.ref = "micrometerVersion" }
 
