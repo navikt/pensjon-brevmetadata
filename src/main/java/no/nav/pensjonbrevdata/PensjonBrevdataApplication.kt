@@ -57,7 +57,7 @@ fun Application.configureApp() {
     }
 
     install(ContentNegotiation) {
-        jackson {
+        jackson(streamBody = false) {
             disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
         }
     }
