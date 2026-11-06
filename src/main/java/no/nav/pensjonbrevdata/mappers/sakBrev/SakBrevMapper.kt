@@ -769,7 +769,6 @@ class SakBrevMapper {
                 "HENT_INFO_MAN"
             ),
             "AFP_PRIVAT" to listOf(
-                "PE_AF_04_111",
                 "PE_AF_04_112",
                 "PE_AF_04_114",
                 "PE_AP_04_216",
